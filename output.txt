@@ -1,0 +1,56 @@
+DEBUG:root:Preparing to start
+DEBUG:root:[Combo: Guard Destroyer]
+
+DEBUG:root:Hotkey: 4
+DEBUG:root:Hotkey: t
+DEBUG:root: (wait: 1.50)
+
+DEBUG:root:[Combo: Titanic Smash]
+
+DEBUG:root:Hotkey: r
+DEBUG:root: (wait: 1.00)
+
+DEBUG:root:[Combo: Counterweight]
+
+DEBUG:root: (wait: 2.00)
+
+DEBUG:root:[Combo: Overreach VI]
+
+DEBUG:root:Hotkey: f
+DEBUG:root:Hotkey: r
+DEBUG:root: (wait: 1.50)
+
+DEBUG:root:[Combo: Counterweight]
+
+DEBUG:root: (wait: 2.00)
+
+DEBUG:root:[Combo: Overreach VI]
+
+DEBUG:root:Hotkey: f
+DEBUG:root:Hotkey: shift+r
+DEBUG:root: (wait: 1.50)
+
+DEBUG:root:[Combo: Overreach V]
+
+DEBUG:root:Hotkey: r
+DEBUG:root: (wait: 1.50)
+
+DEBUG:root:[Combo: Counterweight]
+
+DEBUG:root: (wait: 2.00)
+
+DEBUG:root:[Combo: Titanic Smash]
+
+DEBUG:root:Hotkey: t
+DEBUG:root:Hotkey: shift+r
+DEBUG:root: (wait: 1.00)
+
+DEBUG:root:[Combo: Overreach V]
+
+DEBUG:root: (wait: 1.50)
+
+DEBUG:root:[Combo: Counterweight]
+
+DEBUG:root:Hotkey: r
+DEBUG:root: (wait: 2.00)
+

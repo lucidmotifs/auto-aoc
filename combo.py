@@ -91,18 +91,22 @@ class Combo(Ability):
 
 
     def go(self):
-        self.press_hotkey()
-        time.sleep(.65)
-        t3 = timer()
+        # check cooldown
+        # create 'word'
+        # time word execution
+        # subtract tick difference from final wait time
+        # do all computation before sending the word!
+        # this should ensure each key_press is sent in good time.
+        word = len(self.hotkey) == 2:
+            modifier = self.hotkey[0]
+            word = self.hotkey[1]
+        else:
+            word = self.hotkey
+
         if len(self.pre_finishers) > 0:
             finisher = self.steps.pop()
-            keyboard.write(''.join(self.steps), .65)
-            interval = .65
             for a in self.pre_finishers:
-                a.use()
-                interval = interval - .1
-            time.sleep(interval)
-            keyboard.send(finisher)
+                finisher += a.get_input()
             self.steps.append(finisher)
         else:
             keyboard.write(''.join(self.steps), .65)

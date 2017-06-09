@@ -41,6 +41,8 @@ class Ability(object):
 
         self.hotkey = hotkey # register this properly with keyboard module
 
+        keyboard.add_hotkey('+'.join(self.hotkey), logging.debug, args=["Hotkey for {} for was pressed".format(self.name)])
+
 
     def init_cooldown(self, fudge=0.0):
         if not self.cooling_down:
@@ -59,6 +61,10 @@ class Ability(object):
 
         print("Using: {0}".format(self.name))
 
+        if self.lastused is not None:
+            cooldown_expired = (timer() - self.lastused) - self.cooldown_time
+            print("Skill: {0} was used {1:0.2f} seconds after CD expired".format(self.name, cooldown_expired))
+
         if len(self.hotkey) is 2:
             # uses modifier
             pyautogui.keyDown(self.hotkey[0])
@@ -68,11 +74,9 @@ class Ability(object):
             keyboard.send('+'.join(self.hotkey))
             #pyautogui.press(self.hotkey[0])
 
-        print(self.hotkey)
-
         # If we're casting, pause.
         if self.cast_time > 0:
-            time.sleep(self.cast_time)
+            time.sleep(self.cast_time + .65)
 
         # start cooldown
         self.init_cooldown(self.cooldown_fudge)

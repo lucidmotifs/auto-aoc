@@ -34,7 +34,7 @@ NOTEPAD = u'C:\\WINDOWS\\system32\\notepad.exe'
 
 PROCNAME = "AgeOfConanDX10.exe"
 
-logging.basicConfig(filename='output.txt', filemode='w', level=logging.DEBUG)
+logging.basicConfig(format='%(message)s', filename='output.txt', filemode='w', level=logging.DEBUG)
 
 def AOC_set_focus():
     for proc in psutil.process_iter():
@@ -84,33 +84,6 @@ class conq_breech(Combo):
 
         return self.steps
 
-
-def ComboBloodBathVI():
-    steps = "tqe2"
-    finisher = "2"
-    excecute_time = 2.0
-
-def ComboWhirlwind():
-    steps = "req3"
-    finisher = "3"
-    excecute_time = 1.5
-
-def ComboBloodyHackVi():
-    steps = "f2q3"
-    finisher = "3"
-    excecute_time = 1.5
-
-def BloodyHackV():
-    steps= "shift+r 23"
-    finisher = "3"
-    excecute_time = 1
-
-def ComboOverhwelm():
-    steps = "v14"
-    finisher = "4"
-    excecute_time = 1.5
-
-
 if RUN_LEVEL == "TESTING":
     AOC_set_focus()
 elif RUN_LEVEL == "PROD":
@@ -153,14 +126,16 @@ shield_slam = Combo("Shield Slam", ('g',), ["e", "2"], 9, 1)
 shield_slam.should_weave = True
 
 guard_destroyer = Combo("Guard Destroyer", ('4',), ["3"], 32, 1.5)
+
 titanic_smash = Combo("Titanic Smash", ('t',), ["1", "2"], 20, 1)
 titanic_smash.should_weave = True
 
-titanic_smash_B = Combo("Titanic Smash", ('t',), ["1", "2"], 20, 1)
+titanic_smash_B = Combo("Titanic Smash (Buffs)", ('t',), ["1", "2"], 20, 1)
 titanic_smash_B.attach_prefinishers(buffs)
 titanic_smash_B.should_weave = True
+titanic_smash_B.add_delay(2, .2)
 
-counterweight = Combo("Counterweight", ('r',), ["2", "1"], 1, 2, reckoning)
+counterweight = Combo("Counterweight", ('r',), ["2", "1"], 1, 2)
 counterweight.should_weave = True
 
 #counterweight_B = Combo("Counterweight (Buffed)", ('r',), ["2", "1"], "1", 1, 2, reckoning)
@@ -171,6 +146,8 @@ overreachV = Combo("Overreach V", ('shift','r',), ["e", "1"], 1, 1.5)
 overreachV.should_weave = True
 
 overreachVI = Combo("Overreach VI", ('f',), ["2", "e", "1"], 1, 1.5)
+overreachVI.should_weave = True
+
 overreachVI_bv = Combo("Overreach VI", ('f',), ["2", "e", "1"], 1, 1.5, bloodyvengance)
 
 combos = (breech,whirlwind,bloodbath,bloodyhack,whirlwind,bloodbath,bloodyhack,)
@@ -197,32 +174,37 @@ combos = combos + (whirlwind,bloodbath,bloodyhackV,)
     overreachV,
     )"""
 
-rotation1 = Rotation()
-rotation1.add_combo( breech, (1,) )
+#rotation1 = Rotation()
+#rotation1.add_combo( breech, (1,) )
 # Abilities at positions are stored as lists and are direct
 # references to the original objects.
 #rotation.add_ability( annihilate, (2,) )
-rotation1.add_ability( rend_flesh, (3,))
+#rotation1.add_ability( rend_flesh, (3,))
 # Combos are added as copies of their originals, but the same copy is
 # used for all positions requested.
-rotation1.add_combo( whirlwind, (2,5,9,) )
-rotation1.add_combo( bloodyhackV, (6,8,) )
-rotation1.add_combo( bloodbath, (3,7,) )
-rotation1.add_combo( bloodyhack, (4,) )
+#rotation1.add_combo( whirlwind, (2,5,9,) )
+#rotation1.add_combo( bloodyhackV, (6,8,) )
+#rotation1.add_combo( bloodbath, (3,7,) )
+#rotation1.add_combo( bloodyhack, (4,) )
 
 #rotation1.start()
 
 rotation2 = Rotation()
-rotation2.add_combo( guard_destroyer, (1,) )
-rotation2.add_combo( titanic_smash_B, (2,9) )
-rotation2.add_combo( counterweight, (3,5,8,11) )
-rotation2.add_combo( overreachVI, (4,6) )
-rotation2.add_combo( overreachV, (7,10) )
+rotation2.add_combo( guard_destroyer, (1,11) )
+rotation2.add_combo( titanic_smash_B, (2,14) )
+rotation2.add_combo( titanic_smash, (9,) )
+rotation2.add_combo( counterweight, (3,6,10,13) )
+rotation2.add_ability( reckoning, (4,7,11,14) )
+#overreachVI.add_delay(2, .15)
+rotation2.add_combo( overreachVI, (5,12,) )
+rotation2.add_ability( bloodyvengance, (14,) )
+rotation2.add_combo( overreachV, (4,8) )
 
-#rotation2.add_combo( titanic_smash, (2,) )
-#rotation2.add_combo( counterweight_B, (2,) )
-#rotation2.add_combo( overreachVI, (4,) )
-#rotation2.add_combo( overreachV, (10,13,) )
+keyboard.add_hotkey("1", rotation2.log_keypress, args=["UL attack key was pressed"])
+keyboard.add_hotkey("2", rotation2.log_keypress, args=["MID attack key was pressed"])
+keyboard.add_hotkey("3", rotation2.log_keypress, args=["UR for was pressed during"])
+#keyboard.add_hotkey("q", rotation2.log_keypress, args=["LL for was pressed during"])
+keyboard.add_hotkey("e", rotation2.log_keypress, args=["LR for was pressed during"])
 
 
 def dump_key_event(event):
@@ -240,7 +222,7 @@ def start_rotation(key_pressed):
 
     logging.debug('Preparing to start')
 
-    r = threading.Timer(.5, rotation2.start)
+    r = threading.Timer(3, rotation2.start)
     r.start()
 try:
     hk2 = keyboard.add_hotkey(80, start_rotation, args=[79])

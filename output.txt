@@ -1,56 +1,114 @@
-DEBUG:root:Preparing to start
-DEBUG:root:[Combo: Guard Destroyer]
-
-DEBUG:root:Hotkey: 4
-DEBUG:root:Hotkey: t
-DEBUG:root: (wait: 1.50)
-
-DEBUG:root:[Combo: Titanic Smash]
-
-DEBUG:root:Hotkey: r
-DEBUG:root: (wait: 1.00)
-
-DEBUG:root:[Combo: Counterweight]
-
-DEBUG:root: (wait: 2.00)
-
-DEBUG:root:[Combo: Overreach VI]
-
-DEBUG:root:Hotkey: f
-DEBUG:root:Hotkey: r
-DEBUG:root: (wait: 1.50)
-
-DEBUG:root:[Combo: Counterweight]
-
-DEBUG:root: (wait: 2.00)
-
-DEBUG:root:[Combo: Overreach VI]
-
-DEBUG:root:Hotkey: f
-DEBUG:root:Hotkey: shift+r
-DEBUG:root: (wait: 1.50)
-
-DEBUG:root:[Combo: Overreach V]
-
-DEBUG:root:Hotkey: r
-DEBUG:root: (wait: 1.50)
-
-DEBUG:root:[Combo: Counterweight]
-
-DEBUG:root: (wait: 2.00)
-
-DEBUG:root:[Combo: Titanic Smash]
-
-DEBUG:root:Hotkey: t
-DEBUG:root:Hotkey: shift+r
-DEBUG:root: (wait: 1.00)
-
-DEBUG:root:[Combo: Overreach V]
-
-DEBUG:root: (wait: 1.50)
-
-DEBUG:root:[Combo: Counterweight]
-
-DEBUG:root:Hotkey: r
-DEBUG:root: (wait: 2.00)
-
+Hotkey 4 registered for Guard Destroyer
+Hotkey t registered for Titanic Smash (Buffs)
+Hotkey t registered for Titanic Smash
+Hotkey r registered for Counterweight
+Hotkey f registered for Overreach VI
+Hotkey shift+r registered for Overreach V
+Preparing to start
+During Guard Destroyer at step 0, Hotkey for Guard Destroyer was pressed (3.004852921717574)
+Delta: 3.004850491341109
+During Guard Destroyer at step 0, UR for was pressed during (3.6558308782030338)
+Delta: 0.6509784965691185
+actual 0.65 vs expected 0.65
+During Titanic Smash (Buffs) at step 0, Hotkey for Titanic Smash was pressed (6.458401406377848)
+Delta: 2.802570258132985
+During Titanic Smash (Buffs) at step 0, UL attack key was pressed (7.109557860512593)
+Delta: 0.6511564541347452
+Hotkey for Powerhouse for was pressed
+Hotkey for Battle Cry for was pressed
+Hotkey for Intimidating Shout for was pressed
+During Titanic Smash (Buffs) at step 0, MID attack key was pressed (8.11635994415535)
+Delta: 1.0068018136009274
+actual 1.01 vs expected 1.3
+During Counterweight at step 0, Hotkey for Counterweight was pressed (10.061693486321031)
+Delta: 1.9453343522911695
+During Counterweight at step 0, MID attack key was pressed (10.712765957446809)
+Delta: 0.6510722010839469
+During Counterweight at step 0, UL attack key was pressed (11.36371717979115)
+Delta: 0.6509509523025123
+actual 1.3 vs expected 1.3
+Hotkey for Reckoning for was pressed
+During Overreach V at step 0, Hotkey for Counterweight was pressed (14.767724600540623)
+Delta: 3.404006880665815
+During Overreach V at step 0, Hotkey for Overreach V was pressed (14.767915790155895)
+Delta: 0.00019307990807782005
+During Overreach V at step 0, LR for was pressed during (15.620653879285902)
+Delta: 0.8527367389208589
+During Overreach V at step 0, UL attack key was pressed (16.271406890927405)
+Delta: 0.6507527415996748
+actual 1.3 vs expected 1.3
+During Overreach VI at step 0, Hotkey for Overreach VI was pressed (19.072469235484576)
+Delta: 2.8010631546826588
+During Overreach VI at step 0, MID attack key was pressed (19.72378744467518)
+Delta: 0.6513176691069447
+During Overreach VI at step 0, LR for was pressed during (20.375075139139053)
+Delta: 0.6512876944638748
+During Overreach VI at step 0, UL attack key was pressed (21.02605417579183)
+Delta: 0.6509793066946052
+actual 1.95 vs expected 1.95
+During Counterweight at step 0, Hotkey for Counterweight was pressed (23.8261638127746)
+Delta: 2.800109636982768
+During Counterweight at step 0, MID attack key was pressed (24.477476891170443)
+Delta: 0.6513128083540138
+During Counterweight at step 0, UL attack key was pressed (25.12829498289285)
+Delta: 0.6508180917224102
+actual 1.3 vs expected 1.3
+Hotkey for Reckoning for was pressed
+During Overreach V at step 0, Hotkey for Counterweight was pressed (28.53249143292296)
+Delta: 3.404196720071937
+During Overreach V at step 0, Hotkey for Overreach V was pressed (28.532681542370913)
+Delta: 0.00019118961527198053
+During Overreach V at step 0, LR for was pressed during (29.384835531023757)
+Delta: 0.8521523684018675
+During Overreach V at step 0, UL attack key was pressed (30.03596201051543)
+Delta: 0.6511264794916727
+actual 1.3 vs expected 1.3
+During Titanic Smash at step 0, Hotkey for Titanic Smash was pressed (32.83702597532358)
+Delta: 2.8010642348499744
+During Titanic Smash at step 0, UL attack key was pressed (33.48801068285477)
+Delta: 0.6509849775730316
+During Titanic Smash at step 0, MID attack key was pressed (34.13902725532185)
+Delta: 0.6510163024252407
+actual 1.3 vs expected 1.3
+During Counterweight at step 0, Hotkey for Counterweight was pressed (36.440506004380076)
+Delta: 2.3014795591837185
+During Counterweight at step 0, MID attack key was pressed (37.091827184030805)
+Delta: 0.6513203695252443
+During Counterweight at step 0, UL attack key was pressed (37.74302954527656)
+Delta: 0.6512023612457511
+actual 1.3 vs expected 1.3
+Hotkey for Reckoning for was pressed
+During Guard Destroyer at step 0, Hotkey for Guard Destroyer was pressed (41.04496169456649)
+Delta: 3.3019326893735865
+During Guard Destroyer at step 0, UR for was pressed during (41.69626613162379)
+Delta: 0.6513038969736442
+actual 0.65 vs expected 0.65
+During Overreach VI at step 0, Hotkey for Overreach VI was pressed (44.499027039288386)
+Delta: 2.8027617177900837
+During Overreach VI at step 0, MID attack key was pressed (45.149957468411856)
+Delta: 0.6509293489561543
+During Overreach VI at step 0, LR for was pressed during (45.80113606597662)
+Delta: 0.651178867606589
+During Overreach VI at step 0, UL attack key was pressed (46.452297920947956)
+Delta: 0.651161584929504
+actual 1.95 vs expected 1.95
+During Counterweight at step 0, Hotkey for Counterweight was pressed (49.252121853675135)
+Delta: 2.7998242027690097
+During Counterweight at step 0, MID attack key was pressed (49.90328802931574)
+Delta: 0.6511664456824349
+During Counterweight at step 0, UL attack key was pressed (50.55405886371799)
+Delta: 0.6507708344022518
+actual 1.3 vs expected 1.3
+Hotkey for Reckoning for was pressed
+Hotkey for Annihilate for was pressed
+Hotkey for Bloody Vengance for was pressed
+During Titanic Smash (Buffs) at step 0, Hotkey for Titanic Smash was pressed (56.008144191535266)
+Delta: 5.454085327817282
+During Titanic Smash (Buffs) at step 0, UL attack key was pressed (56.65965791101041)
+Delta: 0.6515137194751475
+Hotkey for Powerhouse for was pressed
+Hotkey for Battle Cry for was pressed
+Hotkey for Intimidating Shout for was pressed
+During Titanic Smash (Buffs) at step 0, MID attack key was pressed (57.66571521928747)
+Delta: 1.0060570382352196
+actual 1.01 vs expected 1.3

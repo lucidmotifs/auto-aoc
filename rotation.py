@@ -24,6 +24,8 @@ class Rotation(object):
         self.repeat_until = None
         self.unpause_key = None
         self.paused = False
+        self.current_action = None
+        self.last_keypress = 0.0
 
         # timers
         self.start_time = 0.0
@@ -55,7 +57,33 @@ class Rotation(object):
             self.unpause_key = key_pressed
 
 
+    def register_hotkey(self, action):
+        # remove any other action that currently has this hotkey
+        try:
+            keyboard.remove_hotkey('+'.join(action.hotkey))
+        except ValueError:
+            pass
+
+        # register key hooks for loggin based on hotkey + steps
+        keyboard.add_hotkey('+'.join(action.hotkey), self.log_keypress, \
+            args=["Hotkey for {0} was pressed".format(action.name)])
+
+        logging.debug("Hotkey {} registered for {}".format('+'.join(action.hotkey), action.name))
+
+
+    def log_keypress(self, message):
+        curr_time = timer()
+        delta = curr_time - self.last_keypress
+        logging.debug("During {} at step {}, {} ({})".format(self.current_action.name, \
+            self.current_action.step_at,
+            message,
+            timer()))
+        logging.debug("Delta: {}".format(delta))
+        self.last_keypress = curr_time
+
+
     def add_combo(self, combo, positions):
+        self.register_hotkey(combo)
         # copy the combo so it can modified
         combo_copy = copy(combo)
 
@@ -77,6 +105,7 @@ class Rotation(object):
 
 
     def add_ability(self, ability, positions):
+
         idx = len(self.ability_list)
         self.ability_list.append(ability)
 
@@ -130,23 +159,46 @@ class Rotation(object):
             # create a timer
             self.start_time = timer()
 
-        print('have begun')
         self._inprogress = True
 
         for a_idx, items in self.actions.items():
 
             if self.paused:
                 print('paused!')
-                self.do_resume()
 
-            # create a checkpoint to measure action time
-            checkpoint = float(timer())
+                self.do_resume()
 
             # execute abilities first
             [i.use() for i in items if type(i) is Ability]
 
+            # create a checkpoint to measure action time
+            checkpoint = float(timer())
+
             # then combos / sequences / spells
-            c = self.get_combo_at(a_idx)
+            self.current_action = c = self.get_combo_at(a_idx)
+
+            while False:
+                '''keyboard.write('43', .65)
+                time.sleep(1.5 + .65)
+                keyboard.write('t1', .65)
+                time.sleep(.65)
+                keyboard.send('f1')
+                keyboard.send('f2')
+                keyboard.send('f3')
+                keyboard.write('2')
+                time.sleep(1 + .65)
+                keyboard.write('f2e1', .65)
+                time.sleep(1.5 + .65)
+                keyboard.write('r21', .65)
+                time.sleep(2.0 + .65)
+                keyboard.send('q')'''
+                self.get_combo_at(5).go()
+                pyautogui.keyDown('shift')
+                keyboard.send('r')
+                pyautogui.keyDown('shift')
+                time.sleep(.55)
+                keyboard.write('e1', .65)
+                time.sleep(1.5 + .65)
 
             if c is not None:
                 if c.cooling_down:
@@ -158,10 +210,12 @@ class Rotation(object):
                     # wait for cooldown
                     time.sleep( c.cooldown_remaining() )
 
-                if a_idx < len(self.actions) - 1:
+                '''if a_idx < len(self.actions) - 1:
                     c.execute( self.get_combo_at(a_idx+1) )
                 else:
-                    c.execute()
+                    c.execute()'''
+
+                c.go()
 
             execution_time = float(timer() - checkpoint)
             total_time = float(timer() - self.start_time)
@@ -169,13 +223,12 @@ class Rotation(object):
             print( "Time Taken this combo: {:0.2f}".format(float(execution_time)) )
             print( "Total Time so far: {:0.2f}".format(float(total_time)) )
 
-            self.print_current_cooldowns()
-
         if ( repeat is True or self.repeat is True ) and self.repeat_count > 0:
             self.repeat_count -= 1
             self.start(repeat, self.start_time)
         else:
             self.end_time = total_time
+            self.print_current_cooldowns()
 
 
     def end(self):

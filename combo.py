@@ -4,6 +4,7 @@ import pyautogui
 import keyboard
 import time
 import logging
+from copy import copy
 
 from ability import Ability
 from ability import COOLDOWN_ACTIONS
@@ -35,6 +36,13 @@ class Combo(Ability):
         # step counting
         self.steps_iter = iter(self.steps)
         self.step_at = 0
+
+        # results
+        self.modifier = None
+        self.word = None
+        self.finisher = []
+        self.duration = 0.0
+        self.events = None
 
 
     def attach_prefinisher(self, ability):
@@ -83,11 +91,32 @@ class Combo(Ability):
     def do_prefinishers(self):
         # check for pre-finisher buffs and use, this will delay the step slightly
         if len(self.pre_finishers) > 0:
-            [x.use(x.on_cooldown) for x in self.pre_finishers if not x.cooling_down]
+            [x.use(x.on_cooldown) for x in self.pre_finishers \
+                if not x.cooling_down]
 
 
     def recover(self, duration, reason):
         time.sleep(round(duration, 2))
+
+
+    def record(self):
+        print("recording...please don't touch the keyboard")
+        t = threading.Timer(1, self.go)
+        t.start()
+
+        self.events = keyboard.record(until='/')
+
+
+    def build_word(self):
+        self.word = ""
+        if len(self.pre_finishers) > 0:
+            for a in self.pre_finishers:
+                self.finisher.append(''.join(a.hotkey))
+            steps_c = copy(self.steps)
+            self.finisher.append(steps_c.pop())
+            self.word += ''.join(steps_c)
+        else:
+            self.word += ''.join(self.steps)
 
 
     def go(self):
@@ -97,26 +126,37 @@ class Combo(Ability):
         # subtract tick difference from final wait time
         # do all computation before sending the word!
         # this should ensure each key_press is sent in good time.
-        word = len(self.hotkey) == 2:
-            modifier = self.hotkey[0]
-            word = self.hotkey[1]
-        else:
-            word = self.hotkey
+        pyautogui.PAUSE = .65
 
-        if len(self.pre_finishers) > 0:
-            finisher = self.steps.pop()
-            for a in self.pre_finishers:
-                finisher += a.get_input()
-            self.steps.append(finisher)
-        else:
-            keyboard.write(''.join(self.steps), .65)
-        t4 = timer()
-        actual = t4 - t3
-        expected = len(self.steps) * .65
-        wait_less = actual - expected
-        logging.debug("actual {} vs expected {}".format(round(actual, 2), round(expected, 2)))
-        time.sleep(self.execute_time + (.65 - wait_less))
+        if self.word is None:
+            self.build_word()
+
+        #print(', '.join(self.hotkey))
+        #print(self.word)
+        #print(self.finisher)
+
+        start = timer()
+        pyautogui.hotkey(*self.hotkey)
+        opener = timer()
+        logging.debug("opener: {}".format( opener-start ))
+        pyautogui.typewrite(self.word, .65)
+        steps = timer()
+        logging.debug("steps: {}".format(steps - opener))
+        if len(self.finisher) > 0:
+            pyautogui.press(self.finisher)
+        end = timer()
+        logging.debug("finisher: {}".format( end - steps ))
+
+        time.sleep(self.execute_time)
+        pyautogui.typewrite("/")
         self.init_cooldown()
+        actual = end - start
+        expected = (len(self.steps) + 1) * .65
+        wait_less = actual - expected
+        logging.debug("actual {} vs expected {}".format(round(actual, 2), \
+            round(expected, 2)))
+
+        self.duration = actual
 
 
     def press_hotkey(self):
@@ -160,7 +200,7 @@ class Combo(Ability):
                 self.do_step( next(self.steps_iter) )
             except StopIteration as e:
                 time.sleep(ATTACK_INT_1HE)
-                break
+                breakR
 
         logging.debug( "Combo {} finished, waiting casttime (wait: {:0.2f})\n".format(self.name, self.execute_time) )
 

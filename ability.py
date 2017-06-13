@@ -83,6 +83,9 @@ class Ability(object):
 
         # create timer if we want to use this ability everytime it's up.
 
+    # returns the recorded keyboard input events
+    def get_events(self):
+        pass
 
     def cooldown_remaining(self):
         if not self.cooling_down:

@@ -103,6 +103,8 @@ class Rotation(object):
             else:
                 self.actions[pos] = (self.combo_list[idx],)
 
+        self.current_action = combo_copy
+
 
     def add_ability(self, ability, positions):
 
@@ -144,8 +146,10 @@ class Rotation(object):
         print("Post Abilities:")
         [c.post_ability.status() for c in self.combo_list if c.post_ability is not None]
         print("Pre Finisher Abilities:")
-        [ability.status() for ability in [a for a in [a for a in [c.pre_finishers for c in self.combo_list if c.pre_finishers is not None ]] if len(a) is not 0][0]]
-
+        try:
+            [ability.status() for ability in [a for a in [a for a in [c.pre_finishers for c in self.combo_list if c.pre_finishers is not None ]] if len(a) is not 0][0]]
+        except IndexError:
+            print("No Pre-Finisher abilities")
 
     def start(self, repeat = False, starttime = None):
 
@@ -177,29 +181,6 @@ class Rotation(object):
             # then combos / sequences / spells
             self.current_action = c = self.get_combo_at(a_idx)
 
-            while False:
-                '''keyboard.write('43', .65)
-                time.sleep(1.5 + .65)
-                keyboard.write('t1', .65)
-                time.sleep(.65)
-                keyboard.send('f1')
-                keyboard.send('f2')
-                keyboard.send('f3')
-                keyboard.write('2')
-                time.sleep(1 + .65)
-                keyboard.write('f2e1', .65)
-                time.sleep(1.5 + .65)
-                keyboard.write('r21', .65)
-                time.sleep(2.0 + .65)
-                keyboard.send('q')'''
-                self.get_combo_at(5).go()
-                pyautogui.keyDown('shift')
-                keyboard.send('r')
-                pyautogui.keyDown('shift')
-                time.sleep(.55)
-                keyboard.write('e1', .65)
-                time.sleep(1.5 + .65)
-
             if c is not None:
                 if c.cooling_down:
                     # wait for skill to come off CD (but also note the error)
@@ -230,9 +211,16 @@ class Rotation(object):
             self.end_time = total_time
             self.print_current_cooldowns()
 
+            # record combo events
+            [c.record() for c in self.combo_list if type(c) is Combo]
+
 
     def end(self):
         print( "Rotation Complete! Total time taken: {:0.2f}".format( self.end_time ))
+        print( "Replaying events" )
+        print( self.current_action.events )
+        [keyboard.play(c.events) for c in self.combo_list if c.events is not None]
+
         # check repeat options, see many time we've run the Rotation
         # use a filler to get a CD or buff back, potentially. Even a single repeat_until
         # rotation of simple combos.

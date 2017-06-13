@@ -32,11 +32,13 @@ K = KEYBINDS
 AOC_EXE_LOCATION = u"C:\Program Files (x86)\Steam\SteamApps\common\Age of Conan\AgeOfConanDX10.exe"
 NOTEPAD = u'C:\\WINDOWS\\system32\\notepad.exe'
 
-PROCNAME = "AgeOfConanDX10.exe"
+#PROCNAME = "AgeOfConanDX10.exe"
+PROCNAME = "NOTEPAD.exe"
 
 logging.basicConfig(format='%(message)s', filename='output.txt', filemode='w', level=logging.DEBUG)
 
 def AOC_set_focus():
+    PID = 15804
     for proc in psutil.process_iter():
         if proc.name() == PROCNAME:
             PID = proc.pid
@@ -189,7 +191,7 @@ combos = combos + (whirlwind,bloodbath,bloodyhackV,)
 
 #rotation1.start()
 
-rotation2 = Rotation()
+'''rotation2 = Rotation()
 rotation2.add_combo( guard_destroyer, (1,11) )
 rotation2.add_combo( titanic_smash_B, (2,14) )
 rotation2.add_combo( titanic_smash, (9,) )
@@ -198,13 +200,19 @@ rotation2.add_ability( reckoning, (4,7,11,14) )
 #overreachVI.add_delay(2, .15)
 rotation2.add_combo( overreachVI, (5,12,) )
 rotation2.add_ability( bloodyvengance, (14,) )
-rotation2.add_combo( overreachV, (4,8) )
+rotation2.add_combo( overreachV, (4,8) )'''
 
-keyboard.add_hotkey("1", rotation2.log_keypress, args=["UL attack key was pressed"])
-keyboard.add_hotkey("2", rotation2.log_keypress, args=["MID attack key was pressed"])
-keyboard.add_hotkey("3", rotation2.log_keypress, args=["UR for was pressed during"])
+rot = Rotation()
+rot.add_combo( overreachVI, (1,) )
+rot.add_combo( counterweight, (2,) )
+#rot.add_combo( titanic_smash_B, (2,) )
+rot.add_combo( overreachV, (3, ) )
+
+keyboard.add_hotkey("1", rot.log_keypress, args=["UL attack key was pressed"])
+keyboard.add_hotkey("2", rot.log_keypress, args=["MID attack key was pressed"])
+keyboard.add_hotkey("3", rot.log_keypress, args=["UR for was pressed during"])
 #keyboard.add_hotkey("q", rotation2.log_keypress, args=["LL for was pressed during"])
-keyboard.add_hotkey("e", rotation2.log_keypress, args=["LR for was pressed during"])
+keyboard.add_hotkey("e", rot.log_keypress, args=["LR for was pressed during"])
 
 
 def dump_key_event(event):
@@ -218,19 +226,18 @@ def start_rotation(key_pressed):
     print('starting...')
     # change activation
     # keyboard.remove_hotkey(80)
-    hk1 = keyboard.add_hotkey(key_pressed, rotation2.do_pause, args=[key_pressed])
+    hk1 = keyboard.add_hotkey(key_pressed, rot.do_pause, args=[key_pressed])
 
     logging.debug('Preparing to start')
 
-    r = threading.Timer(3, rotation2.start)
+    r = threading.Timer(1, rot.start)
     r.start()
 try:
     hk2 = keyboard.add_hotkey(80, start_rotation, args=[79])
     keyboard.wait('escape')
 
     # clean up the objects
-    rotation2.end()
-    AOC_lose_focus()
+    rot.end()
 except Exception as e:
     print(e)
 else:

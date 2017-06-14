@@ -188,21 +188,10 @@ class Rotation(object):
                     print("{:0.2f} seconds left on CD last used at {:0.2f}"\
                     .format(c.cooldown_remaining(), c.cooldown_start))
 
-                    # wait for cooldown
-                    time.sleep( c.cooldown_remaining() )
-
-                '''if a_idx < len(self.actions) - 1:
-                    c.execute( self.get_combo_at(a_idx+1) )
-                else:
-                    c.execute()'''
-
                 c.go()
 
             execution_time = float(timer() - checkpoint)
             total_time = float(timer() - self.start_time)
-
-            print( "Time Taken this combo: {:0.2f}".format(float(execution_time)) )
-            print( "Total Time so far: {:0.2f}".format(float(total_time)) )
 
         if ( repeat is True or self.repeat is True ) and self.repeat_count > 0:
             self.repeat_count -= 1
@@ -212,7 +201,7 @@ class Rotation(object):
             self.print_current_cooldowns()
 
             # record combo events
-            [c.record() for c in self.combo_list if type(c) is Combo]
+            #[c.record() for c in self.combo_list if type(c) is Combo]
 
 
     def end(self):

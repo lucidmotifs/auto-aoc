@@ -95,10 +95,6 @@ class Combo(Ability):
                 if not x.cooling_down]
 
 
-    def recover(self, duration, reason):
-        time.sleep(round(duration, 2))
-
-
     def record(self):
         print("recording...please don't touch the keyboard")
         t = threading.Timer(1, self.go)

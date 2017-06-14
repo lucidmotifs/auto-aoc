@@ -41,8 +41,6 @@ class Ability(object):
 
         self.hotkey = hotkey # register this properly with keyboard module
 
-        keyboard.add_hotkey('+'.join(self.hotkey), logging.debug, args=["Hotkey for {} for was pressed".format(self.name)])
-
 
     def init_cooldown(self, fudge=0.0):
         if not self.cooling_down:
@@ -55,6 +53,11 @@ class Ability(object):
             self.cooldown.start()
             self.lastused = self.cooldown_start = timer()
             self.cooling_down = True
+
+
+    def register_hotkey(self):
+        keyboard.add_hotkey('+'.join(self.hotkey), logging.debug, \
+            args=["Hotkey for {} for was pressed".format(self.name)])
 
 
     def use(self, on_cooldown=False):

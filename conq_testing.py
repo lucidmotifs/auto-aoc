@@ -73,10 +73,10 @@ def DEBUG_set_focus():
     time.sleep(.5)
 
 
-class conq_breech(Combo):
+class Breech(Combo):
 
     def __init__(self, rank="III"):
-        super().__init__("Breech", "4", self.set_steps(rank), 43, 1.5, post_ability=None)
+        super().__init__("Breech", "4", self.set_steps(rank), 41, 1.5, post_ability=None)
         self.step_delays = {}
 
 
@@ -93,18 +93,30 @@ elif RUN_LEVEL == "PROD":
     time.sleep(100)
 
 
-breech = conq_breech()
+breech = Breech()
 
-whirlwind = Combo("Whirlwind", ('r',), ["e","q",], "3", 10, 1.5)
+whirlwind = Combo("Whirlwind", 'r', ["e","q","3"], 10, 1.5)
 
-bloodbath = Combo("Bloodbath V", ('t',), ["q","e",], "2", 10, 2.0)
-bloodbath.should_weave = False
+bloodbath = Combo("Bloodbath V", 't', ["q","e","2"], 10, 2.0)
 
-bloodyhack = Combo("Bloody Hack VI", ('f',), ["2", "q",], "3", 1, 1.5)
-bloodyhack.should_weave = True
+bloodyhack = Combo("Bloody Hack VI", 'f', ["2", "q", "3"], 1, 1.5)
 
-bloodyhackV = Combo("Bloody Hack V", ('shift', 'r',), ["2",], "3", 1, 1)
-bloodyhackV.should_weave = True
+bloodyhackV = Combo("Bloody Hack V", 'r', ["2","3"], 1, 1)
+bloodyhackV.modifier = 'shift'
+
+conq_dps = Rotation()
+
+combos = (
+breech,
+whirlwind,
+bloodyhackV,
+bloodbath,
+bloodyhackV,
+whirlwind,
+bloodyhackV,
+)
+
+conq_dps.add(combos)
 
 # Add a 300ms to the first step
 # bloodyhackV.add_delay(1, .1)
@@ -132,7 +144,6 @@ buffs = (powerhouse, battlecry, intimidating_shout)
 
 # Combos
 shield_slam = Combo("Shield Slam", 'g', ["e", "2"], 9, 1)
-shield_slam.attach_prefinisher(tactic_provoke)
 
 dulling_blow = Combo("Dulling Blow", '6', ["3"], 9, 1)
 
@@ -160,6 +171,7 @@ overreachVI_bv = Combo("Overreach VI", 'f', ["2", "e", "1"], 1, 1.5, bloodyvenga
 # guard Rotation
 combos = (
     shield_slam,
+    tactic_provoke,
     cry_of_havoc,
     irritate,
     guard_destroyer,
@@ -170,6 +182,7 @@ combos = (
     overreachV,
     shield_slam,
     overreachV,
+    cry_of_havoc,
     titanic_smash,
     guard_destroyer,
     shield_slam,
@@ -178,6 +191,7 @@ combos = (
     shield_slam,
     titanic_smash,
     overreachV,
+    tactic_defense,
 )
 
 #rotation1 = Rotation()
@@ -223,6 +237,8 @@ rot.add_ability( switch_weapons, (19,))
 rot.repeat = True
 rot.repeat_count = 0
 
+grd_dps = rot
+
 aggro = Rotation()
 aggro.add( combos )
 
@@ -234,7 +250,8 @@ def register_attack_keys(rotation):
         args=["MID attack key was pressed"])
     keyboard.add_hotkey("3", rotation.log_keypress, \
         args=["UR for was pressed during"])
-    #keyboard.add_hotkey("q", rotation2.log_keypress, args=["LL for was pressed during"])
+    keyboard.add_hotkey("q", rotation.log_keypress, \
+        args=["LL for was pressed during"])
     keyboard.add_hotkey("e", rotation.log_keypress, \
         args=["LR for was pressed during"])
 
@@ -244,10 +261,15 @@ def dump_key_event(event):
     global LAST_KEY_EVENT
     #print(event.event_type)
     #print(event.name)
-    #print(event.scan_code)
+    print(event.scan_code)
     if event.event_type is 'down':
         print(round(event.time - LAST_KEY_EVENT, 2))
-        LAST_KEY_EVENT = event.time
+        LAST_KEY_EVENT = event.timeq
+
+
+def dump_keys():
+    LAST_KEY_EVENT = 0.0
+    hk2 = keyboard.hook(dump_key_event)
 
 
 def start_rotation(key_pressed):
@@ -271,8 +293,6 @@ def start_rotation2(rotation, pause_key):
     # change activation
     # keyboard.remove_hotkey(80)
     hk1 = keyboard.add_hotkey(pause_key, rotation.do_pause, args=[pause_key])
-    #LAST_KEY_EVENT = 0.0
-    #hk2 = keyboard.hook(dump_key_event)
 
     logging.debug('Preparing to start')
 
@@ -281,8 +301,10 @@ def start_rotation2(rotation, pause_key):
 
 
 try:
-    hk2 = keyboard.add_hotkey(80, start_rotation, args=[79])
+    hk2 = keyboard.add_hotkey(80, start_rotation2, args=[grd_dps, 79])
     hk3 = keyboard.add_hotkey(81, start_rotation2, args=[aggro, 79])
+    hk4 = keyboard.add_hotkey(75, start_rotation2, args=[conq_dps, 79])
+    hk5 = keyboard.add_hotkey('-', dump_keys)
     keyboard.wait('escape')
 
     # clean up the objects

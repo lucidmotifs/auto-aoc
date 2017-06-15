@@ -12,6 +12,8 @@ from ability import COOLDOWN_ACTIONS
 ATTACK_INT_1HE = .65
 OPENER_WAIT = .1
 
+DEBUG = False
+
 class Combo(Ability):
 
     was_weaved = False
@@ -91,6 +93,15 @@ class Combo(Ability):
         # do all computation before sending the word!
         # this should ensure each key_press is sent in good time.
         ATTACK_INT_1HE = .65
+        pyautogui.PAUSE = 0.3
+
+        if DEBUG:
+            pyautogui.press('enter')
+            pyautogui.typewrite(self.name)
+            pyautogui.press('enter')
+
+            time.sleep(3)
+
         pyautogui.PAUSE = 0.0
 
         if self.word is None:

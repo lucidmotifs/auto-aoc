@@ -96,7 +96,7 @@ class Rotation(object):
 
     def add(self, action_l):
         for action in action_l:
-            if type(action) is Combo:
+            if isinstance(action, Combo):
                 self.add_combo( action )
             elif type(action) is Ability:
                 self.add_ability( action )
@@ -152,7 +152,7 @@ class Rotation(object):
 
     def get_combo_at(self, position):
         try:
-            combo = ( i for i in self.actions[position] if type(i) is Combo )
+            combo = (i for i in self.actions[position] if isinstance(i, Combo))
             return next(combo)
         except StopIteration as e:
             return None

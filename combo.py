@@ -20,15 +20,16 @@ class Combo(Ability):
     cooldown_start = None
     cooldown_time = 0.0
     cooling_down = False
+    do_record = False
     lastused = None
 
     def __init__(self, name, hotkey, steps, cooldown_time, \
-                 execute_time=0.0, post_ability=None):
+                 cast_time=0.0, post_ability=None):
         self.name = name
         self.hotkey = hotkey
         self.steps = steps
         self.post_ability = post_ability
-        self.execute_time = float(execute_time)
+        self.cast_time = float(cast_time)
         self.cooldown_time = float(cooldown_time)
         self.step_delays = {}
         self.pre_finishers = []
@@ -38,11 +39,11 @@ class Combo(Ability):
         self.step_at = 0
 
         # results
+        self.word = ''
         self.modifier = None
-        self.word = None
         self.finisher = []
         self.duration = 0.0
-        self.events = None
+        self.key_events = []
 
 
     def attach_prefinisher(self, ability):
@@ -52,35 +53,6 @@ class Combo(Ability):
     def attach_prefinishers(self, abilities):
         for a in abilities:
             self.attach_prefinisher(a)
-
-
-    def do_weavein(self):
-
-        self.press_hotkey()
-
-        #if self.was_weaved:
-            #self.do_step( next(self.steps_iter), "weavein", True )
-
-
-    def do_step(self, step, log_data="normal", weavein=False):
-        if self.step_delays and self.step_at in self.step_delays.keys():
-            self.do_stepdelay(self.step_at, self.step_delays[self.step_at])
-
-        if weavein or self.step_at == 0:
-            # time.sleep( .1 )
-            time.sleep(ATTACK_INT_1HE)
-        elif self.step_at == 1:
-            time.sleep( ATTACK_INT_1HE )
-        else:
-            time.sleep(ATTACK_INT_1HE)
-
-        if self.step_at == len(self.steps)-1:
-            self.do_prefinishers()
-            pyautogui.press(step)
-        else:
-            pyautogui.press(step)
-
-        self.step_at += 1
 
 
     def do_stepdelay(self, step, delay):
@@ -95,16 +67,12 @@ class Combo(Ability):
                 if not x.cooling_down]
 
 
-    def record(self):
-        print("recording...please don't touch the keyboard")
-        t = threading.Timer(1, self.go)
-        t.start()
-
-        self.events = keyboard.record(until='/')
+    def record(self, ke):
+        self.key_events.append(ke)
 
 
     def build_word(self):
-        self.word = ""
+        self.word = ''
         if len(self.pre_finishers) > 0:
             for a in self.pre_finishers:
                 self.finisher.append(''.join(a.hotkey))
@@ -115,127 +83,71 @@ class Combo(Ability):
             self.word += ''.join(self.steps)
 
 
-    def go(self):
+    def simluate_keyevents(self):
         # check cooldown
         # create 'word'
         # time word execution
         # subtract tick difference from final wait time
         # do all computation before sending the word!
         # this should ensure each key_press is sent in good time.
-        pyautogui.PAUSE = .65
+        ATTACK_INT_1HE = .65
+        pyautogui.PAUSE = 0.0
 
         if self.word is None:
             self.build_word()
 
-        #print(', '.join(self.hotkey))
-        #print(self.word)
-        #print(self.finisher)
-
         start = timer()
-        pyautogui.hotkey(*self.hotkey)
-        opener = timer()
-        logging.debug("opener: {}".format( opener-start ))
-        pyautogui.typewrite(self.word, .65)
-        steps = timer()
-        logging.debug("steps: {}".format(steps - opener))
+
+        if self.modifier:
+            pyautogui.keyDown(self.modifier)
+            time.sleep(.05)
+            pyautogui.press(self.hotkey)
+            time.sleep(.05)
+            pyautogui.keyUp(self.modifier)
+        else:
+            pyautogui.press(self.hotkey)
+            time.sleep(.1)
+
+        #pyautogui.press(self.hotkey)
+
+        time.sleep(ATTACK_INT_1HE)
+
+        # pyautogui.typewrite(self.word, ATTACK_INT_1HE)
+        for i,char in enumerate(self.word):
+            pyautogui.press(char)
+            time.sleep(ATTACK_INT_1HE + ((i+1) * .1))
+
         if len(self.finisher) > 0:
+            time.sleep(ATTACK_INT_1HE + len(self.word) * .1)
             pyautogui.press(self.finisher)
+
         end = timer()
-        logging.debug("finisher: {}".format( end - steps ))
 
-        time.sleep(self.execute_time)
-        pyautogui.typewrite("/")
-        self.init_cooldown()
+        # timeit
         actual = end - start
-        expected = (len(self.steps) + 1) * .65
-        wait_less = actual - expected
-        logging.debug("actual {} vs expected {}".format(round(actual, 2), \
-            round(expected, 2)))
 
-        self.duration = actual
+        expected = (len(self.steps) + 1) * ATTACK_INT_1HE
 
+        if len(self.finisher) > 0:
+            expected += ATTACK_INT_1HE
 
-    def press_hotkey(self):
+        wait_more =  round((actual - expected) / 6, 2)
 
-        if self.cooling_down:
-            # record error
-            print("Skill: %s was used while still on CD" % self.name)
-            print("{0:0.2f} seconds left on CD last used at {1:0.2f}".format(self.cooldown_remaining(), self.cooldown_start))
+        # calculate time to wait for casting
+        pause = self.cast_time + wait_more
+        logging.debug("cast time: {}".format( pause ))
+        logging.debug("actual {} vs expected {}".format( round(actual, 2), \
+            round(expected, 2) ))
+        logging.debug("wait more time: {}".format(wait_more))
+        time.sleep( pause )
 
-            if self.was_weaved:
-                self.was_weaved = False
-                return
-            elif self.cooldown_action is COOLDOWN_ACTIONS.WAIT:
-                time.sleep( self.cooldown_remaining() + self.cooldown_fudge )
-                return self.press_hotkey()
-            elif self.cooldown_action is COOLDOWN_ACTIONS.SKIP:
-                print( "Skill: {0} was skipped as it was still on CD".format(self.name) )
+        # do post ability, use keyboard to avoid long delays
+        #if self.post_ability:
+        #    keyboard.send(self.post_ability.hotkey)
 
-        elif self.lastused is not None:
-            cooldown_expired = (timer() - self.lastused) - self.cooldown_time
-            print("Skill: {0} was used {1:0.2f} seconds after CD expired".format(self.name, cooldown_expired))
+        self.duration = timer() - start
 
-        if len(self.hotkey) is 2:
-            # uses modifier
-            pyautogui.keyDown(self.hotkey[0])
-            pyautogui.press(self.hotkey[1])
-            pyautogui.keyUp(self.hotkey[0])
-        else:
-            keyboard.send('+'.join(self.hotkey))
-
-
-    def execute(self, next_combo=None ):
-
-        print("Starting {0}".format(self.name))
-
-        if not self.was_weaved:
-            self.press_hotkey()
-
-        while True:
-            try:
-                self.do_step( next(self.steps_iter) )
-            except StopIteration as e:
-                time.sleep(ATTACK_INT_1HE)
-                breakR
-
-        logging.debug( "Combo {} finished, waiting casttime (wait: {:0.2f})\n".format(self.name, self.execute_time) )
-
-        if self.post_ability is not None and next_combo is not None:
-            if self.post_ability.cast_time > 0.0:
-                next_combo.should_weave = False
-
-        if next_combo is not None:
-            next_combo.should_weave = False
-
-        if self.execute_time > 0.9 and next_combo is not None \
-                                 and next_combo.should_weave is True:
-
-            # allow finisher to start or further actions will interrupt
-            time.sleep(self.execute_time - .1)
-
-            next_combo.was_weaved = True
-            next_combo.do_weavein()
-        else:
-            # sleep for execute
-            time.sleep(self.execute_time)
-
-        # switch stance right as castbar ends
-        # pyautogui.press('z')
-
-        # start cooldown
-        self.init_cooldown(self.cooldown_fudge)
-
-        # short recovery
-        time.sleep(.1)
-
-        if self.post_ability is not None:
-            self.post_ability.use()
-
-        print("Finished executing {}".format(self.name))
-
-        self.was_weaved = False
-        self.step_at = 0
-        self.steps_iter = iter(self.steps)
+        self.init_cooldown()
 
 
     def cooldown_end(self):

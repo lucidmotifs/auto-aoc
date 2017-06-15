@@ -32,6 +32,7 @@ class Ability(object):
     duration = 0.0
     on_cooldown = False
     lastused = None
+    modifier = None
 
     def __init__(self, name, hotkey, cooldown_time, cast_time=0, duration=0):
         setattr(self, 'name', name)
@@ -40,14 +41,13 @@ class Ability(object):
         setattr(self, 'duration', float(duration))
 
         self.hotkey = hotkey # register this properly with keyboard module
+        self.modifier = None
+        self.register_hotkey()
 
 
     def init_cooldown(self, fudge=0.0):
         if not self.cooling_down:
-            if self.cooldown_time - fudge < 1:
-                actual_cd = 1
-            else:
-                actual_cd = self.cooldown_time - fudge
+            actual_cd = self.cooldown_time
 
             self.cooldown = threading.Timer(actual_cd, self.cooldown_end)
             self.cooldown.start()
@@ -56,35 +56,31 @@ class Ability(object):
 
 
     def register_hotkey(self):
-        keyboard.add_hotkey('+'.join(self.hotkey), logging.debug, \
+        keyboard.add_hotkey(self.hotkey, logging.debug, \
             args=["Hotkey for {} for was pressed".format(self.name)])
 
 
     def use(self, on_cooldown=False):
 
-        print("Using: {0}".format(self.name))
+        print("Using: {}".format( self.name ))
 
-        if self.lastused is not None:
-            cooldown_expired = (timer() - self.lastused) - self.cooldown_time
-            print("Skill: {0} was used {1:0.2f} seconds after CD expired".format(self.name, cooldown_expired))
-
-        if len(self.hotkey) is 2:
-            # uses modifier
-            pyautogui.keyDown(self.hotkey[0])
-            pyautogui.press(self.hotkey[1])
-            pyautogui.keyUp(self.hotkey[0])
+        if self.modifier:
+            pyautogui.keyDown(self.modifier)
+            time.sleep(.05)
+            pyautogui.press(self.hotkey)
+            time.sleep(.05)
+            pyautogui.keyUp(self.modifier)
         else:
-            keyboard.send('+'.join(self.hotkey))
-            #pyautogui.press(self.hotkey[0])
+            time.sleep(.1)
+            pyautogui.press(self.hotkey)
 
         # If we're casting, pause.
         if self.cast_time > 0:
-            time.sleep(self.cast_time + .65)
+            time.sleep(self.cast_time + .55)
 
         # start cooldown
-        self.init_cooldown(self.cooldown_fudge)
+        self.init_cooldown()
 
-        # create timer if we want to use this ability everytime it's up.
 
     # returns the recorded keyboard input events
     def get_events(self):
@@ -94,8 +90,7 @@ class Ability(object):
         if not self.cooling_down:
             return 0.0
         else:
-            return round( self.cooldown_fudge + self.cooldown_time - \
-                            (timer() - self.lastused), 2 )
+            return round( self.cooldown_time - (timer() - self.lastused), 2 )
 
 
     def cooldown_end(self):

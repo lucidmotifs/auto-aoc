@@ -1,96 +1,211 @@
-Hotkey f registered for Overreach VI
+Hotkey 4 registered for Guard Destroyer
+Hotkey t registered for Titanic Smash (Buffs)
 Hotkey r registered for Counterweight
-Hotkey shift+r registered for Overreach V
-During Overreach V at step 0, MID attack key was pressed (0.00025383931971062316)
-Delta: 0.0002508688595863499
+Hotkey f registered for Overreach VI
+Hotkey t registered for Titanic Smash
+Hotkey 8 registered for Overreach V
+Hotkey 6 registered for Dulling Blow
+Hotkey g registered for Shield Slam
+Hotkey 4 registered for Guard Destroyer
+Hotkey t registered for Titanic Smash (Buffs)
+Hotkey 8 registered for Overreach V
+Hotkey g registered for Shield Slam
+Hotkey f registered for Overreach VI
+Hotkey 8 registered for Overreach V
+Hotkey g registered for Shield Slam
+Hotkey 8 registered for Overreach V
+Hotkey t registered for Titanic Smash
+Hotkey 4 registered for Guard Destroyer
+Hotkey g registered for Shield Slam
+Hotkey 8 registered for Overreach V
+Hotkey f registered for Overreach VI
+Hotkey g registered for Shield Slam
+Hotkey t registered for Titanic Smash
+Hotkey 8 registered for Overreach V
 Preparing to start
-During Overreach VI at step 0, Hotkey for Overreach VI was pressed (1.0052261195259147)
-Delta: 1.0049736304153514
-opener: 0.6523438280589664
-During Overreach VI at step 0, MID attack key was pressed (1.6575912808894098)
-Delta: 0.6523654314053247
-During Overreach VI at step 0, LR for was pressed during (2.3091557682284987)
-Delta: 0.6515634071717709
-During Overreach VI at step 0, UL attack key was pressed (2.9613805078406643)
-Delta: 0.6522250096539954
-steps: 2.6069244125915105
-finisher: 0.0001225989905835334
-actual 3.26 vs expected 2.6
-During Counterweight at step 0, Hotkey for Counterweight was pressed (6.420079230272769)
-Delta: 3.4586998025994222
-opener: 0.6515920316056958
-During Counterweight at step 0, MID attack key was pressed (7.071436325486818)
-Delta: 0.6513560150467308
-During Counterweight at step 0, UL attack key was pressed (7.723755849781131)
-Delta: 0.6523192542524843
-steps: 1.9555627266663604
-finisher: 0.0001228690324133197
-actual 2.61 vs expected 1.95
-During Overreach V at step 0, Hotkey for Counterweight was pressed (11.682890959809674)
-Delta: 3.9591351100285426
-During Overreach V at step 0, Hotkey for Overreach V was pressed (11.683057845660294)
-Delta: 0.0001685061015965772
-opener: 0.6533697169691575
-During Overreach V at step 0, LR for was pressed during (12.335114079170864)
-Delta: 0.6520551533432517
-During Overreach V at step 0, UL attack key was pressed (12.987064726326109)
-Delta: 0.6519495669879269
-steps: 1.9557428445666236
-finisher: 0.0001244892833902611
-actual 2.61 vs expected 1.95
-During Overreach V at step 0, Hotkey for Overreach VI was pressed (17.44940064215947)
-Delta: 4.462336725958853
-opener: 0.6516506306826955
-During Overreach V at step 0, MID attack key was pressed (18.100967559875023)
-Delta: 0.6515674577992101
-During Overreach V at step 0, LR for was pressed during (18.752603608298926)
-Delta: 0.6516352382984145
-During Overreach V at step 0, UL attack key was pressed (19.404970389913398)
-Delta: 0.6523670516563023
-steps: 2.607744529627638
-finisher: 0.00012556945070940628
-actual 3.26 vs expected 2.6
-During Overreach V at step 0, Hotkey for Counterweight was pressed (46.17530683502875)
-Delta: 26.770336445115348
-opener: 0.6516560315192805
-During Overreach V at step 0, MID attack key was pressed (46.82689535609066)
-Delta: 0.6515885210619103
-During Overreach V at step 0, UL attack key was pressed (47.479212990092165)
-Delta: 0.6523179040433362
-steps: 1.9557374437300368
-finisher: 0.0001252994088787318
-During Overreach V at step 0, Hotkey for Counterweight was pressed (50.88694104716821)
-Delta: 3.4077277870342115
-During Overreach V at step 0, Hotkey for Overreach V was pressed (50.887100911931256)
-Delta: 0.00016121497220211722
-actual 2.61 vs expected 1.95
-opener: 0.6531993205747568
-During Overreach V at step 0, LR for was pressed during (51.53971100123409)
-Delta: 0.6526092791773408
-During Overreach V at step 0, UL attack key was pressed (52.192014863102294)
-Delta: 0.6523030517427202
-steps: 1.9545033525693114
-finisher: 0.00012070869777858206
-actual 2.61 vs expected 1.95
-During Overreach V at step 0, Hotkey for Overreach VI was pressed (58.99994734184325)
-Delta: 6.807933018824613
-During Overreach V at step 0, MID attack key was pressed (59.653694577290025)
-Delta: 0.6537469654049417
-During Overreach V at step 0, LR for was pressed during (60.3087820303365)
-Delta: 0.6550871830046461
-During Overreach V at step 0, UL attack key was pressed (60.96300696977962)
-Delta: 0.6542254795267795
-During Overreach V at step 0, Hotkey for Counterweight was pressed (87.6649809755531)
-Delta: 26.701972925606178
-During Overreach V at step 0, MID attack key was pressed (88.31852216908399)
-Delta: 0.6535414635727079
-During Overreach V at step 0, UL attack key was pressed (88.97277843337933)
-Delta: 0.6542565343371649
-During Overreach V at step 0, Hotkey for Counterweight was pressed (92.31291556062034)
-Delta: 3.340137397282845
-During Overreach V at step 0, Hotkey for Overreach V was pressed (92.31308244647096)
-Delta: 0.00016823605976412637
-During Overreach V at step 0, LR for was pressed during (92.968761291124)
-Delta: 0.6556774944438928
-During Overreach V at step 0, UL attack key was pressed (93.6241457901829)
-Delta: 0.6553842290170735
+During Shield Slam, Hotkey for Shield Slam was pressed (0.11)
+Delta: 0.11203891407627001
+Hotkey for Tactic: Provoke for was pressed
+During Shield Slam, LR for was pressed during (0.86)
+Delta: 0.7514493808350929
+Hotkey for Tactic: Provoke for was pressed
+During Shield Slam, LR for was pressed during (2.37)
+Delta: 1.5018879959212914
+During Shield Slam, MID attack key was pressed (2.37)
+Delta: 0.000797162834821119
+Hotkey for Tactic: Provoke for was pressed
+During Shield Slam, LR for was pressed during (2.37)
+Delta: 0.0009740400898374801
+During Shield Slam, MID attack key was pressed (2.37)
+Delta: 0.000784740920728666
+Hotkey for Tactic: Provoke for was pressed
+During Shield Slam, LR for was pressed during (2.37)
+Delta: 0.0009070697703807973
+During Shield Slam, MID attack key was pressed (2.37)
+Delta: 0.0008049940415317813
+Hotkey for Tactic: Provoke for was pressed
+During Shield Slam, LR for was pressed during (2.37)
+Delta: 0.000982411379769843
+During Shield Slam, MID attack key was pressed (2.37)
+Delta: 0.000742344387846483
+Hotkey for Tactic: Provoke for was pressed
+During Shield Slam, LR for was pressed during (2.37)
+Delta: 0.0008536015314599688
+During Shield Slam, MID attack key was pressed (2.37)
+Delta: 0.000714800143554406
+cast time: 0.94
+actual 2.26 vs expected 2.6
+wait more time: -0.06
+Hotkey for Reckoning for was pressed
+Hotkey for Tactic: Defense for was pressed
+Hotkey for Cry of Havok for was pressed
+Hotkey for Irritate for was pressed
+Hotkey for Switch Weapons for was pressed
+During Guard Destroyer, Hotkey for Guard Destroyer was pressed (3.52)
+Delta: 1.1451838213750354
+During Guard Destroyer, UR for was pressed during (4.27)
+Delta: 0.75190737140686
+cast time: 1.53
+actual 1.5 vs expected 1.3
+wait more time: 0.03
+During Titanic Smash (Buffs), Hotkey for Titanic Smash was pressed (6.55)
+Delta: 2.281856741305268
+During Titanic Smash (Buffs), UL attack key was pressed (7.3)
+Delta: 0.7514618027491853
+Hotkey for Powerhouse for was pressed
+Hotkey for Battle Cry for was pressed
+Hotkey for Intimidating Shout for was pressed
+During Titanic Smash (Buffs), MID attack key was pressed (8.81)
+Delta: 1.5038150128553305
+Hotkey for Powerhouse for was pressed
+Hotkey for Battle Cry for was pressed
+Hotkey for Intimidating Shout for was pressed
+During Titanic Smash (Buffs), MID attack key was pressed (8.81)
+Delta: 0.0031214109782187194
+cast time: 0.94
+actual 2.26 vs expected 2.6
+wait more time: -0.06
+During Overreach V, Hotkey for Overreach V was pressed (9.75)
+Delta: 0.9422526817157255
+Hotkey for Tactic: Provoke for was pressed
+During Overreach V, LR for was pressed during (10.5)
+Delta: 0.7519354557343743
+During Overreach V, UL attack key was pressed (11.26)
+Delta: 0.7512995077411464
+cast time: 1.57
+actual 2.36 vs expected 1.95
+wait more time: 0.07
+During Shield Slam, Hotkey for Shield Slam was pressed (13.68)
+Delta: 2.4239464259047683
+Hotkey for Tactic: Provoke for was pressed
+During Shield Slam, LR for was pressed during (14.43)
+Delta: 0.7523059528242708
+Hotkey for Tactic: Provoke for was pressed
+During Shield Slam, LR for was pressed during (15.93)
+Delta: 1.5016317264327252
+During Shield Slam, MID attack key was pressed (15.93)
+Delta: 0.0007898717113334897
+Hotkey for Tactic: Provoke for was pressed
+During Shield Slam, LR for was pressed during (15.94)
+Delta: 0.0008941077730657554
+During Shield Slam, MID attack key was pressed (15.94)
+Delta: 0.0006915765650337136
+Hotkey for Tactic: Provoke for was pressed
+During Shield Slam, LR for was pressed during (15.94)
+Delta: 0.0007990531260961831
+During Shield Slam, MID attack key was pressed (15.94)
+Delta: 0.0008117450817994865
+Hotkey for Tactic: Provoke for was pressed
+During Shield Slam, LR for was pressed during (15.94)
+Delta: 0.000991862836144719
+During Shield Slam, MID attack key was pressed (15.94)
+Delta: 0.0007609772589844965
+Hotkey for Tactic: Provoke for was pressed
+During Shield Slam, LR for was pressed during (15.94)
+Delta: 0.0008625129046144764
+During Shield Slam, MID attack key was pressed (15.94)
+Delta: 0.0006000324590011985
+cast time: 0.94
+actual 2.26 vs expected 2.6
+wait more time: -0.06
+During Overreach VI, Hotkey for Overreach VI was pressed (16.88)
+Delta: 0.9417752481479855
+During Overreach VI, MID attack key was pressed (17.63)
+Delta: 0.7517148317384255
+Hotkey for Tactic: Provoke for was pressed
+During Overreach VI, LR for was pressed during (18.39)
+Delta: 0.7514626128740183
+During Overreach VI, UL attack key was pressed (19.24)
+Delta: 0.8522723866520572
+cast time: 1.62
+actual 3.31 vs expected 2.6
+wait more time: 0.12
+During Overreach V, Hotkey for Overreach V was pressed (21.81)
+Delta: 2.57378360431559
+Hotkey for Tactic: Provoke for was pressed
+During Overreach V, LR for was pressed during (22.56)
+Delta: 0.7518312196726384
+During Overreach V, UL attack key was pressed (23.31)
+Delta: 0.7512117442176667
+cast time: 1.57
+actual 2.36 vs expected 1.95
+wait more time: 0.07
+During Shield Slam, Hotkey for Shield Slam was pressed (25.74)
+Delta: 2.4241837924805836
+Hotkey for Tactic: Provoke for was pressed
+During Shield Slam, LR for was pressed during (26.49)
+Delta: 0.7516845870780209
+Hotkey for Tactic: Provoke for was pressed
+During Shield Slam, LR for was pressed during (27.99)
+Delta: 1.5019079790004852
+During Shield Slam, MID attack key was pressed (27.99)
+Delta: 0.0009805210884934468
+Hotkey for Tactic: Provoke for was pressed
+During Shield Slam, LR for was pressed during (27.99)
+Delta: 0.0009502764280959752
+During Shield Slam, MID attack key was pressed (28.0)
+Delta: 0.0006942769811395522
+Hotkey for Tactic: Provoke for was pressed
+During Shield Slam, LR for was pressed during (28.0)
+Delta: 0.0015341063904550367
+During Shield Slam, MID attack key was pressed (28.0)
+Delta: 0.001511152853542086
+Hotkey for Tactic: Provoke for was pressed
+During Shield Slam, LR for was pressed during (28.0)
+Delta: 0.000878175318035801
+During Shield Slam, MID attack key was pressed (28.0)
+Delta: 0.0007274920992585976
+Hotkey for Tactic: Provoke for was pressed
+During Shield Slam, LR for was pressed during (28.0)
+Delta: 0.0008600825301172677
+During Shield Slam, MID attack key was pressed (28.0)
+Delta: 0.0007129098522788979
+cast time: 0.94
+actual 2.26 vs expected 2.6
+wait more time: -0.06
+During Overreach V, Hotkey for Overreach V was pressed (28.94)
+Delta: 0.9414725315023773
+Hotkey for Tactic: Provoke for was pressed
+During Overreach V, LR for was pressed during (29.69)
+Delta: 0.7518163673840519
+During Overreach V, UL attack key was pressed (30.45)
+Delta: 0.7509611456029255
+cast time: 1.57
+actual 2.35 vs expected 1.95
+wait more time: 0.07
+During Titanic Smash, Hotkey for Titanic Smash was pressed (32.87)
+Delta: 2.4235532453195674
+During Titanic Smash, UL attack key was pressed (33.62)
+Delta: 0.752182543808182
+During Titanic Smash, MID attack key was pressed (34.37)
+Delta: 0.7511120988633095
+cast time: 1.07
+actual 2.36 vs expected 1.95
+wait more time: 0.07
+During Guard Destroyer, Hotkey for Guard Destroyer was pressed (36.3)
+Delta: 1.924361614881235
+During Guard Destroyer, UR for was pressed during (37.05)
+Delta: 0.7515819712659564
+cast time: 1.53
+actual 1.5 vs expected 1.3
+wait more time: 0.03

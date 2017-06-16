@@ -11,7 +11,8 @@ from timeit import default_timer as timer
 class COOLDOWN_ACTIONS:
     WAIT = 0
     SKIP = 1
-    TIMER = 2
+    WAIT_SHORT = 2
+    RETRY = 3
 
 
 """ Abilities are spells or buffs that are cast at one of the following times:
@@ -40,7 +41,7 @@ class Ability(object):
         setattr(self, 'cast_time', float(cast_time))
         setattr(self, 'duration', float(duration))
 
-        self.hotkey = hotkey
+        self._hotkey = hotkey
         self.modifier = None
         self.register_hotkey()
 
@@ -67,10 +68,69 @@ class Ability(object):
             self.cooling_down = True
 
 
-    def register_hotkey(self):
-        keyboard.add_hotkey(self.hotkey, logging.debug, \
-            args=["Hotkey for {} for was pressed".format(self.name)])
+    def deregister_hotkey(self):
+        # remove any other action that currently has this hotkey
+        print("Removing old bindings")
+        try:
+            keyboard.unhook_key(self.hotkey)
+        except ValueError as e:
+            #print(e)
+            try:
+                keyboard.remove_hotkey(self.modifier or '' + '+' + self.hotkey)
+            except (ValueError,TypeError) as e:
+                #print(e)
+                pass
 
+    def register_hotkey(self):
+        self.deregister_hotkey()
+
+        # register key hooks for logging based on hotkey + steps
+        print("Adding keyboard hooks")
+        if self.modifier:
+            keyboard.add_hotkey(self.modifier + '+' + self.hotkey, \
+                self.hotkey_pressed)
+        else:
+            keyboard.hook_key( self.hotkey, \
+                lambda: self.hotkey_pressed() )
+
+        logging.debug("Hotkey {} registered for {}".format(self.hotkey, self.name))
+
+
+    def hotkey_pressed(self):
+        # Make sure press was really for you.
+        if keyboard.is_pressed('shift') or keyboard.is_pressed('ctrl'):
+            if self.modifier and keyboard.is_pressed(self.modifier):
+                all_good = True
+            else:
+                return
+
+        # check for cooldown fail
+        if self.cooling_down:
+            print("Ability {} was used while still on cooldown. {}s remaining".\
+                format(self.name, self.cooldown_remaining))
+
+            if self.cooldown_action == COOLDOWN_ACTIONS.WAIT:
+                print("We'll wait")
+                retry = threading.Timer(self.cooldown_remaining, self.use)
+                retry.start()
+            elif self.cooldown_action == COOLDOWN_ACTIONS.RETRY:
+                print("We'll be pushy")
+                retry = threading.Timer(.1, self.use)
+                retry.start()
+            elif self.cooldown_action == COOLDOWN_ACTIONS.WAIT_SHORT:
+                print("We'll wait a short while only")
+                if self.cooldown_remaining < 2.2:
+                    retry = threading.Timer(self.cooldown_remaining, self.use)
+                    retry.start()
+                else:
+                    logging.debug("Skipping execution of {} due to cooldown ({}s)".\
+                        format(self.name, self.cooldown_remaining))
+            else:  # SKIP
+                logging.debug("Skipping execution of {} due to cooldown ({}s)".\
+                    format(self.name, self.cooldown_remaining))
+        else:
+            logging.debug("{} was activated. Last used: {}".\
+                format(self.name, self.lastused or 'Never'))
 
     def use(self, on_cooldown=False):
 
@@ -98,6 +158,7 @@ class Ability(object):
     def get_events(self):
         pass
 
+    @property
     def cooldown_remaining(self):
         if not self.cooling_down:
             return 0.0
@@ -110,11 +171,13 @@ class Ability(object):
         self.cooling_down = False
         self.cooldown = None
 
+        print("{0} is now off cooldown".format(self.name))
+
 
     def status(self):
         if self.cooling_down:
             status = "On Cooldown ({0}s remaining)".format( \
-                self.cooldown_remaining() )
+                self.cooldown_remaining )
         else:
             status = "Off Cooldown"
 

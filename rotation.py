@@ -11,6 +11,7 @@ from pywinauto import application
 from copy import copy
 
 # from this application
+import generic
 from combo import Combo
 from ability import Ability
 
@@ -25,6 +26,7 @@ class Rotation(object):
         self.repeat_until = None
         self.unpause_key = None
         self.paused = False
+        self.ending = False
         self.current_action = None
         self.last_keypress = 0.0
         self.last_touched = None
@@ -59,28 +61,6 @@ class Rotation(object):
             self.unpause_key = key_pressed
 
 
-    def register_hotkey(self, action):
-        # remove any other action that currently has this hotkey
-        try:
-            keyboard.unhook_key(action.hotkey)
-        except ValueError:
-            try:
-                keyboard.remove_hotkey(action.modifier + '+' + action.hotkey)
-            except (ValueError,TypeError) as e:
-                print(e)
-
-        # register key hooks for logging based on hotkey + steps
-        if action.modifier:
-            keyboard.add_hotkey(action.modifier + '+' + action.hotkey, \
-                self.log_keypress, \
-                args=["Hotkey for {0} was pressed with modifier".format(action.name)])
-        else:
-            keyboard.hook_key( action.hotkey, \
-                lambda: self.log_keypress(action) )
-
-        logging.debug("Hotkey {} registered for {}".format('+'.join(action.hotkey), action.name))
-
-
     def log_keypress(self, message=None):
 
         if isinstance(message, Combo):
@@ -108,24 +88,35 @@ class Rotation(object):
 
     # This method is designed for fully formed combos that manage their \
     # own hotkey callbacks and doesn't require a copy to be made
-    def use(self, combo):
+    def use(self, action):
 
-        if combo not in self.combo_list:
-            idx = len(self.combo_list)
-            self.combo_list.append( combo )
+        if isinstance(action, Combo):
+
+            if action not in self.combo_list:
+                idx = len(self.combo_list)
+                self.combo_list.append( action )
+            else:
+                idx = self.combo_list.index(action)
+
+            self.last_touched = self.combo_list[idx]
+            self.last_touched.register_hotkey(self)
+
+        elif isinstance(action, Ability):
+            idx = len(self.ability_list)
+            self.ability_list.append(action)
+            self.last_touched = self.ability_list[idx]
         else:
-            idx = self.combo_list.index(combo)
-
-        self.last_touched = idx
+            idx = None
+            self.last_touched = None
+            print("Invalid action passed to Rotation")
 
         return self
 
 
     # This function takes the last touched action and adds it to action_list at
     # the positions determined by *args
-    def at(self, *positions)
-        # get the last added combo
-        idx = self.combo_list[self.last_touched]
+    def at(self, *positions):
+        # act on the last added combo
 
         # add to all positions given
         for pos in positions:
@@ -134,9 +125,14 @@ class Rotation(object):
                 # should probably throw error if adding to another combo or
                 # sequence as it won't get played
                 # potentially could be a 'back-up' if some rule isn't met.
-                self.actions[pos] = self.actions[pos] + (self.combo_list[idx],)
+                if isinstance(self.last_touched, Combo):
+                    self.actions[pos] = self.actions[pos] + (self.last_touched,)
+                else:
+                    self.actions[pos] = (self.last_touched,) + self.actions[pos]
             else:
-                self.actions[pos] = (self.combo_list[idx],)
+                self.actions[pos] = (self.last_touched,)
+
+        return self.last_touched
 
 
     def add(self, action_l):
@@ -148,7 +144,9 @@ class Rotation(object):
 
 
     def add_combo(self, combo, positions=()):
-        self.register_hotkey(combo)
+        # Register the hotkey for tracking, link it to this Rotation.
+        combo.register_hotkey(self)
+
         # copy the combo so it can modified
         combo_copy = copy(combo)
 
@@ -237,18 +235,23 @@ class Rotation(object):
                 print('paused!')
                 self.do_resume()
 
+            if self.ending:
+                print('done!')
+                break
+
             # then combos / sequences / spells
             self.current_action = c = self.get_combo_at(a_idx)
 
             # execute abilities first
-            [i.use() for i in items if type(i) is Ability]
+            [i.use() for i in items if isinstance(i, Ability) and \
+                not isinstance(i, Combo)]
 
             if c is not None:
                 if c.cooling_down:
                     # wait for skill to come off CD (but also note the error)
                     print("Skill: %s was used while still on CD" % c.name)
                     print("{:0.2f} seconds left on CD last used at {:0.2f}"\
-                    .format(c.cooldown_remaining(), c.cooldown_start))
+                    .format(c.cooldown_remaining, c.cooldown_start))
 
                 c.simluate_keyevents()
 
@@ -260,12 +263,13 @@ class Rotation(object):
             self.print_current_cooldowns()
             self.end()
 
-            # record combo events
-            #[c.record() for c in self.combo_list if type(c) is Combo]
-
 
     def end(self):
         print( "Rotation Complete! Total time taken: {:0.2f}".format( self.total_time ))
+
+
+    def end_destructive(self):
+        self.end()
 
         # check repeat options, see many time we've run the Rotation
         # use a filler to get a CD or buff back, potentially. Even a single repeat_until
@@ -273,6 +277,8 @@ class Rotation(object):
         [i.cooldown.cancel() for i in self.ability_list if i.cooldown is not None]
         [[i.cooldown.cancel() for i in x if i.cooldown is not None] for x in [j.pre_finishers for j in self.combo_list]]
         [i.cooldown.cancel() for i in self.combo_list if i.cooldown is not None]
+
+        generic.deregister_keybinds()
 
 
     def replay(self):

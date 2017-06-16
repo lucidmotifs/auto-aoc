@@ -17,7 +17,7 @@ from ability import COOLDOWN_ACTIONS
 from combo import Combo
 
 # classes and combos
-from conqueror
+from conqueror.combo import *
 
 
 # TESTING / DEBUG / PROD
@@ -39,7 +39,11 @@ NOTEPAD = u'C:\\WINDOWS\\system32\\notepad.exe'
 PROCNAME = "AgeOfConanDX10.exe"
 #PROCNAME = "notepad.exe"
 
-logging.basicConfig(format='%(message)s', filename='output.txt', filemode='w', level=logging.DEBUG)
+logging.basicConfig(
+    format='%(message)s',
+    filename='output.txt',
+    filemode='w',
+    level=logging.DEBUG)
 
 def AOC_set_focus():
     for proc in psutil.process_iter():

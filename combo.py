@@ -32,7 +32,7 @@ class Combo(Ability):
         self.post_ability = post_ability
         self.cast_time = float(cast_time)
         self.cooldown_time = float(cooldown_time)
-        self.hotkey = property(**hotkey())
+        self.hotkey = hotkey
         self.step_delays = {}
         self.pre_finishers = []
 
@@ -46,17 +46,6 @@ class Combo(Ability):
         self.finisher = []
         self.duration = 0.0
         self.key_events = []
-
-
-    def hotkey():
-        doc = "The hotkey property."
-        def fget(self):
-            return self._hotkey
-        def fset(self, value):
-            self._hotkey = value
-        def fdel(self):
-            del self._hotkey
-        return locals()
 
 
     def attach_prefinisher(self, ability):

@@ -40,9 +40,21 @@ class Ability(object):
         setattr(self, 'cast_time', float(cast_time))
         setattr(self, 'duration', float(duration))
 
-        self.hotkey = hotkey # register this properly with keyboard module
+        self.hotkey = hotkey
         self.modifier = None
         self.register_hotkey()
+
+
+    def hotkey():
+        doc = "The hotkey property."
+        def fget(self):
+            return self._hotkey
+        def fset(self, value):
+            self._hotkey = value
+        def fdel(self):
+            del self._hotkey
+        return locals()
+    hotkey = property(**hotkey())
 
 
     def init_cooldown(self, fudge=0.0):

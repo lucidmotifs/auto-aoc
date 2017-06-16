@@ -27,6 +27,7 @@ class Rotation(object):
         self.paused = False
         self.current_action = None
         self.last_keypress = 0.0
+        self.last_touched = None
 
         # timers
         self.start_time = 0.0
@@ -81,29 +82,50 @@ class Rotation(object):
 
 
     def log_keypress(self, message=None):
+
         if isinstance(message, Combo):
             msg = "Hotkey for {} was pressed".format(message.name)
         else:
             msg = message
+
         curr_time = timer()
+
         delta = curr_time - self.last_keypress
-        logging.debug("During {}, {} ({})".format(self.current_action.name, \
-            msg,
+
+        if self.current_action:
+            name = self.current_action.name
+        else:
+            name = "Unknown"
+
+        logging.debug("During {}, {} ({})".format(
+            name, \
+            msg, \
             round(timer(), 2)))
+
         logging.debug("Delta: {}".format(delta))
+
         self.last_keypress = curr_time
 
     # This method is designed for fully formed combos that manage their \
     # own hotkey callbacks and doesn't require a copy to be made
     def use(self, combo):
 
+        if combo not in self.combo_list:
+            idx = len(self.combo_list)
+            self.combo_list.append( combo )
+        else:
+            idx = self.combo_list.index(combo)
+
+        self.last_touched = idx
+
+        return self
 
 
-    # This function takes the last added action and adds it to action_list at
+    # This function takes the last touched action and adds it to action_list at
     # the positions determined by *args
     def at(self, *positions)
         # get the last added combo
-        idx = self.combo_list[-1]
+        idx = self.combo_list[self.last_touched]
 
         # add to all positions given
         for pos in positions:
@@ -156,7 +178,8 @@ class Rotation(object):
                     # should probably throw error if adding to another combo or
                     # sequence as it won't get played
                     # potentially could be a 'back-up' if some rule isn't met.
-                    self.actions[pos] = (self.ability_list[idx],) + self.actions[pos]
+                    self.actions[pos] = (self.ability_list[idx],) + \
+                        self.actions[pos]
                 else:
                     self.actions[pos] = (self.ability_list[idx],)
 

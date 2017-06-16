@@ -11,10 +11,14 @@ from pywinauto import application
 from copy import copy
 
 # from this application
+from rotation import Rotation
 from ability import Ability
 from ability import COOLDOWN_ACTIONS
 from combo import Combo
-from rotation import Rotation
+
+# classes and combos
+from conqueror
+
 
 # TESTING / DEBUG / PROD
 RUN_LEVEL = "TESTING"
@@ -73,50 +77,22 @@ def DEBUG_set_focus():
     time.sleep(.5)
 
 
-class Breech(Combo):
-
-    def __init__(self, rank="III"):
-        super().__init__("Breech", "4", self.set_steps(rank), 41, 1.5, post_ability=None)
-        self.step_delays = {}
-
-
-    def set_steps(self, rank):
-        self.steps = ["1"]
-        self.execute_time = 1.0
-
-        return self.steps
-
 if RUN_LEVEL == "TESTING":
     AOC_set_focus()
 elif RUN_LEVEL == "PROD":
     # assume we're running from in-game
     time.sleep(100)
 
-
-breech = Breech()
-
-whirlwind = Combo("Whirlwind", 'r', ["e","q","3"], 10, 1.5)
-
-bloodbath = Combo("Bloodbath V", 't', ["q","e","2"], 10, 2.0)
-
-bloodyhack = Combo("Bloody Hack VI", 'f', ["2", "q", "3"], 1, 1.5)
-
-bloodyhackV = Combo("Bloody Hack V", 'r', ["2","3"], 1, 1)
-bloodyhackV.modifier = 'shift'
-
+## Conqueror DPS Rotation
 conq_dps = Rotation()
 
-combos = (
-breech,
-whirlwind,
-bloodyhackV,
-bloodbath,
-bloodyhackV,
-whirlwind,
-bloodyhackV,
-)
+# Combos
+conq_dps.use( Breech(4) ).at( 1 )
+conq_dps.use( Whirlwind() ).at( 2, 6 )
+conq_dps.use( BloodyHack(5) ).at( 3, 5, 7 )
+conq_dps.use( Bloodbath(6) ).at( 4 )
 
-conq_dps.add(combos)
+# Abilities
 
 # Add a 300ms to the first step
 # bloodyhackV.add_delay(1, .1)

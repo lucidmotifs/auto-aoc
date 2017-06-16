@@ -93,6 +93,29 @@ class Rotation(object):
         logging.debug("Delta: {}".format(delta))
         self.last_keypress = curr_time
 
+    # This method is designed for fully formed combos that manage their \
+    # own hotkey callbacks and doesn't require a copy to be made
+    def use(self, combo):
+
+
+
+    # This function takes the last added action and adds it to action_list at
+    # the positions determined by *args
+    def at(self, *positions)
+        # get the last added combo
+        idx = self.combo_list[-1]
+
+        # add to all positions given
+        for pos in positions:
+            if pos in self.actions.keys():
+                # add to the end, may support adding to a sequence in future.
+                # should probably throw error if adding to another combo or
+                # sequence as it won't get played
+                # potentially could be a 'back-up' if some rule isn't met.
+                self.actions[pos] = self.actions[pos] + (self.combo_list[idx],)
+            else:
+                self.actions[pos] = (self.combo_list[idx],)
+
 
     def add(self, action_l):
         for action in action_l:
@@ -113,19 +136,7 @@ class Rotation(object):
         else:
             idx = self.combo_list.index(combo_copy)
 
-        if not positions:
-            pos = len(self.actions) + 1
-            self.actions[pos] = (self.combo_list[idx],)
-        else:
-            for pos in positions:
-                if pos in self.actions.keys():
-                    # add to the end, may support adding to a sequence in future.
-                    # should probably throw error if adding to another combo or
-                    # sequence as it won't get played
-                    # potentially could be a 'back-up' if some rule isn't met.
-                    self.actions[pos] = self.actions[pos] + (self.combo_list[idx],)
-                else:
-                    self.actions[pos] = (self.combo_list[idx],)
+        combo_copy.at(*positions)
 
         combo_copy.build_word()
 

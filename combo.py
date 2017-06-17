@@ -26,6 +26,7 @@ class Combo(Ability):
     pre_finishers = []
     post_ability = None
     duration = 0.0
+    attack_interval = ATTACK_INT_1HE
 
     def __init__(self, name, hotkey, steps, cooldown_time, \
                  cast_time=0.0, post_ability=None):
@@ -99,10 +100,11 @@ class Combo(Ability):
     def build_word(self):
         self.word = ''
         if hasattr(self, 'pre_finishers') and self.pre_finishers:
-            for a in self.pre_finishers:
-                self.finisher.append(''.join(a.hotkey))
-            steps_c = copy(self.steps)
             self.finisher.append(steps_c.pop())
+            for a in self.pre_finishers:
+                # guess we're deciding that pre_finishers can't have modifiers?
+                self.finisher.append(''.join(a.hotkey))
+            steps_c = copy(self.steps)            
             self.word += ''.join(steps_c)
         else:
             self.word += ''.join(self.steps)

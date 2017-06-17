@@ -225,7 +225,7 @@ class Rotation(object):
 
         self._inprogress = True
 
-        pyautogui.PAUSE = .65
+        pyautogui.PAUSE = .1
 
         self.current_action = self.get_combo_at(1)
 

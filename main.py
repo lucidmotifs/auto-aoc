@@ -22,6 +22,8 @@ from combo import Combo
 # classes and combos
 from conqueror.combos import *
 from conqueror.abilities import *
+from guardian.combos import *
+from guardian.abilities import *
 
 
 logging.basicConfig(
@@ -29,6 +31,25 @@ logging.basicConfig(
     filename='output.txt',
     filemode='w',
     level=logging.DEBUG)
+
+
+## Conqueror DPS Rotation
+guard_aggro = Rotation()
+guard_aggro.repeat = False
+guard_aggro.repeat_count = 2
+
+# Combos
+guard_aggro.use( ShieldSlam() ).at( 1, 5, 8, 12, 15 )
+guard_aggro.use( GuardDestroyer(4) ).at( 2, 11 )
+t_smash_buffs = guard_aggro.use( TitanicSmash() ).at( 3, 10, 16 )
+t_smash_buffs.attach_prefinishers( (Powerhouse(), BattleCry(), CallToArms()) )
+guard_aggro.use( Overreach(5) ).at( 4, 7, 9, 13, 17 )
+guard_aggro.use( Overreach(6) ).at( 6, 14 )
+
+# Abilities
+guard_aggro.use( TacticProvoke() ).at( 1 )
+guard_aggro.use( CryOfHavoc() ).at( 1 )
+guard_aggro.use( Irritate() ).at( 1 )
 
 
 ## Conqueror DPS Rotation
@@ -70,12 +91,12 @@ def main():
     # Set-up keyhooks
     try:
         #hk2 = keyboard.add_hotkey(80, start_rotation2, args=[grd_dps, 79])
-        hk3 = keyboard.add_hotkey(81, do_rotation, args=[aggro, 79])
+        hk3 = keyboard.add_hotkey(81, do_rotation, args=[guard_aggro, 79])
         hk4 = keyboard.add_hotkey(75, do_rotation, args=[conq_dps, 79])
 
         # Use this key to output the code for each key pressed. Makes it easier
         # to find new hotkeys.
-        hk5 = keyboard.add_hotkey('-', generic.dump_keys)
+        #hk5 = keyboard.add_hotkey('-', generic.dump_keys)
 
         keyboard.wait('escape')
     except Exception as e:

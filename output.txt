@@ -1,3 +1,14 @@
+Hotkey g registered for Shield Slam
+Hotkey 4 registered for Guard Destroyer IV
+Hotkey t registered for Titanic Smash
+Hotkey F1 registered for Powerhouse
+Hotkey F2 registered for Battle Cry
+Hotkey F3 registered for Call To Arms
+Hotkey 8 registered for Overreach V
+Hotkey f registered for Overreach VI
+Hotkey q registered for Tactic: Provoke
+Hotkey q registered for Rend Flesh
+Hotkey z registered for Irritate
 Hotkey 4 registered for Breech IV
 Hotkey r registered for Whirlwind
 Hotkey f registered for Bloody Hack VI
@@ -7,3 +18,2672 @@ Hotkey f1 registered for Blade Weave
 Hotkey f2 registered for Use Discipline
 Hotkey 9 registered for Annihilate
 Hotkey 0 registered for Rend Flesh
+Preparing to start
+During Unknown, UR attack key was pressed (18.06)
+Delta: 18.056911963226714
+Irritate was activated. Last used: Never
+Rend Flesh was activated. Last used: Never
+During Shield Slam, LL attack key was pressed (18.46)
+Delta: 0.40368953448211187
+Tactic: Provoke was activated. Last used: Never
+During Shield Slam, LL attack key was pressed (18.71)
+Delta: 0.2538654535644653
+Shield Slam was activated. Last used: Never
+During Shield Slam, Hotkey for Shield Slam was pressed (18.97)
+Delta: 0.2530480354014699
+During Shield Slam, LR attack key was pressed (19.72)
+Delta: 0.752366313514294
+During Shield Slam, MID attack key was pressed (20.47)
+Delta: 0.7513698572799257
+cast time: 1.07
+actual 2.36 vs expected 1.95
+wait more time: 0.07
+Breech IV was activated. Last used: Never
+During Unknown, Hotkey for Breech IV was pressed (22.4)
+Delta: 22.395340905500575
+During Guard Destroyer IV, UR attack key was pressed (23.15)
+Delta: 2.675130693741469
+cast time: 1.53
+actual 1.5 vs expected 1.3
+wait more time: 0.03
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (25.43)
+Delta: 3.033376963174053
+During Titanic Smash, UL attack key was pressed (26.18)
+Delta: 3.0340707019453603
+During Titanic Smash, MID attack key was pressed (26.93)
+Delta: 0.7509966587661268
+Powerhouse was activated. Last used: Never
+Blade Weave was activated. Last used: Never
+Battle Cry was activated. Last used: Never
+Use Discipline was activated. Last used: Never
+cast time: 1.07
+actual 2.36 vs expected 1.95
+wait more time: 0.07
+Call To Arms was activated. Last used: Never
+Overreach V was activated. Last used: Never
+During Overreach V, Hotkey for Overreach V was pressed (28.86)
+Delta: 1.9237778491289639
+During Overreach V, LR attack key was pressed (29.61)
+Delta: 0.7508743295861358
+During Overreach V, UL attack key was pressed (31.11)
+Delta: 1.5016376717705597
+cast time: 1.44
+actual 2.25 vs expected 2.6
+wait more time: -0.06
+Shield Slam was activated. Last used: 22.39486023013548
+During Shield Slam, Hotkey for Shield Slam was pressed (32.55)
+Delta: 1.4417403904758217
+During Shield Slam, LR attack key was pressed (33.3)
+Delta: 0.7514449290504288
+During Shield Slam, MID attack key was pressed (34.05)
+Delta: 0.751525941752405
+cast time: 1.07
+actual 2.36 vs expected 1.95
+wait more time: 0.07
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (35.98)
+Delta: 10.548982304935596
+During Overreach VI, MID attack key was pressed (36.73)
+Delta: 2.6769019014491278
+During Overreach VI, LR attack key was pressed (37.48)
+Delta: 0.7511168276073974
+During Overreach VI, UL attack key was pressed (39.18)
+Delta: 1.7035188947275088
+cast time: 1.49
+actual 3.21 vs expected 3.25
+wait more time: -0.01
+Overreach V was activated. Last used: 32.549203469612
+During Overreach V, Hotkey for Overreach V was pressed (40.68)
+Delta: 1.4921440632676806
+During Overreach V, LR attack key was pressed (41.43)
+Delta: 0.7521986172211896
+During Overreach V, UL attack key was pressed (42.93)
+Delta: 1.5016622456234927
+cast time: 1.44
+actual 2.25 vs expected 2.6
+wait more time: -0.06
+During Shield Slam, Hotkey for Shield Slam was pressed (44.37)
+Delta: 1.4445477506418243
+Shield Slam was activated. Last used: 35.977246502479126
+During Shield Slam, Hotkey for Shield Slam was pressed (45.09)
+Delta: 0.7146165547296164
+During Shield Slam, LR attack key was pressed (45.13)
+Delta: 0.03621483812447224
+During Shield Slam, MID attack key was pressed (45.88)
+Delta: 0.7509564224574703
+cast time: 1.07
+actual 2.35 vs expected 1.95
+wait more time: 0.07
+Overreach V was activated. Last used: 44.37145620061769
+During Overreach V, Hotkey for Overreach V was pressed (47.8)
+Delta: 1.9236271655032837
+During Overreach V, LR attack key was pressed (48.55)
+Delta: 0.7516666338115172
+During Overreach V, UL attack key was pressed (50.05)
+Delta: 1.5022579590253926
+cast time: 1.44
+actual 2.25 vs expected 2.6
+wait more time: -0.06
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (51.5)
+Delta: 15.517849933691103
+During Titanic Smash, UL attack key was pressed (52.25)
+Delta: 2.194174754659784
+During Titanic Smash, MID attack key was pressed (53.0)
+Delta: 0.7512224141623136
+cast time: 1.07
+actual 2.36 vs expected 1.95
+wait more time: 0.07
+Breech IV was activated. Last used: Never
+During Unknown, Hotkey for Breech IV was pressed (54.92)
+Delta: 3.429122122057514
+Whirlwind was activated. Last used: Never
+During Unknown, Hotkey for Whirlwind was pressed (55.29)
+Delta: 0.36468272860501827
+During Guard Destroyer IV, UR attack key was pressed (55.68)
+Delta: 2.677143319301038
+During Guard Destroyer IV, MID attack key was pressed (56.02)
+Delta: 0.34477277692369057
+During Guard Destroyer IV, MID attack key was pressed (56.17)
+Delta: 0.148010476562618
+cast time: 1.53
+actual 1.5 vs expected 1.3
+wait more time: 0.03
+Skipping execution of Rend Flesh due to cooldown (6.9s)
+During Guard Destroyer IV, LL attack key was pressed (56.66)
+Delta: 0.49384478992461567
+During Guard Destroyer IV, LR attack key was pressed (56.72)
+Delta: 0.05424205461174125
+During Guard Destroyer IV, UL attack key was pressed (57.83)
+Delta: 1.1079126996321733
+Shield Slam was activated. Last used: 46.63972625267916
+During Shield Slam, Hotkey for Shield Slam was pressed (57.96)
+Delta: 0.1338932031153206
+Breech IV was activated. Last used: Never
+During Unknown, Hotkey for Breech IV was pressed (58.28)
+Delta: 2.9922711181886186
+During Shield Slam, LR attack key was pressed (58.71)
+Delta: 0.7519971656356006
+During Shield Slam, MID attack key was pressed (59.46)
+Delta: 0.7521470391342646
+During Shield Slam, UR attack key was pressed (59.64)
+Delta: 0.17795601172307585
+During Shield Slam, UR attack key was pressed (59.77)
+Delta: 0.13201181813296614
+cast time: 1.07
+actual 2.36 vs expected 1.95
+wait more time: 0.07
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (61.37)
+Delta: 3.0920255686889178
+Overreach V was activated. Last used: 51.4951118285836
+During Overreach V, Hotkey for Overreach V was pressed (61.39)
+Delta: 1.6145010576208279
+During Overreach V, MID attack key was pressed (61.5)
+Delta: 0.10948110554253532
+During Overreach V, LR attack key was pressed (62.14)
+Delta: 0.6419138656750007
+During Overreach V, LL attack key was pressed (62.58)
+Delta: 0.44455828229308025
+During Overreach V, UL attack key was pressed (63.43)
+Delta: 0.8415351042890009
+Irritate was activated. Last used: 18.359447957845312
+During Overreach V, UL attack key was pressed (63.57)
+Delta: 0.1480045356311379
+During Overreach V, UL attack key was pressed (63.64)
+Delta: 0.06736827267147305
+cast time: 1.44
+actual 2.25 vs expected 2.6
+wait more time: -0.06
+Rend Flesh was activated. Last used: 18.561123678581566
+During Overreach V, LL attack key was pressed (63.66)
+Delta: 0.023730510706776897
+During Overreach V, UL attack key was pressed (63.71)
+Delta: 0.044948547482761114
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (65.08)
+Delta: 3.709946982587404
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (65.39)
+Delta: 0.30968860607654847
+During Overreach VI, UL attack key was pressed (65.57)
+Delta: 1.8607240429226906
+During Overreach VI, MID attack key was pressed (65.84)
+Delta: 0.2654648522341745
+During Overreach VI, LR attack key was pressed (66.59)
+Delta: 0.7510117811371657
+During Overreach VI, UL attack key was pressed (68.29)
+Delta: 1.7044294774977828
+cast time: 1.49
+actual 3.21 vs expected 3.25
+wait more time: -0.01
+During Overreach VI, Hotkey for Shield Slam was pressed (69.22)
+Delta: 0.9328126556962815
+During Shield Slam, Hotkey for Shield Slam was pressed (69.79)
+Delta: 0.5629518652229564
+During Shield Slam, LR attack key was pressed (70.02)
+Delta: 0.23057673212582586
+Shield Slam was activated. Last used: 61.38733928092586
+During Shield Slam, Hotkey for Shield Slam was pressed (70.49)
+Delta: 0.4737107031011334
+Shield Slam was activated. Last used: 61.38733928092586
+During Shield Slam, Hotkey for Shield Slam was pressed (70.49)
+Delta: 0.0031997316859389002
+During Shield Slam, LR attack key was pressed (70.54)
+Delta: 0.04338500233451725
+During Shield Slam, MID attack key was pressed (71.29)
+Delta: 0.7515440345891733
+During Shield Slam, MID attack key was pressed (71.46)
+Delta: 0.17217737569073677
+During Shield Slam, LL attack key was pressed (72.04)
+Delta: 0.5789958907657109
+cast time: 1.07
+actual 2.36 vs expected 1.95
+wait more time: 0.07
+During Unknown, Hotkey for Bloodbath VI was pressed (73.22)
+Delta: 7.822550587706644
+During Titanic Smash, UL attack key was pressed (73.97)
+Delta: 1.9269640786979068
+During Titanic Smash, MID attack key was pressed (74.72)
+Delta: 0.7515524059017196
+cast time: 1.07
+actual 2.36 vs expected 1.95
+wait more time: 0.07
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (75.86)
+Delta: 2.6404694091986585
+During Overreach V, Hotkey for Overreach V was pressed (76.64)
+Delta: 1.9236846845216888
+During Overreach V, LR attack key was pressed (77.39)
+Delta: 0.7516196464443681
+During Overreach V, MID attack key was pressed (77.88)
+Delta: 0.4867434865112443
+During Overreach V, MID attack key was pressed (78.76)
+Delta: 0.883427582610679
+During Overreach V, UL attack key was pressed (78.9)
+Delta: 0.13157623983863687
+cast time: 1.44
+actual 2.25 vs expected 2.6
+wait more time: -0.06
+Whirlwind was activated. Last used: Never
+During Unknown, Hotkey for Whirlwind was pressed (79.85)
+Delta: 3.991931945009668
+During Unknown, Hotkey for Whirlwind was pressed (80.69)
+Delta: 0.8399194409691404
+During Overreach V, LR attack key was pressed (81.21)
+Delta: 2.316974078365746
+During Overreach V, LR attack key was pressed (82.68)
+Delta: 1.463492300957867
+During Overreach V, LR attack key was pressed (83.24)
+Delta: 0.56037188070718
+Skipping execution of Rend Flesh due to cooldown (22.67s)
+During Overreach V, LL attack key was pressed (86.0)
+Delta: 2.7615291201507546
+Bloody Hack V was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack V was pressed (87.0)
+Delta: 6.312062008202275
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (88.06)
+Delta: 1.0560237939706525
+Powerhouse was activated. Last used: Never
+Blade Weave was activated. Last used: Never
+Battle Cry was activated. Last used: Never
+Use Discipline was activated. Last used: Never
+During Overreach V, LL attack key was pressed (89.74)
+Delta: 3.746193685707979
+Breech IV was activated. Last used: Never
+During Unknown, Hotkey for Breech IV was pressed (112.88)
+Delta: 24.822963482444408
+Rend Flesh was activated. Last used: 63.665301962694734
+During Overreach V, LL attack key was pressed (113.76)
+Delta: 24.011014216919065
+During Overreach V, UR attack key was pressed (114.27)
+Delta: 0.5118909093756798
+During Overreach V, UR attack key was pressed (114.42)
+Delta: 0.1521874914767949
+During Overreach V, UL attack key was pressed (115.71)
+Delta: 1.2878783664490783
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (116.02)
+Delta: 3.1362001748254187
+During Overreach V, UL attack key was pressed (116.19)
+Delta: 0.48389832041765146
+During Overreach V, UL attack key was pressed (118.11)
+Delta: 1.9200396530171986
+During Overreach V, MID attack key was pressed (118.56)
+Delta: 0.4441453875553236
+During Overreach V, MID attack key was pressed (118.73)
+Delta: 0.17194918991347663
+Shield Slam was activated. Last used: 72.04426642053207
+During Overreach V, Hotkey for Shield Slam was pressed (119.61)
+Delta: 0.8867626055089204
+During Overreach V, LR attack key was pressed (120.39)
+Delta: 0.7803678138695318
+During Overreach V, MID attack key was pressed (121.42)
+Delta: 1.0238917259837166
+During Overreach V, MID attack key was pressed (121.57)
+Delta: 0.15595863275403588
+Rend Flesh was activated. Last used: 63.665301962694734
+During Overreach V, LL attack key was pressed (121.94)
+Delta: 0.3644053951219064
+During Overreach V, LR attack key was pressed (121.96)
+Delta: 0.023548502169646213
+Whirlwind was activated. Last used: Never
+During Unknown, Hotkey for Whirlwind was pressed (123.77)
+Delta: 7.758844629249424
+During Overreach V, MID attack key was pressed (124.41)
+Delta: 2.4439231427095507
+During Overreach V, MID attack key was pressed (124.55)
+Delta: 0.1401425229461637
+During Overreach V, Hotkey for Shield Slam was pressed (125.88)
+Delta: 1.335670729813728
+During Overreach V, MID attack key was pressed (126.54)
+Delta: 0.6562771476939986
+During Overreach V, MID attack key was pressed (126.68)
+Delta: 0.1439593013788567
+During Overreach V, UR attack key was pressed (127.88)
+Delta: 1.1960005109201148
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (128.89)
+Delta: 5.120034630229668
+During Overreach V, MID attack key was pressed (130.49)
+Delta: 2.616509902587623
+During Overreach V, LR attack key was pressed (131.34)
+Delta: 0.8474628036929914
+Rend Flesh was activated. Last used: 63.665301962694734
+During Overreach V, LL attack key was pressed (132.15)
+Delta: 0.8124658565216407
+During Overreach V, UL attack key was pressed (132.56)
+Delta: 0.407960794172908
+During Overreach V, UL attack key was pressed (132.71)
+Delta: 0.1475900206393419
+During Overreach V, UL attack key was pressed (132.84)
+Delta: 0.13198643415302058
+Rend Flesh was activated. Last used: 63.665301962694734
+During Overreach V, LL attack key was pressed (133.47)
+Delta: 0.6242752401148834
+During Overreach V, LR attack key was pressed (133.49)
+Delta: 0.023795320868373437
+Shield Slam was activated. Last used: 72.04426642053207
+During Overreach V, Hotkey for Shield Slam was pressed (134.52)
+Delta: 1.0323194773708622
+During Overreach V, LR attack key was pressed (135.59)
+Delta: 1.071642772870348
+During Overreach V, MID attack key was pressed (136.41)
+Delta: 0.8120394596668916
+During Overreach V, MID attack key was pressed (136.55)
+Delta: 0.14391555451979343
+Battle Cry was activated. Last used: Never
+Use Discipline was activated. Last used: Never
+Call To Arms was activated. Last used: Never
+Bloody Hack V was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack V was pressed (138.56)
+Delta: 9.668039381894687
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (139.89)
+Delta: 1.332046761611764
+During Overreach V, MID attack key was pressed (140.67)
+Delta: 4.1244806073144105
+During Overreach V, LR attack key was pressed (141.16)
+Delta: 0.48758088780741105
+During Overreach V, UL attack key was pressed (142.14)
+Delta: 0.9805393987723221
+During Overreach V, UL attack key was pressed (142.29)
+Delta: 0.14746634124765023
+Rend Flesh was activated. Last used: 63.665301962694734
+During Overreach V, LL attack key was pressed (142.62)
+Delta: 0.3281503206887635
+During Overreach V, LR attack key was pressed (142.64)
+Delta: 0.01997044116546931
+Rend Flesh was activated. Last used: 63.665301962694734
+During Overreach V, LL attack key was pressed (149.25)
+Delta: 6.611052886982151
+Breech IV was activated. Last used: Never
+During Unknown, Hotkey for Breech IV was pressed (149.9)
+Delta: 10.002837604908052
+During Overreach V, UR attack key was pressed (150.91)
+Delta: 1.663884510452391
+During Overreach V, UR attack key was pressed (151.05)
+Delta: 0.13189056912233355
+Rend Flesh was activated. Last used: 63.665301962694734
+During Overreach V, LL attack key was pressed (151.43)
+Delta: 0.38015075383671615
+During Overreach V, LR attack key was pressed (151.46)
+Delta: 0.03214313972287641
+Powerhouse was activated. Last used: Never
+Blade Weave was activated. Last used: Never
+Battle Cry was activated. Last used: Never
+Use Discipline was activated. Last used: Never
+Call To Arms was activated. Last used: Never
+During Overreach V, UL attack key was pressed (153.05)
+Delta: 1.5918137204732261
+Irritate was activated. Last used: 108.5694201893915
+Irritate was activated. Last used: 108.5694201893915
+Rend Flesh was activated. Last used: 63.665301962694734
+During Overreach V, LL attack key was pressed (154.1)
+Delta: 1.0483424396111047
+Rend Flesh was activated. Last used: 63.665301962694734
+During Overreach V, LL attack key was pressed (154.26)
+Delta: 0.15982941965469877
+During Overreach V, UL attack key was pressed (154.55)
+Delta: 0.2918258453743192
+During Overreach V, UL attack key was pressed (154.7)
+Delta: 0.14789246806006418
+During Overreach V, UL attack key was pressed (154.85)
+Delta: 0.14802829935703699
+During Overreach V, UL attack key was pressed (154.97)
+Delta: 0.1202371619846474
+During Overreach V, UL attack key was pressed (155.11)
+Delta: 0.1399821177962508
+During Overreach V, UL attack key was pressed (155.25)
+Delta: 0.14781199544276546
+During Overreach V, UL attack key was pressed (155.39)
+Delta: 0.1399356705137791
+During Overreach V, LL attack key was pressed (155.9)
+Delta: 0.5080276836605151
+During Overreach V, UL attack key was pressed (157.12)
+Delta: 1.21627772018374
+Shield Slam was activated. Last used: 72.04426642053207
+During Overreach V, Hotkey for Shield Slam was pressed (158.48)
+Delta: 1.363575014926596
+During Overreach V, LR attack key was pressed (159.07)
+Delta: 0.5882907481064024
+During Overreach V, MID attack key was pressed (160.0)
+Delta: 0.9319323176680712
+During Overreach V, MID attack key was pressed (160.15)
+Delta: 0.14410188373435062
+During Overreach V, MID attack key was pressed (160.29)
+Delta: 0.1438048371604168
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (168.43)
+Delta: 18.531105502031664
+During Overreach V, UL attack key was pressed (169.17)
+Delta: 8.879102314451899
+Rend Flesh was activated. Last used: 63.665301962694734
+During Overreach V, LL attack key was pressed (193.1)
+Delta: 23.9269837917887
+Breech IV was activated. Last used: Never
+During Unknown, Hotkey for Breech IV was pressed (193.6)
+Delta: 25.171172818186164
+During Overreach V, UR attack key was pressed (194.27)
+Delta: 1.1720561266801042
+During Overreach V, UR attack key was pressed (194.42)
+Delta: 0.14785520221715842
+Powerhouse was activated. Last used: Never
+Blade Weave was activated. Last used: Never
+Battle Cry was activated. Last used: Never
+Use Discipline was activated. Last used: Never
+Call To Arms was activated. Last used: Never
+Shield Slam was activated. Last used: 72.04426642053207
+During Overreach V, Hotkey for Shield Slam was pressed (195.66)
+Delta: 1.2438714566056888
+During Overreach V, LR attack key was pressed (195.86)
+Delta: 0.20420817780018297
+During Overreach V, MID attack key was pressed (197.66)
+Delta: 1.8000223054972935
+During Overreach V, MID attack key was pressed (197.82)
+Delta: 0.1599401370140754
+Irritate was activated. Last used: 153.68248772725076
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (199.28)
+Delta: 5.680044114116669
+During Overreach V, UL attack key was pressed (199.44)
+Delta: 1.611997765129587
+Powerhouse was activated. Last used: Never
+Blade Weave was activated. Last used: Never
+Battle Cry was activated. Last used: Never
+Use Discipline was activated. Last used: Never
+Call To Arms was activated. Last used: Never
+During Overreach V, MID attack key was pressed (201.22)
+Delta: 1.783976389658136
+During Overreach V, MID attack key was pressed (201.38)
+Delta: 0.16003573200242727
+During Overreach V, UL attack key was pressed (202.16)
+Delta: 0.784010414992963
+During Overreach V, MID attack key was pressed (202.18)
+Delta: 0.015984346185632603
+Whirlwind was activated. Last used: Never
+During Unknown, Hotkey for Whirlwind was pressed (202.94)
+Delta: 3.660005622281517
+During Overreach V, MID attack key was pressed (203.55)
+Delta: 1.3719714414023088
+During Overreach V, MID attack key was pressed (203.7)
+Delta: 0.15211295979096917
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (204.63)
+Delta: 1.6917423482827871
+During Overreach V, MID attack key was pressed (204.77)
+Delta: 1.0638747349196933
+During Overreach V, LR attack key was pressed (206.26)
+Delta: 1.488030778345717
+During Overreach V, UL attack key was pressed (207.3)
+Delta: 1.0400148739320798
+During Overreach V, UL attack key was pressed (207.46)
+Delta: 0.16402938816779056
+During Overreach V, UL attack key was pressed (207.56)
+Delta: 0.10407620810866547
+Rend Flesh was activated. Last used: 63.665301962694734
+During Overreach V, LL attack key was pressed (209.8)
+Delta: 2.231968530345881
+Shield Slam was activated. Last used: 72.04426642053207
+During Overreach V, Hotkey for Shield Slam was pressed (209.95)
+Delta: 0.15579525713835096
+During Overreach V, LR attack key was pressed (210.14)
+Delta: 0.18415699397507979
+During Overreach V, MID attack key was pressed (211.35)
+Delta: 1.2160090280555096
+During Overreach V, MID attack key was pressed (211.51)
+Delta: 0.15995336908875402
+During Overreach V, LR attack key was pressed (211.79)
+Delta: 0.27605834318762845
+Rend Flesh was activated. Last used: 63.665301962694734
+During Overreach V, LL attack key was pressed (211.79)
+Delta: 0.0040298418388999835
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (213.64)
+Delta: 9.006988155672929
+During Overreach V, MID attack key was pressed (213.77)
+Delta: 1.9789412882045667
+During Overreach V, LR attack key was pressed (215.26)
+Delta: 1.4879945926721803
+Powerhouse was activated. Last used: Never
+Blade Weave was activated. Last used: Never
+Battle Cry was activated. Last used: Never
+Use Discipline was activated. Last used: Never
+Call To Arms was activated. Last used: Never
+During Overreach V, UL attack key was pressed (216.54)
+Delta: 1.2799607250420877
+Bloody Hack V was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack V was pressed (219.41)
+Delta: 5.776060908589841
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (221.31)
+Delta: 1.8960401801398632
+During Overreach V, MID attack key was pressed (221.77)
+Delta: 5.228196038856936
+During Overreach V, LR attack key was pressed (222.71)
+Delta: 0.9442141133308155
+During Overreach V, UL attack key was pressed (226.52)
+Delta: 3.8117975017302967
+Breech IV was activated. Last used: Never
+During Unknown, Hotkey for Breech IV was pressed (228.73)
+Delta: 7.420027636133057
+During Overreach V, UR attack key was pressed (229.69)
+Delta: 3.1681272806763445
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (231.28)
+Delta: 2.5521328889156507
+During Overreach V, UL attack key was pressed (231.49)
+Delta: 1.7956659824693872
+Rend Flesh was activated. Last used: 63.665301962694734
+During Overreach V, LL attack key was pressed (232.45)
+Delta: 0.9641229848428168
+During Overreach V, MID attack key was pressed (233.47)
+Delta: 1.0198656647375515
+Shield Slam was activated. Last used: 72.04426642053207
+During Overreach V, Hotkey for Shield Slam was pressed (234.45)
+Delta: 0.9798942676222282
+During Overreach V, LR attack key was pressed (235.14)
+Delta: 0.6881788695649504
+During Overreach V, MID attack key was pressed (236.18)
+Delta: 1.0399716671577153
+During Overreach V, MID attack key was pressed (236.33)
+Delta: 0.15628025318088135
+During Overreach V, LR attack key was pressed (237.93)
+Delta: 1.5908334667792587
+Bloody Hack V was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack V was pressed (239.22)
+Delta: 7.938915342536575
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (240.62)
+Delta: 1.4001935663492588
+During Overreach V, MID attack key was pressed (240.76)
+Delta: 2.83594036709016
+During Overreach V, LR attack key was pressed (242.27)
+Delta: 1.5079693545150974
+During Overreach V, UL attack key was pressed (243.32)
+Delta: 1.0480110976600088
+Irritate was activated. Last used: 198.78735272903438
+Powerhouse was activated. Last used: Never
+Blade Weave was activated. Last used: Never
+Battle Cry was activated. Last used: Never
+Use Discipline was activated. Last used: Never
+Call To Arms was activated. Last used: Never
+During Overreach V, UL attack key was pressed (244.31)
+Delta: 0.987970153840422
+During Unknown, Hotkey for Whirlwind was pressed (246.53)
+Delta: 5.907598262331533
+During Overreach V, LR attack key was pressed (247.29)
+Delta: 2.984158776254503
+During Overreach V, MID attack key was pressed (248.1)
+Delta: 0.807826259079178
+During Overreach V, MID attack key was pressed (248.26)
+Delta: 0.16003654212943275
+During Overreach V, MID attack key was pressed (248.42)
+Delta: 0.1640599029521752
+During Overreach V, UL attack key was pressed (248.54)
+Delta: 0.11593538750940979
+During Overreach V, UL attack key was pressed (248.7)
+Delta: 0.1600422130185848
+Shield Slam was activated. Last used: 72.04426642053207
+During Overreach V, Hotkey for Shield Slam was pressed (249.66)
+Delta: 0.9598598264221891
+During Overreach V, LR attack key was pressed (251.08)
+Delta: 1.4241274189380135
+Breech IV was activated. Last used: Never
+During Unknown, Hotkey for Breech IV was pressed (272.65)
+Delta: 26.12322329017971
+During Overreach V, UR attack key was pressed (273.78)
+Delta: 22.70302552737246
+Powerhouse was activated. Last used: Never
+Blade Weave was activated. Last used: Never
+Battle Cry was activated. Last used: Never
+Use Discipline was activated. Last used: Never
+Call To Arms was activated. Last used: Never
+Shield Slam was activated. Last used: 72.04426642053207
+During Overreach V, Hotkey for Shield Slam was pressed (275.44)
+Delta: 1.6597933690023297
+During Overreach V, LR attack key was pressed (275.63)
+Delta: 0.1881449792512626
+During Overreach V, MID attack key was pressed (276.94)
+Delta: 1.3120371643070143
+During Overreach V, MID attack key was pressed (277.09)
+Delta: 0.148009126350928
+Powerhouse was activated. Last used: Never
+Blade Weave was activated. Last used: Never
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (278.72)
+Delta: 6.0678891843451765
+During Overreach V, UL attack key was pressed (279.0)
+Delta: 1.9079660599985004
+During Overreach V, MID attack key was pressed (280.31)
+Delta: 1.3120134005811224
+During Overreach V, MID attack key was pressed (280.46)
+Delta: 0.14796618961884178
+During Overreach V, MID attack key was pressed (280.59)
+Delta: 0.1280932337381273
+Rend Flesh was activated. Last used: 63.665301962694734
+During Overreach V, LL attack key was pressed (280.91)
+Delta: 0.3200020631234679
+During Overreach V, LR attack key was pressed (280.93)
+Delta: 0.023943844155326133
+Whirlwind was activated. Last used: Never
+During Unknown, Hotkey for Whirlwind was pressed (282.41)
+Delta: 3.6921225678974565
+During Overreach V, MID attack key was pressed (283.24)
+Delta: 2.304002324524447
+During Overreach V, MID attack key was pressed (283.36)
+Delta: 0.12817532660949382
+During Overreach V, UL attack key was pressed (284.33)
+Delta: 0.9668914589118458
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (284.97)
+Delta: 2.5548851604442575
+During Overreach V, MID attack key was pressed (285.5)
+Delta: 1.1719146244939793
+During Overreach V, LR attack key was pressed (286.22)
+Delta: 0.7161217707323999
+Rend Flesh was activated. Last used: 63.665301962694734
+During Overreach V, LL attack key was pressed (287.24)
+Delta: 1.0159311478446966
+During Overreach V, UL attack key was pressed (287.43)
+Delta: 0.19591031677856563
+During Overreach V, UL attack key was pressed (287.58)
+Delta: 0.15200224243159255
+Irritate was activated. Last used: 243.8925517731925
+Shield Slam was activated. Last used: 72.04426642053207
+During Overreach V, Hotkey for Shield Slam was pressed (289.34)
+Delta: 1.7601375919730344
+During Overreach V, LR attack key was pressed (289.53)
+Delta: 0.1879292154216614
+During Overreach V, MID attack key was pressed (291.04)
+Delta: 1.5082610002422712
+During Overreach V, MID attack key was pressed (291.19)
+Delta: 0.15176325496071286
+During Overreach V, MID attack key was pressed (291.32)
+Delta: 0.13226106721276665
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (292.71)
+Delta: 7.744125701468761
+During Overreach V, MID attack key was pressed (292.84)
+Delta: 1.5199387111904912
+During Overreach V, LR attack key was pressed (294.54)
+Delta: 1.6997307407828544
+During Overreach V, UL attack key was pressed (295.74)
+Delta: 1.2000184708960546
+During Overreach V, UL attack key was pressed (295.88)
+Delta: 0.13999453974389553
+Rend Flesh was activated. Last used: 63.665301962694734
+During Overreach V, LL attack key was pressed (296.17)
+Delta: 0.2841631239361959
+Battle Cry was activated. Last used: Never
+Use Discipline was activated. Last used: Never
+During Unknown, Hotkey for Whirlwind was pressed (299.06)
+Delta: 6.343805755304345
+During Overreach V, LR attack key was pressed (299.69)
+Delta: 3.519846356710275
+During Overreach V, UL attack key was pressed (300.72)
+Delta: 1.0279825973914285
+Shield Slam was activated. Last used: 72.04426642053207
+During Overreach V, Hotkey for Shield Slam was pressed (303.21)
+Delta: 2.495893601157718
+During Overreach V, LR attack key was pressed (303.92)
+Delta: 0.7122690766685196
+Rend Flesh was activated. Last used: 63.665301962694734
+During Overreach V, LL attack key was pressed (304.16)
+Delta: 0.23189534887177388
+During Overreach V, MID attack key was pressed (304.8)
+Delta: 0.6483057678613591
+During Overreach V, MID attack key was pressed (304.96)
+Delta: 0.15565699546027645
+During Overreach V, MID attack key was pressed (305.1)
+Delta: 0.13997239627201452
+During Overreach V, MID attack key was pressed (305.22)
+Delta: 0.12403071677613298
+Breech IV was activated. Last used: Never
+During Unknown, Hotkey for Breech IV was pressed (307.54)
+Delta: 8.487235503654631
+During Overreach V, UR attack key was pressed (308.85)
+Delta: 3.6309714800183315
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (309.86)
+Delta: 2.3198079026810774
+During Overreach V, UL attack key was pressed (310.03)
+Delta: 1.172107434724694
+During Overreach V, Hotkey for Shield Slam was pressed (311.19)
+Delta: 1.1636283752929444
+During Overreach V, MID attack key was pressed (312.45)
+Delta: 1.260420461324145
+During Overreach V, MID attack key was pressed (312.61)
+Delta: 0.15585493649547288
+During Overreach V, MID attack key was pressed (312.72)
+Delta: 0.11603827364092467
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (314.13)
+Delta: 4.2640009527093525
+During Overreach V, MID attack key was pressed (314.47)
+Delta: 1.7519639504278075
+During Overreach V, LR attack key was pressed (315.83)
+Delta: 1.356137508799975
+During Overreach V, UL attack key was pressed (316.55)
+Delta: 0.7238493023321553
+During Overreach V, UL attack key was pressed (316.71)
+Delta: 0.16002249992772022
+During Overreach V, UL attack key was pressed (317.03)
+Delta: 0.31603946182724485
+Shield Slam was activated. Last used: 72.04426642053207
+During Overreach V, Hotkey for Shield Slam was pressed (319.21)
+Delta: 2.1798087722173705
+During Overreach V, LR attack key was pressed (319.39)
+Delta: 0.18016603823315336
+During Overreach V, MID attack key was pressed (321.01)
+Delta: 1.6239838644301017
+During Overreach V, MID attack key was pressed (321.17)
+Delta: 0.16002439022418002
+During Overreach V, MID attack key was pressed (321.31)
+Delta: 0.13614535623037227
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (322.47)
+Delta: 8.339987356617655
+During Overreach V, MID attack key was pressed (322.61)
+Delta: 1.295806539507339
+During Overreach V, UL attack key was pressed (324.16)
+Delta: 1.5520626779072586
+Rend Flesh was activated. Last used: 63.665301962694734
+During Overreach V, LL attack key was pressed (324.17)
+Delta: 0.008062114058873249
+During Overreach V, LR attack key was pressed (324.82)
+Delta: 0.6519480989424551
+Irritate was activated. Last used: 288.99889390657563
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (482.85)
+Delta: 160.3811623324421
+Shield Slam was activated. Last used: 72.04426642053207
+During Overreach V, Hotkey for Shield Slam was pressed (483.65)
+Delta: 158.82895302154424
+Shield Slam was activated. Last used: 72.04426642053207
+During Overreach V, Hotkey for Shield Slam was pressed (485.26)
+Delta: 1.6120515035552216
+Whirlwind was activated. Last used: Never
+During Unknown, Hotkey for Whirlwind was pressed (485.65)
+Delta: 2.804002459545643
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (487.0)
+Delta: 1.3444922029324857
+Whirlwind was activated. Last used: Never
+During Unknown, Hotkey for Whirlwind was pressed (487.59)
+Delta: 0.5914402519171063
+Preparing to start
+During Overreach V, UR attack key was pressed (535.96)
+Delta: 50.70449887837913
+During Overreach V, UR attack key was pressed (535.96)
+Delta: 0.0002403376826123349
+Irritate was activated. Last used: 334.10292258723246
+Rend Flesh was activated. Last used: 63.665301962694734
+During Shield Slam, LL attack key was pressed (536.37)
+Delta: 0.40538161978406606
+During Shield Slam, LL attack key was pressed (536.37)
+Delta: 0.00020739251715440332
+During Shield Slam, LL attack key was pressed (536.62)
+Delta: 0.2545583822087565
+During Shield Slam, LL attack key was pressed (536.62)
+Delta: 0.00024654865637785406
+Skipping execution of Rend Flesh due to cooldown (44.69s)
+During Shield Slam, LL attack key was pressed (536.78)
+Delta: 0.1525209937665295
+During Shield Slam, LL attack key was pressed (536.78)
+Delta: 0.000165805996743984
+Shield Slam was activated. Last used: 72.04426642053207
+During Shield Slam, Hotkey for Shield Slam was pressed (536.88)
+Delta: 0.09928322661710354
+During Shield Slam, LR attack key was pressed (537.63)
+Delta: 0.7529428539100991
+During Shield Slam, LR attack key was pressed (537.63)
+Delta: 0.0003637470318835767
+During Shield Slam, MID attack key was pressed (538.38)
+Delta: 0.7508087092975302
+During Shield Slam, MID attack key was pressed (538.38)
+Delta: 0.0004018230017663882
+cast time: 1.07
+actual 2.36 vs expected 1.95
+wait more time: 0.07
+During Unknown, Hotkey for Breech IV was pressed (540.3)
+Delta: 52.71740501193182
+During Guard Destroyer IV, UR attack key was pressed (541.06)
+Delta: 2.6757509809963267
+During Guard Destroyer IV, UR attack key was pressed (541.06)
+Delta: 0.0003267512313414045
+cast time: 1.53
+actual 1.5 vs expected 1.3
+wait more time: 0.03
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (543.34)
+Delta: 3.0339543136968814
+During Titanic Smash, UL attack key was pressed (544.09)
+Delta: 3.0327102286368017
+During Titanic Smash, UL attack key was pressed (544.09)
+Delta: 0.000276253313700181
+During Titanic Smash, MID attack key was pressed (544.84)
+Delta: 0.7507228358334714
+During Titanic Smash, MID attack key was pressed (544.84)
+Delta: 0.0002805739911764249
+Powerhouse was activated. Last used: Never
+Blade Weave was activated. Last used: Never
+Battle Cry was activated. Last used: Never
+cast time: 1.07
+Use Discipline was activated. Last used: Never
+actual 2.35 vs expected 1.95
+wait more time: 0.07
+Call To Arms was activated. Last used: Never
+During Overreach V, Hotkey for Overreach V was pressed (546.76)
+Delta: 1.923838608655501
+During Overreach V, LR attack key was pressed (547.52)
+Delta: 0.7515426843774549
+During Overreach V, LR attack key was pressed (547.52)
+Delta: 0.0002989368703083528
+During Overreach V, UL attack key was pressed (549.02)
+Delta: 1.5025539254299929
+During Overreach V, UL attack key was pressed (549.02)
+Delta: 0.0002954263198944318
+cast time: 1.44
+actual 2.26 vs expected 2.6
+wait more time: -0.06
+Breech IV was activated. Last used: Never
+During Unknown, Hotkey for Breech IV was pressed (549.24)
+Delta: 5.905772236028838
+Shield Slam was activated. Last used: 540.3045469999241
+During Shield Slam, Hotkey for Shield Slam was pressed (550.46)
+Delta: 1.4423234118877417
+During Shield Slam, MID attack key was pressed (551.1)
+Delta: 0.6425889715247877
+During Shield Slam, MID attack key was pressed (551.1)
+Delta: 0.0002470887410481737
+During Shield Slam, LR attack key was pressed (551.21)
+Delta: 0.1081665394317497
+During Shield Slam, LR attack key was pressed (551.21)
+Delta: 0.0004720340101584952
+Skipping execution of Rend Flesh due to cooldown (29.93s)
+During Shield Slam, LL attack key was pressed (551.54)
+Delta: 0.3286261352917563
+During Shield Slam, LL attack key was pressed (551.54)
+Delta: 0.00018740938389782968
+During Shield Slam, MID attack key was pressed (551.97)
+Delta: 0.425414980814935
+During Shield Slam, MID attack key was pressed (551.97)
+Delta: 0.0008149877818368623
+cast time: 1.07
+actual 2.36 vs expected 1.95
+wait more time: 0.07
+During Unknown, Hotkey for Bloody Hack VI was pressed (553.89)
+Delta: 4.646986611030798
+During Overreach VI, MID attack key was pressed (554.64)
+Delta: 2.675251132625135
+During Overreach VI, MID attack key was pressed (554.64)
+Delta: 0.0003969622397335115
+During Overreach VI, LR attack key was pressed (555.4)
+Delta: 0.750924017376633
+During Overreach VI, LR attack key was pressed (555.4)
+Delta: 0.0003715782597737416
+During Overreach VI, UL attack key was pressed (557.1)
+Delta: 1.7030314683039478
+During Overreach VI, UL attack key was pressed (557.1)
+cast time: 1.49
+Delta: 0.000308658394487793
+actual 3.21 vs expected 3.25
+wait more time: -0.01
+During Unknown, Hotkey for Bloody Hack V was pressed (558.21)
+Delta: 4.320879160643585
+Overreach V was activated. Last used: 550.4615968737738
+During Overreach V, Hotkey for Overreach V was pressed (558.59)
+Delta: 1.4913101725220486
+During Overreach V, MID attack key was pressed (559.27)
+Delta: 0.6825817019849865
+During Overreach V, MID attack key was pressed (559.27)
+Delta: 0.00022791573496760975
+During Overreach V, LR attack key was pressed (559.34)
+Delta: 0.0680949566082063
+During Overreach V, LR attack key was pressed (559.34)
+Delta: 0.00030433771712523594
+During Overreach V, MID attack key was pressed (559.41)
+Delta: 0.06722650044298462
+During Overreach V, MID attack key was pressed (559.41)
+Delta: 0.0002462786139858508
+During Overreach V, MID attack key was pressed (559.53)
+Delta: 0.11974973556107216
+During Overreach V, MID attack key was pressed (559.53)
+Delta: 0.00024816891038881295
+During Overreach V, MID attack key was pressed (559.64)
+Delta: 0.1077614759218477
+During Overreach V, MID attack key was pressed (559.64)
+Delta: 0.0002562701805572942
+During Overreach V, UL attack key was pressed (560.84)
+Delta: 1.2057023220670544
+During Overreach V, UL attack key was pressed (560.84)
+cast time: 1.44
+Delta: 0.0002854347533229884
+actual 2.25 vs expected 2.6
+wait more time: -0.06
+During Shield Slam, Hotkey for Shield Slam was pressed (562.29)
+Delta: 1.4434270749311509
+Shield Slam was activated. Last used: 553.8912282956845
+During Shield Slam, Hotkey for Shield Slam was pressed (562.9)
+Delta: 0.6184236926507083
+Shield Slam was activated. Last used: 553.8912282956845
+During Shield Slam, Hotkey for Shield Slam was pressed (563.01)
+Delta: 0.10119296604511874
+During Shield Slam, LR attack key was pressed (563.04)
+Delta: 0.03097169605223371
+During Shield Slam, LR attack key was pressed (563.04)
+Delta: 0.0002268355656269705
+During Shield Slam, LR attack key was pressed (563.25)
+Delta: 0.21551539065808356
+During Shield Slam, LR attack key was pressed (563.25)
+Delta: 0.0002257553961726444
+During Shield Slam, MID attack key was pressed (563.79)
+Delta: 0.5355336563219453
+During Shield Slam, MID attack key was pressed (563.79)
+Delta: 0.00029137568481019116
+During Shield Slam, MID attack key was pressed (564.13)
+Delta: 0.3440763377290068
+During Shield Slam, MID attack key was pressed (564.13)
+Delta: 0.00044746015726104815
+During Shield Slam, MID attack key was pressed (564.28)
+Delta: 0.14741125261036814
+During Shield Slam, MID attack key was pressed (564.28)
+Delta: 0.00023466679340344854
+During Shield Slam, MID attack key was pressed (564.41)
+Delta: 0.12776270191397998
+During Shield Slam, MID attack key was pressed (564.41)
+Delta: 0.00025086933385409793
+cast time: 1.07
+actual 2.35 vs expected 1.95
+wait more time: 0.07
+During Shield Slam, UL attack key was pressed (565.31)
+Delta: 0.9037876948726762
+During Shield Slam, UL attack key was pressed (565.31)
+Delta: 0.0003810297415611785
+Breech IV was activated. Last used: Never
+During Unknown, Hotkey for Breech IV was pressed (566.21)
+Delta: 7.999249282294954
+During Shield Slam, UR attack key was pressed (568.01)
+Delta: 2.6987483267502057
+During Shield Slam, UR attack key was pressed (568.01)
+Delta: 0.00033566262857220863
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (569.22)
+Delta: 3.003901571727397
+During Shield Slam, UL attack key was pressed (569.4)
+Delta: 1.391471738853852
+During Shield Slam, UL attack key was pressed (569.4)
+Delta: 0.0002524895878650568
+During Shield Slam, MID attack key was pressed (573.0)
+Delta: 3.5958381614653945
+During Shield Slam, MID attack key was pressed (573.0)
+Delta: 0.000265721662458418
+During Shield Slam, LL attack key was pressed (575.14)
+Delta: 2.1396704889359626
+During Shield Slam, LL attack key was pressed (575.14)
+Delta: 0.0003664474553488617
+During Shield Slam, LL attack key was pressed (575.24)
+Delta: 0.09582236398841815
+During Shield Slam, LL attack key was pressed (575.24)
+Delta: 0.00030082716671131493
+During Shield Slam, UL attack key was pressed (575.52)
+Delta: 0.28754918483662095
+During Shield Slam, UL attack key was pressed (575.52)
+Delta: 0.00026653178952074086
+During Shield Slam, UL attack key was pressed (575.68)
+Delta: 0.1516876431055607
+During Shield Slam, UL attack key was pressed (575.68)
+Delta: 0.00024492840236689517
+During Shield Slam, UL attack key was pressed (575.82)
+Delta: 0.14785115158201734
+During Shield Slam, UL attack key was pressed (575.82)
+Delta: 0.0006251480169794377
+During Shield Slam, UL attack key was pressed (575.98)
+Delta: 0.15136467246702523
+During Shield Slam, UL attack key was pressed (575.98)
+Delta: 0.0003283714853523634
+During Shield Slam, UL attack key was pressed (576.52)
+Delta: 0.5475959075623678
+During Shield Slam, UL attack key was pressed (576.52)
+Delta: 0.00024168789423129056
+Skipping execution of Rend Flesh due to cooldown (2.55s)
+During Shield Slam, LL attack key was pressed (578.92)
+Delta: 2.400942123715595
+During Shield Slam, LL attack key was pressed (578.92)
+Delta: 0.0001695865894362214
+Shield Slam was activated. Last used: 564.5571132797911
+During Shield Slam, Hotkey for Shield Slam was pressed (579.59)
+Delta: 0.6665565794061195
+During Shield Slam, LR attack key was pressed (580.14)
+Delta: 0.548185139948032
+During Shield Slam, LR attack key was pressed (580.14)
+Delta: 0.00024249802129361342
+During Shield Slam, MID attack key was pressed (581.25)
+Delta: 1.1076626404253602
+During Shield Slam, MID attack key was pressed (581.25)
+Delta: 0.0002605908580335381
+Irritate was activated. Last used: 536.2683286512492
+During Shield Slam, MID attack key was pressed (581.39)
+Delta: 0.1437273350088617
+During Shield Slam, MID attack key was pressed (581.39)
+Delta: 0.00028138411823874776
+During Shield Slam, MID attack key was pressed (581.54)
+Delta: 0.1437124826801437
+During Shield Slam, MID attack key was pressed (581.54)
+Delta: 0.00023466679340344854
+During Shield Slam, MID attack key was pressed (581.68)
+Delta: 0.1397501514262558
+During Shield Slam, MID attack key was pressed (581.68)
+Delta: 0.0002370971744767303
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (583.25)
+Delta: 14.035977740949988
+During Shield Slam, MID attack key was pressed (584.46)
+Delta: 2.7880162230636643
+During Shield Slam, MID attack key was pressed (584.46)
+Delta: 0.0009443380627089937
+During Shield Slam, LR attack key was pressed (585.36)
+Delta: 0.8953839772538004
+During Shield Slam, LR attack key was pressed (585.36)
+Delta: 0.000271932636337624
+During Shield Slam, UL attack key was pressed (586.41)
+Delta: 1.0472363461867644
+During Shield Slam, UL attack key was pressed (586.41)
+Delta: 0.0003356626284585218
+During Shield Slam, UL attack key was pressed (586.56)
+Delta: 0.14758840038530252
+During Shield Slam, UL attack key was pressed (586.56)
+Delta: 0.00023736721686873352
+During Shield Slam, UL attack key was pressed (586.7)
+Delta: 0.14407217907694303
+During Shield Slam, UL attack key was pressed (586.7)
+Delta: 0.0002722026786159404
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (587.04)
+Delta: 0.33954367705314326
+During Shield Slam, LL attack key was pressed (587.04)
+Delta: 0.00020388196662679547
+During Shield Slam, LR attack key was pressed (587.06)
+Delta: 0.01571133337995434
+During Shield Slam, LR attack key was pressed (587.06)
+Delta: 0.0002751731444732286
+During Shield Slam, MID attack key was pressed (587.82)
+Delta: 0.7596947225355279
+During Shield Slam, MID attack key was pressed (587.82)
+Delta: 0.00023277649700048642
+Whirlwind was activated. Last used: Never
+During Unknown, Hotkey for Whirlwind was pressed (589.02)
+Delta: 5.7639292564681455
+During Shield Slam, MID attack key was pressed (589.47)
+Delta: 1.6507739548484324
+During Shield Slam, MID attack key was pressed (589.47)
+Delta: 0.00025167946080273396
+During Shield Slam, MID attack key was pressed (589.62)
+Delta: 0.1527605213220795
+During Shield Slam, MID attack key was pressed (589.62)
+Delta: 0.0002519495031947372
+During Shield Slam, MID attack key was pressed (589.75)
+Delta: 0.12672384903225975
+During Shield Slam, MID attack key was pressed (589.75)
+Delta: 0.0002524895878650568
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (591.85)
+Delta: 2.839001837098067
+During Shield Slam, MID attack key was pressed (592.57)
+Delta: 2.819892290912321
+During Shield Slam, MID attack key was pressed (592.57)
+Delta: 0.0002770634407625039
+During Shield Slam, LR attack key was pressed (593.21)
+Delta: 0.639634708325957
+During Shield Slam, LR attack key was pressed (593.21)
+Delta: 0.00034484406808132917
+During Shield Slam, UL attack key was pressed (594.49)
+Delta: 1.2876890667687348
+During Shield Slam, UL attack key was pressed (594.49)
+Delta: 0.00027166259394562076
+During Shield Slam, UL attack key was pressed (594.65)
+Delta: 0.15964930141399236
+During Shield Slam, UL attack key was pressed (594.65)
+Delta: 0.0003051478441875588
+Battle Cry was activated. Last used: Never
+Use Discipline was activated. Last used: Never
+Shield Slam was activated. Last used: 564.5571132797911
+During Shield Slam, Hotkey for Shield Slam was pressed (596.44)
+Delta: 1.783650988638442
+During Shield Slam, LR attack key was pressed (596.68)
+Delta: 0.24008384274577566
+During Shield Slam, LR attack key was pressed (596.68)
+Delta: 0.00037292847139269725
+During Shield Slam, MID attack key was pressed (598.01)
+Delta: 1.3356237424466144
+During Shield Slam, MID attack key was pressed (598.01)
+Delta: 0.0002784136524951464
+During Shield Slam, MID attack key was pressed (598.17)
+Delta: 0.15180889211615067
+During Shield Slam, MID attack key was pressed (598.17)
+Delta: 0.0002319663700518504
+During Shield Slam, MID attack key was pressed (598.3)
+Delta: 0.13173124414174708
+During Shield Slam, MID attack key was pressed (598.3)
+Delta: 0.00023250645472217002
+During Shield Slam, MID attack key was pressed (598.42)
+Delta: 0.12378389807736312
+During Shield Slam, MID attack key was pressed (598.42)
+Delta: 0.00026815204353169975
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (600.65)
+Delta: 2.2279065534685287
+During Shield Slam, LL attack key was pressed (600.65)
+Delta: 0.00021360349091992248
+Breech IV was activated. Last used: Never
+During Unknown, Hotkey for Breech IV was pressed (601.81)
+Delta: 9.956062220995591
+During Shield Slam, UR attack key was pressed (602.56)
+Delta: 1.911712627422844
+During Shield Slam, UR attack key was pressed (602.56)
+Delta: 0.0002360170050224042
+During Shield Slam, UR attack key was pressed (602.68)
+Delta: 0.11963550765131004
+During Shield Slam, UR attack key was pressed (602.68)
+Delta: 0.00023277649700048642
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (603.9)
+Delta: 2.0880365032434156
+During Shield Slam, UL attack key was pressed (604.06)
+Delta: 1.3724545471484362
+During Shield Slam, UL attack key was pressed (604.06)
+Delta: 0.00036131665081029496
+During Shield Slam, MID attack key was pressed (605.98)
+Delta: 1.9230095786718948
+During Shield Slam, MID attack key was pressed (605.98)
+Delta: 0.0002703123823266651
+During Shield Slam, MID attack key was pressed (606.12)
+Delta: 0.14370735187560513
+During Shield Slam, MID attack key was pressed (606.12)
+Delta: 0.00024924907984313904
+During Shield Slam, MID attack key was pressed (606.25)
+Delta: 0.12765792548611898
+During Shield Slam, MID attack key was pressed (606.25)
+Delta: 0.00024114780956097093
+Shield Slam was activated. Last used: 564.5571132797911
+During Shield Slam, Hotkey for Shield Slam was pressed (607.85)
+Delta: 1.5996093027425786
+During Shield Slam, LR attack key was pressed (608.52)
+Delta: 0.6721694094417217
+During Shield Slam, LR attack key was pressed (608.52)
+Delta: 0.00023871742848768918
+Powerhouse was activated. Last used: Never
+Blade Weave was activated. Last used: Never
+Battle Cry was activated. Last used: Never
+Use Discipline was activated. Last used: Never
+Call To Arms was activated. Last used: Never
+During Shield Slam, MID attack key was pressed (609.88)
+Delta: 1.3598230466554924
+During Shield Slam, MID attack key was pressed (609.88)
+Delta: 0.00031135881795307796
+During Shield Slam, MID attack key was pressed (610.03)
+Delta: 0.14759002063931348
+During Shield Slam, MID attack key was pressed (610.03)
+Delta: 0.0002535697572056961
+During Shield Slam, MID attack key was pressed (610.17)
+Delta: 0.13991838780407306
+During Shield Slam, MID attack key was pressed (610.17)
+Delta: 0.00024357819052056584
+During Shield Slam, MID attack key was pressed (610.29)
+Delta: 0.11961741481457011
+During Shield Slam, MID attack key was pressed (610.29)
+Delta: 0.0003070381404768341
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (611.49)
+Delta: 1.1958762914437102
+During Shield Slam, LL attack key was pressed (611.49)
+Delta: 0.00017822794438870915
+During Shield Slam, MID attack key was pressed (613.1)
+Delta: 1.6146536315428648
+During Shield Slam, MID attack key was pressed (613.1)
+Delta: 0.00029434615055379254
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (616.85)
+Delta: 3.743775996638533
+During Shield Slam, LL attack key was pressed (616.85)
+Delta: 0.00018686929922751006
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (617.81)
+Delta: 13.911104492073264
+During Shield Slam, MID attack key was pressed (618.46)
+Delta: 1.6119000098025253
+During Shield Slam, MID attack key was pressed (618.46)
+Delta: 0.000268422085923703
+During Shield Slam, LR attack key was pressed (619.27)
+Delta: 0.8075532462734145
+During Shield Slam, LR attack key was pressed (619.27)
+Delta: 0.00023601700513609103
+During Shield Slam, UL attack key was pressed (620.34)
+Delta: 1.071766182219676
+During Shield Slam, UL attack key was pressed (620.34)
+Delta: 0.0002519495031947372
+During Shield Slam, UL attack key was pressed (620.49)
+Delta: 0.14793675500379777
+During Shield Slam, UL attack key was pressed (620.49)
+Delta: 0.0003569959734477379
+During Shield Slam, UL attack key was pressed (621.41)
+Delta: 0.9236506591868192
+During Shield Slam, UL attack key was pressed (621.41)
+Delta: 0.00024789886811049655
+Shield Slam was activated. Last used: 564.5571132797911
+During Shield Slam, Hotkey for Shield Slam was pressed (622.07)
+Delta: 0.6554408265672009
+During Shield Slam, LR attack key was pressed (623.15)
+Delta: 1.0881353387396757
+During Shield Slam, LR attack key was pressed (623.15)
+Delta: 0.00023979759794201527
+During Shield Slam, MID attack key was pressed (625.05)
+Delta: 1.8999204185223562
+During Shield Slam, MID attack key was pressed (625.05)
+Delta: 0.0002519495031947372
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (626.39)
+Delta: 8.576083754171805
+Irritate was activated. Last used: 581.3685389332194
+During Shield Slam, MID attack key was pressed (627.13)
+Delta: 2.0755438045131314
+During Shield Slam, MID attack key was pressed (627.13)
+Delta: 0.0002827343298577034
+During Shield Slam, LR attack key was pressed (627.73)
+Delta: 0.5957590390597716
+During Shield Slam, LR attack key was pressed (627.73)
+Delta: 0.0003032575477845967
+During Shield Slam, UL attack key was pressed (628.85)
+Delta: 1.1236569781775643
+During Shield Slam, UL attack key was pressed (628.85)
+Delta: 0.0002568102653413007
+During Shield Slam, UL attack key was pressed (629.0)
+Delta: 0.15172895958346544
+During Shield Slam, UL attack key was pressed (629.0)
+Delta: 0.0003200001729055657
+During Shield Slam, UL attack key was pressed (629.12)
+Delta: 0.11979726301285609
+During Shield Slam, UL attack key was pressed (629.12)
+Delta: 0.00025789043468193995
+Whirlwind was activated. Last used: Never
+During Unknown, Hotkey for Whirlwind was pressed (631.09)
+Delta: 4.699739652180028
+During Shield Slam, MID attack key was pressed (631.81)
+Delta: 2.6877343798734046
+During Shield Slam, MID attack key was pressed (631.81)
+Delta: 0.00024330814824224944
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (632.72)
+Delta: 1.6320443582350208
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (633.47)
+Delta: 1.6559120504504108
+During Shield Slam, LL attack key was pressed (633.47)
+Delta: 0.00019146001898207032
+During Shield Slam, UL attack key was pressed (633.82)
+Delta: 0.3518524769498299
+During Shield Slam, UL attack key was pressed (633.82)
+Delta: 0.00030271746311427705
+During Shield Slam, MID attack key was pressed (634.83)
+Delta: 1.0117657447510737
+During Shield Slam, MID attack key was pressed (634.83)
+Delta: 0.00030919847927179944
+During Shield Slam, MID attack key was pressed (634.98)
+Delta: 0.14746985179806416
+During Shield Slam, MID attack key was pressed (634.98)
+Delta: 0.0002576203922899367
+Shield Slam was activated. Last used: 564.5571132797911
+During Shield Slam, Hotkey for Shield Slam was pressed (636.65)
+Delta: 1.6745106765289393
+During Shield Slam, LR attack key was pressed (637.0)
+Delta: 0.3521268399672408
+During Shield Slam, LR attack key was pressed (637.0)
+Delta: 0.00023574696285777463
+During Shield Slam, LR attack key was pressed (638.76)
+Delta: 1.7557936908928014
+During Shield Slam, LR attack key was pressed (638.76)
+Delta: 0.00025491996882465173
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (641.64)
+Delta: 8.918991618695827
+During Shield Slam, MID attack key was pressed (644.49)
+Delta: 5.7318282433502645
+During Shield Slam, MID attack key was pressed (644.49)
+Delta: 0.0004115445260595152
+Whirlwind was activated. Last used: Never
+During Unknown, Hotkey for Whirlwind was pressed (649.04)
+Delta: 7.404184522091214
+Whirlwind was activated. Last used: Never
+During Unknown, Hotkey for Whirlwind was pressed (649.16)
+Delta: 0.12380523142223865
+During Shield Slam, MID attack key was pressed (650.64)
+Delta: 6.143718153569353
+During Shield Slam, MID attack key was pressed (650.64)
+Delta: 0.00023169632765984716
+During Shield Slam, MID attack key was pressed (650.75)
+Delta: 0.11159148642911987
+During Shield Slam, MID attack key was pressed (650.75)
+Delta: 0.0003750888101876626
+Breech IV was activated. Last used: Never
+During Unknown, Hotkey for Breech IV was pressed (661.78)
+Delta: 12.619136874470541
+During Shield Slam, UR attack key was pressed (662.36)
+Delta: 11.61457909985711
+During Shield Slam, UR attack key was pressed (662.36)
+Delta: 0.00023358662406280928
+During Shield Slam, UR attack key was pressed (662.5)
+Delta: 0.13576324631935677
+During Shield Slam, UR attack key was pressed (662.5)
+Delta: 0.0002462786139858508
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (662.83)
+Delta: 0.32824510555008146
+During Shield Slam, LL attack key was pressed (662.83)
+Delta: 0.0003118989027370844
+During Shield Slam, LR attack key was pressed (662.83)
+Delta: 0.0032232253694246538
+During Shield Slam, LR attack key was pressed (662.83)
+Delta: 0.00026464149311777874
+During Shield Slam, MID attack key was pressed (663.18)
+Delta: 0.34774297262072196
+During Shield Slam, MID attack key was pressed (663.18)
+Delta: 0.0002584305193522596
+Shield Slam was activated. Last used: 564.5571132797911
+During Shield Slam, Hotkey for Shield Slam was pressed (664.05)
+Delta: 0.8715216858851136
+During Shield Slam, LR attack key was pressed (664.25)
+Delta: 0.20028419255856988
+During Shield Slam, LR attack key was pressed (664.25)
+Delta: 0.00024357819063425268
+During Shield Slam, MID attack key was pressed (665.79)
+Delta: 1.5408394482170706
+During Shield Slam, MID attack key was pressed (665.79)
+Delta: 0.00027463305968922214
+During Shield Slam, MID attack key was pressed (665.94)
+Delta: 0.15056642731019565
+During Shield Slam, MID attack key was pressed (665.94)
+Delta: 0.0003089284368797962
+During Shield Slam, MID attack key was pressed (666.08)
+Delta: 0.13181765769047615
+During Shield Slam, MID attack key was pressed (666.08)
+Delta: 0.00025600013827897783
+Powerhouse was activated. Last used: Never
+Blade Weave was activated. Last used: Never
+Battle Cry was activated. Last used: Never
+Use Discipline was activated. Last used: Never
+Call To Arms was activated. Last used: Never
+During Shield Slam, UL attack key was pressed (667.26)
+Delta: 1.1835569598957818
+During Shield Slam, UL attack key was pressed (667.26)
+Delta: 0.00023331658167080604
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (668.66)
+Delta: 6.879951057526341
+During Shield Slam, UL attack key was pressed (669.37)
+Delta: 2.111770524500571
+During Shield Slam, UL attack key was pressed (669.37)
+Delta: 0.0002487089950591326
+During Shield Slam, MID attack key was pressed (670.5)
+Delta: 1.1239002863259202
+During Shield Slam, MID attack key was pressed (670.5)
+Delta: 0.0002457385293155312
+During Shield Slam, MID attack key was pressed (670.67)
+Delta: 0.17563526785363592
+During Shield Slam, MID attack key was pressed (670.67)
+Delta: 0.0002735528903485829
+During Shield Slam, MID attack key was pressed (670.9)
+Delta: 0.22778476437326844
+During Shield Slam, MID attack key was pressed (670.9)
+Delta: 0.0002392575131580088
+Irritate was activated. Last used: 626.4691982956008
+Whirlwind was activated. Last used: Never
+During Unknown, Hotkey for Whirlwind was pressed (673.86)
+Delta: 5.192104069997185
+During Shield Slam, MID attack key was pressed (674.41)
+Delta: 3.50774116873788
+During Shield Slam, MID attack key was pressed (674.41)
+Delta: 0.0002989368703083528
+During Shield Slam, MID attack key was pressed (674.56)
+Delta: 0.147701548125724
+During Shield Slam, MID attack key was pressed (674.56)
+Delta: 0.0002392575131580088
+During Shield Slam, MID attack key was pressed (674.68)
+Delta: 0.12778835593633175
+During Shield Slam, MID attack key was pressed (674.68)
+Delta: 0.00024168789423129056
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (675.54)
+Delta: 1.6837825802707584
+During Shield Slam, MID attack key was pressed (675.68)
+Delta: 0.995669060952082
+During Shield Slam, MID attack key was pressed (675.68)
+Delta: 0.00024357819063425268
+During Shield Slam, LR attack key was pressed (679.28)
+Delta: 3.5958322205337936
+During Shield Slam, LR attack key was pressed (679.28)
+Delta: 0.0002389874708796924
+During Shield Slam, UL attack key was pressed (680.18)
+Delta: 0.8996722496119673
+During Shield Slam, UL attack key was pressed (680.18)
+Delta: 0.00023331658178449288
+During Shield Slam, UL attack key was pressed (680.31)
+Delta: 0.13208391943771858
+During Shield Slam, UL attack key was pressed (680.31)
+Delta: 0.0005182112503234748
+Shield Slam was activated. Last used: 564.5571132797911
+During Shield Slam, Hotkey for Shield Slam was pressed (681.8)
+Delta: 1.495026225161837
+During Shield Slam, LR attack key was pressed (682.45)
+Delta: 0.6483667974301852
+During Shield Slam, LR attack key was pressed (682.45)
+Delta: 0.00026329128138513624
+During Shield Slam, MID attack key was pressed (683.82)
+Delta: 1.366615421631991
+During Shield Slam, MID attack key was pressed (683.82)
+Delta: 0.00041883566927936045
+During Shield Slam, MID attack key was pressed (683.97)
+Delta: 0.15565375495225453
+During Shield Slam, MID attack key was pressed (683.97)
+Delta: 0.0002330465392788028
+During Shield Slam, MID attack key was pressed (684.12)
+Delta: 0.14374704809972627
+During Shield Slam, MID attack key was pressed (684.12)
+Delta: 0.0002605908580335381
+During Shield Slam, MID attack key was pressed (684.27)
+Delta: 0.14766293207117087
+During Shield Slam, MID attack key was pressed (684.27)
+Delta: 0.00023736721675504668
+During Shield Slam, MID attack key was pressed (684.39)
+Delta: 0.12382818502112514
+During Shield Slam, MID attack key was pressed (684.39)
+Delta: 0.00024519844464521157
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (685.19)
+Delta: 9.64706087267416
+During Shield Slam, UL attack key was pressed (686.81)
+Delta: 2.415815785757104
+During Shield Slam, UL attack key was pressed (686.81)
+Delta: 0.0003410634752754049
+During Shield Slam, MID attack key was pressed (688.77)
+Delta: 1.9595406363764596
+During Shield Slam, MID attack key was pressed (688.77)
+Delta: 0.00023358662394912244
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (689.94)
+Delta: 4.752066836559379
+During Shield Slam, MID attack key was pressed (690.19)
+Delta: 1.4197721760795048
+During Shield Slam, MID attack key was pressed (690.19)
+Delta: 0.00023817734381736955
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (690.78)
+Delta: 0.5918391044532427
+During Shield Slam, LL attack key was pressed (690.78)
+Delta: 0.00017903807133734517
+During Shield Slam, LR attack key was pressed (691.92)
+Delta: 1.139744750579439
+During Shield Slam, LR attack key was pressed (691.92)
+Delta: 0.0002654516201801016
+During Shield Slam, UL attack key was pressed (692.68)
+Delta: 0.7642074000782486
+During Shield Slam, UL attack key was pressed (692.68)
+Delta: 0.00028786513439627015
+During Shield Slam, UL attack key was pressed (692.82)
+Delta: 0.13923491064167592
+During Shield Slam, UL attack key was pressed (692.82)
+Delta: 0.00023223641233016679
+Bloody Hack V was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack V was pressed (694.92)
+Delta: 4.980069795143095
+Shield Slam was activated. Last used: 564.5571132797911
+During Shield Slam, Hotkey for Shield Slam was pressed (696.01)
+Delta: 3.1916431077228253
+During Shield Slam, LR attack key was pressed (697.99)
+Delta: 1.9761098942703939
+During Shield Slam, LR attack key was pressed (697.99)
+Delta: 0.00025491996882465173
+During Shield Slam, MID attack key was pressed (698.53)
+Delta: 0.5437599561234947
+During Shield Slam, MID attack key was pressed (698.54)
+Delta: 0.00040533355229399604
+During Shield Slam, MID attack key was pressed (698.98)
+Delta: 0.4436350075328619
+During Shield Slam, MID attack key was pressed (698.98)
+Delta: 0.00023736721675504668
+During Shield Slam, MID attack key was pressed (699.15)
+Delta: 0.1757397742392186
+During Shield Slam, MID attack key was pressed (699.15)
+Delta: 0.00024492840236689517
+During Shield Slam, MID attack key was pressed (699.32)
+Delta: 0.16769926356755605
+During Shield Slam, MID attack key was pressed (699.32)
+Delta: 0.0002478988679968097
+During Shield Slam, MID attack key was pressed (699.47)
+Delta: 0.15177135623093818
+During Shield Slam, MID attack key was pressed (699.47)
+Delta: 0.0002638313661691427
+During Shield Slam, UL attack key was pressed (700.54)
+Delta: 1.0637245913786728
+During Shield Slam, UL attack key was pressed (700.54)
+Delta: 0.00024222797890161019
+Breech IV was activated. Last used: Never
+During Unknown, Hotkey for Breech IV was pressed (701.12)
+Delta: 6.200275821246009
+During Shield Slam, UR attack key was pressed (701.13)
+Delta: 0.5917645727673744
+During Shield Slam, UR attack key was pressed (701.13)
+Delta: 0.00026464149311777874
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (704.39)
+Delta: 3.267655435695815
+During Shield Slam, UL attack key was pressed (705.15)
+Delta: 4.019728483228846
+During Shield Slam, UL attack key was pressed (705.15)
+Delta: 0.0002338566664548125
+During Shield Slam, LL attack key was pressed (706.49)
+Delta: 1.343975071851446
+During Shield Slam, LL attack key was pressed (706.5)
+Delta: 0.00031081873328275833
+During Shield Slam, MID attack key was pressed (708.15)
+Delta: 1.6584950054319734
+During Shield Slam, MID attack key was pressed (708.15)
+Delta: 0.00029029551535586506
+Shield Slam was activated. Last used: 564.5571132797911
+During Shield Slam, Hotkey for Shield Slam was pressed (709.11)
+Delta: 0.9555502207191466
+During Shield Slam, LR attack key was pressed (709.32)
+Delta: 0.21226192054655257
+During Shield Slam, LR attack key was pressed (709.32)
+Delta: 0.0002570803076196171
+During Shield Slam, MID attack key was pressed (710.61)
+Delta: 1.283737807250759
+During Shield Slam, MID attack key was pressed (710.61)
+Delta: 0.00027976386422778887
+During Shield Slam, MID attack key was pressed (710.76)
+Delta: 0.15173003975291977
+During Shield Slam, MID attack key was pressed (710.76)
+Delta: 0.00027490310208122537
+During Shield Slam, MID attack key was pressed (710.9)
+Delta: 0.14358583282273685
+During Shield Slam, MID attack key was pressed (710.9)
+Delta: 0.00024357819052056584
+During Shield Slam, MID attack key was pressed (711.03)
+Delta: 0.12398615979009264
+During Shield Slam, MID attack key was pressed (711.03)
+Delta: 0.0003275613582900405
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (712.91)
+Delta: 1.8795265509679666
+During Shield Slam, LL attack key was pressed (712.91)
+Delta: 0.00015689459951317986
+Breech IV was activated. Last used: Never
+During Unknown, Hotkey for Breech IV was pressed (713.26)
+Delta: 8.87519885242807
+During Shield Slam, UR attack key was pressed (714.41)
+Delta: 1.4997616876349866
+During Shield Slam, UR attack key was pressed (714.41)
+Delta: 0.0002341267087331289
+During Shield Slam, UR attack key was pressed (714.55)
+Delta: 0.14380240677928668
+During Shield Slam, UR attack key was pressed (714.55)
+Delta: 0.00028435458398234914
+During Shield Slam, UR attack key was pressed (714.7)
+Delta: 0.14773152282543833
+During Shield Slam, UR attack key was pressed (714.7)
+Delta: 0.000268422085923703
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (716.07)
+Delta: 2.8117278308066034
+During Shield Slam, MID attack key was pressed (716.2)
+Delta: 1.5037132171953544
+During Shield Slam, MID attack key was pressed (716.2)
+Delta: 0.00047365426428314095
+Irritate was activated. Last used: 671.5689084591573
+Irritate was activated. Last used: 671.5689084591573
+During Shield Slam, LR attack key was pressed (720.03)
+Delta: 3.8275528520116495
+During Shield Slam, LR attack key was pressed (720.03)
+Delta: 0.0002676119588613801
+During Shield Slam, MID attack key was pressed (721.66)
+Delta: 1.6317419108141848
+During Shield Slam, MID attack key was pressed (721.66)
+Delta: 0.0002611309427038577
+During Shield Slam, MID attack key was pressed (722.22)
+Delta: 0.5559439964591775
+During Shield Slam, MID attack key was pressed (722.22)
+Delta: 0.00026653178952074086
+Shield Slam was activated. Last used: 564.5571132797911
+During Shield Slam, Hotkey for Shield Slam was pressed (723.03)
+Delta: 0.8113759656376942
+During Shield Slam, LR attack key was pressed (724.29)
+Delta: 1.2561254379073716
+During Shield Slam, LR attack key was pressed (724.29)
+Delta: 0.0002724727210079436
+During Shield Slam, MID attack key was pressed (725.18)
+Delta: 0.8957666272494862
+During Shield Slam, MID attack key was pressed (725.18)
+Delta: 0.00027571322914354823
+During Shield Slam, MID attack key was pressed (725.33)
+Delta: 0.14365226323832303
+During Shield Slam, MID attack key was pressed (725.33)
+Delta: 0.0002527596301433732
+During Shield Slam, MID attack key was pressed (725.5)
+Delta: 0.17183388183434545
+During Shield Slam, MID attack key was pressed (725.5)
+Delta: 0.00025005920679177507
+Powerhouse was activated. Last used: Never
+Blade Weave was activated. Last used: Never
+Battle Cry was activated. Last used: Never
+Use Discipline was activated. Last used: Never
+Call To Arms was activated. Last used: Never
+Whirlwind was activated. Last used: Never
+During Unknown, Hotkey for Whirlwind was pressed (727.32)
+Delta: 11.244038612814052
+During Shield Slam, MID attack key was pressed (727.73)
+Delta: 2.235913308847671
+During Shield Slam, MID attack key was pressed (727.73)
+Delta: 0.0003170297071619643
+During Shield Slam, MID attack key was pressed (727.89)
+Delta: 0.15542637930195724
+During Shield Slam, MID attack key was pressed (727.89)
+Delta: 0.00023736721686873352
+During Shield Slam, MID attack key was pressed (728.02)
+Delta: 0.1278474952086981
+During Shield Slam, MID attack key was pressed (728.02)
+Delta: 0.0003769791065906247
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (728.99)
+Delta: 0.9676640500464373
+During Shield Slam, LL attack key was pressed (728.99)
+Delta: 0.0001744473515827849
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (729.75)
+Delta: 2.436083543538871
+During Shield Slam, UL attack key was pressed (730.34)
+Delta: 1.3587237042895595
+During Shield Slam, UL attack key was pressed (730.34)
+Delta: 0.0002487089950591326
+During Shield Slam, LL attack key was pressed (731.18)
+Delta: 0.8340368386359387
+During Shield Slam, LL attack key was pressed (731.18)
+Delta: 0.00026005077336321847
+During Shield Slam, LL attack key was pressed (731.23)
+Delta: 0.05464063710553546
+During Shield Slam, LL attack key was pressed (731.23)
+Delta: 0.00025302967253537645
+During Shield Slam, LL attack key was pressed (731.24)
+Delta: 0.0014598488896808703
+During Shield Slam, LL attack key was pressed (731.24)
+Delta: 0.00024789886811049655
+During Shield Slam, LL attack key was pressed (731.24)
+Delta: 0.0012540766266511127
+During Shield Slam, LL attack key was pressed (731.24)
+Delta: 0.0005884222587155818
+During Shield Slam, LL attack key was pressed (731.24)
+Delta: 0.0033396136179817404
+During Shield Slam, LL attack key was pressed (731.24)
+Delta: 0.00026437145083946234
+During Shield Slam, LL attack key was pressed (731.24)
+Delta: 0.0018325073187952512
+During Shield Slam, LL attack key was pressed (731.24)
+Delta: 0.0002522195454730536
+During Shield Slam, LL attack key was pressed (731.25)
+Delta: 0.0046984666726075375
+During Shield Slam, LL attack key was pressed (731.25)
+Delta: 0.0002881351767882734
+During Shield Slam, LL attack key was pressed (731.25)
+Delta: 0.0017425832195385738
+During Shield Slam, LL attack key was pressed (731.25)
+Delta: 0.0002686921283157062
+During Shield Slam, LL attack key was pressed (731.25)
+Delta: 0.0016210641665566072
+During Shield Slam, LL attack key was pressed (731.25)
+Delta: 0.0003918314353086316
+During Shield Slam, LL attack key was pressed (731.26)
+Delta: 0.005459175944224626
+During Shield Slam, LL attack key was pressed (731.26)
+Delta: 0.0005873420893749426
+During Shield Slam, LL attack key was pressed (731.26)
+Delta: 0.003853234148550655
+During Shield Slam, LL attack key was pressed (731.26)
+Delta: 0.00023034611592720466
+During Shield Slam, LL attack key was pressed (731.26)
+Delta: 0.0018827351940444714
+During Shield Slam, LL attack key was pressed (731.26)
+Delta: 0.00036914787870045984
+During Shield Slam, LL attack key was pressed (731.27)
+Delta: 0.003100626147215735
+During Shield Slam, LL attack key was pressed (731.27)
+Delta: 0.00025491996893833857
+During Shield Slam, LL attack key was pressed (731.27)
+Delta: 0.0013010639937647284
+During Shield Slam, LL attack key was pressed (731.27)
+Delta: 0.00038562046142942563
+During Shield Slam, LL attack key was pressed (731.27)
+Delta: 0.00497769045205132
+During Shield Slam, LL attack key was pressed (731.27)
+Delta: 0.00028084403356842813
+During Shield Slam, LL attack key was pressed (731.28)
+Delta: 0.0030161028947759405
+During Shield Slam, LL attack key was pressed (731.28)
+Delta: 0.00028084403356842813
+During Shield Slam, LL attack key was pressed (731.28)
+Delta: 0.0026091490884709856
+During Shield Slam, LL attack key was pressed (731.28)
+Delta: 0.00027085246699698473
+During Shield Slam, LL attack key was pressed (731.29)
+Delta: 0.004486483435698574
+During Shield Slam, LL attack key was pressed (731.29)
+Delta: 0.0009070722198885051
+During Shield Slam, LL attack key was pressed (731.29)
+Delta: 0.0021003893200486345
+During Shield Slam, LL attack key was pressed (731.29)
+Delta: 0.0003872407154403845
+During Shield Slam, LL attack key was pressed (731.29)
+Delta: 0.0019110896397478427
+During Shield Slam, LL attack key was pressed (731.29)
+Delta: 0.0003553757193230922
+During Shield Slam, LL attack key was pressed (731.29)
+Delta: 0.0033625672169819154
+During Shield Slam, LL attack key was pressed (731.29)
+Delta: 0.0003440339410190063
+During Shield Slam, LL attack key was pressed (731.3)
+Delta: 0.00179389126424212
+During Shield Slam, LL attack key was pressed (731.3)
+Delta: 0.00031135881795307796
+During Shield Slam, LL attack key was pressed (731.3)
+Delta: 0.001820895498212849
+During Shield Slam, LL attack key was pressed (731.3)
+Delta: 0.00035969639679933607
+During Shield Slam, LL attack key was pressed (731.31)
+Delta: 0.006736746254432546
+During Shield Slam, LL attack key was pressed (731.31)
+Delta: 0.0003669875399054945
+During Shield Slam, LL attack key was pressed (731.31)
+Delta: 0.003720913402048609
+During Shield Slam, LL attack key was pressed (731.31)
+Delta: 0.0002902955154695519
+During Shield Slam, LL attack key was pressed (731.31)
+Delta: 0.0040028376048439895
+During Shield Slam, LL attack key was pressed (731.31)
+Delta: 0.0005217218008510827
+During Shield Slam, LL attack key was pressed (731.32)
+Delta: 0.0024846595697454177
+During Shield Slam, LL attack key was pressed (731.32)
+Delta: 0.0002905655577478683
+During Shield Slam, LL attack key was pressed (731.32)
+Delta: 0.0010726081742404858
+During Shield Slam, LL attack key was pressed (731.32)
+Delta: 0.0002557300958869746
+During Shield Slam, LL attack key was pressed (731.32)
+Delta: 0.003925065411067408
+During Shield Slam, LL attack key was pressed (731.32)
+Delta: 0.0005795108614847777
+During Shield Slam, LL attack key was pressed (731.33)
+Delta: 0.00324914943416843
+During Shield Slam, LL attack key was pressed (731.33)
+Delta: 0.00026653178952074086
+During Shield Slam, LL attack key was pressed (731.33)
+Delta: 0.0027873770328596947
+During Shield Slam, LL attack key was pressed (731.33)
+Delta: 0.00033674279779916105
+During Shield Slam, LL attack key was pressed (731.33)
+Delta: 0.0032469890954871516
+During Shield Slam, LL attack key was pressed (731.33)
+Delta: 0.00036077656613997533
+During Shield Slam, LL attack key was pressed (731.34)
+Delta: 0.0014825324462890421
+During Shield Slam, LL attack key was pressed (731.34)
+Delta: 0.00031459932597499574
+During Shield Slam, LL attack key was pressed (731.34)
+Delta: 0.002905115493035737
+During Shield Slam, LL attack key was pressed (731.34)
+Delta: 0.0003634769896052603
+During Shield Slam, LL attack key was pressed (731.34)
+Delta: 0.001508726553197448
+During Shield Slam, LL attack key was pressed (731.34)
+Delta: 0.00024951912212145544
+During Shield Slam, LL attack key was pressed (731.35)
+Delta: 0.005263935332436631
+During Shield Slam, LL attack key was pressed (731.35)
+Delta: 0.00031756979183228395
+During Shield Slam, LL attack key was pressed (731.35)
+Delta: 0.004922601814655536
+During Shield Slam, LL attack key was pressed (731.35)
+Delta: 0.000387780800224391
+During Shield Slam, LL attack key was pressed (731.35)
+Delta: 0.0015246590512560942
+During Shield Slam, LL attack key was pressed (731.35)
+Delta: 0.0003010972089896313
+During Shield Slam, LL attack key was pressed (731.35)
+Delta: 0.0011752242634202048
+During Shield Slam, LL attack key was pressed (731.35)
+Delta: 0.0002341267087331289
+During Shield Slam, LL attack key was pressed (731.36)
+Delta: 0.002329925309027203
+During Shield Slam, LL attack key was pressed (731.36)
+Delta: 0.00048580616953586286
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.36)
+Delta: 0.002295359889444626
+During Shield Slam, LL attack key was pressed (731.36)
+Delta: 0.00038589050382142887
+During Shield Slam, LL attack key was pressed (731.36)
+Delta: 0.002548119519587999
+During Shield Slam, LL attack key was pressed (731.36)
+Delta: 0.0004577217662244948
+During Shield Slam, LL attack key was pressed (731.37)
+Delta: 0.0029048454507574206
+During Shield Slam, LL attack key was pressed (731.37)
+Delta: 0.0002241351421616855
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.37)
+Delta: 0.0017725579193665908
+During Shield Slam, LL attack key was pressed (731.37)
+Delta: 0.000219274380015122
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.37)
+Delta: 0.0024495540656062076
+During Shield Slam, LL attack key was pressed (731.37)
+Delta: 0.00028192420279538055
+During Shield Slam, LL attack key was pressed (731.37)
+Delta: 0.003467343644842913
+During Shield Slam, LL attack key was pressed (731.37)
+Delta: 0.00037535885257966584
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.38)
+Delta: 0.0015678658256774725
+During Shield Slam, LL attack key was pressed (731.38)
+Delta: 0.0005503462887190835
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.38)
+Delta: 0.0017504144475424255
+During Shield Slam, LL attack key was pressed (731.38)
+Delta: 0.00025843051923857274
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.38)
+Delta: 0.0030047611165855415
+During Shield Slam, LL attack key was pressed (731.38)
+Delta: 0.00025248958775137
+During Shield Slam, LL attack key was pressed (731.39)
+Delta: 0.003531343679469501
+During Shield Slam, LL attack key was pressed (731.39)
+Delta: 0.0010032072927970148
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.39)
+Delta: 0.0013434606412374706
+During Shield Slam, LL attack key was pressed (731.39)
+Delta: 0.0002508693337404111
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.39)
+Delta: 0.00084388231232424
+During Shield Slam, LL attack key was pressed (731.39)
+Delta: 0.0002038819667404823
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.39)
+Delta: 0.0010763887669327232
+During Shield Slam, LL attack key was pressed (731.39)
+Delta: 0.00023493683579545177
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.39)
+Delta: 0.003080643013959161
+During Shield Slam, LL attack key was pressed (731.39)
+Delta: 0.0002624811544365002
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.39)
+Delta: 0.0007734012615401298
+During Shield Slam, LL attack key was pressed (731.4)
+Delta: 0.0001957806964583142
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.4)
+Delta: 0.0009602705608813267
+During Shield Slam, LL attack key was pressed (731.4)
+Delta: 0.0002784136524951464
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.4)
+Delta: 0.0032405080792159424
+During Shield Slam, LL attack key was pressed (731.4)
+Delta: 0.00038886096956503025
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.4)
+Delta: 0.0011090638901123384
+During Shield Slam, LL attack key was pressed (731.4)
+Delta: 0.00026518157778809837
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.4)
+Delta: 0.0005430551456129251
+During Shield Slam, LL attack key was pressed (731.4)
+Delta: 0.0001722870129015064
+During Shield Slam, LL attack key was pressed (731.41)
+Delta: 0.004947445710058673
+During Shield Slam, LL attack key was pressed (731.41)
+Delta: 0.00035780610039637395
+During Shield Slam, LL attack key was pressed (731.41)
+Delta: 0.0029672252312593628
+During Shield Slam, LL attack key was pressed (731.41)
+Delta: 0.0003054178864658752
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.41)
+Delta: 0.0024047270370601836
+During Shield Slam, LL attack key was pressed (731.41)
+Delta: 0.0005284728592869214
+During Shield Slam, LL attack key was pressed (731.42)
+Delta: 0.0033382634063627847
+During Shield Slam, LL attack key was pressed (731.42)
+Delta: 0.0002770634407625039
+During Shield Slam, LL attack key was pressed (731.42)
+Delta: 0.0031846093148715227
+During Shield Slam, LL attack key was pressed (731.42)
+Delta: 0.00035078499956853193
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.42)
+Delta: 0.002457925378166692
+During Shield Slam, LL attack key was pressed (731.42)
+Delta: 0.0002589706040225792
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.42)
+Delta: 0.0005276627322245986
+During Shield Slam, LL attack key was pressed (731.42)
+Delta: 0.0002722026786159404
+During Shield Slam, LL attack key was pressed (731.43)
+Delta: 0.00300692145526682
+During Shield Slam, LL attack key was pressed (731.43)
+Delta: 0.0003731985137847005
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.43)
+Delta: 0.0014509374924500662
+During Shield Slam, LL attack key was pressed (731.43)
+Delta: 0.00022278493042904302
+During Shield Slam, LL attack key was pressed (731.43)
+Delta: 0.0029931492958894523
+During Shield Slam, LL attack key was pressed (731.43)
+Delta: 0.0006321691178072797
+During Shield Slam, LL attack key was pressed (731.44)
+Delta: 0.002959394003369198
+During Shield Slam, LL attack key was pressed (731.44)
+Delta: 0.00031837991878092
+During Shield Slam, LL attack key was pressed (731.44)
+Delta: 0.004355242858537167
+During Shield Slam, LL attack key was pressed (731.44)
+Delta: 0.00036077656613997533
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.44)
+Delta: 0.0025238157090825553
+During Shield Slam, LL attack key was pressed (731.44)
+Delta: 0.0001971309081909567
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.44)
+Delta: 0.0004766247300267423
+During Shield Slam, LL attack key was pressed (731.44)
+Delta: 0.00019146001898207032
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.45)
+Delta: 0.0037030906075870007
+During Shield Slam, LL attack key was pressed (731.45)
+Delta: 0.00035591580399341183
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.45)
+Delta: 0.0010861102912258502
+During Shield Slam, LL attack key was pressed (731.45)
+Delta: 0.0002803039488981085
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.45)
+Delta: 0.0007982451568295801
+During Shield Slam, LL attack key was pressed (731.45)
+Delta: 0.00016472582740334474
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.45)
+Delta: 0.004100322889598829
+During Shield Slam, LL attack key was pressed (731.46)
+Delta: 0.0002875950920042669
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.46)
+Delta: 0.002291039212082069
+During Shield Slam, LL attack key was pressed (731.46)
+Delta: 0.00030973856394211907
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.46)
+Delta: 0.0006475615310819194
+During Shield Slam, LL attack key was pressed (731.46)
+Delta: 0.00016013510764878447
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.46)
+Delta: 0.0023231742504776776
+During Shield Slam, LL attack key was pressed (731.46)
+Delta: 0.00027598327142186463
+During Shield Slam, LL attack key was pressed (731.46)
+Delta: 0.0021387353323234493
+During Shield Slam, LL attack key was pressed (731.46)
+Delta: 0.0002370971744767303
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.46)
+Delta: 0.0012548867537134356
+During Shield Slam, LL attack key was pressed (731.46)
+Delta: 0.00020766255931903288
+During Shield Slam, LL attack key was pressed (731.47)
+Delta: 0.003011242132743064
+During Shield Slam, LL attack key was pressed (731.47)
+Delta: 0.00034430398341100954
+During Shield Slam, LL attack key was pressed (731.47)
+Delta: 0.0013755956796330793
+During Shield Slam, LL attack key was pressed (731.47)
+Delta: 0.00022737565018360328
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.47)
+Delta: 0.002077975805832466
+During Shield Slam, LL attack key was pressed (731.47)
+Delta: 0.00026275119682850345
+During Shield Slam, LL attack key was pressed (731.48)
+Delta: 0.0036204576515501685
+During Shield Slam, LL attack key was pressed (731.48)
+Delta: 0.0004971479477262619
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.48)
+Delta: 0.0012627179816036005
+During Shield Slam, LL attack key was pressed (731.48)
+Delta: 0.000221974803480407
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.48)
+Delta: 0.0009510891212585193
+During Shield Slam, LL attack key was pressed (731.48)
+Delta: 0.00014852328695269534
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.48)
+Delta: 0.000683207120005136
+During Shield Slam, LL attack key was pressed (731.48)
+Delta: 0.00026140098509586096
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.48)
+Delta: 0.0015300598980729774
+During Shield Slam, LL attack key was pressed (731.48)
+Delta: 0.00019470052711767494
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.48)
+Delta: 0.0026221111207860304
+During Shield Slam, LL attack key was pressed (731.48)
+Delta: 0.00016796633542526251
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.48)
+Delta: 0.0004317977015944052
+During Shield Slam, LL attack key was pressed (731.48)
+Delta: 0.0001431224401358122
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.49)
+Delta: 0.0008841186210020169
+During Shield Slam, LL attack key was pressed (731.49)
+Delta: 0.00020361192423479224
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.49)
+Delta: 0.0013445408105781098
+During Shield Slam, LL attack key was pressed (731.49)
+Delta: 0.0003880508425027074
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.49)
+Delta: 0.0011968276505740505
+During Shield Slam, LL attack key was pressed (731.49)
+Delta: 0.0003221605115868442
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.49)
+Delta: 0.001400709617200846
+During Shield Slam, LL attack key was pressed (731.49)
+Delta: 0.00032243055397884746
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.49)
+Delta: 0.0038529641061586517
+During Shield Slam, LL attack key was pressed (731.5)
+Delta: 0.00024978916451345867
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.5)
+Delta: 0.0011528107492040363
+During Shield Slam, LL attack key was pressed (731.5)
+Delta: 0.0003318820357662844
+During Shield Slam, LL attack key was pressed (731.5)
+Delta: 0.002157908338404013
+During Shield Slam, LL attack key was pressed (731.5)
+Delta: 0.00024492840236689517
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.5)
+Delta: 0.0015697561220804346
+During Shield Slam, LL attack key was pressed (731.5)
+Delta: 0.0003340423744475629
+During Shield Slam, LL attack key was pressed (731.5)
+Delta: 0.0025030224488773456
+During Shield Slam, LL attack key was pressed (731.5)
+Delta: 0.0002767933984841875
+During Shield Slam, LL attack key was pressed (731.51)
+Delta: 0.0039563903224006935
+During Shield Slam, LL attack key was pressed (731.51)
+Delta: 0.000324590892660126
+During Shield Slam, LL attack key was pressed (731.51)
+Delta: 0.0010612663959364
+During Shield Slam, LL attack key was pressed (731.51)
+Delta: 0.0003405233906050853
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.51)
+Delta: 0.0017028869957584902
+During Shield Slam, LL attack key was pressed (731.51)
+Delta: 0.0002357469627440878
+During Shield Slam, LL attack key was pressed (731.51)
+Delta: 0.002663697641082763
+During Shield Slam, LL attack key was pressed (731.51)
+Delta: 0.00021630391438520746
+During Shield Slam, LL attack key was pressed (731.52)
+Delta: 0.0037878839023051114
+During Shield Slam, LL attack key was pressed (731.52)
+Delta: 0.0003110887755610747
+During Shield Slam, LL attack key was pressed (731.52)
+Delta: 0.0015062961722378532
+During Shield Slam, LL attack key was pressed (731.52)
+Delta: 0.00026815204353169975
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.52)
+Delta: 0.00362801883704833
+During Shield Slam, LL attack key was pressed (731.52)
+Delta: 0.000434228082667687
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.53)
+Delta: 0.0015395113799741011
+During Shield Slam, LL attack key was pressed (731.53)
+Delta: 0.0002873250496122637
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.53)
+Delta: 0.0012773002679296042
+During Shield Slam, LL attack key was pressed (731.53)
+Delta: 0.00017039671649854427
+During Shield Slam, LL attack key was pressed (731.53)
+Delta: 0.0023094020912139968
+During Shield Slam, LL attack key was pressed (731.53)
+Delta: 0.0002954263198944318
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.53)
+Delta: 0.0016197139549376516
+During Shield Slam, LL attack key was pressed (731.53)
+Delta: 0.00017741781732638628
+During Shield Slam, LL attack key was pressed (731.53)
+Delta: 0.0018811149400335125
+During Shield Slam, LL attack key was pressed (731.53)
+Delta: 0.00024222797890161019
+During Shield Slam, LL attack key was pressed (731.54)
+Delta: 0.002598077352558903
+During Shield Slam, LL attack key was pressed (731.54)
+Delta: 0.00048013528044066334
+During Shield Slam, LL attack key was pressed (731.54)
+Delta: 0.0024311911864742797
+During Shield Slam, LL attack key was pressed (731.54)
+Delta: 0.000308658394487793
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.54)
+Delta: 0.0024879000778810223
+During Shield Slam, LL attack key was pressed (731.54)
+Delta: 0.0006178568737595924
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.54)
+Delta: 0.0008600848526612026
+During Shield Slam, LL attack key was pressed (731.54)
+Delta: 0.00018443891826791514
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.54)
+Delta: 0.0007628696102983668
+During Shield Slam, LL attack key was pressed (731.54)
+Delta: 0.0001757975633154274
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.55)
+Delta: 0.0013739754256221204
+During Shield Slam, LL attack key was pressed (731.55)
+Delta: 0.00018524904510286433
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.55)
+Delta: 0.0007350552493790019
+During Shield Slam, LL attack key was pressed (731.55)
+Delta: 0.0003586162274586968
+During Shield Slam, LL attack key was pressed (731.55)
+Delta: 0.007498535695390274
+During Shield Slam, LL attack key was pressed (731.56)
+Delta: 0.00038589050370774203
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (731.56)
+Delta: 0.0011420090556839568
+During Shield Slam, LL attack key was pressed (731.56)
+Delta: 0.0002956963621727482
+During Shield Slam, LL attack key was pressed (731.56)
+Delta: 0.002267545528525261
+During Shield Slam, LL attack key was pressed (731.56)
+Delta: 0.00026032081564153486
+During Shield Slam, LL attack key was pressed (731.56)
+Delta: 0.0014547180852559904
+During Shield Slam, LL attack key was pressed (731.56)
+Delta: 0.00023628704741440743
+During Shield Slam, LL attack key was pressed (731.56)
+Delta: 0.0019213512487112894
+During Shield Slam, LL attack key was pressed (731.56)
+Delta: 0.00023385666634112567
+During Shield Slam, LL attack key was pressed (731.57)
+Delta: 0.0023723219563862585
+During Shield Slam, LL attack key was pressed (731.57)
+Delta: 0.00028489466865266877
+During Shield Slam, LL attack key was pressed (731.57)
+Delta: 0.0006659244103275341
+During Shield Slam, LL attack key was pressed (731.57)
+Delta: 0.00024249802117992658
+During Shield Slam, LL attack key was pressed (731.57)
+Delta: 0.005283108338630882
+During Shield Slam, LL attack key was pressed (731.57)
+Delta: 0.00044232935283616825
+During Shield Slam, LL attack key was pressed (731.57)
+Delta: 0.0008927599758408178
+During Shield Slam, LL attack key was pressed (731.57)
+Delta: 0.0004785150263160176
+During Shield Slam, LL attack key was pressed (731.57)
+Delta: 0.0006324391600855961
+During Shield Slam, LL attack key was pressed (731.57)
+Delta: 0.00029083560013987153
+During Shield Slam, LL attack key was pressed (731.58)
+Delta: 0.0011652326968487614
+During Shield Slam, LL attack key was pressed (731.58)
+Delta: 0.00020847268649504258
+During Shield Slam, LL attack key was pressed (731.58)
+Delta: 0.002925098626178624
+During Shield Slam, LL attack key was pressed (731.58)
+Delta: 0.0002738229326268993
+During Shield Slam, LL attack key was pressed (731.58)
+Delta: 0.002283478026583907
+During Shield Slam, LL attack key was pressed (731.58)
+Delta: 0.0004069538063049549
+During Shield Slam, LL attack key was pressed (731.59)
+Delta: 0.0037238838676785235
+During Shield Slam, LL attack key was pressed (731.59)
+Delta: 0.0004134348224624773
+During Shield Slam, LL attack key was pressed (731.59)
+Delta: 0.001541941761047383
+During Shield Slam, LL attack key was pressed (731.59)
+Delta: 0.00038264999568582425
+During Shield Slam, LL attack key was pressed (731.59)
+Delta: 0.0007177725395877133
+During Shield Slam, LL attack key was pressed (731.59)
+Delta: 0.00021873429534480238
+During Shield Slam, LL attack key was pressed (731.59)
+Delta: 0.00041883566927936045
+During Shield Slam, LL attack key was pressed (731.59)
+Delta: 0.0001995612891505516
+During Shield Slam, LL attack key was pressed (731.59)
+Delta: 0.0017063975460587244
+During Shield Slam, LL attack key was pressed (731.59)
+Delta: 0.0005800509462687842
+During Shield Slam, LL attack key was pressed (731.59)
+Delta: 0.00248654986614838
+During Shield Slam, LL attack key was pressed (731.59)
+Delta: 0.00036644745523517486
+During Shield Slam, LL attack key was pressed (731.6)
+Delta: 0.0018206254559345325
+During Shield Slam, LL attack key was pressed (731.6)
+Delta: 0.0002738229326268993
+During Shield Slam, LL attack key was pressed (731.6)
+Delta: 0.0008187683747564733
+During Shield Slam, LL attack key was pressed (731.6)
+Delta: 0.0002792237794437824
+During Shield Slam, LL attack key was pressed (731.6)
+Delta: 0.002323444292869681
+During Shield Slam, LL attack key was pressed (731.6)
+Delta: 0.0002905655577478683
+During Shield Slam, LL attack key was pressed (731.6)
+Delta: 0.0011609120193725175
+During Shield Slam, LL attack key was pressed (731.6)
+Delta: 0.00029137568481019116
+During Shield Slam, LL attack key was pressed (731.6)
+Delta: 0.001102582873954816
+During Shield Slam, LL attack key was pressed (731.6)
+Delta: 0.00025789043468193995
+During Shield Slam, LL attack key was pressed (731.61)
+Delta: 0.006125100354438473
+During Shield Slam, LL attack key was pressed (731.61)
+Delta: 0.00046717324812561856
+During Shield Slam, LL attack key was pressed (731.61)
+Delta: 0.002384203819360664
+During Shield Slam, LL attack key was pressed (731.61)
+Delta: 0.002204355620847309
+During Shield Slam, LL attack key was pressed (731.62)
+Delta: 0.0008630553185184908
+During Shield Slam, LL attack key was pressed (731.62)
+Delta: 0.00023358662406280928
+During Shield Slam, LL attack key was pressed (731.62)
+Delta: 0.006578231400794721
+During Shield Slam, LL attack key was pressed (731.62)
+Delta: 0.0003569959734477379
+During Shield Slam, LL attack key was pressed (731.63)
+Delta: 0.008077506472204732
+During Shield Slam, LL attack key was pressed (731.63)
+Delta: 0.0003135191567480433
+During Shield Slam, LL attack key was pressed (731.63)
+Delta: 0.0025948368444232983
+During Shield Slam, LL attack key was pressed (731.63)
+Delta: 0.0004917471010230656
+During Shield Slam, LL attack key was pressed (731.64)
+Delta: 0.004642567908263118
+During Shield Slam, LL attack key was pressed (731.64)
+Delta: 0.0003027174630005902
+During Shield Slam, LL attack key was pressed (731.65)
+Delta: 0.009409625335138116
+During Shield Slam, LL attack key was pressed (731.65)
+Delta: 0.000840371761910319
+During Shield Slam, LL attack key was pressed (731.65)
+Delta: 0.0008530637519470474
+During Shield Slam, LL attack key was pressed (731.65)
+Delta: 0.00022710560779160005
+During Shield Slam, LL attack key was pressed (731.65)
+Delta: 0.0019264820531361693
+During Shield Slam, LL attack key was pressed (731.65)
+Delta: 0.00031621958009964146
+During Shield Slam, LL attack key was pressed (731.65)
+Delta: 0.0007990552838919029
+During Shield Slam, LL attack key was pressed (731.65)
+Delta: 0.0006845573317377784
+During Shield Slam, LL attack key was pressed (731.66)
+Delta: 0.003207832956150014
+During Shield Slam, LL attack key was pressed (731.66)
+Delta: 0.00029947695497867244
+During Shield Slam, MID attack key was pressed (733.35)
+Delta: 1.6909919006201335
+During Shield Slam, MID attack key was pressed (733.35)
+Delta: 0.00025843051923857274
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (735.06)
+Delta: 5.303343691257282
+During Shield Slam, LR attack key was pressed (735.86)
+Delta: 2.5081103166165803
+During Shield Slam, LR attack key was pressed (735.86)
+Delta: 0.0003621267778726178
+During Shield Slam, MID attack key was pressed (736.45)
+Delta: 0.5912509522368055
+During Shield Slam, MID attack key was pressed (736.45)
+Delta: 0.00023601700513609103
+During Shield Slam, LR attack key was pressed (736.98)
+Delta: 0.5277731795567888
+During Shield Slam, LR attack key was pressed (736.98)
+Delta: 0.0002492490797294522
+During Shield Slam, UL attack key was pressed (737.92)
+Delta: 0.9396941446449318
+During Shield Slam, UL attack key was pressed (737.92)
+Delta: 0.00023628704741440743
+During Shield Slam, UL attack key was pressed (738.07)
+Delta: 0.15177891741655003
+During Shield Slam, UL attack key was pressed (738.07)
+Delta: 0.00032459089254643914
+Powerhouse was activated. Last used: Never
+Blade Weave was activated. Last used: Never
+Battle Cry was activated. Last used: Never
+Use Discipline was activated. Last used: Never
+Call To Arms was activated. Last used: Never
+During Shield Slam, UL attack key was pressed (739.42)
+Delta: 1.3557097617335785
+During Shield Slam, UL attack key was pressed (739.43)
+Delta: 0.000435038209616323
+Shield Slam was activated. Last used: 564.5571132797911
+During Shield Slam, Hotkey for Shield Slam was pressed (740.17)
+Delta: 0.7437068657994814
+During Shield Slam, LR attack key was pressed (740.9)
+Delta: 0.7278899458646038
+During Shield Slam, LR attack key was pressed (740.9)
+Delta: 0.0003124389872937172
+During Shield Slam, MID attack key was pressed (742.67)
+Delta: 1.7717666953002436
+During Shield Slam, MID attack key was pressed (742.67)
+Delta: 0.00026032081564153486
+During Shield Slam, MID attack key was pressed (742.8)
+Delta: 0.12763875248003842
+During Shield Slam, MID attack key was pressed (742.8)
+Delta: 0.0002478988679968097
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (744.14)
+Delta: 9.083582694930783
+During Shield Slam, MID attack key was pressed (744.3)
+Delta: 1.5038036813792814
+During Shield Slam, MID attack key was pressed (744.3)
+Delta: 0.0002522195454730536
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (745.14)
+Delta: 0.8437556624503486
+During Shield Slam, LL attack key was pressed (745.14)
+Delta: 0.0001609452345974205
+During Shield Slam, LR attack key was pressed (746.42)
+Delta: 1.2717716910833587
+During Shield Slam, LR attack key was pressed (746.42)
+Delta: 0.00022953598897856864
+During Shield Slam, MID attack key was pressed (747.94)
+Delta: 1.5197842469721081
+During Shield Slam, MID attack key was pressed (747.94)
+Delta: 0.0002511393761324143
+During Shield Slam, UL attack key was pressed (749.14)
+Delta: 1.1997071120781584
+During Shield Slam, UL attack key was pressed (749.14)
+Delta: 0.00023709717436304345
+Breech IV was activated. Last used: Never
+During Unknown, Hotkey for Breech IV was pressed (750.42)
+Delta: 6.275973009808126
+During Shield Slam, UR attack key was pressed (752.21)
+Delta: 3.0758870283272017
+During Shield Slam, UR attack key was pressed (752.21)
+Delta: 0.00022764569257560652
+During Shield Slam, UR attack key was pressed (752.35)
+Delta: 0.13581293410993567
+During Shield Slam, UR attack key was pressed (752.35)
+Delta: 0.00028273432997139025
+Shield Slam was activated. Last used: 564.5571132797911
+During Shield Slam, Hotkey for Shield Slam was pressed (753.34)
+Delta: 0.9954430355135173
+During Shield Slam, LR attack key was pressed (753.55)
+Delta: 0.2031655443256568
+During Shield Slam, LR attack key was pressed (753.55)
+Delta: 0.0004047934676236764
+During Shield Slam, MID attack key was pressed (755.38)
+Delta: 1.8275398899793345
+During Shield Slam, MID attack key was pressed (755.38)
+Delta: 0.0002476288257184933
+During Shield Slam, MID attack key was pressed (755.55)
+Delta: 0.17184576369731985
+During Shield Slam, MID attack key was pressed (755.55)
+Delta: 0.00024492840225320833
+During Shield Slam, MID attack key was pressed (755.69)
+Delta: 0.14369384975873345
+During Shield Slam, MID attack key was pressed (755.69)
+Delta: 0.0002308862005975243
+During Shield Slam, MID attack key was pressed (755.82)
+Delta: 0.1318659952694361
+During Shield Slam, MID attack key was pressed (755.82)
+Delta: 0.00027571322914354823
+During Shield Slam, MID attack key was pressed (755.96)
+Delta: 0.13173097409935508
+During Shield Slam, MID attack key was pressed (755.96)
+Delta: 0.00023520687807376817
+Bloodbath VI was activated. Last used: Never
+During Unknown, Hotkey for Bloodbath VI was pressed (757.1)
+Delta: 6.683357803670106
+During Shield Slam, UL attack key was pressed (757.28)
+Delta: 1.323812090497654
+During Shield Slam, UL attack key was pressed (757.28)
+Delta: 0.0002735528904622697
+During Shield Slam, MID attack key was pressed (759.93)
+Delta: 2.651605145170606
+During Shield Slam, MID attack key was pressed (759.93)
+Delta: 0.0003037976324549163
+During Shield Slam, MID attack key was pressed (760.09)
+Delta: 0.15569183092225103
+During Shield Slam, MID attack key was pressed (760.09)
+Delta: 0.0002295359888648818
+During Shield Slam, MID attack key was pressed (760.21)
+Delta: 0.12384843819666003
+During Shield Slam, MID attack key was pressed (760.21)
+Delta: 0.00023682713208472705
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (761.33)
+Delta: 1.119758646958303
+During Shield Slam, LL attack key was pressed (761.33)
+Delta: 0.00017417730919078167
+Irritate was activated. Last used: 716.670522151168
+Irritate was activated. Last used: 716.670522151168
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (762.24)
+Delta: 5.143670626117455
+During Shield Slam, MID attack key was pressed (763.06)
+Delta: 1.7317993488200045
+During Shield Slam, MID attack key was pressed (763.06)
+Delta: 0.00030595797113619483
+During Shield Slam, LR attack key was pressed (763.62)
+Delta: 0.5556377684456493
+During Shield Slam, LR attack key was pressed (763.62)
+Delta: 0.00033242212055029086
+Whirlwind was activated. Last used: Never
+During Unknown, Hotkey for Whirlwind was pressed (772.07)
+Delta: 9.824075516800235
+During Shield Slam, MID attack key was pressed (772.73)
+Delta: 9.108013425424929
+During Shield Slam, MID attack key was pressed (772.73)
+Delta: 0.00024519844464521157
+Shield Slam was activated. Last used: 564.5571132797911
+During Shield Slam, Hotkey for Shield Slam was pressed (773.97)
+Delta: 1.2400168722454055
+During Shield Slam, LR attack key was pressed (774.16)
+Delta: 0.19542478065136493
+During Shield Slam, LR attack key was pressed (774.16)
+Delta: 0.00023034611592720466
+During Shield Slam, MID attack key was pressed (776.53)
+Delta: 2.363713006562307
+During Shield Slam, MID attack key was pressed (776.53)
+Delta: 0.0002470887410481737
+Bloody Hack V was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack V was pressed (778.51)
+Delta: 6.4431408300507655
+Bloody Hack VI was activated. Last used: Never
+During Unknown, Hotkey for Bloody Hack VI was pressed (779.55)
+Delta: 1.0357806100419111
+During Shield Slam, MID attack key was pressed (779.69)
+Delta: 3.1628684761484465
+During Shield Slam, MID attack key was pressed (779.69)
+Delta: 0.00028327441452802304
+Irritate was activated. Last used: 761.7733774978578
+Irritate was activated. Last used: 761.7733774978578
+Irritate was activated. Last used: 806.8814546532751
+Irritate was activated. Last used: 806.8814546532751
+Preparing to start
+Powerhouse was activated. Last used: Never
+Blade Weave was activated. Last used: Never
+Breech IV was activated. Last used: Never
+During Breech IV, Hotkey for Breech IV was pressed (913.95)
+Delta: 134.40650283557954
+During Shield Slam, UL attack key was pressed (915.36)
+Delta: 135.66412592830432
+During Shield Slam, UL attack key was pressed (915.36)
+cast time: 1.41
+Delta: 0.0002832744146417099
+actual 1.4 vs expected 1.95
+During Breech IV, UL attack key was pressed (915.36)
+wait more time: -0.09
+Delta: 1.4025820908460673
+Battle Cry was activated. Last used: Never
+Use Discipline was activated. Last used: Never
+Whirlwind was activated. Last used: Never
+During Whirlwind, Hotkey for Whirlwind was pressed (916.87)
+Delta: 1.5143175098423853
+During Shield Slam, LR attack key was pressed (917.62)
+Delta: 2.2657076202976896
+During Shield Slam, LR attack key was pressed (917.62)
+Delta: 0.00026977229765634547
+During Whirlwind, LR attack key was pressed (917.62)
+Delta: 0.7515321527262131
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (918.37)
+Delta: 0.7508548865376952
+During Shield Slam, LL attack key was pressed (918.37)
+Delta: 0.00020199167022383335
+During Whirlwind, LL attack key was pressed (918.37)
+Delta: 0.751163544932183
+During Shield Slam, UR attack key was pressed (920.08)
+Delta: 1.7037514011822168
+During Shield Slam, UR attack key was pressed (920.08)
+Delta: 0.00040263312882871105
+During Whirlwind, UR attack key was pressed (920.08)
+Delta: 1.7043546757696504
+cast time: 1.49
+actual 3.21 vs expected 3.25
+wait more time: -0.01
+Annihilate was activated. Last used: Never
+Bloody Hack VI was activated. Last used: Never
+During Bloody Hack VI, Hotkey for Bloody Hack VI was pressed (921.67)
+Delta: 1.5930637464647361
+During Shield Slam, MID attack key was pressed (922.42)
+Delta: 2.345288557792969
+During Shield Slam, MID attack key was pressed (922.42)
+Delta: 0.00038048965700454573
+During Bloody Hack VI, MID attack key was pressed (922.42)
+Delta: 0.7523193261471306
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (923.17)
+Delta: 0.7509169962758051
+During Shield Slam, LL attack key was pressed (923.17)
+Delta: 0.0002354769204657714
+During Bloody Hack VI, LL attack key was pressed (923.17)
+Delta: 0.7511648951439156
+During Shield Slam, UR attack key was pressed (924.88)
+Delta: 1.703077915586391
+During Shield Slam, UR attack key was pressed (924.88)
+Delta: 0.000315679495315635
+During Bloody Hack VI, UR attack key was pressed (924.88)
+cast time: 1.49
+Delta: 1.7034808187576118
+actual 3.21 vs expected 3.25
+wait more time: -0.01
+Rend Flesh was activated. Last used: Never
+Bloodbath VI was activated. Last used: Never
+During Bloodbath VI, Hotkey for Bloodbath VI was pressed (926.47)
+Delta: 1.5939646077108591
+Rend Flesh was activated. Last used: 536.4709006425118
+During Shield Slam, LL attack key was pressed (927.22)
+Delta: 2.3473484407620617
+During Shield Slam, LL attack key was pressed (927.22)
+Delta: 0.00028462462626066554
+During Bloodbath VI, LL attack key was pressed (927.22)
+Delta: 0.7535385673119208
+During Shield Slam, LR attack key was pressed (927.98)
+Delta: 0.7507185151559952
+During Shield Slam, LR attack key was pressed (927.98)
+Delta: 0.00026410140856114594
+During Bloodbath VI, LR attack key was pressed (927.98)
+Delta: 0.7509877473689812
+During Shield Slam, MID attack key was pressed (929.68)
+Delta: 1.7033012406014905
+During Shield Slam, MID attack key was pressed (929.68)
+cast time: 1.99
+Delta: 0.00027814361010314315
+actual 3.21 vs expected 3.25
+During Bloodbath VI, MID attack key was pressed (929.68)
+wait more time: -0.01
+Delta: 1.7036892914439932
+Bloody Hack V was activated. Last used: Never
+During Bloody Hack V, Hotkey for Bloody Hack V was pressed (931.67)
+Delta: 1.9909268474203827
+During Shield Slam, MID attack key was pressed (932.42)
+Delta: 2.743056063760264
+During Shield Slam, MID attack key was pressed (932.42)
+Delta: 0.0003586162274586968
+During Bloody Hack V, MID attack key was pressed (932.42)
+Delta: 0.752423022405651
+During Shield Slam, UR attack key was pressed (933.92)
+Delta: 1.5017464988335405
+During Shield Slam, UR attack key was pressed (933.92)
+Delta: 0.0002511393761324143
+During Bloody Hack V, UR attack key was pressed (933.92)
+Delta: 1.5020381445607427
+cast time: 0.94
+actual 2.26 vs expected 2.6
+wait more time: -0.06
+Whirlwind was activated. Last used: 921.5680686274801
+During Whirlwind, Hotkey for Whirlwind was pressed (934.87)
+Delta: 0.9424939436254363
+During Shield Slam, LR attack key was pressed (935.62)
+Delta: 1.69489293226286
+During Shield Slam, LR attack key was pressed (935.62)
+Delta: 0.0003037976323412295
+During Whirlwind, LR attack key was pressed (935.62)
+Delta: 0.7526355457271166

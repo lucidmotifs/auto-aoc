@@ -112,26 +112,6 @@ aggro = Rotation()
 aggro.add( combos )
 
 
-## Guard DPS Rotation
-rot = Rotation()
-rot.add_combo( guard_destroyer, (1,10))
-rot.add_combo( titanic_smash_B, (2,19))
-rot.add_combo( counterweight, (3,5,8,11,14,17))
-rot.add_combo( overreachVI, (4,6,15,))
-rot.add_combo( titanic_smash, (7,13,))
-rot.add_combo( overreachV, (12,16,18))
-rot.add_combo( dulling_blow, (9,19))
-
-rot.add_ability( bloodyvengance, (4,11))
-rot.add_ability( reckoning, (4,6,9,12,15,18))
-rot.add_ability( switch_weapons, (19,))
-
-
-rot.repeat = True
-rot.repeat_count = 0
-
-grd_dps = rot
-
 def start_rotation2(rotation, pause_key):
     generic.register_keybinds(rotation)
 

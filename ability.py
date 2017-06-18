@@ -13,6 +13,7 @@ class COOLDOWN_ACTIONS:
     SKIP = 1
     WAIT_SHORT = 2
     RETRY = 3
+    TIMER = 4
 
 
 """ Abilities are spells or buffs that are cast at one of the following times:
@@ -26,12 +27,12 @@ class Ability(object):
     cooling_down = False
     cooldown_time = 0.0
     last_actual_cooldown = 0.0
-    cooldown_fudge = 0.35
+    cooldown_fudge = 0.0
     # default CD action is to try again until the skill is off CD
     cooldown_action = COOLDOWN_ACTIONS.WAIT
     cast_time = 0.0
     duration = 0.0
-    on_cooldown = False
+    use_on_cooldown = False
     lastused = None
     modifier = None
 
@@ -115,7 +116,7 @@ class Ability(object):
                 retry.start()
             elif self.cooldown_action == COOLDOWN_ACTIONS.RETRY:
                 print("We'll be pushy")
-                retry = threading.Timer(.1, self.use)
+                retry = threading.Timer(.3, self.use)
                 retry.start()
             elif self.cooldown_action == COOLDOWN_ACTIONS.WAIT_SHORT:
                 print("We'll wait a short while only")
@@ -132,7 +133,7 @@ class Ability(object):
             logging.debug("{} was activated. Last used: {}".\
                 format(self.name, self.lastused or 'Never'))
 
-    def use(self, on_cooldown=False):
+    def use(self, lock=None):
 
         print("Using: {}".format( self.name ))
 
@@ -167,11 +168,13 @@ class Ability(object):
 
 
     def cooldown_end(self):
-        self.on_cooldown = False
         self.cooling_down = False
         self.cooldown = None
 
         print("{0} is now off cooldown".format(self.name))
+
+        if self.use_on_cooldown:
+            self.use()
 
 
     def status(self):

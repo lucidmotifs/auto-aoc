@@ -37,7 +37,6 @@ class Combo(Ability):
         self.cooldown_time = float(cooldown_time)
         self.hotkey = hotkey
         self.step_delays = {}
-        self.pre_finishers = []
 
         self.set_factory_defaults()
 
@@ -49,6 +48,7 @@ class Combo(Ability):
         self.duration = 0.0
         self.finisher = []
         self.key_events = []
+        self.pre_finishers = []
 
 
     def register_hotkey(self, rotation):
@@ -74,6 +74,7 @@ class Combo(Ability):
 
     def attach_prefinisher(self, ability):
         self.pre_finishers.append(ability)
+        self.build_word()
 
 
     def attach_prefinishers(self, abilities):
@@ -89,7 +90,7 @@ class Combo(Ability):
     def do_prefinishers(self):
         # check for pre-finisher buffs and use, this will delay the step slightly
         if len(self.pre_finishers) > 0:
-            [x.use(x.on_cooldown) for x in self.pre_finishers \
+            [x.use() for x in self.pre_finishers \
                 if not x.cooling_down]
 
 
@@ -99,12 +100,14 @@ class Combo(Ability):
 
     def build_word(self):
         self.word = ''
-        if hasattr(self, 'pre_finishers') and self.pre_finishers:
+        self.finisher = []
+        if self.pre_finishers:
+            steps_c = copy(self.steps)
             self.finisher.append(steps_c.pop())
             for a in self.pre_finishers:
                 # guess we're deciding that pre_finishers can't have modifiers?
                 self.finisher.append(''.join(a.hotkey))
-            steps_c = copy(self.steps)            
+
             self.word += ''.join(steps_c)
         else:
             self.word += ''.join(self.steps)
@@ -143,16 +146,19 @@ class Combo(Ability):
         # is an advantage (i think it is because lag - no buffering is constant .1)
         # loss, which is why we are constantly adding .1 to things...and when i get pausing
         # spike, combos are missed.
-        time.sleep(self.attack_interval)
+        debt = .4
+        time.sleep(self.attack_interval - debt)
 
         # pyautogui.typewrite(self.word, ATTACK_INT_1HE)
         for i,char in enumerate(self.word):
             pyautogui.press(char)
-            time.sleep(self.attack_interval + ((i+1) * .1))
+            time.sleep(self.attack_interval + (i * .1) + debt)
+            if debt > 0:
+                debt = 0.0
 
         if self.finisher:
-            time.sleep(self.attack_interval + len(self.word) * .1)
             pyautogui.press(self.finisher)
+            time.sleep(debt + self.attack_interval + len(self.word) * .1)
 
         end = timer()
 
@@ -208,25 +214,24 @@ class Combo(Ability):
             print("sleep .1")
             time.sleep(.1)
 
-        print("Sleep for {}".format(self.attack_interval))
-        time.sleep(self.attack_interval)
+        debt = .4
+        print("Sleep for {}".format(self.attack_interval - debt))
+        time.sleep(self.attack_interval - debt)
 
-        # pyautogui.typewrite(self.word, ATTACK_INT_1HE)
         for i,char in enumerate(self.word):
             #pyautogui.press(char)
             print("Press {}".format(char))
-            print("Sleep for {}".format(self.attack_interval + ((i+1) * .1)))
-            time.sleep(self.attack_interval + ((i+1) * .1))
+            print("Sleep for {}".format(debt + self.attack_interval + (i * .1)))
+            time.sleep(debt + self.attack_interval + (i * .1))
+            if debt > 0:
+                debt = 0.0
 
         if self.finisher:
-            print("Sleep for {}".format(self.attack_interval + len(self.word) * .1))
-            time.sleep(self.attack_interval + len(self.word) * .1)
             #pyautogui.press(self.finisher)
             print("Press {}".format(self.finisher))
+            print("Sleep for {}".format(self.attack_interval + len(self.word) * .1))
+            time.sleep(self.attack_interval + len(self.word) * .1)
+
 
         duration = timer() - start
         print("Duration: {}".format(round(duration, 2)))
-
-
-    def add_delay(self, step, delay):
-        self.step_delays[step-1] = delay

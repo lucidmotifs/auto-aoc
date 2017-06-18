@@ -18,10 +18,6 @@ from ability import Ability
 from ability import COOLDOWN_ACTIONS
 from combo import Combo
 
-# classes and combos
-from conqueror.combos import *
-from conqueror.abilities import *
-
 
 logging.basicConfig(
     format='%(message)s',
@@ -50,15 +46,15 @@ def test_random_combo(rotation):
 
     print("Testing KEYBINDS")
     generic.register_keybinds(rotation)
-    generic._set_focus()
-    time.sleep(1)
-    pyautogui.typewrite('q123e', .5)
+    #generic._set_focus()
+    #time.sleep(1)
+    #pyautogui.typewrite('q123e', .5)
     print("Done. Check output.txt")
 
-    print("Testing Cooldown")
-    combo.init_cooldown()
+    #print("Testing Cooldown")
+    #combo.init_cooldown()
 
-    time.sleep(combo.cooldown_time)
+    #time.sleep(combo.cooldown_time)
 
     print("Testing Simulation")
     combo.simluate_keyevents()
@@ -87,26 +83,11 @@ def test_random_ability(rotation):
     time.sleep(1)
     ability.cooldown.cancel()
 
+from rotations import Guardian_DPS as gdps
 
-## Conqueror DPS Rotation
-conq_dps = Rotation()
-
-# Combos
-conq_dps.use( Breech(4) ).at( 1 )
-conq_dps.use( Whirlwind() ).at( 2, 6 )
-conq_dps.use( BloodyHack(6) ).at( 3 )
-conq_dps.use( BloodyHack(5) ).at( 5, 7 )
-conq_dps.use( Bloodbath(6) ).at( 4, 8 )
-
-# Abilities
-conq_dps.use( BladeWeave() ).at( 1 )
-conq_dps.use( UseDiscipline() ).at( 2 )
-conq_dps.use( Annihilate() ).at( 3 )
-conq_dps.use( RendFlesh() ).at( 4 )
-
-conq_dps.print_rotation()
-
-test_random_combo(conq_dps)
-test_random_ability(conq_dps)
-
+r = gdps()
+test_random_combo(r)
+keyboard.unhook_all()
+test_random_combo(r)
+#test_random_ability(gdps())
 keyboard.unhook_all()

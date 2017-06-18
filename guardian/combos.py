@@ -87,3 +87,21 @@ class ShieldSlam(Combo):
         self.set_factory_defaults()
         self.hotkey = 'g'
         self.build_word()
+
+
+class DullingBlow(Combo):
+
+    name = "Dulling Blow"
+    cooldown_time = 9.0
+
+    def __init__(self, rank=4):
+        self.set_factory_defaults()
+        self.set_rank(rank)
+        self.build_word()
+
+    def set_rank(self, rank):
+        if rank is 4:
+            self.name += " IV"
+            self.hotkey = '6'
+            self.steps = ["3"]
+            self.cast_time = 1.0

@@ -13,62 +13,15 @@ import pywinauto
 # timing module
 from timeit import default_timer as timer
 
-# from this application
-from rotation import Rotation
-from ability import Ability
-from ability import COOLDOWN_ACTIONS
-from combo import Combo
-
-# classes and combos
-from conqueror.combos import *
-from conqueror.abilities import *
-from guardian.combos import *
-from guardian.abilities import *
+# pre-built rotations
+from rotations import *
 
 
 logging.basicConfig(
-    format='%(message)s',
+    format='(%(threadName)-10s) %(message)s'
     filename='output.txt',
     filemode='w',
     level=logging.DEBUG)
-
-
-## Conqueror DPS Rotation
-guard_aggro = Rotation()
-guard_aggro.repeat = False
-guard_aggro.repeat_count = 2
-
-# Combos
-guard_aggro.use( ShieldSlam() ).at( 1, 5, 8, 12, 15 )
-guard_aggro.use( GuardDestroyer(4) ).at( 2, 11 )
-t_smash_buffs = guard_aggro.use( TitanicSmash() ).at( 3, 10, 16 )
-t_smash_buffs.attach_prefinishers( (Powerhouse(), BattleCry(), CallToArms()) )
-guard_aggro.use( Overreach(5) ).at( 4, 7, 9, 13, 17 )
-guard_aggro.use( Overreach(6) ).at( 6, 14 )
-
-# Abilities
-guard_aggro.use( TacticProvoke() ).at( 1 )
-guard_aggro.use( CryOfHavoc() ).at( 1 )
-guard_aggro.use( Irritate() ).at( 1 )
-
-
-## Conqueror DPS Rotation
-conq_dps = Rotation()
-conq_dps.repeat = True
-conq_dps.repeat_count = 2
-
-# Combos
-conq_dps.use( Breech(4) ).at( 1 )
-conq_dps.use( Whirlwind() ).at( 2, 6 )
-conq_dps.use( BloodyHack(6) ).at( 3 )
-conq_dps.use( BloodyHack(5) ).at( 5, 7, 9 )
-conq_dps.use( Bloodbath(6) ).at( 4, 8 )
-
-# Abilities
-conq_dps.use( BladeWeave() ).at( 1 )
-conq_dps.use( UseDiscipline() ).at( 2 )
-conq_dps.use( Annihilate() ).at( 3 )
-conq_dps.use( RendFlesh() ).at( 4 )
 
 
 def do_rotation(rotation, pause_key):
@@ -87,7 +40,8 @@ def do_rotation(rotation, pause_key):
 def main():
     # Go to the Game
     generic._set_focus()
-    global conq_dps
+    guard_aggro = Guardian_Aggro()
+    conq_dps = Conqueror_DPS()
     # Set-up keyhooks
     try:
         #hk2 = keyboard.add_hotkey(80, start_rotation2, args=[grd_dps, 79])

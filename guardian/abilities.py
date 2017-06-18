@@ -5,7 +5,6 @@ class TacticProvoke(Ability):
 
     name = "Tactic: Provoke"
     cooldown_time = 0
-    cooldown_action = COOLDOWN_ACTIONS.WAIT
 
     def __init__(self):
         self.hotkey = 'q'
@@ -17,7 +16,6 @@ class TacticDefense(Ability):
 
     name = "Tactic: Defense"
     cooldown_time = 0
-    cooldown_action = COOLDOWN_ACTIONS.WAIT
 
     def __init__(self):
         self.hotkey = 'e'
@@ -28,8 +26,9 @@ class TacticDefense(Ability):
 class CryOfHavoc(Ability):
 
     name = "Rend Flesh"
-    cooldown_time = 45
-    cooldown_action = COOLDOWN_ACTIONS.WAIT_SHORT
+    cooldown_time = 15.0
+    cooldown_action = COOLDOWN_ACTIONS.RETRY
+    use_on_cooldown = True
 
     def __init__(self):
         self.hotkey = 'q'
@@ -39,8 +38,8 @@ class CryOfHavoc(Ability):
 class Irritate(Ability):
 
     name = "Irritate"
-    cooldown_time = 45
-    cooldown_action = COOLDOWN_ACTIONS.WAIT
+    cooldown_time = 20.0
+    cooldown_action = COOLDOWN_ACTIONS.RETRY
     use_on_cooldown = True
 
     def __init__(self):
@@ -51,8 +50,8 @@ class Irritate(Ability):
 class Powerhouse(Ability):
 
     name = "Powerhouse"
-    cooldown_time = 45
-    cooldown_action = COOLDOWN_ACTIONS.WAIT
+    cooldown_time = 60.0
+    cooldown_action = COOLDOWN_ACTIONS.SKIP
 
     def __init__(self):
         self.hotkey = 'F1'
@@ -62,8 +61,8 @@ class Powerhouse(Ability):
 class BattleCry(Ability):
 
     name = "Battle Cry"
-    cooldown_time = 45
-    cooldown_action = COOLDOWN_ACTIONS.WAIT
+    cooldown_time = 45.0
+    cooldown_action = COOLDOWN_ACTIONS.SKIP
 
     def __init__(self):
         self.hotkey = 'F2'
@@ -73,9 +72,33 @@ class BattleCry(Ability):
 class CallToArms(Ability):
 
     name = "Call To Arms"
-    cooldown_time = 45
-    cooldown_action = COOLDOWN_ACTIONS.WAIT
+    cooldown_time = 60.0
+    cooldown_action = COOLDOWN_ACTIONS.SKIP
 
     def __init__(self):
         self.hotkey = 'F3'
+        self.register_hotkey()
+
+
+class BloodyVegeance(Ability):
+
+    name = "Bloody Vegeance"
+    cooldown_time = 27.0
+    cooldown_action = COOLDOWN_ACTIONS.SKIP
+    cast_time = 1.5
+
+    def __init__(self):
+        self.hotkey = '5'
+        self.register_hotkey()
+
+
+class Reckoning(Ability):
+
+    name = "Reckoning"
+    cooldown_time = 10.0
+    cooldown_action = COOLDOWN_ACTIONS.RETRY
+    use_on_cooldown = False
+
+    def __init__(self):
+        self.hotkey = 'q'
         self.register_hotkey()

@@ -1,6 +1,5 @@
 import time
 import pyautogui
-import pywinauto
 import datetime
 import keyboard
 import threading

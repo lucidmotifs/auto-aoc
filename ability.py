@@ -52,6 +52,7 @@ class Ability(object):
             return self._hotkey
         def fset(self, value):
             self._hotkey = value
+            self.register_hotkey(None)
         def fdel(self):
             del self._hotkey
         return locals()
@@ -60,9 +61,10 @@ class Ability(object):
 
     def init_cooldown(self, fudge=0.0):
         if not self.cooling_down:
-            actual_cd = self.cooldown_time
+            actual_cd = self.cooldown_time + fudge
 
             self.cooldown = threading.Timer(actual_cd, self.cooldown_end)
+            self.cooldown.setDaemon(True)
             self.cooldown.start()
             self.lastused = self.cooldown_start = timer()
             self.cooling_down = True
@@ -70,13 +72,14 @@ class Ability(object):
 
     def deregister_hotkey(self):
         # remove any other action that currently has this hotkey
-        print("Removing old bindings")
         try:
             keyboard.unhook_key(self.hotkey)
+            print("Removing old bindings")
         except ValueError as e:
             #print(e)
             try:
                 keyboard.remove_hotkey(self.modifier or '' + '+' + self.hotkey)
+                print("Removing old bindings")
             except (ValueError,TypeError) as e:
                 #print(e)
                 pass

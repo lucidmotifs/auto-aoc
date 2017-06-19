@@ -86,6 +86,7 @@ class Rotation(object):
 
         self.last_keypress = curr_time
 
+
     # This method is designed for fully formed combos that manage their \
     # own hotkey callbacks and doesn't require a copy to be made
     def use(self, action):
@@ -95,11 +96,11 @@ class Rotation(object):
             if action not in self.combo_list:
                 idx = len(self.combo_list)
                 self.combo_list.append( action )
+                action.register_hotkey( self )
             else:
                 idx = self.combo_list.index(action)
 
             self.last_touched = self.combo_list[idx]
-            self.last_touched.register_hotkey(self)
 
         elif isinstance(action, Ability):
             idx = len(self.ability_list)
@@ -145,7 +146,6 @@ class Rotation(object):
 
     def add_combo(self, combo, positions=()):
         # Register the hotkey for tracking, link it to this Rotation.
-        combo.register_hotkey(self)
 
         # copy the combo so it can modified
         combo_copy = copy(combo)
@@ -157,7 +157,7 @@ class Rotation(object):
             idx = self.combo_list.index(combo_copy)
 
         combo_copy.at(*positions)
-
+        combo_copy.register_hotkey(self)
         combo_copy.build_word()
 
 
@@ -246,14 +246,11 @@ class Rotation(object):
             [i.use() for i in items if isinstance(i, Ability) and \
                 not isinstance(i, Combo)]
 
-            if c is not None:
-                if c.cooling_down:
-                    # wait for skill to come off CD (but also note the error)
-                    print("Skill: %s was used while still on CD" % c.name)
-                    print("{:0.2f} seconds left on CD last used at {:0.2f}"\
-                    .format(c.cooldown_remaining, c.cooldown_start))
-
-                c.simluate_keyevents()
+            # then the combos/spells
+            try:
+                c.use()
+            except ValueError as ve:
+                print("No combo available for this round.")
 
         if ( repeat is True or self.repeat is True ) and self.repeat_count > 0:
             self.repeat_count -= 1

@@ -44,12 +44,27 @@ class Combo(Ability):
     def set_factory_defaults(self):
         # results
         self.word = ''
+        self.schedule = None
         self.modifier = None
         self.duration = 0.0
         self.finisher = []
         self.key_events = []
         self.pre_finishers = []
-        self.post_finishers[]
+        self.post_finishers = []
+
+
+    def schedule():
+        doc = "The schedule property."
+        def fget(self):
+            if not self._schedule or self._schedule.empty():
+                self.create_schedule()
+            return self._schedule
+        def fset(self, value):
+            self._schedule = value
+        def fdel(self):
+            del self._schedule
+        return locals()
+        schedule = property(**schedule())
 
 
     def register_hotkey(self, rotation):
@@ -122,7 +137,7 @@ class Combo(Ability):
                 s.enter(t, i+2, ability.use)
 
         # finally
-        t = self.attack_interval * (len(self.steps)+1)
+        t = self.attack_interval * (len(self.steps)+1) + self.cast_time
         s.enter(t, 1, self.init_cooldown)
 
 
@@ -169,80 +184,9 @@ class Combo(Ability):
             self.word += ''.join(self.steps)
 
 
-    def simluate_keyevents(self):
-        # check cooldown
-        # create 'word'
-        # time word execution
-        # subtract tick difference from final wait time
-        # do all computation before sending the word!
-        # this should ensure each key_press is sent in good time.
-        ATTACK_INT_1HE = .65
-
-        pyautogui.PAUSE = 0.0
-
-        if self.word is None:
-            self.build_word()
-
-        start = timer()
-
-        # do_opener()
-        if self.modifier:
-            pyautogui.keyDown(self.modifier)
-            time.sleep(.05)
-            pyautogui.press(self.hotkey)
-            time.sleep(.05)
-            pyautogui.keyUp(self.modifier)
-        else:
-            pyautogui.press(self.hotkey)
-            time.sleep(.1)
-
-        # we sleep after opener even though we could lock it.
-        # would be great to have a v2 of this method that buffers input by ends
-        # up with the same timing overall (no missed combos) and see if buffering
-        # is an advantage (i think it is because lag - no buffering is constant .1)
-        # loss, which is why we are constantly adding .1 to things...and when i get pausing
-        # spike, combos are missed.
-        debt = .4
-        time.sleep(self.attack_interval - debt)
-
-        # pyautogui.typewrite(self.word, ATTACK_INT_1HE)
-        for i,char in enumerate(self.word):
-            pyautogui.press(char)
-            time.sleep(self.attack_interval + (i * .1) + debt)
-            if debt > 0:
-                debt = 0.0
-
-        if self.finisher:
-            pyautogui.press(self.finisher)
-            time.sleep(debt + self.attack_interval + len(self.word) * .1)
-
-        end = timer()
-
-        # timeit
-        actual = end - start
-
-        expected = (len(self.steps) + 1) * self.attack_interval
-
-        if len(self.finisher) > 0:
-            expected += self.attack_interval
-
-        wait_more =  round((actual - expected) / 6, 2)
-
-        # calculate time to wait for casting
-        pause = self.cast_time + wait_more
-        logging.debug("cast time: {}".format( pause ))
-        logging.debug("actual {} vs expected {}".format( round(actual, 2), \
-            round(expected, 2) ))
-        logging.debug("wait more time: {}".format(wait_more))
-        time.sleep( pause )
-
-        # do post ability, use keyboard to avoid long delays
-        #if self.post_ability:
-        #    keyboard.send(self.post_ability.hotkey)
-
-        self.duration = timer() - start
-
-        self.init_cooldown()
+    # ready to delete...
+    def simulate_keyevents(self):
+        self.use()
 
     # very similiar to simuulate, except every keypress because a print, and
     # all sleep and printed as well. continuing attempt to see if a combo will
@@ -251,42 +195,8 @@ class Combo(Ability):
 
         start = timer()
 
-        # do_opener()
-        if self.modifier:
-            #pyautogui.keyDown(self.modifier)
-            print("keyDown {}".format(self.modifier))
-            print("sleep .05")
-            time.sleep(.05)
-            #pyautogui.press(self.hotkey)
-            print("Press {}".format(self.hotkey))
-            print("sleep .05")
-            time.sleep(.05)
-
-            #pyautogui.keyUp(self.modifier)
-            print("keyUp {}".format(self.modifier))
-        else:
-            #pyautogui.press(self.hotkey)
-            print("Press {}".format(self.hotkey))
-            print("sleep .1")
-            time.sleep(.1)
-
-        debt = .4
-        print("Sleep for {}".format(self.attack_interval - debt))
-        time.sleep(self.attack_interval - debt)
-
-        for i,char in enumerate(self.word):
-            #pyautogui.press(char)
-            print("Press {}".format(char))
-            print("Sleep for {}".format(debt + self.attack_interval + (i * .1)))
-            time.sleep(debt + self.attack_interval + (i * .1))
-            if debt > 0:
-                debt = 0.0
-
-        if self.finisher:
-            #pyautogui.press(self.finisher)
-            print("Press {}".format(self.finisher))
-            print("Sleep for {}".format(self.attack_interval + len(self.word) * .1))
-            time.sleep(self.attack_interval + len(self.word) * .1)
+        ## will update for new scheduler system soon
+        print(self.schedule.queue)
 
 
         duration = timer() - start
@@ -294,7 +204,7 @@ class Combo(Ability):
 
 
     def use(self, lock=None):
-        if not self.schedule:
-            self.create_schedule()
+        pyautogui.PAUSE = 0.05
 
+        print( self.schedule.queue )
         self.schedule.run()

@@ -25,7 +25,7 @@ class Counterweight(Combo):
     cooldown_time = 2.0
 
     # Counterweight has only one rank, set cast time here
-    cast_time = 2
+    cast_time = 2.0
     steps = ["2","1"]
 
     def __init__(self):

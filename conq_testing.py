@@ -20,7 +20,7 @@ from combo import Combo
 from conqueror.combo import *
 
 logging.basicConfig(
-    format='%(message)s',
+    format='(%(threadName)-10s) %(message)s'
     filename='output.txt',
     filemode='w',
     level=logging.DEBUG)

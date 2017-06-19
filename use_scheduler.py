@@ -34,8 +34,8 @@ generic.register_keybinds(r)
 c = Whirlwind()
 bb = Bloodbath(6)
 
-r.use( c )
-r.use( bb )
+r.use( c ).at()
+r.use( bb ).at()
 
 
 

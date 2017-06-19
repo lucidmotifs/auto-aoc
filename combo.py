@@ -17,6 +17,8 @@ DEBUG = False
 
 class Combo(Ability):
 
+    _schedule = None
+
     cooldown = None
     cooldown_start = None
     cooldown_time = 0.0
@@ -44,7 +46,6 @@ class Combo(Ability):
     def set_factory_defaults(self):
         # results
         self.word = ''
-        self.schedule = None
         self.modifier = None
         self.duration = 0.0
         self.finisher = []
@@ -64,7 +65,7 @@ class Combo(Ability):
         def fdel(self):
             del self._schedule
         return locals()
-        schedule = property(**schedule())
+    schedule = property(**schedule())
 
 
     def register_hotkey(self, rotation):
@@ -206,5 +207,4 @@ class Combo(Ability):
     def use(self, lock=None):
         pyautogui.PAUSE = 0.05
 
-        print( self.schedule.queue )
         self.schedule.run()

@@ -4,6 +4,7 @@ import pywinauto
 import datetime
 import keyboard
 import threading
+import queue
 import logging
 from timeit import default_timer as timer
 from sortedcontainers import SortedDict
@@ -15,9 +16,11 @@ import generic
 from combo import Combo
 from ability import Ability
 
-class Rotation(object):
+class Rotation(threading.Thread):
 
     def __init__(self):
+        threading.Thread.__init__(self)
+        self.exec_lock = threading.Lock()
         self.combo_list = []
         self.ability_list = []
         self.actions = SortedDict()
@@ -118,6 +121,9 @@ class Rotation(object):
     # the positions determined by *args
     def at(self, *positions):
         # act on the last added combo
+        if not positions:
+            pos = len(self.actions) + 1
+            self.actions[pos] = (self.last_touched,)
 
         # add to all positions given
         for pos in positions:
@@ -134,52 +140,6 @@ class Rotation(object):
                 self.actions[pos] = (self.last_touched,)
 
         return self.last_touched
-
-
-    def add(self, action_l):
-        for action in action_l:
-            if isinstance(action, Combo):
-                self.add_combo( action )
-            elif type(action) is Ability:
-                self.add_ability( action )
-
-
-    def add_combo(self, combo, positions=()):
-        # Register the hotkey for tracking, link it to this Rotation.
-
-        # copy the combo so it can modified
-        combo_copy = copy(combo)
-
-        if combo_copy not in self.combo_list:
-            idx = len(self.combo_list)
-            self.combo_list.append( combo_copy )
-        else:
-            idx = self.combo_list.index(combo_copy)
-
-        combo_copy.at(*positions)
-        combo_copy.register_hotkey(self)
-        combo_copy.build_word()
-
-
-    def add_ability(self, ability, positions=None):
-
-        idx = len(self.ability_list)
-        self.ability_list.append(ability)
-
-        if not positions:
-            pos = len(self.actions) + 1
-            self.actions[pos] = (self.ability_list[idx],)
-        else:
-            for pos in positions:
-                if pos in self.actions.keys():
-                    # add to the end, may support adding to a sequence in future.
-                    # should probably throw error if adding to another combo or
-                    # sequence as it won't get played
-                    # potentially could be a 'back-up' if some rule isn't met.
-                    self.actions[pos] = (self.ability_list[idx],) + \
-                        self.actions[pos]
-                else:
-                    self.actions[pos] = (self.ability_list[idx],)
 
 
     def get_combo_at(self, position):
@@ -211,50 +171,59 @@ class Rotation(object):
         except IndexError:
             print("No Pre-Finisher abilities")
 
-    def start(self, repeat = False, starttime = None):
 
+    def run(self):
+
+        pyautogui.PAUSE = .05
         self.print_rotation()
 
-        if self._inprogress:
-            pass
-        elif starttime is not None:
-            self.start_time = starttime
-        else:
-            # create a timer
-            self.start_time = timer()
-
+        self.start_time = timer()
         self._inprogress = True
 
-        pyautogui.PAUSE = .1
+        # create queues for abilities and combos
+        ability_q = queue.Queue(5)
+        combo_q = queue.Queue(1)
 
-        self.current_action = self.get_combo_at(1)
+        ## Q consumer function
+        def q_worker(type='Ability'):
+            which_q = ability_q if type == 'Ability' else combo_q
+            while True:
+                item = which_q.get()
+                if item is None:
+                    break
+
+                item.use()
+                which_q.task_done()
+        ## end consumer
+
+        a_worker = threading.Thread(target=q_worker)
+        a_worker.start()
+
+        c_worker = threading.Thread(target=q_worker, args=('Combo',))
+        c_worker.start()
 
         for a_idx, items in self.actions.items():
 
-            if self.paused:
-                print('paused!')
-                self.do_resume()
+            self.exec_lock.acquire()
 
-            if self.ending:
-                print('done!')
-                break
+            [ability_q.put(i) for i in items if \
+                isinstance(i, Ability) and not \
+                isinstance(i, Combo)]
 
-            # then combos / sequences / spells
+            self.exec_lock.release()
+
+            # current main action
             self.current_action = c = self.get_combo_at(a_idx)
+            combo_q.put(c)
+            combo_q.join()
 
-            # execute abilities first
-            [i.use() for i in items if isinstance(i, Ability) and \
-                not isinstance(i, Combo)]
+        # End the workers
+        ability_q.put(None)
+        combo_q.put(None)
 
-            # then the combos/spells
-            try:
-                c.use()
-            except ValueError as ve:
-                print("No combo available for this round.")
-
-        if ( repeat is True or self.repeat is True ) and self.repeat_count > 0:
+        if ( self.repeat is True ) and self.repeat_count > 0:
             self.repeat_count -= 1
-            self.start(repeat, timer())
+            self.run()
         else:
             self.total_time = timer() - self.start_time
             self.print_current_cooldowns()

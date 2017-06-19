@@ -143,10 +143,10 @@ class Ability(object):
             time.sleep(.05)
             pyautogui.keyUp(self.modifier)
         else:
-            time.sleep(.1)
             pyautogui.press(self.hotkey)
 
         # If we're casting, pause.
+        # this is a quick hack to make BV work - if its casting, it's a spell.
         if self.cast_time > 0:
             time.sleep(self.cast_time + .55)
 

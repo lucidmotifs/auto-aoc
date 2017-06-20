@@ -1,15 +1,15 @@
 from combo import Combo
+from conqueror.abilities import *
 
 class GuardDestroyer(Combo):
 
-    name = "Guard Destroyer"
-    cooldown_time = 32.0
-
     def __init__(self, rank=4):
-        self.set_factory_defaults()
-        self.set_rank(rank)
+        self.set_rank(4)
+        super().__init__("Guard Destroyer",
+                         32,
+                         self.cast_time)
+
         self.hotkey = '4'
-        self.build_word()
 
     def set_rank(self, rank):
         self.steps = ["3"]
@@ -21,32 +21,28 @@ class GuardDestroyer(Combo):
 
 class Counterweight(Combo):
 
-    name = "Counterweight"
-    cooldown_time = 2.0
-
     # Counterweight has only one rank, set cast time here
-    cast_time = 2.0
     steps = ["2","1"]
 
     def __init__(self):
-        self.set_factory_defaults()
+        super().__init__("Counterweight",
+                         "cooldown_time" = 2.0,
+                         "cast_time" = 2.0)
+
         self.hotkey = 'r'
-        self.build_word()
 
 
 class TitanicSmash(Combo):
 
-    name = "Titanic Smash"
-    cooldown_time = 20
-
     # TitanicSmash has only one rank, set cast time here
-    cast_time = 1
     steps = ["1","2"]
 
     def __init__(self):
-        self.set_factory_defaults()
+        super().__init__("Titanic Smash",
+                         20,
+                         1.0)
+
         self.hotkey = 't'
-        self.build_word()
 
 
 class Overreach(Combo):
@@ -55,9 +51,11 @@ class Overreach(Combo):
     cooldown_time = 2.0
 
     def __init__(self, rank=6):
-        self.set_factory_defaults()
         self.set_rank(rank)
-        self.build_word()
+        def __init__(self):
+            super().__init__(self.name,
+                             2.0,
+                             self.cast_time)
 
 
     def set_rank(self, rank):
@@ -76,28 +74,24 @@ class Overreach(Combo):
 
 class ShieldSlam(Combo):
 
-    name = "Shield Slam"
-    cooldown_time = 9.0
-
-    # TitanicSmash has only one rank, set cast time here
-    cast_time = 1.0
     steps = ["e","2"]
 
     def __init__(self):
-        self.set_factory_defaults()
+        super().__init__("Shield Slam",
+                         9.0,
+                         1.0)
+
         self.hotkey = 'g'
-        self.build_word()
 
 
 class DullingBlow(Combo):
 
-    name = "Dulling Blow"
-    cooldown_time = 9.0
-
     def __init__(self, rank=4):
-        self.set_factory_defaults()
         self.set_rank(rank)
-        self.build_word()
+        super().__init__("Dulling Blow",
+                         9.0,
+                         self.cast_time)
+
 
     def set_rank(self, rank):
         if rank is 4:

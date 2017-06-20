@@ -22,28 +22,34 @@ class COOLDOWN_ACTIONS:
 class Ability(object):
 
     name = ""
-    cooldown = None # threading.Timer(cooldown_time, self.cooldown_end)
+
     cooling_down = False
     cooldown_time = 0.0
-    last_actual_cooldown = 0.0
-    cooldown_fudge = 0.0
-    # default CD action is to try again until the skill is off CD
-    cooldown_action = COOLDOWN_ACTIONS.WAIT
     cast_time = 0.0
-    duration = 0.0
-    use_on_cooldown = False
+    duration = 0.0 # useful when we move to conditon based rotations
     lastused = None
+
+    # default CD action is to try again until the skill is off CD
+    cooldown_action = COOLDOWN_ACTIONS.SKIP
+
+    # use ability immmediately when CD comes up
+    use_on_cooldown = False
+
+    # modifier key for hotkeys
     modifier = None
 
-    def __init__(self, name, hotkey, cooldown_time, cast_time=0, duration=0):
+
+    def __init__(self, name="", cooldown_time=0, cast_time=0, duration=0):
         setattr(self, 'name', name)
         setattr(self, 'cooldown_time', cooldown_time)
         setattr(self, 'cast_time', float(cast_time))
         setattr(self, 'duration', float(duration))
 
-        self._hotkey = hotkey
-        self.modifier = None
-        self.register_hotkey()
+        # event comfirming the ability was successfully activated.
+        self._key_pressed = threading.Event()
+
+        # cooldown timer thread
+        self.cooldown = threading.Timer(cooldown_time, self.cooldown_end)
 
 
     def hotkey():
@@ -59,15 +65,19 @@ class Ability(object):
     hotkey = property(**hotkey())
 
 
+    @property
+    def cooling_down(self):
+        return self.cooldown.is_alive()
+
+
     def init_cooldown(self, fudge=0.0):
         if not self.cooling_down:
             actual_cd = self.cooldown_time + fudge
 
             self.cooldown = threading.Timer(actual_cd, self.cooldown_end)
-            self.cooldown.setDaemon(True)
+            self.cooldown.daemon = True
             self.cooldown.start()
             self.lastused = self.cooldown_start = timer()
-            self.cooling_down = True
 
 
     def deregister_hotkey(self):
@@ -97,11 +107,15 @@ class Ability(object):
             keyboard.hook_key( self.hotkey, \
                 lambda: self.hotkey_pressed() )
 
+
         logging.debug("Hotkey {} registered for {}".format(self.hotkey, \
                                                            self.name))
 
-
+    # Returns true if and only if we have finished trying, not if the
+    # press 'happened' - we're here because it deciding-
     def hotkey_pressed(self):
+        self._pressed = self._key_pressed.is_set()
+
         # Make sure press was really for you.
         if keyboard.is_pressed('shift') or keyboard.is_pressed('ctrl'):
             # ensure the modifier key currently being held
@@ -114,32 +128,39 @@ class Ability(object):
                 format(self.name, self.cooldown_remaining))
 
             if self.cooldown_action == COOLDOWN_ACTIONS.WAIT:
-                print("We'll wait")
-                retry = threading.Timer(self.cooldown_remaining, self.use)
-                retry.start()
+                logging.debug("OnCooldown action was WAIT, waiting.")
+                retry = threading.Timer(self.cooldown_remaining,
+                                        self.activate).start()
+                return
             elif self.cooldown_action == COOLDOWN_ACTIONS.RETRY:
-                print("We'll be pushy")
-                retry = threading.Timer(.3, self.use)
-                retry.start()
+                logging.debug("OnCooldown action was RETRY, retrying.")
+                retry = threading.Timer(1, self.activate).start()
+                return
             elif self.cooldown_action == COOLDOWN_ACTIONS.WAIT_SHORT:
-                print("We'll wait a short while only")
-                if self.cooldown_remaining < 2.2:
-                    retry = threading.Timer(self.cooldown_remaining, self.use)
-                    retry.start()
+                logging.debug("OnCooldown action was WAIT_SHORT, waiting a \
+                    short while")
+                if self.cooldown_remaining < 3:
+                    retry = threading.Timer(self.cooldown_remaining,
+                                            self.activate).start()
+                    return
                 else:
-                    logging.debug("Skipping execution of {} due to cooldown ({}s)".\
+                    logging.debug( \
+                        "Skipping execution of {} due to cooldown ({}s)". \
                         format(self.name, self.cooldown_remaining))
             else:  # SKIP
-                logging.debug("Skipping execution of {} due to cooldown ({}s)".\
+                logging.debug( \
+                    "Skipping execution of {} due to cooldown ({}s)". \
                     format(self.name, self.cooldown_remaining))
         else:
-            logging.debug("{} was activated. Last used: {}".\
+            self._pressed = True
+            logging.debug("{} was activated. Last used: {}". \
                 format(self.name, self.lastused or 'Never'))
 
-    def use(self, lock=None):
+        self._key_pressed.set()
 
-        print("Using: {}".format( self.name ))
 
+    # press the button.
+    def activate(self):
         if self.modifier:
             pyautogui.keyDown(self.modifier)
             time.sleep(.05)
@@ -149,13 +170,33 @@ class Ability(object):
         else:
             pyautogui.press(self.hotkey)
 
-        # If we're casting, pause.
-        # this is a quick hack to make BV work - if its casting, it's a spell.
-        if self.cast_time > 0:
-            time.sleep(self.cast_time + .55)
+        self._key_pressed.clear()
 
-        # start cooldown
-        self.init_cooldown()
+
+    def use(self, lock=None):
+
+        print("Using: {}".format( self.name ))
+
+        self.activate()
+
+        # Wait for allowed event
+        e = self._key_pressed.wait(20)
+        if e:
+            # key press, not timeout.
+            if self._pressed:
+                # If we're casting, pause.
+                # this is a quick hack to make BV work - if its casting, it's a spell.
+                if self.cast_time > 0:
+                    time.sleep(self.cast_time)
+
+                # start cooldown
+                self.init_cooldown()
+        else:
+            # waiting for a timeout this long means something
+            # is really broken with out system or our Rotation
+            # and we should exit. decide on action later
+            return
+
 
 
     # returns the recorded keyboard input events

@@ -17,7 +17,7 @@ DEBUG = False
 
 class Combo(Ability):
 
-    _schedule = None
+    _schedule = sched.scheduler()
 
     cooldown_start = None
     cooldown_time = 0.0
@@ -25,24 +25,17 @@ class Combo(Ability):
     lastused = None
     finisher = []
     pre_finishers = []
-    post_ability = None
-    duration = 0.0
+    post_finishers = []
     attack_interval = ATTACK_INT_1HE
 
-    def __init__(self, name, hotkey, steps, cooldown_time, \
-                 cast_time=0.0, post_ability=None):
-        self.name = name
-        self.steps = steps
-        self.post_ability = post_ability
-        self.cast_time = float(cast_time)
-        self.cooldown_time = float(cooldown_time)
-        self.hotkey = hotkey
-
-        self.set_factory_defaults()
+    def __init__(self, name, cooldown_time=0.0, cast_time=0.0):
+        super().__init__(name, cooldown_time, cast_time)
+        self.factory()
 
 
-    def set_factory_defaults(self):
-        # results
+    def factory(self):
+        # initialize some properties to defaults. useful while developing,
+        # but probably not needed moving forward.
         self.word = ''
         self.modifier = None
         self.duration = 0.0
@@ -93,17 +86,6 @@ class Combo(Ability):
         rotation.log_keypress(self)
 
 
-    def opener(self):
-        if self.modifier:
-            pyautogui.keyDown(self.modifier)
-            time.sleep(.05)
-            pyautogui.press(self.hotkey)
-            time.sleep(.05)
-            pyautogui.keyUp(self.modifier)
-        else:
-            pyautogui.press(self.hotkey)
-
-
     # This replaces the 'build_word' functionality we previously
     # had as it ensures key presses happen exactly when they are
     # supposed to even when a step takes slightly too long to complete.
@@ -115,7 +97,7 @@ class Combo(Ability):
         # and after the round abilities have been fired.
         # In future, this schedule will be called just before the end
         # of the previous cast so opener and first step are buffered
-        s.enter(t, 1, self.opener)
+        s.enter(t, 1, self.activate)
 
         # Do the steps uninteruppted
         for i,step in enumerate(self.steps):
@@ -201,7 +183,10 @@ class Combo(Ability):
         print("Duration: {}".format(round(duration, 2)))
 
 
-    def use(self, lock=None):
+    def use(self, rotation=None):
         pyautogui.PAUSE = 0.05
 
         self.schedule.run()
+
+        if self.post_finishers and rotation:
+            

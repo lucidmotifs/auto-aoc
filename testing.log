@@ -1,22 +1,248 @@
-(MainThread) 37:46.632 Hotkey r registered for Whirlwind
-(MainThread) 37:46.633 Hotkey t registered for Bloodbath VI
-(MainThread) 37:46.634 Hotkey r registered for Whirlwind
-(MainThread) 37:46.635 Hotkey t registered for Bloodbath VI
-(Thread-3  ) 37:46.636 Whirlwind was activated. Last used: Never
-(Thread-3  ) 37:46.636 During Whirlwind, Hotkey for Whirlwind was pressed (0.0)
-(Thread-3  ) 37:46.637 Delta: 0.00185761724335434
-(Thread-3  ) 37:46.937 During Whirlwind, LR attack key was pressed (0.3)
-(Thread-3  ) 37:46.937 Delta: 0.30026699028470777
-(Thread-3  ) 37:47.937 During Whirlwind, LL attack key was pressed (1.3)
-(Thread-3  ) 37:47.937 Delta: 1.0001952401899905
-(Thread-3  ) 37:48.587 During Whirlwind, UR attack key was pressed (1.95)
-(Thread-3  ) 37:48.587 Delta: 0.6502384063647761
-(Thread-3  ) 37:50.737 Bloodbath VI was activated. Last used: Never
-(Thread-3  ) 37:50.737 During Bloodbath VI, Hotkey for Bloodbath VI was pressed (4.1)
-(Thread-3  ) 37:50.737 Delta: 2.150065444619701
-(Thread-3  ) 37:51.038 During Bloodbath VI, LL attack key was pressed (4.4)
-(Thread-3  ) 37:51.038 Delta: 0.3005297409138379
-(Thread-3  ) 37:52.038 During Bloodbath VI, LR attack key was pressed (5.4)
-(Thread-3  ) 37:52.038 Delta: 1.0003931807975466
-(Thread-3  ) 37:52.687 During Bloodbath VI, MID attack key was pressed (6.05)
-(Thread-3  ) 37:52.687 Delta: 0.6492403320325426
+(MainThread) 21:10.286 Hotkey r registered for Whirlwind
+(MainThread) 21:10.286 Hotkey t registered for Bloodbath VI
+(MainThread) 21:10.286 Hotkey r registered for Whirlwind
+(MainThread) 21:10.287 Hotkey t registered for Bloodbath VI
+(Thread-3  ) 22:18.973 During Whirlwind, LR attack key was pressed (68.68)
+(Thread-3  ) 22:18.973 Delta: 68.68438788689895
+(Thread-3  ) 25:47.595 During Whirlwind, LR attack key was pressed (277.31)
+(Thread-3  ) 25:47.596 Delta: 208.62250835846748
+(Thread-3  ) 25:55.688 During Whirlwind, LR attack key was pressed (285.4)
+(Thread-3  ) 25:55.688 Delta: 8.092151209341466
+(Thread-3  ) 25:56.656 During Whirlwind, LR attack key was pressed (286.37)
+(Thread-3  ) 25:56.656 Delta: 0.9679711573800773
+(Thread-3  ) 26:19.239 During Whirlwind, LL attack key was pressed (308.95)
+(Thread-3  ) 26:19.239 Delta: 22.583058768377384
+(Thread-3  ) 27:42.239 During Whirlwind, LR attack key was pressed (391.95)
+(Thread-3  ) 27:42.239 Delta: 82.99967513976685
+(Thread-3  ) 30:18.716 During Whirlwind, LR attack key was pressed (548.43)
+(Thread-3  ) 30:18.716 Delta: 156.4778540105657
+(Thread-3  ) 30:27.103 During Whirlwind, LR attack key was pressed (556.81)
+(Thread-3  ) 30:27.103 Delta: 8.386852909065283
+(Thread-3  ) 31:20.473 During Whirlwind, LR attack key was pressed (610.18)
+(Thread-3  ) 31:20.473 Delta: 53.37002363675492
+(Thread-3  ) 31:20.929 During Whirlwind, MID attack key was pressed (610.64)
+(Thread-3  ) 31:20.929 Delta: 0.4559317507266769
+(Thread-3  ) 32:48.070 During Whirlwind, UL attack key was pressed (697.78)
+(Thread-3  ) 32:48.070 Delta: 87.14080058199397
+(Thread-3  ) 32:51.645 During Whirlwind, MID attack key was pressed (701.36)
+(Thread-3  ) 32:51.645 Delta: 3.5751163002335034
+(Thread-3  ) 32:56.237 During Whirlwind, LR attack key was pressed (705.95)
+(Thread-3  ) 32:56.237 Delta: 4.591950163253728
+(Thread-3  ) 33:47.451 During Whirlwind, MID attack key was pressed (757.16)
+(Thread-3  ) 33:47.451 Delta: 51.213945982467294
+(Thread-3  ) 34:15.998 During Whirlwind, UR attack key was pressed (785.71)
+(Thread-3  ) 34:15.998 Delta: 28.54688748521187
+(Thread-3  ) 39:23.649 During Whirlwind, LR attack key was pressed (1093.36)
+(Thread-3  ) 39:23.649 Delta: 307.6505451738001
+(Thread-3  ) 39:24.036 During Whirlwind, LR attack key was pressed (1093.75)
+(Thread-3  ) 39:24.036 Delta: 0.38792578496418173
+(Thread-3  ) 39:25.208 During Whirlwind, LR attack key was pressed (1094.92)
+(Thread-3  ) 39:25.208 Delta: 1.1721319067567038
+(Thread-3  ) 40:12.978 During Whirlwind, LR attack key was pressed (1142.69)
+(Thread-3  ) 40:12.978 Delta: 47.769819647212216
+(Thread-3  ) 41:05.568 During Whirlwind, LR attack key was pressed (1195.28)
+(Thread-3  ) 41:05.568 Delta: 52.58989298515212
+(Thread-3  ) 41:13.556 During Whirlwind, LR attack key was pressed (1203.27)
+(Thread-3  ) 41:13.556 Delta: 7.988098719705022
+(Thread-3  ) 41:15.960 During Whirlwind, LR attack key was pressed (1205.67)
+(Thread-3  ) 41:15.960 Delta: 2.403994619688092
+(Thread-3  ) 41:16.972 During Whirlwind, LR attack key was pressed (1206.68)
+(Thread-3  ) 41:16.973 Delta: 1.0121038116124055
+(Thread-3  ) 41:53.362 During Whirlwind, LR attack key was pressed (1243.07)
+(Thread-3  ) 41:53.362 Delta: 36.389835790308325
+(Thread-3  ) 45:09.406 During Whirlwind, LR attack key was pressed (1439.12)
+(Thread-3  ) 45:09.406 Delta: 196.04367088282856
+(Thread-3  ) 47:17.693 During Whirlwind, LR attack key was pressed (1567.4)
+(Thread-3  ) 47:17.693 Delta: 128.28677192354257
+(Thread-3  ) 47:19.385 During Whirlwind, LR attack key was pressed (1569.1)
+(Thread-3  ) 47:19.385 Delta: 1.6919255624497964
+(Thread-3  ) 49:18.112 During Whirlwind, MID attack key was pressed (1687.82)
+(Thread-3  ) 49:18.112 Delta: 118.72688597837873
+(Thread-3  ) 49:46.255 During Whirlwind, LR attack key was pressed (1715.97)
+(Thread-3  ) 49:46.255 Delta: 28.142890165106337
+(Thread-3  ) 53:24.145 During Whirlwind, LR attack key was pressed (1933.86)
+(Thread-3  ) 53:24.145 Delta: 217.89074866646615
+(Thread-3  ) 50:07.952 During Whirlwind, LR attack key was pressed (5337.66)
+(Thread-3  ) 50:07.952 Delta: 3403.8065736804883
+(Thread-3  ) 51:07.612 During Whirlwind, LR attack key was pressed (5397.32)
+(Thread-3  ) 51:07.612 Delta: 59.66075140198882
+(Thread-3  ) 52:50.184 During Whirlwind, LR attack key was pressed (5499.9)
+(Thread-3  ) 52:50.184 Delta: 102.57189983287117
+(Thread-3  ) 52:52.188 During Whirlwind, LR attack key was pressed (5501.9)
+(Thread-3  ) 52:52.188 Delta: 2.003898862881215
+(Thread-3  ) 54:11.457 During Whirlwind, LR attack key was pressed (5581.17)
+(Thread-3  ) 54:11.457 Delta: 79.2689515979855
+(Thread-3  ) 54:17.361 During Whirlwind, LR attack key was pressed (5587.07)
+(Thread-3  ) 54:17.361 Delta: 5.903962889781724
+(Thread-3  ) 07:22.699 During Whirlwind, LR attack key was pressed (6372.41)
+(Thread-3  ) 07:22.699 Delta: 785.3377531067626
+(Thread-3  ) 10:27.772 During Whirlwind, LR attack key was pressed (6557.48)
+(Thread-3  ) 10:27.772 Delta: 185.0727219749997
+(Thread-3  ) 10:29.003 During Whirlwind, LR attack key was pressed (6558.71)
+(Thread-3  ) 10:29.003 Delta: 1.2309164866155697
+(Thread-3  ) 11:14.186 During Whirlwind, UR attack key was pressed (6603.9)
+(Thread-3  ) 11:14.186 Delta: 45.18294437869008
+(Thread-3  ) 11:28.877 During Whirlwind, LL attack key was pressed (6618.59)
+(Thread-3  ) 11:28.877 Delta: 14.691084652419704
+(Thread-3  ) 13:00.240 During Whirlwind, LR attack key was pressed (6709.95)
+(Thread-3  ) 13:00.240 Delta: 91.3636220268736
+(Thread-3  ) 13:00.492 During Whirlwind, LR attack key was pressed (6710.2)
+(Thread-3  ) 13:00.492 Delta: 0.2521512201428777
+(Thread-3  ) 13:03.644 During Whirlwind, LR attack key was pressed (6713.36)
+(Thread-3  ) 13:03.644 Delta: 3.1519916524694054
+(Thread-3  ) 18:22.155 During Whirlwind, LR attack key was pressed (7031.87)
+(Thread-3  ) 18:22.155 Delta: 318.5104901770965
+(Thread-3  ) 18:26.083 During Whirlwind, LR attack key was pressed (7035.79)
+(Thread-3  ) 18:26.083 Delta: 3.9280057875348575
+(Thread-3  ) 18:28.655 During Whirlwind, LR attack key was pressed (7038.37)
+(Thread-3  ) 18:28.655 Delta: 2.5720119001998683
+(Thread-3  ) 18:36.558 During Whirlwind, LR attack key was pressed (7046.27)
+(Thread-3  ) 18:36.558 Delta: 7.902948342902164
+(Thread-3  ) 18:38.298 During Whirlwind, LR attack key was pressed (7048.01)
+(Thread-3  ) 18:38.298 Delta: 1.7400281005457146
+(Thread-3  ) 18:39.518 During Whirlwind, LR attack key was pressed (7049.23)
+(Thread-3  ) 18:39.518 Delta: 1.219939559253362
+(Thread-3  ) 18:44.866 During Whirlwind, LR attack key was pressed (7054.58)
+(Thread-3  ) 18:44.866 Delta: 5.348051959274926
+(Thread-3  ) 18:45.613 During Whirlwind, LR attack key was pressed (7055.32)
+(Thread-3  ) 18:45.613 Delta: 0.7479081890433008
+(Thread-3  ) 22:52.475 During Whirlwind, LR attack key was pressed (7302.19)
+(Thread-3  ) 22:52.475 Delta: 246.86166840978603
+(Thread-3  ) 23:04.018 During Whirlwind, LR attack key was pressed (7313.73)
+(Thread-3  ) 23:04.018 Delta: 11.542877905210844
+(Thread-3  ) 23:19.214 During Whirlwind, LR attack key was pressed (7328.93)
+(Thread-3  ) 23:19.214 Delta: 15.19600737862038
+(Thread-3  ) 28:37.285 During Whirlwind, LR attack key was pressed (7647.0)
+(Thread-3  ) 28:37.285 Delta: 318.070574332909
+(Thread-3  ) 28:37.521 During Whirlwind, LR attack key was pressed (7647.23)
+(Thread-3  ) 28:37.521 Delta: 0.23591847007355682
+(Thread-3  ) 28:39.612 During Whirlwind, LR attack key was pressed (7649.32)
+(Thread-3  ) 28:39.613 Delta: 2.0919762222829377
+(Thread-3  ) 28:46.076 During Whirlwind, LR attack key was pressed (7655.79)
+(Thread-3  ) 28:46.076 Delta: 6.463082186398424
+(Thread-3  ) 28:46.491 During Whirlwind, LR attack key was pressed (7656.2)
+(Thread-3  ) 28:46.491 Delta: 0.4159833935127608
+(Thread-3  ) 28:48.260 During Whirlwind, LR attack key was pressed (7657.97)
+(Thread-3  ) 28:48.260 Delta: 1.7680141480277598
+(Thread-3  ) 28:50.123 During Whirlwind, LR attack key was pressed (7659.84)
+(Thread-3  ) 28:50.123 Delta: 1.864003460854292
+(Thread-3  ) 28:56.696 During Whirlwind, LR attack key was pressed (7666.41)
+(Thread-3  ) 28:56.696 Delta: 6.5719038834977255
+(Thread-3  ) 28:56.923 During Whirlwind, LR attack key was pressed (7666.64)
+(Thread-3  ) 28:56.923 Delta: 0.22807483721226163
+(Thread-3  ) 28:57.136 During Whirlwind, LR attack key was pressed (7666.85)
+(Thread-3  ) 28:57.136 Delta: 0.2118963655348125
+(Thread-3  ) 29:00.828 During Whirlwind, UR attack key was pressed (7670.54)
+(Thread-3  ) 29:00.828 Delta: 3.692097038965585
+(Thread-3  ) 29:04.452 During Whirlwind, LR attack key was pressed (7674.16)
+(Thread-3  ) 29:04.452 Delta: 3.623913115684445
+(Thread-3  ) 29:04.596 During Whirlwind, LR attack key was pressed (7674.31)
+(Thread-3  ) 29:04.596 Delta: 0.14408618004654272
+(Thread-3  ) 29:04.808 During Whirlwind, LR attack key was pressed (7674.52)
+(Thread-3  ) 29:04.808 Delta: 0.2119711671011828
+(Thread-3  ) 29:06.875 During Whirlwind, LR attack key was pressed (7676.59)
+(Thread-3  ) 29:06.875 Delta: 2.0670033007208986
+(Thread-3  ) 34:33.121 During Whirlwind, UR attack key was pressed (8002.83)
+(Thread-3  ) 34:33.121 Delta: 326.2464879044246
+(Thread-3  ) 34:34.193 During Whirlwind, LR attack key was pressed (8003.9)
+(Thread-3  ) 34:34.193 Delta: 1.072068743989803
+(Thread-3  ) 34:35.849 During Whirlwind, LR attack key was pressed (8005.56)
+(Thread-3  ) 34:35.849 Delta: 1.6559200849223998
+(Thread-3  ) 34:38.341 During Whirlwind, LR attack key was pressed (8008.05)
+(Thread-3  ) 34:38.341 Delta: 2.492037143703783
+(Thread-3  ) 34:51.484 During Whirlwind, LR attack key was pressed (8021.2)
+(Thread-3  ) 34:51.484 Delta: 13.142893405607538
+(Thread-3  ) 35:06.384 During Whirlwind, UR attack key was pressed (8036.1)
+(Thread-3  ) 35:06.384 Delta: 14.899955200072327
+(Thread-3  ) 35:07.072 During Whirlwind, LR attack key was pressed (8036.78)
+(Thread-3  ) 35:07.072 Delta: 0.6879624296307156
+(Thread-3  ) 35:10.532 During Whirlwind, LR attack key was pressed (8040.24)
+(Thread-3  ) 35:10.532 Delta: 3.4599902082854896
+(Thread-3  ) 35:12.483 During Whirlwind, LR attack key was pressed (8042.19)
+(Thread-3  ) 35:12.483 Delta: 1.951112720560559
+(Thread-3  ) 35:12.943 During Whirlwind, LR attack key was pressed (8042.65)
+(Thread-3  ) 35:12.943 Delta: 0.45999911966373475
+(Thread-3  ) 35:30.015 During Whirlwind, LR attack key was pressed (8059.73)
+(Thread-3  ) 35:30.015 Delta: 17.071913740021046
+(Thread-3  ) 35:33.422 During Whirlwind, LR attack key was pressed (8063.13)
+(Thread-3  ) 35:33.422 Delta: 3.408043085702957
+(Thread-3  ) 36:01.173 During Whirlwind, UR attack key was pressed (8090.88)
+(Thread-3  ) 36:01.173 Delta: 27.749931071841274
+(Thread-3  ) 36:02.909 During Whirlwind, LR attack key was pressed (8092.62)
+(Thread-3  ) 36:02.909 Delta: 1.7360044783727062
+(Thread-3  ) 36:03.917 During Whirlwind, LR attack key was pressed (8093.63)
+(Thread-3  ) 36:03.917 Delta: 1.0081290669977534
+(Thread-3  ) 36:05.561 During Whirlwind, LR attack key was pressed (8095.27)
+(Thread-3  ) 36:05.561 Delta: 1.6438816234149272
+(Thread-3  ) 37:10.055 During Whirlwind, LL attack key was pressed (8159.77)
+(Thread-3  ) 37:10.055 Delta: 64.49386343610331
+(Thread-3  ) 40:17.751 During Whirlwind, LR attack key was pressed (8347.46)
+(Thread-3  ) 40:17.751 Delta: 187.69570776729233
+(Thread-3  ) 40:30.282 During Whirlwind, LR attack key was pressed (8359.99)
+(Thread-3  ) 40:30.282 Delta: 12.53099201729492
+(Thread-3  ) 41:04.025 During Whirlwind, UR attack key was pressed (8393.74)
+(Thread-3  ) 41:04.025 Delta: 33.74295103251825
+(Thread-3  ) 41:04.049 During Whirlwind, MID attack key was pressed (8393.76)
+(Thread-3  ) 41:04.049 Delta: 0.023954324056830956
+(Thread-3  ) 41:59.042 During Whirlwind, LR attack key was pressed (8448.75)
+(Thread-3  ) 41:59.043 Delta: 54.99397374816181
+(Thread-3  ) 42:08.654 During Whirlwind, LR attack key was pressed (8458.36)
+(Thread-3  ) 42:08.654 Delta: 9.610968664084794
+(Thread-3  ) 42:10.690 During Whirlwind, LR attack key was pressed (8460.4)
+(Thread-3  ) 42:10.690 Delta: 2.0359995366070507
+(Thread-3  ) 43:42.961 During Whirlwind, LR attack key was pressed (8552.67)
+(Thread-3  ) 43:42.961 Delta: 92.27186507849729
+(Thread-3  ) 43:53.065 During Whirlwind, UR attack key was pressed (8562.78)
+(Thread-3  ) 43:53.065 Delta: 10.103935291514063
+(Thread-3  ) 43:55.985 During Whirlwind, LR attack key was pressed (8565.7)
+(Thread-3  ) 43:55.985 Delta: 2.9199655642751168
+(Thread-3  ) 43:57.209 During Whirlwind, LR attack key was pressed (8566.92)
+(Thread-3  ) 43:57.209 Delta: 1.224059856376698
+(Thread-3  ) 46:48.410 During Whirlwind, LR attack key was pressed (8738.12)
+(Thread-3  ) 46:48.410 Delta: 171.20072473806613
+(Thread-3  ) 46:49.922 During Whirlwind, LR attack key was pressed (8739.63)
+(Thread-3  ) 46:49.922 Delta: 1.5120331956932205
+(Thread-3  ) 51:08.410 During Whirlwind, MID attack key was pressed (8998.12)
+(Thread-3  ) 51:08.410 Delta: 258.4884482887592
+(Thread-3  ) 51:12.914 During Whirlwind, UL attack key was pressed (9002.63)
+(Thread-3  ) 51:12.914 Delta: 4.503949765750804
+(Thread-3  ) 52:57.466 During Whirlwind, LR attack key was pressed (9107.18)
+(Thread-3  ) 52:57.466 Delta: 104.55192592430649
+(Thread-3  ) 53:25.269 During Whirlwind, LR attack key was pressed (9134.98)
+(Thread-3  ) 53:25.269 Delta: 27.803006698924946
+(Thread-3  ) 55:06.932 During Whirlwind, LR attack key was pressed (9236.64)
+(Thread-3  ) 55:06.933 Delta: 101.66283288384875
+(Thread-3  ) 01:09.106 During Whirlwind, LR attack key was pressed (9598.82)
+(Thread-3  ) 01:09.106 Delta: 362.173410284433
+(Thread-3  ) 01:38.760 During Whirlwind, LR attack key was pressed (9628.47)
+(Thread-3  ) 01:38.760 Delta: 29.65383455243682
+(Thread-3  ) 04:25.564 During Whirlwind, LR attack key was pressed (9795.28)
+(Thread-3  ) 04:25.564 Delta: 166.80478519393546
+(Thread-3  ) 04:29.016 During Whirlwind, LR attack key was pressed (9798.73)
+(Thread-3  ) 04:29.016 Delta: 3.4520555713515932
+(Thread-3  ) 04:51.059 During Whirlwind, UR attack key was pressed (9820.77)
+(Thread-3  ) 04:51.059 Delta: 22.042979305890185
+(Thread-3  ) 04:52.619 During Whirlwind, LL attack key was pressed (9822.33)
+(Thread-3  ) 04:52.619 Delta: 1.5598505696943903
+(Thread-3  ) 04:53.399 During Whirlwind, LR attack key was pressed (9823.11)
+(Thread-3  ) 04:53.399 Delta: 0.7801433435652143
+(Thread-3  ) 04:53.747 During Whirlwind, LR attack key was pressed (9823.46)
+(Thread-3  ) 04:53.747 Delta: 0.3479809382915846
+(Thread-3  ) 05:20.962 During Whirlwind, LR attack key was pressed (9850.67)
+(Thread-3  ) 05:20.962 Delta: 27.21494567705122
+(Thread-3  ) 05:50.081 During Whirlwind, LR attack key was pressed (9879.79)
+(Thread-3  ) 05:50.081 Delta: 29.118853478312303
+(Thread-3  ) 05:53.273 During Whirlwind, LR attack key was pressed (9882.98)
+(Thread-3  ) 05:53.273 Delta: 3.191996988494793
+(Thread-3  ) 06:42.767 During Whirlwind, LR attack key was pressed (9932.48)
+(Thread-3  ) 06:42.767 Delta: 49.494042743828686
+(Thread-3  ) 06:49.834 During Whirlwind, MID attack key was pressed (9939.55)
+(Thread-3  ) 06:49.835 Delta: 7.067967349792525
+(Thread-3  ) 07:00.129 During Whirlwind, LR attack key was pressed (9949.84)
+(Thread-3  ) 07:00.129 Delta: 10.29487128594701
+(Thread-3  ) 07:01.482 During Whirlwind, LR attack key was pressed (9951.19)
+(Thread-3  ) 07:01.482 Delta: 1.352056138439366
+(Thread-3  ) 08:46.918 During Whirlwind, LR attack key was pressed (10056.63)
+(Thread-3  ) 08:46.918 Delta: 105.43589006168077
+(Thread-3  ) 08:52.993 During Whirlwind, LR attack key was pressed (10062.71)
+(Thread-3  ) 08:52.994 Delta: 6.075968687038767

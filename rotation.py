@@ -38,6 +38,10 @@ class Rotation(threading.Thread):
         self.start_time = 0.0
         self.end_time = 0.0
 
+        # create queues for abilities and combos  (spells tbd)
+        self.ability_q = queue.Queue(5)
+        self.combo_q = queue.Queue(1)
+
         self._inprogress = False
 
 
@@ -181,14 +185,10 @@ class Rotation(threading.Thread):
         self.start_time = timer()
         self._inprogress = True
 
-        # create queues for abilities and combos
-        ability_q = queue.Queue(5)
-        combo_q = queue.Queue(1)
-
         ## Q consumer function
         # TODO: set the argument to a python Type rather than a string
         def q_worker(T='Ability'):
-            which_q = ability_q if T == 'Ability' else combo_q
+            which_q = self.ability_q if T == 'Ability' else self.combo_q
             while True:
                 item = which_q.get()
                 if item is None:
@@ -208,7 +208,7 @@ class Rotation(threading.Thread):
 
             self.exec_lock.acquire()
 
-            [ability_q.put(i) for i in items if \
+            [self.ability_q.put(i) for i in items if \
                 isinstance(i, Ability) and not \
                 isinstance(i, Combo)]
 
@@ -216,7 +216,8 @@ class Rotation(threading.Thread):
 
             # current main action
             self.current_action = c = self.get_combo_at(a_idx)
-            combo_q.put(c)
+            self.combo_q.put(c)
+
             combo_q.join()
 
         # End the workers

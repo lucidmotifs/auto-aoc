@@ -22,7 +22,7 @@ class COOLDOWN_ACTIONS:
 class Ability(object):
 
     name = ""
-    cooldown = None
+    cooldown = None # threading.Timer(cooldown_time, self.cooldown_end)
     cooling_down = False
     cooldown_time = 0.0
     last_actual_cooldown = 0.0
@@ -84,6 +84,7 @@ class Ability(object):
                 #print(e)
                 pass
 
+
     def register_hotkey(self):
         self.deregister_hotkey()
 
@@ -96,15 +97,15 @@ class Ability(object):
             keyboard.hook_key( self.hotkey, \
                 lambda: self.hotkey_pressed() )
 
-        logging.debug("Hotkey {} registered for {}".format(self.hotkey, self.name))
+        logging.debug("Hotkey {} registered for {}".format(self.hotkey, \
+                                                           self.name))
 
 
     def hotkey_pressed(self):
         # Make sure press was really for you.
         if keyboard.is_pressed('shift') or keyboard.is_pressed('ctrl'):
-            if self.modifier and keyboard.is_pressed(self.modifier):
-                all_good = True
-            else:
+            # ensure the modifier key currently being held
+            if not self.modifier or not keyboard.is_pressed(self.modifier):
                 return
 
         # check for cooldown fail

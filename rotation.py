@@ -157,7 +157,7 @@ class Rotation(threading.Thread):
 
 
     def print_current_cooldowns(self):
-        print("Aiblities Status:")
+        print("Ablities Status:")
         [a.status() for a in self.ability_list]
         print("Combo Status:")
         [c.status() for c in self.combo_list]
@@ -166,6 +166,7 @@ class Rotation(threading.Thread):
         print("Post Abilities:")
         [c.post_ability.status() for c in self.combo_list if c.post_ability is not None]
         print("Pre Finisher Abilities:")
+
         try:
             [ability.status() for ability in [a for a in [a for a in [c.pre_finishers for c in self.combo_list if c.pre_finishers is not None ]] if len(a) is not 0][0]]
         except IndexError:
@@ -185,8 +186,9 @@ class Rotation(threading.Thread):
         combo_q = queue.Queue(1)
 
         ## Q consumer function
-        def q_worker(type='Ability'):
-            which_q = ability_q if type == 'Ability' else combo_q
+        # TODO: set the argument to a python Type rather than a string
+        def q_worker(T='Ability'):
+            which_q = ability_q if T == 'Ability' else combo_q
             while True:
                 item = which_q.get()
                 if item is None:

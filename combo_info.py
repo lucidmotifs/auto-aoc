@@ -19,13 +19,6 @@ from ability import COOLDOWN_ACTIONS
 from combo import Combo
 
 
-logging.basicConfig(
-    format='(%(threadName)-10s) %(message)s',
-    filename='output.txt',
-    filemode='w',
-    level=logging.DEBUG)
-
-
 def test_random_combo(rotation):
     combo = rotation.get_combo_at( \
                 random.randrange(1, max(rotation.actions.keys())))
@@ -86,8 +79,12 @@ def test_random_ability(rotation):
 from rotations import Guardian_DPS as gdps
 
 r = gdps()
+
+## Just a combo
 test_random_combo(r)
 keyboard.unhook_all()
+
+## Combo and ability
 test_random_combo(r)
-#test_random_ability(gdps())
+test_random_ability(gdps())
 keyboard.unhook_all()

@@ -19,10 +19,8 @@ class Combo(Ability):
 
     _schedule = None
 
-    cooldown = None
     cooldown_start = None
     cooldown_time = 0.0
-    cooling_down = False
     do_record = False
     lastused = None
     finisher = []
@@ -72,7 +70,6 @@ class Combo(Ability):
         self.deregister_hotkey()
 
         # register key hooks for logging based on hotkey + steps
-        print("Adding keyboard hooks")
         if self.modifier:
             keyboard.add_hotkey(
                 self.modifier + '+' + self.hotkey, \

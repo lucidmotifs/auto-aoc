@@ -1,22 +1,22 @@
-(MainThread) 04:39.457 Hotkey r registered for Whirlwind
-(MainThread) 04:39.457 Hotkey t registered for Bloodbath VI
-(MainThread) 04:39.472 Hotkey r registered for Whirlwind
-(MainThread) 04:39.473 Hotkey t registered for Bloodbath VI
-(Thread-3  ) 04:39.474 Whirlwind was activated. Last used: Never
-(Thread-3  ) 04:39.474 During Whirlwind, Hotkey for Whirlwind was pressed (0.0)
-(Thread-3  ) 04:39.474 Delta: 0.0010909686964895382
-(Thread-3  ) 04:39.776 During Whirlwind, LR attack key was pressed (0.3)
-(Thread-3  ) 04:39.776 Delta: 0.3014527436377487
-(Thread-3  ) 04:40.777 During Whirlwind, LL attack key was pressed (1.3)
-(Thread-3  ) 04:40.777 Delta: 1.001088268278924
-(Thread-3  ) 04:41.431 During Whirlwind, UR attack key was pressed (1.96)
-(Thread-3  ) 04:41.431 Delta: 0.6538091685117269
-(Thread-3  ) 04:43.586 Bloodbath VI was activated. Last used: Never
-(Thread-3  ) 04:43.586 During Bloodbath VI, Hotkey for Bloodbath VI was pressed (4.11)
-(Thread-3  ) 04:43.586 Delta: 2.155578887163322
-(Thread-3  ) 04:43.890 During Bloodbath VI, LL attack key was pressed (4.42)
-(Thread-3  ) 04:43.890 Delta: 0.303608757022098
-(Thread-3  ) 04:44.892 During Bloodbath VI, LR attack key was pressed (5.42)
-(Thread-3  ) 04:44.892 Delta: 1.0024924854130202
-(Thread-3  ) 04:45.549 During Bloodbath VI, MID attack key was pressed (6.08)
-(Thread-3  ) 04:45.549 Delta: 0.656371594739694
+(MainThread) 37:46.632 Hotkey r registered for Whirlwind
+(MainThread) 37:46.633 Hotkey t registered for Bloodbath VI
+(MainThread) 37:46.634 Hotkey r registered for Whirlwind
+(MainThread) 37:46.635 Hotkey t registered for Bloodbath VI
+(Thread-3  ) 37:46.636 Whirlwind was activated. Last used: Never
+(Thread-3  ) 37:46.636 During Whirlwind, Hotkey for Whirlwind was pressed (0.0)
+(Thread-3  ) 37:46.637 Delta: 0.00185761724335434
+(Thread-3  ) 37:46.937 During Whirlwind, LR attack key was pressed (0.3)
+(Thread-3  ) 37:46.937 Delta: 0.30026699028470777
+(Thread-3  ) 37:47.937 During Whirlwind, LL attack key was pressed (1.3)
+(Thread-3  ) 37:47.937 Delta: 1.0001952401899905
+(Thread-3  ) 37:48.587 During Whirlwind, UR attack key was pressed (1.95)
+(Thread-3  ) 37:48.587 Delta: 0.6502384063647761
+(Thread-3  ) 37:50.737 Bloodbath VI was activated. Last used: Never
+(Thread-3  ) 37:50.737 During Bloodbath VI, Hotkey for Bloodbath VI was pressed (4.1)
+(Thread-3  ) 37:50.737 Delta: 2.150065444619701
+(Thread-3  ) 37:51.038 During Bloodbath VI, LL attack key was pressed (4.4)
+(Thread-3  ) 37:51.038 Delta: 0.3005297409138379
+(Thread-3  ) 37:52.038 During Bloodbath VI, LR attack key was pressed (5.4)
+(Thread-3  ) 37:52.038 Delta: 1.0003931807975466
+(Thread-3  ) 37:52.687 During Bloodbath VI, MID attack key was pressed (6.05)
+(Thread-3  ) 37:52.687 Delta: 0.6492403320325426

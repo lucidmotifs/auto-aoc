@@ -58,7 +58,7 @@ class Ability(object):
             return self._hotkey
         def fset(self, value):
             self._hotkey = value
-            self.register_hotkey(None)
+            self.register_hotkey()
         def fdel(self):
             del self._hotkey
         return locals()

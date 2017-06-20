@@ -26,10 +26,11 @@ class Counterweight(Combo):
 
     def __init__(self):
         super().__init__("Counterweight",
-                         "cooldown_time" = 2.0,
-                         "cast_time" = 2.0)
+                        2.0,
+                        2.0)
 
         self.hotkey = 'r'
+        self.post_finishers.append( Reckoning() )
 
 
 class TitanicSmash(Combo):

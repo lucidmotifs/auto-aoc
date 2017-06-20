@@ -189,4 +189,6 @@ class Combo(Ability):
         self.schedule.run()
 
         if self.post_finishers and rotation:
-            
+            for a in self.post_finishers:
+                # guess we're deciding that pre_finishers can't have modifiers?
+                rotation.a_queue.put(a)

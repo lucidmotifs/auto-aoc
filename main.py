@@ -18,8 +18,9 @@ from rotations import *
 
 
 logging.basicConfig(
-    format='(%(threadName)-10s) %(message)s'
-    filename='output.txt',
+    format='(%(threadName)-10s) %(asctime)s.%(msecs)03d %(message)s',
+    datefmt = '%M:%S',
+    filename='testing.log',
     filemode='w',
     level=logging.DEBUG)
 
@@ -39,7 +40,7 @@ def do_rotation(rotation, pause_key):
 
 def main():
     # Go to the Game
-    generic._set_focus()
+    #generic._set_focus()
     guard_aggro = Guardian_Aggro()
     conq_dps = Conqueror_DPS()
     # Set-up keyhooks
@@ -57,7 +58,7 @@ def main():
         print(e)
     else:
         keyboard.unhook_all()
-        generic._lose_focus()
+        #generic._lose_focus()
 
 if __name__ == "__main__":
     main()

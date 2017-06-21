@@ -58,8 +58,19 @@ class Combo(Ability):
         return locals()
     schedule = property(**schedule())
 
+    def rotation():
+        doc = "The rotation property."
+        def fget(self):
+            return self._rotation
+        def fset(self, value):
+            self._rotation = value
+        def fdel(self):
+            del self._rotation
+        return locals()
+    rotation = property(**rotation())
 
-    def register_hotkey(self, rotation):
+
+    def register_hotkey(self, rotation=None):
         self.deregister_hotkey()
 
         # register key hooks for logging based on hotkey + steps
@@ -71,7 +82,7 @@ class Combo(Ability):
         else:
             keyboard.hook_key(
                 self.hotkey, \
-                lambda: self.hotkey_pressed(rotation) )
+                lambda: self.hotkey_pressed(self.rotation) )
 
         logging.debug( "Hotkey {} registered for {}".format( \
             self.hotkey, \
@@ -172,15 +183,8 @@ class Combo(Ability):
     # all sleep and printed as well. continuing attempt to see if a combo will
     # work without running a manual test in-game.
     def print_keyevents(self):
-
-        start = timer()
-
         ## will update for new scheduler system soon
         print(self.schedule.queue)
-
-
-        duration = timer() - start
-        print("Duration: {}".format(round(duration, 2)))
 
 
     def use(self, rotation=None):
@@ -191,4 +195,4 @@ class Combo(Ability):
         if self.post_finishers and rotation:
             for a in self.post_finishers:
                 # guess we're deciding that pre_finishers can't have modifiers?
-                rotation.a_queue.put(a)
+                self.rotation.a_queue.put(a)

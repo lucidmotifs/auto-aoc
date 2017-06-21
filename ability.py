@@ -120,10 +120,13 @@ class Ability(object):
         if keyboard.is_pressed('shift') or keyboard.is_pressed('ctrl'):
             # ensure the modifier key currently being held
             if not self.modifier or not keyboard.is_pressed(self.modifier):
+                self._pressed = False
+                self._key_pressed.set()
                 return
 
         # check for cooldown fail
         if self.cooling_down:
+
             print("Ability {} was used while still on cooldown. {}s remaining".\
                 format(self.name, self.cooldown_remaining))
 
@@ -161,6 +164,8 @@ class Ability(object):
 
     # press the button.
     def activate(self):
+        self._key_pressed.clear()
+
         if self.modifier:
             pyautogui.keyDown(self.modifier)
             time.sleep(.05)
@@ -169,8 +174,6 @@ class Ability(object):
             pyautogui.keyUp(self.modifier)
         else:
             pyautogui.press(self.hotkey)
-
-        self._key_pressed.clear()
 
 
     def use(self, lock=None):
@@ -192,6 +195,8 @@ class Ability(object):
                 # start cooldown
                 self.init_cooldown()
         else:
+            logging.debug("Error: Timeout reach while waiting for key_preesed \
+            response!")
             # waiting for a timeout this long means something
             # is really broken with out system or our Rotation
             # and we should exit. decide on action later
@@ -212,9 +217,6 @@ class Ability(object):
 
 
     def cooldown_end(self):
-        self.cooling_down = False
-        self.cooldown = None
-
         print("{0} is now off cooldown".format(self.name))
 
         if self.use_on_cooldown:

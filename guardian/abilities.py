@@ -3,102 +3,81 @@ from ability import COOLDOWN_ACTIONS
 
 class TacticProvoke(Ability):
 
-    name = "Tactic: Provoke"
-    cooldown_time = 0
-
     def __init__(self):
+        super().__init__("Tactic: Provoke", 0)
         self.hotkey = 'q'
         self.modifier = 'ctrl'
-        self.register_hotkey()
 
 
 class TacticDefense(Ability):
 
-    name = "Tactic: Defense"
-    cooldown_time = 0
-
     def __init__(self):
+        super().__init__("Tactic: Defense", 0)
         self.hotkey = 'e'
         self.modifier = 'ctrl'
-        self.register_hotkey()
 
 
 class CryOfHavoc(Ability):
 
-    name = "Rend Flesh"
-    cooldown_time = 15.0
     cooldown_action = COOLDOWN_ACTIONS.RETRY
     use_on_cooldown = True
 
     def __init__(self):
+        super().__init__("Rend Flesh", 15.0)
         self.hotkey = 'q'
-        self.register_hotkey()
 
 
 class Irritate(Ability):
 
-    name = "Irritate"
-    cooldown_time = 20.0
     cooldown_action = COOLDOWN_ACTIONS.RETRY
     use_on_cooldown = True
 
     def __init__(self):
+        super().__init__("Irritate", 20.0)
         self.hotkey = 'z'
-        self.register_hotkey()
 
 
 class Powerhouse(Ability):
 
-    name = "Powerhouse"
-    cooldown_time = 60.0
     cooldown_action = COOLDOWN_ACTIONS.SKIP
 
     def __init__(self):
-        self.hotkey = 'F1'
-        self.register_hotkey()
+        super().__init__("Powerhouse", 60.0)
+        self.hotkey = 'f1'
 
 
 class BattleCry(Ability):
 
-    name = "Battle Cry"
-    cooldown_time = 45.0
     cooldown_action = COOLDOWN_ACTIONS.SKIP
 
     def __init__(self):
-        self.hotkey = 'F2'
-        self.register_hotkey()
+        super().__init__("Battle Cry", 45.0)
+        self.hotkey = 'f2'
 
 
 class CallToArms(Ability):
 
-    name = "Call To Arms"
-    cooldown_time = 60.0
     cooldown_action = COOLDOWN_ACTIONS.SKIP
 
     def __init__(self):
-        self.hotkey = 'F3'
-        self.register_hotkey()
+        super().__init__("Call To Arms", 60.0)
+        self.hotkey = 'f3'
 
 
 class BloodyVegeance(Ability):
 
-    name = "Bloody Vegeance"
-    cooldown_time = 27.0
     cooldown_action = COOLDOWN_ACTIONS.SKIP
     cast_time = 1.5
 
     def __init__(self):
+        super().__init__("Bloody Vegeance", 27.0, 1.5)
         self.hotkey = '5'
-        self.register_hotkey()
 
 
 class Reckoning(Ability):
-
-    name = "Reckoning"
-    cooldown_time = 10.0
     cooldown_action = COOLDOWN_ACTIONS.RETRY
     use_on_cooldown = False
 
     def __init__(self):
+        super().__init__("Reckoning", 10.0)
         self.hotkey = 'q'
-        self.register_hotkey()

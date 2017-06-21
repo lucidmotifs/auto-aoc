@@ -103,7 +103,7 @@ class Rotation(threading.Thread):
             if action not in self.combo_list:
                 idx = len(self.combo_list)
                 self.combo_list.append( action )
-                action.register_hotkey( self )
+                action.rotation = self
             else:
                 idx = self.combo_list.index(action)
 

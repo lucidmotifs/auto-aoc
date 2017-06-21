@@ -1,15 +1,15 @@
 from combo import Combo
-from conqueror.abilities import *
+from guardian.abilities import *
 
 class GuardDestroyer(Combo):
 
     def __init__(self, rank=4):
-        self.set_rank(4)
         super().__init__("Guard Destroyer",
                          32,
                          self.cast_time)
 
         self.hotkey = '4'
+        self.set_rank(4)
 
     def set_rank(self, rank):
         self.steps = ["3"]
@@ -48,15 +48,11 @@ class TitanicSmash(Combo):
 
 class Overreach(Combo):
 
-    name = "Overreach"
-    cooldown_time = 2.0
-
     def __init__(self, rank=6):
+        super().__init__("Overreach",
+                         2.0,
+                         self.cast_time)
         self.set_rank(rank)
-        def __init__(self):
-            super().__init__(self.name,
-                             2.0,
-                             self.cast_time)
 
 
     def set_rank(self, rank):
@@ -88,10 +84,10 @@ class ShieldSlam(Combo):
 class DullingBlow(Combo):
 
     def __init__(self, rank=4):
-        self.set_rank(rank)
         super().__init__("Dulling Blow",
                          9.0,
                          self.cast_time)
+        self.set_rank(rank)
 
 
     def set_rank(self, rank):

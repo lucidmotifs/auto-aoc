@@ -19,13 +19,21 @@ from ability import COOLDOWN_ACTIONS
 from combo import Combo
 
 
+logging.basicConfig(
+    format='(%(threadName)-10s) %(asctime)s.%(msecs)03d %(message)s',
+    datefmt = '%M:%S',
+    filename='testing.log',
+    filemode='w',
+    level=logging.DEBUG)
+
+
 def test_random_combo(rotation):
     combo = rotation.get_combo_at( \
                 random.randrange(1, max(rotation.actions.keys())))
 
     print("Printing Details for {}".format(combo.name))
     print("Hotkey: {}".format(combo.hotkey))
-    print("Word: {}".format(combo.word))
+    print("Queue: {}".format(combo.schedule))
     print("Cooldown Time: {}".format(combo.cooldown_time))
     print("Cast Time: {}".format(combo.cast_time))
 
@@ -38,7 +46,6 @@ def test_random_combo(rotation):
     combo.print_keyevents()
 
     print("Testing KEYBINDS")
-    generic.register_keybinds(rotation)
     #generic._set_focus()
     #time.sleep(1)
     #pyautogui.typewrite('q123e', .5)
@@ -47,10 +54,9 @@ def test_random_combo(rotation):
     #print("Testing Cooldown")
     #combo.init_cooldown()
 
-    #time.sleep(combo.cooldown_time)
-
     print("Testing Simulation")
-    combo.simluate_keyevents()
+    combo.use()
+    time.sleep(combo.cast_time)
 
 def test_random_ability(rotation):
     ability = \
@@ -74,17 +80,19 @@ def test_random_ability(rotation):
     ability.use()
 
     time.sleep(1)
-    ability.cooldown.cancel()
+
 
 from rotations import Guardian_DPS as gdps
 
+r = Rotation()
+generic.register_keybinds(r)
 r = gdps()
 
 ## Just a combo
 test_random_combo(r)
-keyboard.unhook_all()
+#keyboard.unhook_all()
 
 ## Combo and ability
 test_random_combo(r)
-test_random_ability(gdps())
+test_random_ability(r)
 keyboard.unhook_all()

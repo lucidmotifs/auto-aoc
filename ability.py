@@ -195,8 +195,8 @@ class Ability(object):
                 # start cooldown
                 self.init_cooldown()
         else:
-            logging.debug("Error: Timeout reach while waiting for key_preesed \
-            response!")
+            logging.debug("Error: Timeout reach while waiting for key_pressed \
+            response! Ability Name: {}".format(self.name))
             # waiting for a timeout this long means something
             # is really broken with out system or our Rotation
             # and we should exit. decide on action later

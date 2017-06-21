@@ -26,7 +26,6 @@ logging.basicConfig(
 
 
 def do_rotation(rotation, pause_key):
-    generic.register_keybinds(rotation)
 
     print('Starting...')
     hk1 = keyboard.add_hotkey(pause_key, rotation.do_pause, args=[pause_key])
@@ -41,6 +40,7 @@ def do_rotation(rotation, pause_key):
 
 def main():
     keyboard.unhook_all()
+    generic.register_keybinds(rotation)
     # Go to the Game
     #generic._set_focus()
     guard_aggro = Guardian_Aggro()

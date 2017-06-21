@@ -5,15 +5,12 @@ DW_ATK_INT = .65
 
 class Breech(Combo):
 
-    name = "Breech"
-    cooldown_time = 41.0
     attack_interval = DW_ATK_INT
 
     def __init__(self, rank=4):
-        self.set_factory_defaults()
+        super().__init__("Breech", 41.0)
         self.set_rank(rank)
         self.hotkey = '4'
-        self.build_word()
 
     def set_rank(self, rank):
         self.steps = ["1"]
@@ -25,8 +22,6 @@ class Breech(Combo):
 
 class Whirlwind(Combo):
 
-    name = "Whirlwind"
-    cooldown_time = 10.0
     attack_interval = DW_ATK_INT
 
     # Whirlwind has only one rank, set cast time here
@@ -34,32 +29,28 @@ class Whirlwind(Combo):
     steps = ["e","q","3"]
 
     def __init__(self):
-        self.set_factory_defaults()
+        super().__init__("Whirlwind", 10.0)
         self.hotkey = 'r'
-        self.build_word()
 
 
 class BloodyHack(Combo):
 
-    name = "Bloody Hack"
-    cooldown_time = 2.0
     attack_interval = DW_ATK_INT
 
     def __init__(self, rank=6):
-        self.set_factory_defaults()
+        super().__init__("Blood Hack", 2.0)
         self.set_rank(rank)
-        self.build_word()
 
 
     def set_rank(self, rank):
 
         if rank is 6:
-            self.name = "Bloody Hack VI"
+            self.name += " VI"
             self.hotkey = 'f'
             self.cast_time = 1.5
             self.steps = ["2","q","3"]
         if rank is 5:
-            self.name = "Bloody Hack V"
+            self.name += " V"
             self.hotkey = '5'
             self.cast_time = 1
             self.steps = ["2","3"]
@@ -67,14 +58,11 @@ class BloodyHack(Combo):
 
 class Bloodbath(Combo):
 
-    name = "Bloodbath"
-    cooldown_time = 10.0
     attack_interval = DW_ATK_INT
 
     def __init__(self, rank=6):
-        self.set_factory_defaults()
+        super().__init__("Bloodbath", 10.0)
         self.set_rank(rank)
-        self.build_word()
 
 
     def set_rank(self, rank):

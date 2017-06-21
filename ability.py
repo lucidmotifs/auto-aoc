@@ -183,7 +183,7 @@ class Ability(object):
         self.activate()
 
         # Wait for allowed event
-        e = self._key_pressed.wait(20)
+        e = self._key_pressed.wait(5)
         if e:
             # key press, not timeout.
             if self._pressed:
@@ -220,6 +220,7 @@ class Ability(object):
         print("{0} is now off cooldown".format(self.name))
 
         if self.use_on_cooldown:
+            time.sleep(.1)
             self.use()
 
 

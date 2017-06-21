@@ -8,8 +8,8 @@ class Annihilate(Ability):
     cooldown_action = COOLDOWN_ACTIONS.SKIP
 
     def __init__(self):
+        super().__init__( "Annihilate", 180.0 )
         self.hotkey = '9'
-        self.register_hotkey()
 
 
 class RendFlesh(Ability):
@@ -19,8 +19,12 @@ class RendFlesh(Ability):
     cooldown_action = COOLDOWN_ACTIONS.WAIT_SHORT
 
     def __init__(self):
+        super().__init__(
+            "Rend Flesh",
+            45.0
+
+        )
         self.hotkey = '0'
-        self.register_hotkey()
 
 
 class BladeWeave(Ability):
@@ -30,8 +34,11 @@ class BladeWeave(Ability):
     cooldown_action = COOLDOWN_ACTIONS.SKIP
 
     def __init__(self):
+        super().__init__(
+            "Blade Weave",
+            20.0
+        )
         self.hotkey = 'f1'
-        self.register_hotkey()
 
 
 class PlantBanner(Ability):
@@ -41,8 +48,11 @@ class PlantBanner(Ability):
     cooldown_action = COOLDOWN_ACTIONS.WAIT
 
     def __init__(self):
+        super().__init__(
+            "Plant Banner",
+            45.0
+        )
         self.hotkey = 'f3'
-        self.register_hotkey()
 
 
 class UseDiscipline(Ability):
@@ -52,5 +62,8 @@ class UseDiscipline(Ability):
     cooldown_action = COOLDOWN_ACTIONS.WAIT_SHORT
 
     def __init__(self):
+        super().__init__(
+            "Use Discipline",
+            45.0
+        )
         self.hotkey = 'f2'
-        self.register_hotkey()

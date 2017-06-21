@@ -23,7 +23,7 @@ class CryOfHavoc(Ability):
     use_on_cooldown = True
 
     def __init__(self):
-        super().__init__("Rend Flesh", 15.0)
+        super().__init__("Cry of Havoc", 15.0)
         self.hotkey = 'q'
 
 

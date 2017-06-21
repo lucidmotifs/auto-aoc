@@ -165,13 +165,14 @@ class Rotation(threading.Thread):
         [a.status() for a in self.ability_list]
         print("Combo Status:")
         [c.status() for c in self.combo_list]
-        #print("Pre-Finisher abilites")
-        #[a.status() for a in [al for al  in [c.pre_finishers for c in self.combo_list]]]
-        print("Post Abilities:")
-        [c.post_ability.status() for c in self.combo_list if c.post_ability is not None]
-        print("Pre Finisher Abilities:")
 
         try:
+            print("Post Abilities:")
+            [ability.status() for ability in [a for a in [a for a in [c.post_finishers for c in self.combo_list if c.post_finishers is not None ]] if len(a) is not 0][0]]
+        except IndexError:
+            print("No Post-Finisher abilities")
+        try:
+            print("Pre Finisher Abilities:")
             [ability.status() for ability in [a for a in [a for a in [c.pre_finishers for c in self.combo_list if c.pre_finishers is not None ]] if len(a) is not 0][0]]
         except IndexError:
             print("No Pre-Finisher abilities")
@@ -218,11 +219,12 @@ class Rotation(threading.Thread):
             self.current_action = c = self.get_combo_at(a_idx)
             self.combo_q.put(c)
 
-            combo_q.join()
+            self.ability_q.join()
+            self.combo_q.join()
 
         # End the workers
-        ability_q.put(None)
-        combo_q.put(None)
+        self.ability_q.put(None)
+        self.combo_q.put(None)
 
         if ( self.repeat is True ) and self.repeat_count > 0:
             self.repeat_count -= 1

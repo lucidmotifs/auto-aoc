@@ -34,20 +34,22 @@ def do_rotation(rotation, pause_key):
     logging.debug('Preparing to start')
 
     hk2 = keyboard.add_hotkey('*', rotation.end_destructive)
-    r = threading.Timer(0.1, rotation.start)
+    r = threading.Thread(target=rotation.start)
+    r.daemon = True
     r.start()
 
 
 def main():
+    keyboard.unhook_all()
     # Go to the Game
     #generic._set_focus()
     guard_aggro = Guardian_Aggro()
-    conq_dps = Conqueror_DPS()
+    #conq_dps = Conqueror_DPS()
     # Set-up keyhooks
     try:
         #hk2 = keyboard.add_hotkey(80, start_rotation2, args=[grd_dps, 79])
         hk3 = keyboard.add_hotkey(81, do_rotation, args=[guard_aggro, 79])
-        hk4 = keyboard.add_hotkey(75, do_rotation, args=[conq_dps, 79])
+        #hk4 = keyboard.add_hotkey(75, do_rotation, args=[conq_dps, 79])
 
         # Use this key to output the code for each key pressed. Makes it easier
         # to find new hotkeys.
@@ -56,7 +58,7 @@ def main():
         keyboard.wait('escape')
     except Exception as e:
         print(e)
-    else:
+    finally:
         keyboard.unhook_all()
         #generic._lose_focus()
 

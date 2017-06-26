@@ -110,13 +110,21 @@ class Rotation(threading.Thread):
             self.last_touched = self.combo_list[idx]
 
         elif isinstance(action, Ability):
+
             idx = len(self.ability_list)
+
             self.ability_list.append(action)
             self.last_touched = self.ability_list[idx]
+
+        elif action is None:
+
+            self.last_touched = action
+
         else:
+
             idx = None
             self.last_touched = None
-            print("Invalid action passed to Rotation")
+            logging.info("Invalid action passed to Rotation")
 
         return self
 
@@ -136,9 +144,9 @@ class Rotation(threading.Thread):
                 # should probably throw error if adding to another combo or
                 # sequence as it won't get played
                 # potentially could be a 'back-up' if some rule isn't met.
-                if isinstance(self.last_touched, Combo):
+                if isinstance(self.last_touched, Combo): # TODO add Spell
                     self.actions[pos] = self.actions[pos] + (self.last_touched,)
-                else:
+                else: # is Ability so add to end
                     self.actions[pos] = (self.last_touched,) + self.actions[pos]
             else:
                 self.actions[pos] = (self.last_touched,)
@@ -186,36 +194,29 @@ class Rotation(threading.Thread):
         self.start_time = timer()
         self._inprogress = True
 
-        ## Q consumer function
-        # TODO: set the argument to a python Type rather than a string
-        def q_worker(T='Ability'):
-            which_q = self.ability_q if T == 'Ability' else self.combo_q
-            while True:
-                item = which_q.get()
-                if item is None:
-                    break
-
-                item.use()
-                which_q.task_done()
-        ## end consumer
-
-        a_worker = threading.Thread(target=q_worker)
+        a_worker = threading.Thread(target=Rotation.q_worker, args=(self, \
+                                                                    'Ability',))
         a_worker.start()
 
-        c_worker = threading.Thread(target=q_worker, args=('Combo',))
+        c_worker = threading.Thread(target=Rotation.q_worker, args=(self, \
+                                                                    'Combo',))
         c_worker.start()
 
         for a_idx, items in self.actions.items():
 
+            # set the execution lock
             self.exec_lock.acquire()
 
+            # put abilities into the ability queue.
             [self.ability_q.put(i) for i in items if \
                 isinstance(i, Ability) and not \
                 isinstance(i, Combo)]
 
+            # release the execution lock and allow abilities to fire.
             self.exec_lock.release()
 
-            # current main action
+            # current main action, exec lock should be set within
+            # and abilities won't be able to fire.
             self.current_action = c = self.get_combo_at(a_idx)
             self.combo_q.put(c)
 
@@ -235,7 +236,29 @@ class Rotation(threading.Thread):
             self.end()
 
 
+    @classmethod
+    def q_worker(self, obj, T='Ability'):
+
+        ## Q consumer function
+        # TODO: set the argument to a python Type rather than a string
+        which_q = obj.ability_q if T == 'Ability' else obj.combo_q
+        while True:
+            # set the execution lock
+            obj.exec_lock.acquire()
+
+            item = which_q.get()
+            if item is None:
+                break
+
+            item.use()
+            which_q.task_done()
+
+            # release the execution lock
+            obj.exec_lock.release()
+        ## end consumer
+
     def end(self):
+        self.total_time = timer() - self.start_time
         print( "Rotation Complete! Total time taken: {:0.2f}".format( self.total_time ))
 
 
@@ -249,9 +272,8 @@ class Rotation(threading.Thread):
         [[i.cooldown.cancel() for i in x if i.cooldown is not None] for x in [j.pre_finishers for j in self.combo_list]]
         [i.cooldown.cancel() for i in self.combo_list if i.cooldown is not None]
 
-        generic.deregister_keybinds()
 
-
+    # Not functional at the moment
     def replay(self):
         print( "Replaying events:" )
         #print( [k.time for k in self.current_action.key_events] )

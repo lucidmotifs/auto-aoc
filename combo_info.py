@@ -1,4 +1,4 @@
-# gneral utltily
+# general utltily
 import logging
 import random
 import generic

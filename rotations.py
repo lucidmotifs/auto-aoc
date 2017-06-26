@@ -46,19 +46,20 @@ def Guardian_DPS():
     t_smash_buffs.attach_prefinishers( (Powerhouse(), BattleCry(), CallToArms()) )
     t_smash_buffs.name += " (Buffs)"
     t_smash_buffs = rot.use( t_smash_buffs ).at( 2, 20 )
-    print(t_smash_buffs.finisher)
 
     rot.use( TitanicSmash() ).at( 7, 13 )
-    print(t_smash_buffs.finisher)
     rot.use( Counterweight() ).at( 3, 5, 8, 11, 14, 17 )
     rot.use( Overreach(6) ).at( 4, 6, 15 )
     rot.use( Overreach(5) ).at( 12, 16, 18 )
     rot.use( DullingBlow() ).at( 9, 19 )
 
     # Abilities
-    rot.use( BloodyVegeance() ).at( 4, 11 )
+    rot.use( BloodyVengeance() ).at( 4, 11 )
     rot.use( Reckoning() ).at( 4, 6, 9, 12, 15, 18 )
     #rot.use( switch_weapons, (19,))
+
+    # end the rotation
+    rot.use( None ).at()
 
     return rot
 

@@ -119,7 +119,7 @@ class Combo(Ability):
 
             s.enter(t, 1, pyautogui.press, argument=(step,))
 
-        # Finally do any pre-finisher abilities immeidately
+        # Do any pre-finisher abilities immeidately
         # afterwards before the last swing locks and combo executes.
         if self.pre_finishers:
             t = self.attack_interval * len(self.steps)

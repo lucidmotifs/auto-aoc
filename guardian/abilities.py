@@ -64,13 +64,13 @@ class CallToArms(Ability):
         self.hotkey = 'f3'
 
 
-class BloodyVegeance(Ability):
+class BloodyVengeance(Ability):
 
     cooldown_action = COOLDOWN_ACTIONS.SKIP
     cast_time = 1.5
 
     def __init__(self):
-        super().__init__("Bloody Vegeance", 27.0, 1.5)
+        super().__init__("Bloody Vengeance", 27.0, 1.5)
         self.hotkey = '5'
 
 

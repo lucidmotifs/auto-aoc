@@ -84,28 +84,31 @@ class Ability(object):
         # remove any other action that currently has this hotkey
         try:
             keyboard.unhook_key(self.hotkey)
-            print("Removing old bindings")
+            #print("Removing old bindings")
         except ValueError as e:
             #print(e)
             try:
-                keyboard.remove_hotkey(self.modifier or '' + '+' + self.hotkey)
-                print("Removing old bindings")
+                #print("Removing old bindings {}".format('' + '+' + self.hotkey))
+                keyboard.remove_hotkey(self.modifier + '+' + self.hotkey)
             except (ValueError,TypeError) as e:
                 #print(e)
-                pass
+                return
 
 
     def register_hotkey(self):
         self.deregister_hotkey()
 
         # register key hooks for logging based on hotkey + steps
-        print("Adding keyboard hooks")
-        if self.modifier:
-            keyboard.add_hotkey(self.modifier + '+' + self.hotkey, \
-                self.hotkey_pressed)
-        else:
-            keyboard.hook_key( self.hotkey, \
-                lambda: self.hotkey_pressed() )
+        # print("Adding keyboard hooks")
+        try:
+            if self.modifier:
+                keyboard.add_hotkey(self.modifier + '+' + self.hotkey, \
+                    self.hotkey_pressed)
+            else:
+                keyboard.hook_key( self.hotkey, \
+                    lambda: self.hotkey_pressed() )
+        except Exception as e:
+            print(e)
 
 
         logging.debug("Hotkey {} registered for {}".format(self.hotkey, \

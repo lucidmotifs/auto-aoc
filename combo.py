@@ -184,7 +184,7 @@ class Combo(Ability):
     # work without running a manual test in-game.
     def print_keyevents(self):
         ## will update for new scheduler system soon
-        print(self.schedule.queue)
+        logging.debug(self.schedule.queue)
 
 
     def use(self, rotation=None):

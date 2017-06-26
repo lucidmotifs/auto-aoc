@@ -49,10 +49,10 @@ class Rotation(threading.Thread):
         if self.unpause_key is not None:
             keyboard.remove_hotkey(self.unpause_key)
 
-            print("waiting to resume...")
+            loggin.debug("waiting to resume...")
             keyboard.wait(self.unpause_key)
 
-            print("resuming...")
+            logging.debug("resuming...")
             self.paused = False
             # change activation
             keyboard.add_hotkey(self.unpause_key, self.do_pause, args=[self.unpause_key])
@@ -61,7 +61,7 @@ class Rotation(threading.Thread):
     def do_pause(self, key_pressed):
         # pause the rotation in place, but allow CDs to finish (CDs in threads)
         # 'save state'
-        print("pausing...")
+        loggin.debug("pausing...")
 
         if not self.paused:
             self.paused = True
@@ -165,25 +165,25 @@ class Rotation(threading.Thread):
     def print_rotation(self):
         for i, actions in sorted(self.actions.items()):
             for a in actions:
-                print("{0}: {1}".format(i, a.name))
+                logging.debug("{0}: {1}".format(i, a.name))
 
 
     def print_current_cooldowns(self):
-        print("Ablities Status:")
+        logging.debug("Ablities Status:")
         [a.status() for a in self.ability_list]
-        print("Combo Status:")
+        logging.debug("Combo Status:")
         [c.status() for c in self.combo_list]
 
         try:
-            print("Post Abilities:")
+            logging.debug("Post Abilities:")
             [ability.status() for ability in [a for a in [a for a in [c.post_finishers for c in self.combo_list if c.post_finishers is not None ]] if len(a) is not 0][0]]
         except IndexError:
-            print("No Post-Finisher abilities")
+            logging.debug("No Post-Finisher abilities")
         try:
-            print("Pre Finisher Abilities:")
+            logging.debug("Pre Finisher Abilities:")
             [ability.status() for ability in [a for a in [a for a in [c.pre_finishers for c in self.combo_list if c.pre_finishers is not None ]] if len(a) is not 0][0]]
         except IndexError:
-            print("No Pre-Finisher abilities")
+            logging.debug("No Pre-Finisher abilities")
 
 
     def run(self):
@@ -259,7 +259,8 @@ class Rotation(threading.Thread):
 
     def end(self):
         self.total_time = timer() - self.start_time
-        print( "Rotation Complete! Total time taken: {:0.2f}".format( self.total_time ))
+        logging.debug( "Rotation Complete! Total time taken: {:0.2f}"\
+                       .format( self.total_time ))
 
 
     def end_destructive(self):
@@ -275,8 +276,8 @@ class Rotation(threading.Thread):
 
     # Not functional at the moment
     def replay(self):
-        print( "Replaying events:" )
-        #print( [k.time for k in self.current_action.key_events] )
+        logging.debug( "Replaying events:" )
+        #logging.debug( [k.time for k in self.current_action.key_events] )
         for c in self.combo_list:
             if c.key_events is not None:
                 keyboard.play(c.key_events)

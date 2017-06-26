@@ -84,14 +84,14 @@ class Ability(object):
         # remove any other action that currently has this hotkey
         try:
             keyboard.unhook_key(self.hotkey)
-            #print("Removing old bindings")
+            #logging.debug("Removing old bindings")
         except ValueError as e:
-            #print(e)
+            #logging.debug(e)
             try:
-                #print("Removing old bindings {}".format('' + '+' + self.hotkey))
+                #logging.debug("Removing old bindings {}".format('' + '+' + self.hotkey))
                 keyboard.remove_hotkey(self.modifier + '+' + self.hotkey)
             except (ValueError,TypeError) as e:
-                #print(e)
+                #logging.debug(e)
                 return
 
 
@@ -99,7 +99,7 @@ class Ability(object):
         self.deregister_hotkey()
 
         # register key hooks for logging based on hotkey + steps
-        # print("Adding keyboard hooks")
+        # logging.debug("Adding keyboard hooks")
         try:
             if self.modifier:
                 keyboard.add_hotkey(self.modifier + '+' + self.hotkey, \
@@ -108,7 +108,9 @@ class Ability(object):
                 keyboard.hook_key( self.hotkey, \
                     lambda: self.hotkey_pressed() )
         except Exception as e:
-            print(e)
+            return
+
+
 
 
         logging.debug("Hotkey {} registered for {}".format(self.hotkey, \
@@ -130,7 +132,7 @@ class Ability(object):
         # check for cooldown fail
         if self.cooling_down:
 
-            print("Ability {} was used while still on cooldown. {}s remaining".\
+            logging.debug("Ability {} was used while still on cooldown. {}s remaining".\
                 format(self.name, self.cooldown_remaining))
 
             if self.cooldown_action == COOLDOWN_ACTIONS.WAIT:
@@ -181,7 +183,7 @@ class Ability(object):
 
     def use(self, lock=None):
 
-        print("Using: {}".format( self.name ))
+        logging.debug("Using: {}".format( self.name ))
 
         self.activate()
 
@@ -220,7 +222,7 @@ class Ability(object):
 
 
     def cooldown_end(self):
-        print("{0} is now off cooldown".format(self.name))
+        logging.debug("{0} is now off cooldown".format(self.name))
 
         if self.use_on_cooldown:
             time.sleep(.1)
@@ -234,4 +236,4 @@ class Ability(object):
         else:
             status = "Off Cooldown"
 
-        print("{0} is {1}".format(self.name, status))
+        logging.debug("{0} is {1}".format(self.name, status))

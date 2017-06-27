@@ -94,13 +94,14 @@ class Combo(Ability):
         super().hotkey_pressed()
 
         # Additional step to
-        rotation.log_keypress(self)
+        rotation.log_keypress(rotation)
 
 
     # This replaces the 'build_word' functionality we previously
     # had as it ensures key presses happen exactly when they are
     # supposed to even when a step takes slightly too long to complete.
     def create_schedule(self):
+        logging.debug("Creating Schedule for {}".format(self.name))
         s = self.schedule = sched.scheduler(timer)
         t = 0
 
@@ -195,4 +196,4 @@ class Combo(Ability):
         if self.post_finishers and rotation:
             for a in self.post_finishers:
                 # guess we're deciding that pre_finishers can't have modifiers?
-                self.rotation.a_queue.put(a)
+                rotation.ability_q.put(a)

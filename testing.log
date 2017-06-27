@@ -1,30 +1,45 @@
-(MainThread) 48:00.638 Hotkey 4 registered for Guard Destroyer
-(MainThread) 48:00.638 Hotkey t registered for Titanic Smash
-(MainThread) 48:00.638 Hotkey f1 registered for Powerhouse
-(MainThread) 48:00.638 Hotkey f2 registered for Battle Cry
-(MainThread) 48:00.638 Hotkey f3 registered for Call To Arms
-(MainThread) 48:00.638 Hotkey t registered for Titanic Smash
-(MainThread) 48:00.639 Hotkey r registered for Counterweight
-(MainThread) 48:00.639 Hotkey q registered for Reckoning
-(MainThread) 48:00.639 Hotkey f registered for Overreach VI
-(MainThread) 48:00.639 Hotkey 8 registered for Overreach V
-(MainThread) 48:00.639 Hotkey 6 registered for Dulling Blow IV
-(MainThread) 48:00.639 Hotkey 5 registered for Bloody Vengeance
-(MainThread) 48:00.639 Hotkey q registered for Reckoning
-(Thread-5  ) 48:00.640 Reckoning was activated. Last used: Never
-(MainThread) 48:00.741 Rotation Complete! Total time taken: 0.10
-(MainThread) 48:00.742 Hotkey 4 registered for Guard Destroyer
-(MainThread) 48:00.742 Hotkey t registered for Titanic Smash
-(MainThread) 48:00.742 Hotkey f1 registered for Powerhouse
-(MainThread) 48:00.742 Hotkey f2 registered for Battle Cry
-(MainThread) 48:00.742 Hotkey f3 registered for Call To Arms
-(MainThread) 48:00.742 Hotkey t registered for Titanic Smash
-(MainThread) 48:00.742 Hotkey r registered for Counterweight
-(MainThread) 48:00.743 Hotkey q registered for Reckoning
-(MainThread) 48:00.743 Hotkey f registered for Overreach VI
-(MainThread) 48:00.743 Hotkey 8 registered for Overreach V
-(MainThread) 48:00.743 Hotkey 6 registered for Dulling Blow IV
-(MainThread) 48:00.743 Hotkey 5 registered for Bloody Vengeance
-(MainThread) 48:00.743 Hotkey q registered for Reckoning
-(MainThread) 48:00.743 test1
-(MainThread) 48:00.743 Rotation Complete! Total time taken: 0.10
+(MainThread) 35:40.742 Hotkey 4 registered for Guard Destroyer
+(MainThread) 35:40.742 Hotkey t registered for Titanic Smash
+(MainThread) 35:40.742 Hotkey f1 registered for Powerhouse
+(MainThread) 35:40.742 Hotkey f2 registered for Battle Cry
+(MainThread) 35:40.742 Hotkey f3 registered for Call To Arms
+(MainThread) 35:40.742 Hotkey t registered for Titanic Smash
+(MainThread) 35:40.742 Hotkey r registered for Counterweight
+(MainThread) 35:40.742 Hotkey q registered for Reckoning
+(MainThread) 35:40.743 Hotkey f registered for Overreach VI
+(MainThread) 35:40.743 Hotkey 8 registered for Overreach V
+(MainThread) 35:40.743 Hotkey 6 registered for Dulling Blow IV
+(MainThread) 35:40.743 Hotkey 5 registered for Bloody Vengeance
+(MainThread) 35:40.743 Hotkey q registered for Reckoning
+(MainThread) 35:40.743 Hotkey enter registered for Enter Chat
+(Thread-19 ) 35:40.743 Using: Reckoning
+(Thread-3  ) 35:40.744 Reckoning was activated. Last used: Never
+(Thread-19 ) 35:40.845 Using: Enter Chat
+(Thread-3  ) 35:40.846 Enter Chat was activated. Last used: Never
+(MainThread) 35:40.949 Rotation Complete! Total time taken: 0.21
+(MainThread) 35:40.951 Hotkey 4 registered for Guard Destroyer
+(MainThread) 35:40.951 Hotkey t registered for Titanic Smash
+(MainThread) 35:40.951 Hotkey f1 registered for Powerhouse
+(MainThread) 35:40.951 Hotkey f2 registered for Battle Cry
+(MainThread) 35:40.952 Hotkey f3 registered for Call To Arms
+(MainThread) 35:40.952 Hotkey t registered for Titanic Smash
+(MainThread) 35:40.952 Hotkey r registered for Counterweight
+(MainThread) 35:40.952 Hotkey q registered for Reckoning
+(MainThread) 35:40.952 Hotkey f registered for Overreach VI
+(MainThread) 35:40.952 Hotkey 8 registered for Overreach V
+(MainThread) 35:40.952 Hotkey 6 registered for Dulling Blow IV
+(MainThread) 35:40.952 Hotkey 5 registered for Bloody Vengeance
+(MainThread) 35:40.952 Hotkey q registered for Reckoning
+(MainThread) 35:40.952 Hotkey enter registered for Enter Chat
+(MainThread) 35:40.952 Trying Overreach V
+(Thread-37 ) 35:40.953 Creating Schedule for Overreach V
+(Thread-3  ) 35:40.953 Overreach V was activated. Last used: Never
+(Thread-3  ) 35:40.953 During Overreach V, None (0.22)
+(Thread-3  ) 35:40.953 Delta: 0.2170690970464135
+(Thread-3  ) 35:41.253 During Unknown, LR attack key was pressed (0.52)
+(Thread-3  ) 35:41.254 Delta: 0.30092583966244724
+(Thread-3  ) 35:42.254 During Unknown, UL attack key was pressed (1.52)
+(Thread-3  ) 35:42.254 Delta: 0.9998625485232067
+(Thread-37 ) 35:42.305 Using: Enter Chat
+(Thread-3  ) 35:42.305 Enter Chat was activated. Last used: Never
+(MainThread) 35:44.405 Rotation Complete! Total time taken: 3.67

@@ -18,9 +18,15 @@ from ability import Ability
 
 class Rotation(threading.Thread):
 
+    combo_list = []
+    ability_list = []
+    start_time = timer()
+    last_keypress = 0.0
+    exec_lock = threading.Lock()
+
     def __init__(self):
         threading.Thread.__init__(self)
-        self.exec_lock = threading.Lock()
+
         self.combo_list = []
         self.ability_list = []
         self.actions = SortedDict()
@@ -31,7 +37,6 @@ class Rotation(threading.Thread):
         self.paused = False
         self.ending = False
         self.current_action = None
-        self.last_keypress = 0.0
         self.last_touched = None
 
         # timers
@@ -78,6 +83,7 @@ class Rotation(threading.Thread):
         curr_time = timer()
 
         delta = curr_time - self.last_keypress
+        self.last_keypress = curr_time
 
         if self.current_action:
             name = self.current_action.name
@@ -91,7 +97,7 @@ class Rotation(threading.Thread):
 
         logging.debug("Delta: {}".format(delta))
 
-        self.last_keypress = curr_time
+
 
 
     # This method is designed for fully formed combos that manage their \
@@ -237,24 +243,25 @@ class Rotation(threading.Thread):
 
 
     @classmethod
-    def q_worker(self, obj, T='Ability'):
+    def q_worker(self, T='Ability'):
 
         ## Q consumer function
         # TODO: set the argument to a python Type rather than a string
-        which_q = obj.ability_q if T == 'Ability' else obj.combo_q
+        which_q = self.ability_q if T == 'Ability' else self.combo_q
         while True:
-            # set the execution lock
-            obj.exec_lock.acquire()
-
             item = which_q.get()
+            # set the execution lock
+            self.exec_lock.acquire()
+
             if item is None:
+                self.exec_lock.release()
                 break
 
-            item.use()
+            item.use(self)
             which_q.task_done()
 
             # release the execution lock
-            obj.exec_lock.release()
+            self.exec_lock.release()
         ## end consumer
 
     def end(self):
@@ -264,7 +271,7 @@ class Rotation(threading.Thread):
 
 
     def end_destructive(self):
-        self.end()
+        self.end(self)
 
         # check repeat options, see many time we've run the Rotation
         # use a filler to get a CD or buff back, potentially. Even a single repeat_until

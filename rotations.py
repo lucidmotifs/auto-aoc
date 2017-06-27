@@ -20,7 +20,6 @@ def Guardian_Aggro():
     t_smash_buffs.attach_prefinishers( (Powerhouse(), BattleCry(), CallToArms()) )
     t_smash_buffs.name += " (Buffs)"
     t_smash_buffs = guard_aggro.use( t_smash_buffs ).at( 3 )
-    print(t_smash_buffs)
 
 
     guard_aggro.use( TitanicSmash() ).at( 10, 16)
@@ -44,7 +43,7 @@ def Guardian_DPS():
 
     t_smash_buffs = TitanicSmash()
     t_smash_buffs.attach_prefinishers( (Powerhouse(), BattleCry(), CallToArms()) )
-    t_smash_buffs.name = t_smash_buffs + " (Buffs)"
+    t_smash_buffs.name = t_smash_buffs.name + " (Buffs)"
     t_smash_buffs = rot.use( t_smash_buffs ).at( 2, 20 )
 
     rot.use( TitanicSmash() ).at( 7, 13 )

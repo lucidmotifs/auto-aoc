@@ -49,7 +49,7 @@ class Ability(object):
         self._key_pressed = threading.Event()
 
         # cooldown timer thread
-        self.cooldown = threading.Timer(cooldown_time, self.cooldown_end)
+        self.cooldown = threading.Timer(self.cooldown_time, self.cooldown_end)
 
 
     def hotkey():
@@ -74,11 +74,11 @@ class Ability(object):
         if not self.cooling_down:
             actual_cd = self.cooldown_time + fudge
 
-            self.cooldown = threading.Timer(actual_cd, self.cooldown_end)
-            self.cooldown.daemon = True
-            self.cooldown.start()
-            self.lastused = self.cooldown_start = timer()
+            if actual_cd > 0.0:
+                self.cooldown.daemon = True
+                self.cooldown.start()
 
+            self.lastused = self.cooldown_start = timer()
 
     def deregister_hotkey(self):
         # remove any other action that currently has this hotkey
@@ -110,9 +110,6 @@ class Ability(object):
         except Exception as e:
             return
 
-
-
-
         logging.debug("Hotkey {} registered for {}".format(self.hotkey, \
                                                            self.name))
 
@@ -132,7 +129,8 @@ class Ability(object):
         # check for cooldown fail
         if self.cooling_down:
 
-            logging.debug("Ability {} was used while still on cooldown. {}s remaining".\
+            logging.debug("Ability {} was used while still on cooldown. \
+            {}s remaining".\
                 format(self.name, self.cooldown_remaining))
 
             if self.cooldown_action == COOLDOWN_ACTIONS.WAIT:
@@ -181,15 +179,14 @@ class Ability(object):
             pyautogui.press(self.hotkey)
 
 
-    def use(self, lock=None):
+    def use(self, rotation=None):
 
         logging.debug("Using: {}".format( self.name ))
 
         self.activate()
 
         # Wait for allowed event
-        e = self._key_pressed.wait(5)
-        if e:
+        if self._key_pressed.wait(5):
             # key press, not timeout.
             if self._pressed:
                 # If we're casting, pause.
@@ -200,8 +197,10 @@ class Ability(object):
                 # start cooldown
                 self.init_cooldown()
         else:
-            logging.debug("Error: Timeout reach while waiting for key_pressed \
-            response! Ability Name: {}".format(self.name))
+            message = "Error: Timeout reach while waiting for"
+            message += "'key pressed' event response! Ability Name: {}" \
+                       .format(self.name)
+            logging.debug( message )
             # waiting for a timeout this long means something
             # is really broken with out system or our Rotation
             # and we should exit. decide on action later
@@ -215,6 +214,7 @@ class Ability(object):
 
     @property
     def cooldown_remaining(self):
+        """Returns the amount of time until an ability is off cooldown"""
         if not self.cooling_down:
             return 0.0
         else:
@@ -224,6 +224,8 @@ class Ability(object):
     def cooldown_end(self):
         logging.debug("{0} is now off cooldown".format(self.name))
 
+        # reset the cooldown timer
+        self.cooldown = threading.Timer(self.cooldown_time, self.cooldown_end)
         if self.use_on_cooldown:
             time.sleep(.1)
             self.use()

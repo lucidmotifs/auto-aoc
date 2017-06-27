@@ -1,45 +1,205 @@
-(MainThread) 35:40.742 Hotkey 4 registered for Guard Destroyer
-(MainThread) 35:40.742 Hotkey t registered for Titanic Smash
-(MainThread) 35:40.742 Hotkey f1 registered for Powerhouse
-(MainThread) 35:40.742 Hotkey f2 registered for Battle Cry
-(MainThread) 35:40.742 Hotkey f3 registered for Call To Arms
-(MainThread) 35:40.742 Hotkey t registered for Titanic Smash
-(MainThread) 35:40.742 Hotkey r registered for Counterweight
-(MainThread) 35:40.742 Hotkey q registered for Reckoning
-(MainThread) 35:40.743 Hotkey f registered for Overreach VI
-(MainThread) 35:40.743 Hotkey 8 registered for Overreach V
-(MainThread) 35:40.743 Hotkey 6 registered for Dulling Blow IV
-(MainThread) 35:40.743 Hotkey 5 registered for Bloody Vengeance
-(MainThread) 35:40.743 Hotkey q registered for Reckoning
-(MainThread) 35:40.743 Hotkey enter registered for Enter Chat
-(Thread-19 ) 35:40.743 Using: Reckoning
-(Thread-3  ) 35:40.744 Reckoning was activated. Last used: Never
-(Thread-19 ) 35:40.845 Using: Enter Chat
-(Thread-3  ) 35:40.846 Enter Chat was activated. Last used: Never
-(MainThread) 35:40.949 Rotation Complete! Total time taken: 0.21
-(MainThread) 35:40.951 Hotkey 4 registered for Guard Destroyer
-(MainThread) 35:40.951 Hotkey t registered for Titanic Smash
-(MainThread) 35:40.951 Hotkey f1 registered for Powerhouse
-(MainThread) 35:40.951 Hotkey f2 registered for Battle Cry
-(MainThread) 35:40.952 Hotkey f3 registered for Call To Arms
-(MainThread) 35:40.952 Hotkey t registered for Titanic Smash
-(MainThread) 35:40.952 Hotkey r registered for Counterweight
-(MainThread) 35:40.952 Hotkey q registered for Reckoning
-(MainThread) 35:40.952 Hotkey f registered for Overreach VI
-(MainThread) 35:40.952 Hotkey 8 registered for Overreach V
-(MainThread) 35:40.952 Hotkey 6 registered for Dulling Blow IV
-(MainThread) 35:40.952 Hotkey 5 registered for Bloody Vengeance
-(MainThread) 35:40.952 Hotkey q registered for Reckoning
-(MainThread) 35:40.952 Hotkey enter registered for Enter Chat
-(MainThread) 35:40.952 Trying Overreach V
-(Thread-37 ) 35:40.953 Creating Schedule for Overreach V
-(Thread-3  ) 35:40.953 Overreach V was activated. Last used: Never
-(Thread-3  ) 35:40.953 During Overreach V, None (0.22)
-(Thread-3  ) 35:40.953 Delta: 0.2170690970464135
-(Thread-3  ) 35:41.253 During Unknown, LR attack key was pressed (0.52)
-(Thread-3  ) 35:41.254 Delta: 0.30092583966244724
-(Thread-3  ) 35:42.254 During Unknown, UL attack key was pressed (1.52)
-(Thread-3  ) 35:42.254 Delta: 0.9998625485232067
-(Thread-37 ) 35:42.305 Using: Enter Chat
-(Thread-3  ) 35:42.305 Enter Chat was activated. Last used: Never
-(MainThread) 35:44.405 Rotation Complete! Total time taken: 3.67
+(MainThread) 43:07.887 Hotkey 4 registered for Guard Destroyer
+(MainThread) 43:07.887 Hotkey t registered for Titanic Smash
+(MainThread) 43:07.888 Hotkey f1 registered for Powerhouse
+(MainThread) 43:07.888 Hotkey f2 registered for Battle Cry
+(MainThread) 43:07.888 Hotkey f3 registered for Call To Arms
+(MainThread) 43:07.888 Hotkey t registered for Titanic Smash
+(MainThread) 43:07.888 Hotkey r registered for Counterweight
+(MainThread) 43:07.888 Hotkey q registered for Reckoning
+(MainThread) 43:07.888 Hotkey f registered for Overreach VI
+(MainThread) 43:07.888 Hotkey 8 registered for Overreach V
+(MainThread) 43:07.888 Hotkey 6 registered for Dulling Blow IV
+(MainThread) 43:07.888 Hotkey 5 registered for Bloody Vengeance
+(MainThread) 43:07.889 Hotkey q registered for Reckoning
+(MainThread) 43:07.889 Hotkey g registered for Shield Slam
+(MainThread) 43:07.889 Hotkey 4 registered for Guard Destroyer
+(MainThread) 43:07.889 Hotkey t registered for Titanic Smash
+(MainThread) 43:07.889 Hotkey f1 registered for Powerhouse
+(MainThread) 43:07.889 Hotkey f2 registered for Battle Cry
+(MainThread) 43:07.889 Hotkey f3 registered for Call To Arms
+(MainThread) 43:07.889 Hotkey t registered for Titanic Smash
+(MainThread) 43:07.889 Hotkey 8 registered for Overreach V
+(MainThread) 43:07.889 Hotkey f registered for Overreach VI
+(MainThread) 43:07.889 Hotkey q registered for Tactic: Provoke
+(MainThread) 43:07.889 Hotkey q registered for Cry of Havoc
+(MainThread) 43:07.890 Hotkey z registered for Irritate
+(MainThread) 43:07.890 Hotkey 4 registered for Breech IV
+(MainThread) 43:07.890 Hotkey r registered for Whirlwind
+(MainThread) 43:07.890 Hotkey f registered for Blood Hack VI
+(MainThread) 43:07.890 Hotkey 5 registered for Blood Hack V
+(MainThread) 43:07.890 Hotkey t registered for Bloodbath VI
+(MainThread) 43:07.890 Hotkey f1 registered for Blade Weave
+(MainThread) 43:07.890 Hotkey f2 registered for Use Discipline
+(MainThread) 43:07.890 Hotkey 9 registered for Annihilate
+(MainThread) 43:07.890 Hotkey 0 registered for Rend Flesh
+(Thread-4  ) 43:09.925 Preparing to start
+(Thread-30 ) 43:09.929 1: Blade Weave
+(Thread-30 ) 43:09.929 1: Breech IV
+(Thread-30 ) 43:09.929 2: Use Discipline
+(Thread-30 ) 43:09.929 2: Whirlwind
+(Thread-30 ) 43:09.929 3: Annihilate
+(Thread-30 ) 43:09.929 3: Blood Hack VI
+(Thread-30 ) 43:09.929 4: Rend Flesh
+(Thread-30 ) 43:09.929 4: Bloodbath VI
+(Thread-30 ) 43:09.929 5: Blood Hack V
+(Thread-30 ) 43:09.929 6: Whirlwind
+(Thread-30 ) 43:09.929 7: Blood Hack V
+(Thread-30 ) 43:09.929 8: Bloodbath VI
+(Thread-30 ) 43:09.929 9: Blood Hack V
+(Thread-30 ) 43:09.929 10: Whirlwind
+(Thread-30 ) 43:09.929 11: Blood Hack VI
+(Thread-41 ) 43:09.930 Using: Blade Weave
+(Thread-4  ) 43:09.930 Blade Weave was activated. Last used: Never
+(Thread-42 ) 43:09.982 Creating Schedule for Breech IV
+(Thread-4  ) 43:09.982 Breech IV was activated. Last used: Never
+(Thread-4  ) 43:09.982 During Breech IV, Hotkey for Breech IV was pressed (2.1)
+(Thread-4  ) 43:09.982 Delta: 2.099400641350211
+(Thread-4  ) 43:10.283 During Breech IV, UL attack key was pressed (2.4)
+(Thread-4  ) 43:10.283 Delta: 0.3008815527426161
+(Thread-42 ) 43:12.703 Creating Schedule for Whirlwind
+(Thread-41 ) 43:12.704 Using: Use Discipline
+(Thread-4  ) 43:12.704 Whirlwind was activated. Last used: Never
+(Thread-4  ) 43:12.704 During Whirlwind, Hotkey for Whirlwind was pressed (4.82)
+(Thread-4  ) 43:12.704 Delta: 2.4210203544303797
+(Thread-4  ) 43:13.005 During Whirlwind, LR attack key was pressed (5.12)
+(Thread-4  ) 43:13.005 Delta: 0.3011602362869201
+(Thread-4  ) 43:14.125 Cry of Havoc was activated. Last used: Never
+(Thread-4  ) 43:14.125 During Whirlwind, LL attack key was pressed (6.24)
+(Thread-4  ) 43:14.125 Delta: 1.1200324050632906
+(Thread-4  ) 43:14.835 During Whirlwind, UR attack key was pressed (6.95)
+(Thread-4  ) 43:14.835 Delta: 0.7095852827004228
+(Thread-4  ) 43:17.345 Use Discipline was activated. Last used: Never
+(Thread-41 ) 43:17.396 Using: Annihilate
+(Thread-42 ) 43:17.397 Creating Schedule for Blood Hack VI
+(Thread-4  ) 43:17.397 Blood Hack VI was activated. Last used: Never
+(Thread-4  ) 43:17.397 During Blood Hack VI, Hotkey for Blood Hack VI was pressed (9.51)
+(Thread-4  ) 43:17.397 Delta: 2.5624036455696206
+(Thread-4  ) 43:17.698 During Blood Hack VI, MID attack key was pressed (9.82)
+(Thread-4  ) 43:17.698 Delta: 0.3008372658227838
+(Thread-4  ) 43:18.918 Cry of Havoc was activated. Last used: Never
+(Thread-4  ) 43:18.918 During Blood Hack VI, LL attack key was pressed (11.04)
+(Thread-4  ) 43:18.918 Delta: 1.2199979746835439
+(Thread-4  ) 43:19.679 During Blood Hack VI, UR attack key was pressed (11.8)
+(Thread-4  ) 43:19.679 Delta: 0.7602538396624485
+(Thread-4  ) 43:22.238 Annihilate was activated. Last used: Never
+(Thread-42 ) 43:22.291 Creating Schedule for Bloodbath VI
+(Thread-41 ) 43:22.291 Using: Rend Flesh
+(Thread-4  ) 43:22.291 Bloodbath VI was activated. Last used: Never
+(Thread-4  ) 43:22.291 During Bloodbath VI, Hotkey for Bloodbath VI was pressed (14.41)
+(Thread-4  ) 43:22.291 Delta: 2.612414379746834
+(Thread-4  ) 43:22.591 Cry of Havoc was activated. Last used: Never
+(Thread-4  ) 43:22.592 During Bloodbath VI, LL attack key was pressed (14.71)
+(Thread-4  ) 43:22.592 Delta: 0.30097984810126555
+(Thread-4  ) 43:23.712 During Bloodbath VI, LR attack key was pressed (15.83)
+(Thread-4  ) 43:23.712 Delta: 1.1199989198312252
+(Thread-33 ) 43:24.238 Blood Hack VI is now off cooldown
+(Thread-4  ) 43:24.422 During Bloodbath VI, MID attack key was pressed (16.54)
+(Thread-4  ) 43:24.422 Delta: 0.7102852320675108
+(Thread-32 ) 43:27.345 Whirlwind is now off cooldown
+(Thread-4  ) 43:27.432 Rend Flesh was activated. Last used: Never
+(Thread-42 ) 43:27.483 Creating Schedule for Blood Hack V
+(Thread-4  ) 43:27.484 Blood Hack V was activated. Last used: Never
+(Thread-4  ) 43:27.484 During Blood Hack V, Hotkey for Blood Hack V was pressed (19.6)
+(Thread-4  ) 43:27.484 Delta: 3.061895021097044
+(Thread-4  ) 43:27.785 During Blood Hack V, MID attack key was pressed (19.9)
+(Thread-4  ) 43:27.785 Delta: 0.30130848945147903
+(Thread-4  ) 43:28.905 During Blood Hack V, UR attack key was pressed (21.02)
+(Thread-4  ) 43:28.905 Delta: 1.1194407426160318
+(Thread-36 ) 43:29.982 Blade Weave is now off cooldown
+(Thread-42 ) 43:31.164 Creating Schedule for Whirlwind
+(Thread-4  ) 43:31.165 Whirlwind was activated. Last used: 9.461771341772153
+(Thread-4  ) 43:31.165 During Whirlwind, Hotkey for Whirlwind was pressed (23.28)
+(Thread-4  ) 43:31.165 Delta: 2.2600927594936735
+(Thread-4  ) 43:31.466 During Whirlwind, LR attack key was pressed (23.58)
+(Thread-4  ) 43:31.466 Delta: 0.301417856540084
+(Thread-4  ) 43:32.585 Cry of Havoc was activated. Last used: Never
+(Thread-4  ) 43:32.586 During Whirlwind, LL attack key was pressed (24.7)
+(Thread-4  ) 43:32.586 Delta: 1.1196835105485228
+(Thread-34 ) 43:33.164 Blood Hack V is now off cooldown
+(Thread-4  ) 43:33.296 During Whirlwind, UR attack key was pressed (25.41)
+(Thread-4  ) 43:33.296 Delta: 0.7102482362869189
+(Thread-42 ) 43:35.806 Creating Schedule for Blood Hack V
+(Thread-4  ) 43:35.807 Blood Hack V was activated. Last used: 23.28134075949367
+(Thread-4  ) 43:35.807 During Blood Hack V, Hotkey for Blood Hack V was pressed (27.92)
+(Thread-4  ) 43:35.807 Delta: 2.5105836286919825
+(Thread-4  ) 43:36.108 During Blood Hack V, MID attack key was pressed (28.23)
+(Thread-4  ) 43:36.108 Delta: 0.3014653839662458
+(Thread-4  ) 43:37.228 During Blood Hack V, UR attack key was pressed (29.35)
+(Thread-4  ) 43:37.228 Delta: 1.1200299746835434
+(Thread-35 ) 43:37.432 Bloodbath VI is now off cooldown
+(Thread-42 ) 43:39.488 Creating Schedule for Bloodbath VI
+(Thread-4  ) 43:39.489 Bloodbath VI was activated. Last used: 19.54896040506329
+(Thread-4  ) 43:39.489 During Bloodbath VI, Hotkey for Bloodbath VI was pressed (31.61)
+(Thread-4  ) 43:39.489 Delta: 2.260504303797468
+(Thread-4  ) 43:39.789 Cry of Havoc was activated. Last used: Never
+(Thread-4  ) 43:39.789 During Bloodbath VI, LL attack key was pressed (31.91)
+(Thread-4  ) 43:39.790 Delta: 0.30089991561181506
+(Thread-4  ) 43:40.911 During Bloodbath VI, LR attack key was pressed (33.03)
+(Thread-4  ) 43:40.911 Delta: 1.1205392742616027
+(Thread-46 ) 43:41.488 Blood Hack V is now off cooldown
+(Thread-4  ) 43:41.619 During Bloodbath VI, MID attack key was pressed (33.74)
+(Thread-4  ) 43:41.619 Delta: 0.7088197130801674
+(Thread-42 ) 43:44.630 Creating Schedule for Blood Hack V
+(Thread-4  ) 43:44.630 Blood Hack V was activated. Last used: 31.6050514092827
+(Thread-4  ) 43:44.631 During Blood Hack V, Hotkey for Blood Hack V was pressed (36.75)
+(Thread-4  ) 43:44.631 Delta: 3.011481383966249
+(Thread-4  ) 43:44.932 During Blood Hack V, MID attack key was pressed (37.05)
+(Thread-4  ) 43:44.932 Delta: 0.30097201687763686
+(Thread-44 ) 43:45.806 Whirlwind is now off cooldown
+(Thread-4  ) 43:46.052 During Blood Hack V, UR attack key was pressed (38.17)
+(Thread-4  ) 43:46.052 Delta: 1.1199851476793228
+(Thread-42 ) 43:48.311 Creating Schedule for Whirlwind
+(Thread-4  ) 43:48.311 Whirlwind was activated. Last used: 27.92323699578059
+(Thread-4  ) 43:48.312 During Whirlwind, Hotkey for Whirlwind was pressed (40.43)
+(Thread-4  ) 43:48.312 Delta: 2.2602383122362895
+(Thread-4  ) 43:48.613 During Whirlwind, LR attack key was pressed (40.73)
+(Thread-4  ) 43:48.613 Delta: 0.30097201687763686
+(Thread-4  ) 43:49.733 Cry of Havoc was activated. Last used: Never
+(Thread-4  ) 43:49.733 During Whirlwind, LL attack key was pressed (41.85)
+(Thread-4  ) 43:49.733 Delta: 1.1203229704641302
+(Thread-48 ) 43:50.311 Blood Hack V is now off cooldown
+(Thread-4  ) 43:50.443 During Whirlwind, UR attack key was pressed (42.56)
+(Thread-4  ) 43:50.443 Delta: 0.7101113248945197
+(Thread-42 ) 43:52.953 Creating Schedule for Blood Hack VI
+(Thread-4  ) 43:52.953 Blood Hack VI was activated. Last used: 14.355109265822785
+(Thread-4  ) 43:52.954 During Blood Hack VI, Hotkey for Blood Hack VI was pressed (45.07)
+(Thread-4  ) 43:52.954 Delta: 2.5104872236286937
+(Thread-4  ) 43:53.255 During Blood Hack VI, MID attack key was pressed (45.37)
+(Thread-4  ) 43:53.255 Delta: 0.30177026160337306
+(Thread-31 ) 43:53.704 Breech IV is now off cooldown
+(Thread-4  ) 43:54.474 Cry of Havoc was activated. Last used: Never
+(Thread-4  ) 43:54.474 During Blood Hack VI, LL attack key was pressed (46.59)
+(Thread-4  ) 43:54.474 Delta: 1.2187255358649765
+(Thread-47 ) 43:54.630 Bloodbath VI is now off cooldown
+(Thread-4  ) 43:55.235 During Blood Hack VI, UR attack key was pressed (47.35)
+(Thread-4  ) 43:55.235 Delta: 0.7608176877637121
+(Thread-30 ) 43:57.794 1: Blade Weave
+(Thread-30 ) 43:57.795 1: Breech IV
+(Thread-30 ) 43:57.795 2: Use Discipline
+(Thread-30 ) 43:57.795 2: Whirlwind
+(Thread-30 ) 43:57.795 3: Annihilate
+(Thread-30 ) 43:57.795 3: Blood Hack VI
+(Thread-30 ) 43:57.795 4: Rend Flesh
+(Thread-30 ) 43:57.795 4: Bloodbath VI
+(Thread-30 ) 43:57.795 5: Blood Hack V
+(Thread-30 ) 43:57.795 6: Whirlwind
+(Thread-30 ) 43:57.795 7: Blood Hack V
+(Thread-30 ) 43:57.795 8: Bloodbath VI
+(Thread-30 ) 43:57.795 9: Blood Hack V
+(Thread-30 ) 43:57.795 10: Whirlwind
+(Thread-30 ) 43:57.795 11: Blood Hack VI
+(Thread-54 ) 43:57.796 Creating Schedule for Breech IV
+(Thread-53 ) 43:57.796 Using: Blade Weave
+(Thread-4  ) 43:57.797 Breech IV was activated. Last used: 4.820577485232067
+(Thread-4  ) 43:57.797 During Breech IV, Hotkey for Breech IV was pressed (49.91)
+(Thread-4  ) 43:57.797 Delta: 2.56213576371308
+(Thread-4  ) 43:58.098 During Breech IV, UL attack key was pressed (50.22)
+(Thread-4  ) 43:58.098 Delta: 0.3014302784810141
+(Thread-43 ) 43:59.794 Blood Hack VI is now off cooldown
+(Thread-4  ) 44:00.518 Blade Weave was activated. Last used: 2.098754430379747
+(Thread-37 ) 44:02.397 Use Discipline is now off cooldown
+(Thread-49 ) 44:02.953 Whirlwind is now off cooldown
+(Thread-39 ) 44:12.484 Rend Flesh is now off cooldown
+(Thread-45 ) 44:20.569 Blade Weave is now off cooldown
+(Thread-51 ) 44:41.518 Breech IV is now off cooldown
+(Thread-38 ) 46:22.290 Annihilate is now off cooldown

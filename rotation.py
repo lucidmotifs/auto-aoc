@@ -24,6 +24,10 @@ class Rotation(threading.Thread):
     last_keypress = 0.0
     exec_lock = threading.Lock()
 
+    # create queues for abilities and combos  (spells tbd)
+    ability_q = queue.Queue(5)
+    combo_q = queue.Queue(1)
+
     def __init__(self):
         threading.Thread.__init__(self)
 
@@ -42,10 +46,6 @@ class Rotation(threading.Thread):
         # timers
         self.start_time = 0.0
         self.end_time = 0.0
-
-        # create queues for abilities and combos  (spells tbd)
-        self.ability_q = queue.Queue(5)
-        self.combo_q = queue.Queue(1)
 
         self._inprogress = False
 
@@ -96,8 +96,6 @@ class Rotation(threading.Thread):
             round(timer(), 2)))
 
         logging.debug("Delta: {}".format(delta))
-
-
 
 
     # This method is designed for fully formed combos that manage their \
@@ -182,12 +180,14 @@ class Rotation(threading.Thread):
 
         try:
             logging.debug("Post Abilities:")
-            [ability.status() for ability in [a for a in [a for a in [c.post_finishers for c in self.combo_list if c.post_finishers is not None ]] if len(a) is not 0][0]]
+            [ability.status() for ability in [a for a in [a for a in \
+            [c.post_finishers for c in self.combo_list if c.post_finishers is not None ]] if len(a) is not 0][0]]
         except IndexError:
             logging.debug("No Post-Finisher abilities")
         try:
             logging.debug("Pre Finisher Abilities:")
-            [ability.status() for ability in [a for a in [a for a in [c.pre_finishers for c in self.combo_list if c.pre_finishers is not None ]] if len(a) is not 0][0]]
+            [ability.status() for ability in [a for a in [a for a in \
+            [c.pre_finishers for c in self.combo_list if c.pre_finishers is not None ]] if len(a) is not 0][0]]
         except IndexError:
             logging.debug("No Pre-Finisher abilities")
 
@@ -200,12 +200,10 @@ class Rotation(threading.Thread):
         self.start_time = timer()
         self._inprogress = True
 
-        a_worker = threading.Thread(target=Rotation.q_worker, args=(self, \
-                                                                    'Ability',))
+        a_worker = threading.Thread(target=Rotation.q_worker, args=('Ability',))
         a_worker.start()
 
-        c_worker = threading.Thread(target=Rotation.q_worker, args=(self, \
-                                                                    'Combo',))
+        c_worker = threading.Thread(target=Rotation.q_worker, args=('Combo',))
         c_worker.start()
 
         for a_idx, items in self.actions.items():
@@ -213,18 +211,18 @@ class Rotation(threading.Thread):
             # set the execution lock
             self.exec_lock.acquire()
 
+            # current main action, exec lock should be set within
+            # and abilities won't be able to fire.
+            self.current_action = c = self.get_combo_at(a_idx)
+            self.combo_q.put(c)
+
             # put abilities into the ability queue.
             [self.ability_q.put(i) for i in items if \
                 isinstance(i, Ability) and not \
                 isinstance(i, Combo)]
 
             # release the execution lock and allow abilities to fire.
-            self.exec_lock.release()
-
-            # current main action, exec lock should be set within
-            # and abilities won't be able to fire.
-            self.current_action = c = self.get_combo_at(a_idx)
-            self.combo_q.put(c)
+            self.exec_lock.release()            
 
             self.ability_q.join()
             self.combo_q.join()
@@ -244,25 +242,26 @@ class Rotation(threading.Thread):
 
     @classmethod
     def q_worker(self, T='Ability'):
-
-        ## Q consumer function
+        """Q consumer function"""
         # TODO: set the argument to a python Type rather than a string
         which_q = self.ability_q if T == 'Ability' else self.combo_q
         while True:
             item = which_q.get()
+
             # set the execution lock
-            self.exec_lock.acquire()
+            # self.exec_lock.acquire()
 
             if item is None:
-                self.exec_lock.release()
+                #self.exec_lock.release()
                 break
 
             item.use(self)
             which_q.task_done()
 
             # release the execution lock
-            self.exec_lock.release()
+            # self.exec_lock.release()
         ## end consumer
+
 
     def end(self):
         self.total_time = timer() - self.start_time

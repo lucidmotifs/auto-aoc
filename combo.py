@@ -10,7 +10,7 @@ from copy import copy
 from ability import Ability
 from ability import COOLDOWN_ACTIONS
 
-ATTACK_INT_1HE = .65
+ATTACK_INT_1HE = .75
 OPENER_WAIT = .3
 
 DEBUG = False
@@ -94,7 +94,7 @@ class Combo(Ability):
         super().hotkey_pressed()
 
         # Additional step to
-        rotation.log_keypress(rotation)
+        rotation.log_keypress(self)
 
 
     # This replaces the 'build_word' functionality we previously
@@ -129,7 +129,7 @@ class Combo(Ability):
                 s.enter(t, i+2, ability.use)
 
         # finally
-        t = self.attack_interval * (len(self.steps)+1) + self.cast_time
+        t = self.attack_interval * (len(self.steps)+1) + self.cast_time + 0.3
         s.enter(t, 1, self.init_cooldown)
 
 
@@ -191,7 +191,13 @@ class Combo(Ability):
     def use(self, rotation=None):
         pyautogui.PAUSE = 0.05
 
+        if rotation:
+            rotation.exec_lock.acquire()
+
         self.schedule.run()
+
+        if rotation:
+            rotation.exec_lock.release()
 
         if self.post_finishers and rotation:
             for a in self.post_finishers:

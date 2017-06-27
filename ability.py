@@ -80,6 +80,7 @@ class Ability(object):
 
             self.lastused = self.cooldown_start = timer()
 
+
     def deregister_hotkey(self):
         # remove any other action that currently has this hotkey
         try:
@@ -112,6 +113,7 @@ class Ability(object):
 
         logging.debug("Hotkey {} registered for {}".format(self.hotkey, \
                                                            self.name))
+
 
     # Returns true if and only if we have finished trying, not if the
     # press 'happened' - we're here because it deciding-
@@ -183,6 +185,9 @@ class Ability(object):
 
         logging.debug("Using: {}".format( self.name ))
 
+        if rotation:
+            rotation.exec_lock.acquire()
+
         self.activate()
 
         # Wait for allowed event
@@ -206,6 +211,8 @@ class Ability(object):
             # and we should exit. decide on action later
             return
 
+        if rotation:
+            rotation.exec_lock.release()
 
 
     # returns the recorded keyboard input events

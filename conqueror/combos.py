@@ -1,7 +1,7 @@
 from combo import Combo
 
 ## DW_ATK_INT
-DW_ATK_INT = .65
+DW_ATK_INT = .71
 
 class Breech(Combo):
 
@@ -17,19 +17,19 @@ class Breech(Combo):
 
         if rank is 4:
             self.name = "Breech IV"
-            self.cast_time = 1.5
+            self.cast_time = 1.0
 
 
 class Whirlwind(Combo):
 
     attack_interval = DW_ATK_INT
 
-    # Whirlwind has only one rank, set cast time here
-    cast_time = 1.5
     steps = ["e","q","3"]
 
     def __init__(self):
         super().__init__("Whirlwind", 10.0)
+        # Whirlwind has only one rank, set cast time here
+        self.cast_time = 1.5
         self.hotkey = 'r'
 
 
@@ -49,10 +49,11 @@ class BloodyHack(Combo):
             self.hotkey = 'f'
             self.cast_time = 1.5
             self.steps = ["2","q","3"]
+            self.attack_interval = DW_ATK_INT + .05
         if rank is 5:
             self.name += " V"
             self.hotkey = '5'
-            self.cast_time = 1
+            self.cast_time = 1.25
             self.steps = ["2","3"]
 
 
@@ -70,7 +71,7 @@ class Bloodbath(Combo):
         if rank is 6:
             self.name = "Bloodbath VI"
             self.hotkey = 't'
-            self.cast_time = 2
+            self.cast_time = 2.0
             self.steps = ["q","e","2"]
         if rank is 5:
             self.name = "Bloody Hack V"

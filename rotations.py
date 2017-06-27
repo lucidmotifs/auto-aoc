@@ -21,7 +21,6 @@ def Guardian_Aggro():
     t_smash_buffs.name += " (Buffs)"
     t_smash_buffs = guard_aggro.use( t_smash_buffs ).at( 3 )
 
-
     guard_aggro.use( TitanicSmash() ).at( 10, 16)
     guard_aggro.use( Overreach(5) ).at( 4, 7, 9, 13, 17 )
     guard_aggro.use( Overreach(6) ).at( 6, 14 )
@@ -57,9 +56,6 @@ def Guardian_DPS():
     rot.use( Reckoning() ).at( 4, 6, 9, 12, 15, 18 )
     #rot.use( switch_weapons, (19,))
 
-    # end the rotation
-    rot.use( None ).at()
-
     return rot
 
 
@@ -71,13 +67,15 @@ def Conqueror_DPS():
 
     # Combos
     conq_dps.use( Breech(4) ).at( 1 )
-    conq_dps.use( Whirlwind() ).at( 2, 6 )
-    conq_dps.use( BloodyHack(6) ).at( 3 )
+    conq_dps.use( Whirlwind() ).at( 2, 6, 10 )
+    conq_dps.use( BloodyHack(6) ).at( 3, 11 )
     conq_dps.use( BloodyHack(5) ).at( 5, 7, 9 )
-    conq_dps.use( Bloodbath(6) ).at( 4, 8 )
+    conq_dps.use( Bloodbath(6) ).at( 4, 8, )
 
     # Abilities
     conq_dps.use( BladeWeave() ).at( 1 )
     conq_dps.use( UseDiscipline() ).at( 2 )
     conq_dps.use( Annihilate() ).at( 3 )
     conq_dps.use( RendFlesh() ).at( 4 )
+
+    return conq_dps

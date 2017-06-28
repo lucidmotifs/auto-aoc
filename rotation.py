@@ -209,20 +209,21 @@ class Rotation(threading.Thread):
         for a_idx, items in self.actions.items():
 
             # set the execution lock
-            self.exec_lock.acquire()
-
-            # current main action, exec lock should be set within
-            # and abilities won't be able to fire.
-            self.current_action = c = self.get_combo_at(a_idx)
-            self.combo_q.put(c)
+            #self.exec_lock.acquire()
 
             # put abilities into the ability queue.
             [self.ability_q.put(i) for i in items if \
                 isinstance(i, Ability) and not \
                 isinstance(i, Combo)]
 
+            self.ability_q.join()
             # release the execution lock and allow abilities to fire.
-            self.exec_lock.release()            
+            #self.exec_lock.release()
+
+            # current main action, exec lock should be set within
+            # and abilities won't be able to fire.
+            self.current_action = c = self.get_combo_at(a_idx)
+            self.combo_q.put(c)
 
             self.ability_q.join()
             self.combo_q.join()
@@ -270,7 +271,7 @@ class Rotation(threading.Thread):
 
 
     def end_destructive(self):
-        self.end(self)
+        self.end()
 
         # check repeat options, see many time we've run the Rotation
         # use a filler to get a CD or buff back, potentially. Even a single repeat_until

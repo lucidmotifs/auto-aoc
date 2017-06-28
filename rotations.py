@@ -27,8 +27,8 @@ def Guardian_Aggro():
 
     # Abilities
     guard_aggro.use( TacticProvoke() ).at( 1 )
-    guard_aggro.use( CryOfHavoc() ).at( 1 )
-    guard_aggro.use( Irritate() ).at( 1 )
+    guard_aggro.use( CryOfHavoc() ).at( 3 )
+    guard_aggro.use( Irritate() ).at( 2 )
 
     return guard_aggro
 

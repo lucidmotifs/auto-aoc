@@ -82,36 +82,38 @@ class Ability(object):
 
 
     def deregister_hotkey(self):
-        # remove any other action that currently has this hotkey
+        """Remove any other action that currently has this hotkey"""
         try:
-            keyboard.unhook_key(self.hotkey)
-            #logging.debug("Removing old bindings")
-        except ValueError as e:
-            #logging.debug(e)
-            try:
-                #logging.debug("Removing old bindings {}".format('' + '+' + self.hotkey))
+            if self.modifier:
                 keyboard.remove_hotkey(self.modifier + '+' + self.hotkey)
-            except (ValueError,TypeError) as e:
-                #logging.debug(e)
-                return
+                _hotkey = self.modifier + '+' + self.hotkey
+            else:
+                keyboard.unhook_key( self.hotkey, )
+                _hotkey = self.hotkey
+        except Exception as e:
+            return
+
+        logging.debug("Hotkey {} de-registered for {}".format(_hotkey, \
+                                                              self.name))
 
 
     def register_hotkey(self):
         self.deregister_hotkey()
-
         # register key hooks for logging based on hotkey + steps
         # logging.debug("Adding keyboard hooks")
         try:
             if self.modifier:
                 keyboard.add_hotkey(self.modifier + '+' + self.hotkey, \
                     self.hotkey_pressed)
+                _hotkey = self.modifier + '+' + self.hotkey
             else:
                 keyboard.hook_key( self.hotkey, \
                     lambda: self.hotkey_pressed() )
+                _hotkey = self.hotkey
         except Exception as e:
             return
 
-        logging.debug("Hotkey {} registered for {}".format(self.hotkey, \
+        logging.debug("Hotkey {} registered for {}".format(_hotkey, \
                                                            self.name))
 
 
@@ -202,10 +204,13 @@ class Ability(object):
                 # start cooldown
                 self.init_cooldown()
         else:
-            message = "Error: Timeout reach while waiting for"
-            message += "'key pressed' event response! Ability Name: {}" \
+            message = "Error: Timeout reach while waiting for {}" \
                        .format(self.name)
             logging.debug( message )
+
+            if rotation:
+                rotation.exec_lock.release()
+
             # waiting for a timeout this long means something
             # is really broken with out system or our Rotation
             # and we should exit. decide on action later
@@ -213,6 +218,7 @@ class Ability(object):
 
         if rotation:
             rotation.exec_lock.release()
+
 
 
     # returns the recorded keyboard input events

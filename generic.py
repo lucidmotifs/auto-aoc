@@ -13,7 +13,7 @@ from copy import copy
 
 
 KEYBINDS = {
-    "LL" : "q",
+    #"LL" : "q",
     "UL" : "1",
     "MID": "2",
     "UR" : "3",

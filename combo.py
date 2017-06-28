@@ -129,7 +129,7 @@ class Combo(Ability):
                 s.enter(t, i+2, ability.use)
 
         # finally
-        t = self.attack_interval * (len(self.steps)+1) + self.cast_time + 0.3
+        t = self.attack_interval * (len(self.steps)+1) + self.cast_time + 0.1
         s.enter(t, 1, self.init_cooldown)
 
 

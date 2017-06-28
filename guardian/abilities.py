@@ -5,21 +5,21 @@ class TacticProvoke(Ability):
 
     def __init__(self):
         super().__init__("Tactic: Provoke", 0)
-        self.hotkey = 'q'
         self.modifier = 'ctrl'
+        self.hotkey = 'q'
 
 
 class TacticDefense(Ability):
 
     def __init__(self):
         super().__init__("Tactic: Defense", 0)
-        self.hotkey = 'e'
         self.modifier = 'ctrl'
+        self.hotkey = 'e'
 
 
 class CryOfHavoc(Ability):
 
-    cooldown_action = COOLDOWN_ACTIONS.RETRY
+    cooldown_action = COOLDOWN_ACTIONS.SKIP
     use_on_cooldown = True
 
     def __init__(self):
@@ -29,7 +29,7 @@ class CryOfHavoc(Ability):
 
 class Irritate(Ability):
 
-    cooldown_action = COOLDOWN_ACTIONS.RETRY
+    cooldown_action = COOLDOWN_ACTIONS.WAIT
     use_on_cooldown = True
 
     def __init__(self):

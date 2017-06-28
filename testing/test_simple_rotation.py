@@ -128,5 +128,9 @@ class RotationTestCase(unittest.TestCase):
         self.assertEqual(keys_pressed, ability.hotkey)
 
 
+    def test_deck_loading(self):
+        pass
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -52,7 +52,7 @@ class RotationTestCase(unittest.TestCase):
 
         # Build a test rotation
         Rotation.ability_q = queue.Queue(5)
-        Rotation.combo_q = queue.Queue(2)
+        Rotation.combo_q = queue.Queue(1)
         Rotation.ability_list = _rot.ability_list
         Rotation.combo_list = _rot.combo_list
         Rotation.actions = _rot.actions
@@ -70,11 +70,23 @@ class RotationTestCase(unittest.TestCase):
         keyboard.unhook_all()
 
 
+    def test_rotation_output(self):
+        roation_thread = threading.Thread( \
+                                    target=Rotation.run)
+        roation_thread.daemon = True
+
+        rotation.start()
+        keys_pressed = input()
+
+        self.assertTrue(True)
+
+
     def test_combo_word(self):
         combo = \
             Rotation.combo_list[random.randrange(0, \
                 len(Rotation.combo_list))]
         Rotation.current_action = combo
+
         combo.rotation = Rotation
 
         Rotation.c_worker = threading.Thread( \

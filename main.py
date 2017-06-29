@@ -24,10 +24,11 @@ logging.basicConfig(
     filemode='w',
     level=logging.DEBUG)
 
+_rotation = None
 
-def do_rotation(rotation, pause_key):
+def begin(rotation, pause_key):
 
-    print('Starting...')
+    print('Starting roation...')
     hk1 = keyboard.add_hotkey(pause_key, rotation.do_pause, args=[pause_key])
 
     logging.debug('Preparing to start')
@@ -36,6 +37,10 @@ def do_rotation(rotation, pause_key):
     r = threading.Thread(target=rotation.start)
     r.daemon = True
     r.start()
+
+
+def terminate():
+    """End the currently running rotation"""
 
 
 def main():

@@ -49,6 +49,10 @@ class Rotation(threading.Thread):
 
         self._inprogress = False
 
+        # progress
+        self.current_round = 1
+        self.on_deck = dict()
+
 
     def do_resume(self):
         if self.unpause_key is not None:
@@ -192,42 +196,116 @@ class Rotation(threading.Thread):
             logging.debug("No Pre-Finisher abilities")
 
 
-    def run(self):
-
-        pyautogui.PAUSE = .05
-        self.print_rotation()
-
-        self.start_time = timer()
-        self._inprogress = True
-
-        a_worker = threading.Thread(target=Rotation.q_worker, args=('Ability',))
-        a_worker.start()
-
-        c_worker = threading.Thread(target=Rotation.q_worker, args=('Combo',))
-        c_worker.start()
-
-        for a_idx, items in self.actions.items():
-
-            # set the execution lock
-            #self.exec_lock.acquire()
+    def do_round(self, rnd):
+        try:
+            logging.info("Round: {}".format(rnd))
+            items = self.on_deck.pop(rnd, None)
 
             # put abilities into the ability queue.
-            [self.ability_q.put(i) for i in items if \
+            """[self.ability_q.put(i, timeout=2.0) \
+                for i in items if \
                 isinstance(i, Ability) and not \
-                isinstance(i, Combo)]
+                isinstance(i, Combo)]"""
 
+            _abilites = filter(lamda a: type(a) is Ability, items)
+            map(self.ability_q.put, _abilities)
+
+            # Ensure abilities fire first.
             self.ability_q.join()
-            # release the execution lock and allow abilities to fire.
-            #self.exec_lock.release()
 
             # current main action, exec lock should be set within
             # and abilities won't be able to fire.
-            self.current_action = c = self.get_combo_at(a_idx)
-            self.combo_q.put(c)
+            self.current_action = c = self.get_combo_at(rnd)
+            self.combo_q.put(c, timeout=2.0)
 
+            # Ensure pre-finisher abilities fire.
             self.ability_q.join()
+            # Wait for combo to end.
             self.combo_q.join()
+        except queue.Full as e:
+            logging.debug("A Queue is Full")
+            logging.error(e)
 
+
+    def create_workers(self):
+        workers = []
+
+        a_worker = threading.Thread(target=Rotation.q_worker, args=('Ability',))
+        a_worker.daemon = True
+        a_worker.start()
+
+        c_worker = threading.Thread(target=Rotation.q_worker, args=('Combo',))
+        c_worker.daemon = True
+        c_worker.start()
+
+        workers.append(a_worker)
+        workers.append(c_worker)
+
+        return workers
+
+
+    def load(self, A):
+        # register hotkeys, add to ability/combo/spell list
+        # ...
+        self.on_deck = A
+
+
+    def start(self):
+        self.start_time = timer()
+        self.print_rotation()
+        self.restart()
+
+
+    def restart(self):
+        self.current_round = 1
+        # Create a copy of the actions queue
+        self.load(self.actions.copy())
+        self.run()
+
+
+    def run(self):
+        pyautogui.PAUSE = .05
+
+        self._inprogress = True
+
+        # Start the workers
+        self._workers = self.create_workers()
+        [worker.start() for worker in self._workers]
+
+        _keys = filter(lamda k: k >= self.current_round, \
+                sorted(self.on_deck.keys())
+
+        for k in _keys:
+            self.current_round = k
+            self.do_round(k)
+
+        self.end()
+
+
+    @classmethod
+    def q_worker(cls, T='Ability'):
+        """Q consumer function"""
+        # TODO: set the argument to a python Type rather than a string
+        which_q = cls.ability_q if T == 'Ability' else cls.combo_q
+        while True:
+            item = which_q.get()
+
+            # set the execution lock
+            # self.exec_lock.acquire()
+
+            if item is None:
+                #self.exec_lock.release()
+                break
+
+            item.use(cls)
+            which_q.task_done()
+
+            # release the execution lock
+            # self.exec_lock.release()
+        ## end consumer
+
+
+    def end(self):
         # End the workers
         self.ability_q.put(None)
         self.combo_q.put(None)
@@ -240,32 +318,6 @@ class Rotation(threading.Thread):
             self.print_current_cooldowns()
             self.end()
 
-
-    @classmethod
-    def q_worker(self, T='Ability'):
-        """Q consumer function"""
-        # TODO: set the argument to a python Type rather than a string
-        which_q = self.ability_q if T == 'Ability' else self.combo_q
-        while True:
-            item = which_q.get()
-
-            # set the execution lock
-            # self.exec_lock.acquire()
-
-            if item is None:
-                #self.exec_lock.release()
-                break
-
-            item.use(self)
-            which_q.task_done()
-
-            # release the execution lock
-            # self.exec_lock.release()
-        ## end consumer
-
-
-    def end(self):
-        self.total_time = timer() - self.start_time
         logging.debug( "Rotation Complete! Total time taken: {:0.2f}"\
                        .format( self.total_time ))
 

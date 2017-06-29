@@ -207,7 +207,7 @@ class Rotation(threading.Thread):
                 isinstance(i, Ability) and not \
                 isinstance(i, Combo)]"""
 
-            _abilites = filter(lamda a: type(a) is Ability, items)
+            _abilites = filter(lambda a: type(a) is Ability, items)
             map(self.ability_q.put, _abilities)
 
             # Ensure abilities fire first.
@@ -244,6 +244,13 @@ class Rotation(threading.Thread):
         return workers
 
 
+    def start_workers(self):
+        if not hasattr(self, '_workers'):
+            self._workers = self.create_workers()
+
+        #[worker.start() for worker in self._workers]
+
+
     def load(self, A):
         # register hotkeys, add to ability/combo/spell list
         # ...
@@ -253,6 +260,7 @@ class Rotation(threading.Thread):
     def start(self):
         self.start_time = timer()
         self.print_rotation()
+        self.start_workers()
         self.restart()
 
 
@@ -268,12 +276,8 @@ class Rotation(threading.Thread):
 
         self._inprogress = True
 
-        # Start the workers
-        self._workers = self.create_workers()
-        [worker.start() for worker in self._workers]
-
-        _keys = filter(lamda k: k >= self.current_round, \
-                sorted(self.on_deck.keys())
+        _keys = filter(lambda k: k >= self.current_round, \
+                sorted(self.on_deck.keys()))
 
         for k in _keys:
             self.current_round = k
@@ -286,22 +290,21 @@ class Rotation(threading.Thread):
     def q_worker(cls, T='Ability'):
         """Q consumer function"""
         # TODO: set the argument to a python Type rather than a string
-        which_q = cls.ability_q if T == 'Ability' else cls.combo_q
+        which_q = Rotation.ability_q if T == 'Ability' else Rotation.combo_q
+        logging.info("Creating {} worker".format(T))
         while True:
-            item = which_q.get()
-
-            # set the execution lock
-            # self.exec_lock.acquire()
+            try:
+                item = which_q.get(timeout=10)
+            except queue.Empty as e:
+                logging.error("{} empty for too long".format(T))
+                break
 
             if item is None:
-                #self.exec_lock.release()
+                logging.debug("None passed to {} worked, ending.".format(T))
                 break
 
             item.use(cls)
             which_q.task_done()
-
-            # release the execution lock
-            # self.exec_lock.release()
         ## end consumer
 
 
@@ -310,13 +313,9 @@ class Rotation(threading.Thread):
         self.ability_q.put(None)
         self.combo_q.put(None)
 
-        if ( self.repeat is True ) and self.repeat_count > 0:
-            self.repeat_count -= 1
-            self.run()
-        else:
-            self.total_time = timer() - self.start_time
-            self.print_current_cooldowns()
-            self.end()
+        self.total_time = timer() - self.start_time
+        self.print_current_cooldowns()
+        self.end()
 
         logging.debug( "Rotation Complete! Total time taken: {:0.2f}"\
                        .format( self.total_time ))

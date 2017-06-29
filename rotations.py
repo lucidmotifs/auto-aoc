@@ -73,8 +73,8 @@ def Conqueror_DPS():
     conq_dps.use( Bloodbath(6) ).at( 4, 8, )
 
     # Abilities
-    conq_dps.use( BladeWeave() ).at( 1 )
-    conq_dps.use( UseDiscipline() ).at( 2 )
+    #conq_dps.use( BladeWeave() ).at( 1 )
+    #conq_dps.use( UseDiscipline() ).at( 2 )
     conq_dps.use( Annihilate() ).at( 3 )
     conq_dps.use( RendFlesh() ).at( 4 )
 

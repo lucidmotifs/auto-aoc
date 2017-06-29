@@ -1,244 +1,32 @@
-(MainThread) 38:08.469 Hotkey g registered for Shield Slam
-(MainThread) 38:08.470 Hotkey 4 registered for Guard Destroyer
-(MainThread) 38:08.470 Hotkey t registered for Titanic Smash
-(MainThread) 38:08.470 Hotkey f1 registered for Powerhouse
-(MainThread) 38:08.470 Hotkey f2 registered for Battle Cry
-(MainThread) 38:08.470 Hotkey f3 registered for Call To Arms
-(MainThread) 38:08.470 Hotkey t de-registered for Titanic Smash
-(MainThread) 38:08.470 Hotkey t registered for Titanic Smash
-(MainThread) 38:08.470 Hotkey 8 registered for Overreach V
-(MainThread) 38:08.470 Hotkey f registered for Overreach VI
-(MainThread) 38:08.470 Hotkey ctrl+q registered for Tactic: Provoke
-(MainThread) 38:08.470 Hotkey q registered for Cry of Havoc
-(MainThread) 38:08.470 Hotkey z registered for Irritate
-(Thread-4  ) 38:09.926 Preparing to start
-(Thread-1  ) 38:09.927 1: Tactic: Provoke
-(Thread-1  ) 38:09.928 1: Shield Slam
-(Thread-1  ) 38:09.928 2: Irritate
-(Thread-1  ) 38:09.928 2: Guard Destroyer IV
-(Thread-1  ) 38:09.928 3: Cry of Havoc
-(Thread-1  ) 38:09.928 3: Titanic Smash (Buffs)
-(Thread-1  ) 38:09.928 4: Overreach V
-(Thread-1  ) 38:09.928 5: Shield Slam
-(Thread-1  ) 38:09.928 6: Overreach VI
-(Thread-1  ) 38:09.928 7: Overreach V
-(Thread-1  ) 38:09.928 8: Shield Slam
-(Thread-1  ) 38:09.928 9: Overreach V
-(Thread-1  ) 38:09.928 10: Titanic Smash
-(Thread-1  ) 38:09.928 11: Guard Destroyer IV
-(Thread-1  ) 38:09.928 12: Shield Slam
-(Thread-1  ) 38:09.928 13: Overreach V
-(Thread-1  ) 38:09.928 14: Overreach VI
-(Thread-1  ) 38:09.928 15: Shield Slam
-(Thread-1  ) 38:09.928 16: Titanic Smash
-(Thread-1  ) 38:09.928 17: Overreach V
-(Thread-17 ) 38:09.929 Using: Tactic: Provoke
-(Thread-4  ) 38:10.031 Tactic: Provoke was activated. Last used: Never
-(Thread-18 ) 38:10.184 Creating Schedule for Shield Slam
-(Thread-4  ) 38:10.184 Shield Slam was activated. Last used: Never
-(Thread-4  ) 38:10.184 During Shield Slam, Hotkey for Shield Slam was pressed (1.72)
-(Thread-4  ) 38:10.184 Delta: 1.719869029535865
-(Thread-4  ) 38:10.485 During Shield Slam, LR attack key was pressed (2.02)
-(Thread-4  ) 38:10.485 Delta: 0.3006811814345993
-(Thread-4  ) 38:11.686 During Shield Slam, MID attack key was pressed (3.22)
-(Thread-4  ) 38:11.686 Delta: 1.200573839662447
-(Thread-17 ) 38:13.535 Using: Irritate
-(Thread-4  ) 38:13.535 Irritate was activated. Last used: Never
-(Thread-18 ) 38:13.587 Creating Schedule for Guard Destroyer IV
-(Thread-4  ) 38:13.587 Guard Destroyer IV was activated. Last used: Never
-(Thread-4  ) 38:13.587 During Guard Destroyer IV, Hotkey for Guard Destroyer IV was pressed (5.12)
-(Thread-4  ) 38:13.587 Delta: 1.9019671223628696
-(Thread-4  ) 38:13.888 During Guard Destroyer IV, UR attack key was pressed (5.42)
-(Thread-4  ) 38:13.888 Delta: 0.300853198312236
-(Thread-17 ) 38:16.688 Using: Cry of Havoc
-(Thread-4  ) 38:16.688 Cry of Havoc was activated. Last used: Never
-(Thread-18 ) 38:16.740 Creating Schedule for Titanic Smash (Buffs)
-(Thread-4  ) 38:16.740 Titanic Smash was activated. Last used: Never
-(Thread-4  ) 38:16.740 During Titanic Smash (Buffs), Hotkey for Titanic Smash was pressed (8.28)
-(Thread-4  ) 38:16.741 Delta: 2.852300962025317
-(Thread-4  ) 38:17.042 During Titanic Smash (Buffs), UL attack key was pressed (8.58)
-(Thread-4  ) 38:17.042 Delta: 0.30082916455696207
-(Thread-4  ) 38:18.241 During Titanic Smash (Buffs), MID attack key was pressed (9.78)
-(Thread-4  ) 38:18.241 Delta: 1.1995530801687764
-(Thread-18 ) 38:18.292 Using: Powerhouse
-(Thread-4  ) 38:18.292 Powerhouse was activated. Last used: Never
-(Thread-18 ) 38:18.343 Using: Battle Cry
-(Thread-4  ) 38:18.344 Battle Cry was activated. Last used: Never
-(Thread-18 ) 38:18.395 Using: Call To Arms
-(Thread-4  ) 38:18.395 Call To Arms was activated. Last used: Never
-(Thread-18 ) 38:20.091 Creating Schedule for Overreach V
-(Thread-4  ) 38:20.092 Overreach V was activated. Last used: Never
-(Thread-4  ) 38:20.092 During Overreach V, Hotkey for Overreach V was pressed (11.63)
-(Thread-4  ) 38:20.092 Delta: 1.8510641687763716
-(Thread-4  ) 38:20.393 During Overreach V, LR attack key was pressed (11.93)
-(Thread-4  ) 38:20.393 Delta: 0.3008761518987342
-(Thread-4  ) 38:21.593 During Overreach V, UL attack key was pressed (13.13)
-(Thread-4  ) 38:21.593 Delta: 1.2002830042194095
-(Thread-2  ) 38:22.535 Shield Slam is now off cooldown
-(Thread-18 ) 38:23.943 Creating Schedule for Shield Slam
-(Thread-4  ) 38:23.943 Shield Slam was activated. Last used: 5.070849890295358
-(Thread-4  ) 38:23.943 During Shield Slam, Hotkey for Shield Slam was pressed (15.48)
-(Thread-4  ) 38:23.943 Delta: 2.3502044894514764
-(Thread-4  ) 38:24.245 During Shield Slam, LR attack key was pressed (15.78)
-(Thread-4  ) 38:24.245 Delta: 0.30100658227848065
-(Thread-4  ) 38:25.444 During Shield Slam, MID attack key was pressed (16.98)
-(Thread-4  ) 38:25.444 Delta: 1.1998719999999992
-(Thread-11 ) 38:25.943 Overreach V is now off cooldown
-(Thread-18 ) 38:27.294 Creating Schedule for Overreach VI
-(Thread-4  ) 38:27.294 Overreach VI was activated. Last used: Never
-(Thread-4  ) 38:27.294 During Overreach VI, Hotkey for Overreach VI was pressed (18.83)
-(Thread-4  ) 38:27.295 Delta: 1.850318582278483
-(Thread-4  ) 38:27.595 During Overreach VI, MID attack key was pressed (19.13)
-(Thread-4  ) 38:27.595 Delta: 0.3005159156118147
-(Thread-4  ) 38:28.796 During Overreach VI, LR attack key was pressed (20.33)
-(Thread-4  ) 38:28.796 Delta: 1.2002848945147662
-(Thread-4  ) 38:29.546 During Overreach VI, UL attack key was pressed (21.08)
-(Thread-4  ) 38:29.546 Delta: 0.7507807594936722
-(Thread-14 ) 38:31.740 Cry of Havoc is now off cooldown
-(Thread-14 ) 38:31.841 Using: Cry of Havoc
-(Thread-4  ) 38:31.841 Cry of Havoc was activated. Last used: 8.275579949367089
-(Thread-18 ) 38:31.896 Creating Schedule for Overreach V
-(Thread-4  ) 38:31.896 Overreach V was activated. Last used: 15.478545552742617
-(Thread-4  ) 38:31.897 During Overreach V, Hotkey for Overreach V was pressed (23.43)
-(Thread-4  ) 38:31.897 Delta: 2.3502695696202522
-(Thread-4  ) 38:32.198 During Overreach V, LR attack key was pressed (23.73)
-(Thread-4  ) 38:32.198 Delta: 0.30112810126582445
-(Thread-4  ) 38:33.398 During Overreach V, UL attack key was pressed (24.93)
-(Thread-4  ) 38:33.398 Delta: 1.1998028691983116
-(Thread-15 ) 38:33.587 Irritate is now off cooldown
-(Thread-15 ) 38:33.688 Using: Irritate
-(Thread-4  ) 38:33.688 Irritate was activated. Last used: 5.122587274261603
-(Thread-12 ) 38:33.896 Overreach VI is now off cooldown
-(Thread-18 ) 38:35.747 Creating Schedule for Shield Slam
-(Thread-4  ) 38:35.747 Ability Shield Slam was used while still on cooldown.             0.55s remaining
-(Thread-4  ) 38:35.747 Skipping execution of Shield Slam due to cooldown (0.55s)
-(Thread-4  ) 38:35.747 During Shield Slam, Hotkey for Shield Slam was pressed (27.28)
-(Thread-4  ) 38:35.747 Delta: 2.349868286919829
-(Thread-4  ) 38:36.048 During Shield Slam, LR attack key was pressed (27.58)
-(Thread-4  ) 38:36.048 Delta: 0.30109056540084467
-(Thread-19 ) 38:36.294 Shield Slam is now off cooldown
-(Thread-4  ) 38:37.248 During Shield Slam, MID attack key was pressed (28.78)
-(Thread-4  ) 38:37.248 Delta: 1.19980070886076
-(Thread-20 ) 38:37.747 Overreach V is now off cooldown
-(Thread-18 ) 38:39.098 Creating Schedule for Overreach V
-(Thread-4  ) 38:39.098 Overreach V was activated. Last used: 27.282333434599156
-(Thread-4  ) 38:39.099 During Overreach V, Hotkey for Overreach V was pressed (30.63)
-(Thread-4  ) 38:39.099 Delta: 1.8503712405063304
-(Thread-4  ) 38:39.400 During Overreach V, LR attack key was pressed (30.94)
-(Thread-4  ) 38:39.400 Delta: 0.3012077637130801
-(Thread-6  ) 38:40.092 Titanic Smash (Buffs) is now off cooldown
-(Thread-4  ) 38:40.600 During Overreach V, UL attack key was pressed (32.14)
-(Thread-4  ) 38:40.600 Delta: 1.2000261940928283
-(Thread-18 ) 38:42.949 Creating Schedule for Titanic Smash
-(Thread-4  ) 38:42.949 Titanic Smash was activated. Last used: Never
-(Thread-4  ) 38:42.950 During Titanic Smash, Hotkey for Titanic Smash was pressed (34.49)
-(Thread-4  ) 38:42.950 Delta: 2.349980894514765
-(Thread-4  ) 38:43.251 During Titanic Smash, UL attack key was pressed (34.79)
-(Thread-4  ) 38:43.251 Delta: 0.3010951561181443
-(Thread-4  ) 38:44.451 During Titanic Smash, MID attack key was pressed (35.99)
-(Thread-4  ) 38:44.451 Delta: 1.1998660590717307
-(Thread-25 ) 38:44.949 Overreach V is now off cooldown
-(Thread-18 ) 38:46.300 Creating Schedule for Guard Destroyer IV
-(Thread-4  ) 38:46.301 Ability Guard Destroyer IV was used while still on cooldown.             2.39s remaining
-(Thread-4  ) 38:46.301 Skipping execution of Guard Destroyer IV due to cooldown (2.39s)
-(Thread-4  ) 38:46.302 During Guard Destroyer IV, Hotkey for Guard Destroyer IV was pressed (37.84)
-(Thread-4  ) 38:46.302 Delta: 1.8507212151898713
-(Thread-4  ) 38:46.603 During Guard Destroyer IV, UR attack key was pressed (38.14)
-(Thread-4  ) 38:46.603 Delta: 0.3013144303797475
-(Thread-21 ) 38:46.893 Cry of Havoc is now off cooldown
-(Thread-21 ) 38:46.994 Using: Cry of Havoc
-(Thread-4  ) 38:46.994 Cry of Havoc was activated. Last used: 23.428885873417723
-(Thread-24 ) 38:48.098 Shield Slam is now off cooldown
-(Thread-5  ) 38:48.688 Guard Destroyer IV is now off cooldown
-(Thread-18 ) 38:49.402 Creating Schedule for Shield Slam
-(Thread-4  ) 38:49.402 Shield Slam was activated. Last used: 30.633526278481014
-(Thread-4  ) 38:49.402 During Shield Slam, Hotkey for Shield Slam was pressed (40.94)
-(Thread-4  ) 38:49.402 Delta: 2.79991007594937
-(Thread-4  ) 38:49.704 During Shield Slam, LR attack key was pressed (41.24)
-(Thread-4  ) 38:49.704 Delta: 0.30154450632910823
-(Thread-4  ) 38:50.904 During Shield Slam, MID attack key was pressed (42.44)
-(Thread-4  ) 38:50.904 Delta: 1.1991720506329173
-(Thread-18 ) 38:52.754 Creating Schedule for Overreach V
-(Thread-4  ) 38:52.754 Overreach V was activated. Last used: 34.48473086919831
-(Thread-4  ) 38:52.755 During Overreach V, Hotkey for Overreach V was pressed (44.29)
-(Thread-4  ) 38:52.755 Delta: 1.851064168776368
-(Thread-4  ) 38:53.055 During Overreach V, LR attack key was pressed (44.59)
-(Thread-4  ) 38:53.056 Delta: 0.30101819409282626
-(Thread-22 ) 38:53.739 Irritate is now off cooldown
-(Thread-22 ) 38:53.840 Using: Irritate
-(Thread-4  ) 38:53.840 Irritate was activated. Last used: 25.274956962025318
-(Thread-4  ) 38:54.256 During Overreach V, UL attack key was pressed (45.79)
-(Thread-4  ) 38:54.256 Delta: 1.2000588691983154
-(Thread-18 ) 38:56.605 Creating Schedule for Overreach VI
-(Thread-4  ) 38:56.605 Overreach VI was activated. Last used: 23.431382143459917
-(Thread-4  ) 38:56.605 During Overreach VI, Hotkey for Overreach VI was pressed (48.14)
-(Thread-4  ) 38:56.605 Delta: 2.35013562869198
-(Thread-4  ) 38:56.907 During Overreach VI, MID attack key was pressed (48.44)
-(Thread-4  ) 38:56.907 Delta: 0.3014151561181464
-(Thread-4  ) 38:58.107 During Overreach VI, LR attack key was pressed (49.64)
-(Thread-4  ) 38:58.107 Delta: 1.1994407426160336
-(Thread-27 ) 38:58.605 Overreach V is now off cooldown
-(Thread-4  ) 38:58.857 During Overreach VI, UL attack key was pressed (50.39)
-(Thread-4  ) 38:58.857 Delta: 0.7500103291139197
-(Thread-18 ) 39:01.207 Creating Schedule for Shield Slam
-(Thread-4  ) 39:01.207 Ability Shield Slam was used while still on cooldown.             0.55s remaining
-(Thread-4  ) 39:01.207 Skipping execution of Shield Slam due to cooldown (0.55s)
-(Thread-4  ) 39:01.207 During Shield Slam, Hotkey for Shield Slam was pressed (52.74)
-(Thread-4  ) 39:01.207 Delta: 2.35061171308017
-(Thread-4  ) 39:01.508 During Shield Slam, LR attack key was pressed (53.04)
-(Thread-4  ) 39:01.508 Delta: 0.3004913417721511
-(Thread-29 ) 39:01.754 Shield Slam is now off cooldown
-(Thread-28 ) 39:02.045 Cry of Havoc is now off cooldown
-(Thread-28 ) 39:02.145 Using: Cry of Havoc
-(Thread-4  ) 39:02.146 Cry of Havoc was activated. Last used: 38.58069225316456
-(Thread-4  ) 39:02.708 During Shield Slam, MID attack key was pressed (54.24)
-(Thread-4  ) 39:02.708 Delta: 1.2001361012658265
-(Thread-23 ) 39:03.207 Overreach VI is now off cooldown
-(Thread-8  ) 39:03.395 Battle Cry is now off cooldown
-(Thread-18 ) 39:04.558 Creating Schedule for Titanic Smash
-(Thread-4  ) 39:04.558 Ability Titanic Smash was used while still on cooldown.             1.74s remaining
-(Thread-4  ) 39:04.559 Skipping execution of Titanic Smash due to cooldown (1.74s)
-(Thread-4  ) 39:04.559 During Titanic Smash, Hotkey for Titanic Smash was pressed (56.09)
-(Thread-4  ) 39:04.559 Delta: 1.851088202531642
-(Thread-4  ) 39:04.860 During Titanic Smash, UL attack key was pressed (56.4)
-(Thread-4  ) 39:04.860 Delta: 0.3008980253164566
-(Thread-4  ) 39:06.059 During Titanic Smash, MID attack key was pressed (57.59)
-(Thread-4  ) 39:06.059 Delta: 1.1993346160337595
-(Thread-10 ) 39:06.300 Titanic Smash is now off cooldown
-(Thread-18 ) 39:07.910 Creating Schedule for Overreach V
-(Thread-4  ) 39:07.910 Overreach V was activated. Last used: 48.14071223628692
-(Thread-4  ) 39:07.910 During Overreach V, Hotkey for Overreach V was pressed (59.45)
-(Thread-4  ) 39:07.910 Delta: 1.8512183628691972
-(Thread-4  ) 39:08.212 During Overreach V, LR attack key was pressed (59.75)
-(Thread-4  ) 39:08.212 Delta: 0.30116860759493136
-(Thread-4  ) 39:09.411 During Overreach V, UL attack key was pressed (60.95)
-(Thread-4  ) 39:09.411 Delta: 1.199765333333339
-(Thread-1  ) 39:11.760 Ablities Status:
-(Thread-1  ) 39:11.761 Tactic: Provoke is Off Cooldown
-(Thread-1  ) 39:11.761 Cry of Havoc is On Cooldown (5.44s remaining)
-(Thread-1  ) 39:11.761 Irritate is On Cooldown (2.13s remaining)
-(Thread-1  ) 39:11.761 Combo Status:
-(Thread-1  ) 39:11.761 Shield Slam is On Cooldown (1.8s remaining)
-(Thread-1  ) 39:11.761 Guard Destroyer IV is On Cooldown (9.64s remaining)
-(Thread-1  ) 39:11.761 Titanic Smash (Buffs) is Off Cooldown
-(Thread-1  ) 39:11.761 Titanic Smash is On Cooldown (16.15s remaining)
-(Thread-1  ) 39:11.761 Overreach V is On Cooldown (2.0s remaining)
-(Thread-1  ) 39:11.761 Overreach VI is Off Cooldown
-(Thread-1  ) 39:11.761 Post Abilities:
-(Thread-1  ) 39:11.761 No Post-Finisher abilities
-(Thread-1  ) 39:11.761 Pre Finisher Abilities:
-(Thread-1  ) 39:11.761 Powerhouse is On Cooldown (6.58s remaining)
-(Thread-1  ) 39:11.761 Battle Cry is Off Cooldown
-(Thread-1  ) 39:11.761 Call To Arms is On Cooldown (6.69s remaining)
-(Thread-1  ) 39:11.761 Rotation Complete! Total time taken: 61.83
-(Thread-33 ) 39:13.558 Shield Slam is now off cooldown
-(Thread-32 ) 39:13.761 Overreach V is now off cooldown
-(Thread-31 ) 39:13.892 Irritate is now off cooldown
-(Thread-31 ) 39:13.992 Using: Irritate
-(Thread-4  ) 39:13.993 Irritate was activated. Last used: 45.427007459915615
-(Thread-34 ) 39:17.198 Cry of Havoc is now off cooldown
-(Thread-34 ) 39:17.299 Using: Cry of Havoc
-(Thread-4  ) 39:17.299 Cry of Havoc was activated. Last used: 53.733848303797465
-(Thread-7  ) 39:18.343 Powerhouse is now off cooldown
-(Thread-9  ) 39:18.447 Call To Arms is now off cooldown
-(Thread-30 ) 39:21.402 Guard Destroyer IV is now off cooldown
+(MainThread) 33:09.058 Hotkey 4 registered for Breech IV
+(MainThread) 33:09.058 Hotkey r registered for Whirlwind
+(MainThread) 33:09.058 Hotkey f registered for Blood Hack VI
+(MainThread) 33:09.058 Hotkey 5 registered for Blood Hack V
+(MainThread) 33:09.059 Hotkey t registered for Bloodbath VI
+(MainThread) 33:09.059 Hotkey 9 registered for Annihilate
+(MainThread) 33:09.059 Hotkey 0 registered for Rend Flesh
+(MainThread) 33:09.059 Testing ability: Annihilate
+(Thread-11 ) 33:09.059 Creating Ability worker
+(MainThread) 33:09.059 Hotkey enter registered for Enter Chat
+(Thread-11 ) 33:09.059 Using: Annihilate
+(Thread-11 ) 33:09.059 Setting exec lock to run Annihilate
+(Thread-4  ) 33:09.060 Annihilate was activated. Last used: Never
+(Thread-11 ) 33:09.161 Releasing exec lock for Annihilate
+(Thread-11 ) 33:09.161 Using: Enter Chat
+(Thread-11 ) 33:09.161 Setting exec lock to run Enter Chat
+(Thread-4  ) 33:09.161 Enter Chat was activated. Last used: Never
+(MainThread) 33:09.163 Ablities Status:
+(MainThread) 33:09.163 Annihilate is On Cooldown (180.0s remaining)
+(MainThread) 33:09.163 Rend Flesh is Off Cooldown
+(MainThread) 33:09.163 Combo Status:
+(MainThread) 33:09.163 Breech IV is Off Cooldown
+(MainThread) 33:09.163 Whirlwind is Off Cooldown
+(MainThread) 33:09.163 Blood Hack VI is Off Cooldown
+(MainThread) 33:09.164 Blood Hack V is Off Cooldown
+(MainThread) 33:09.164 Bloodbath VI is Off Cooldown
+(MainThread) 33:09.164 Post Abilities:
+(MainThread) 33:09.164 No Post-Finisher abilities
+(MainThread) 33:09.164 Pre Finisher Abilities:
+(MainThread) 33:09.164 No Pre-Finisher abilities
+(Thread-11 ) 33:09.264 Releasing exec lock for Enter Chat
+(Thread-11 ) 33:09.264 None passed to Ability worked, ending.

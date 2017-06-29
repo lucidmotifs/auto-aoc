@@ -44,38 +44,28 @@ class ActivateChat(Ability):
 class RotationTestCase(unittest.TestCase):
 
     def setUp(self):
-        _rot = Rotation()
-        generic.register_keybinds(_rot)
+        from rotations import Conqueror_DPS
+        self._rotation = Conqueror_DPS()
+        generic.register_keybinds(self._rotation)
 
-        from rotations import Guardian_DPS
-        _rot = Guardian_DPS()
+        #self._rotation.start_workers()
 
         # Build a test rotation
-        Rotation.ability_q = queue.Queue(5)
-        Rotation.combo_q = queue.Queue(1)
-        Rotation.ability_list = _rot.ability_list
-        Rotation.combo_list = _rot.combo_list
-        Rotation.actions = _rot.actions
-
-        Rotation.a_worker = threading.Thread( \
-                                    target=Rotation.q_worker, \
-                                    args=('Ability',))
-        # set worker as daemon - still deciding if worked should ALWAYS
-        # be a daemon.
-        Rotation.a_worker.daemon = True
+        #self._rotation.ability_q = queue.Queue(5)
+        #self._rotation.combo_q = queue.Queue(1)
 
 
     def tearDown(self):
-        Rotation.end_destructive(Rotation)
+        self._rotation.end_destructive()
         keyboard.unhook_all()
 
 
     def test_rotation_output(self):
         roation_thread = threading.Thread( \
-                                    target=Rotation.run)
+                                    target=self._rotation.start)
         roation_thread.daemon = True
 
-        rotation.start()
+        roation_thread.start()
         keys_pressed = input()
 
         self.assertTrue(True)
@@ -83,24 +73,17 @@ class RotationTestCase(unittest.TestCase):
 
     def test_combo_word(self):
         combo = \
-            Rotation.combo_list[random.randrange(0, \
-                len(Rotation.combo_list))]
-        Rotation.current_action = combo
+            self._rotation.combo_list[random.randrange(0, \
+                len(self._rotation.combo_list))]
+        self._rotation.current_action = combo
 
         combo.rotation = Rotation
-
-        Rotation.c_worker = threading.Thread( \
-                                    target=Rotation.q_worker, \
-                                    args=('Combo',))
-        Rotation.c_worker.daemon = True
 
         combo.attach_prefinishers( (ActivateChat(),) )
 
         logging.info("Trying {}".format(combo.name))
         Rotation.combo_q.put(combo)
 
-        Rotation.c_worker.start()
-        Rotation.a_worker.start()
         keys_pressed = input()
 
         Rotation.combo_q.join()
@@ -119,24 +102,27 @@ class RotationTestCase(unittest.TestCase):
 
     def test_ability_hotkey(self):
         ability = \
-            Rotation.ability_list[random.randrange(0, \
-                len(Rotation.ability_list))]
+            self._rotation.ability_list[random.randrange(0, \
+                len(self._rotation.ability_list))]
+        logging.info("Testing ability: {}".format(ability.name))
 
-        Rotation.a_worker = threading.Thread( \
-                                    target=Rotation.q_worker, \
-                                    args=('Ability',))
-        Rotation.a_worker.daemon = True
+        a_worker = threading.Thread(target=Rotation.q_worker, args=('Ability',))
+        a_worker.daemon = True
+        a_worker.start()
 
         Rotation.ability_q.put(ability)
         Rotation.ability_q.put(ActivateChat())
-        Rotation.ability_q.put( None )
-        Rotation.a_worker.start()
+
         keys_pressed = input()
-        Rotation.a_worker.join()
+
+        #print("join ability q (size is {})".format(Rotation.qsize()))
+        #Rotation.ability_q.join()
+
+        print("ending worker")
+        Rotation.ability_q.put( None )
 
         # test that the key pressed equals the expected hotkey.
         # test doesn't yet account for modifers - TODO
-
         self.assertEqual(keys_pressed, ability.hotkey)
 
 

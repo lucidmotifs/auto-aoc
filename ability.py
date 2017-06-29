@@ -188,6 +188,7 @@ class Ability(object):
         logging.debug("Using: {}".format( self.name ))
 
         if rotation:
+            logging.debug("Setting exec lock to run {}".format(self.name))
             rotation.exec_lock.acquire()
 
         self.activate()
@@ -206,9 +207,10 @@ class Ability(object):
         else:
             message = "Error: Timeout reach while waiting for {}" \
                        .format(self.name)
-            logging.debug( message )
+            logging.error( message )
 
             if rotation:
+                logging.debug("Releasing exec lock for {}".format(self.name))
                 rotation.exec_lock.release()
 
             # waiting for a timeout this long means something
@@ -217,6 +219,7 @@ class Ability(object):
             return
 
         if rotation:
+            logging.debug("Releasing exec lock for {}".format(self.name))
             rotation.exec_lock.release()
 
 

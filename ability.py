@@ -255,3 +255,8 @@ class Ability(object):
             status = "Off Cooldown"
 
         logging.debug("{0} is {1}".format(self.name, status))
+
+
+    @property
+    def word(self):
+        return self.hotkey

@@ -36,7 +36,6 @@ class Combo(Ability):
     def factory(self):
         # initialize some properties to defaults. useful while developing,
         # but probably not needed moving forward.
-        self.word = ''
         self.modifier = None
         self.duration = 0.0
         self.finisher = []
@@ -100,7 +99,7 @@ class Combo(Ability):
     # This replaces the 'build_word' functionality we previously
     # had as it ensures key presses happen exactly when they are
     # supposed to even when a step takes slightly too long to complete.
-    def create_schedule(self):
+    def create_schedule(self, interval=None):
         logging.debug("Creating Schedule for {}".format(self.name))
         s = self.schedule = sched.scheduler(timer)
         t = 0
@@ -114,23 +113,26 @@ class Combo(Ability):
         # Do the steps uninteruppted
         for i,step in enumerate(self.steps):
             if i is 0:
-                t = OPENER_WAIT
+                t = interval or OPENER_WAIT
             else:
-                t = self.attack_interval * (i+1)
+                t = (interval or self.attack_interval) * (i+1)
 
             s.enter(t, 1, pyautogui.press, argument=(step,))
 
         # Do any pre-finisher abilities immeidately
         # afterwards before the last swing locks and combo executes.
         if self.pre_finishers:
-            t = self.attack_interval * len(self.steps)
+            t = (interval or self.attack_interval) * len(self.steps)
 
             for i,ability in enumerate(self.pre_finishers):
                 s.enter(t, i+2, ability.use)
 
         # finally
-        t = self.attack_interval * (len(self.steps)+1) + self.cast_time + 0.1
+        t = interval or (self.attack_interval * \
+                        (len(self.steps)+1) + self.cast_time + 0.1)
         s.enter(t, 1, self.init_cooldown)
+
+        return self.schedule.queue
 
 
     def attach_postfinisher(self, ability):
@@ -139,7 +141,6 @@ class Combo(Ability):
 
     def attach_prefinisher(self, ability):
         self.pre_finishers.append(ability)
-        self.build_word()
 
 
     def attach_prefinishers(self, abilities):
@@ -161,19 +162,21 @@ class Combo(Ability):
         self.key_events.append(ke)
 
 
-    def build_word(self):
-        self.word = ''
-        self.finisher = []
+    @property
+    def word(self):
+        self.word = super().word
+
+        for s in self.steps:
+            self.word.append(s)
+
         if self.pre_finishers:
-            steps_c = copy(self.steps)
-            self.finisher.append(steps_c.pop())
             for a in self.pre_finishers:
                 # guess we're deciding that pre_finishers can't have modifiers?
-                self.finisher.append(''.join(a.hotkey))
+                self.word.append(''.join(a.word))
 
-            self.word += ''.join(steps_c)
-        else:
-            self.word += ''.join(self.steps)
+        if self.post_finishers:
+            for a in self.post_finishers:
+                self.word.append(''.join(a.word))
 
 
     # ready to delete...

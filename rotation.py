@@ -170,6 +170,12 @@ class Rotation(threading.Thread):
             return None
 
 
+    def get_word(self):
+        word = str()
+        for i, actions in sorted(self.actions.items()):
+            for a in actions:
+                word += a.word
+
     def print_rotation(self):
         for i, actions in sorted(self.actions.items()):
             for a in actions:
@@ -177,7 +183,7 @@ class Rotation(threading.Thread):
 
 
     def print_current_cooldowns(self):
-        logging.debug("Ablities Status:")
+        logging.debug("Abilities Status:")
         [a.status() for a in self.ability_list]
         logging.debug("Combo Status:")
         [c.status() for c in self.combo_list]
@@ -196,7 +202,7 @@ class Rotation(threading.Thread):
             logging.debug("No Pre-Finisher abilities")
 
 
-    def do_round(self, rnd):
+    def do_round(self, rnd, interval=None):
         try:
             logging.info("Round: {}".format(rnd))
             items = self.on_deck.pop(rnd, None)
@@ -207,7 +213,7 @@ class Rotation(threading.Thread):
                 isinstance(i, Ability) and not \
                 isinstance(i, Combo)]"""
 
-            _abilites = filter(lambda a: type(a) is Ability, items)
+            _abilities = filter(lambda a: type(a) is Ability, items)
             map(self.ability_q.put, _abilities)
 
             # Ensure abilities fire first.
@@ -216,12 +222,14 @@ class Rotation(threading.Thread):
             # current main action, exec lock should be set within
             # and abilities won't be able to fire.
             self.current_action = c = self.get_combo_at(rnd)
-            self.combo_q.put(c, timeout=2.0)
+            if c:
+                if interval: c.attack_interval = interval
+                self.combo_q.put(c, timeout=2.0)
 
-            # Ensure pre-finisher abilities fire.
-            self.ability_q.join()
-            # Wait for combo to end.
-            self.combo_q.join()
+                # Ensure pre-finisher abilities fire.
+                self.ability_q.join()
+                # Wait for combo to end.
+                self.combo_q.join()
         except queue.Full as e:
             logging.debug("A Queue is Full")
             logging.error(e)
@@ -231,11 +239,9 @@ class Rotation(threading.Thread):
         workers = []
 
         a_worker = threading.Thread(target=Rotation.q_worker, args=('Ability',))
-        a_worker.daemon = True
         a_worker.start()
 
         c_worker = threading.Thread(target=Rotation.q_worker, args=('Combo',))
-        c_worker.daemon = True
         c_worker.start()
 
         workers.append(a_worker)
@@ -257,14 +263,14 @@ class Rotation(threading.Thread):
         self.on_deck = A
 
 
-    def start(self):
+    def do_start(self):
         self.start_time = timer()
         self.print_rotation()
         self.start_workers()
-        self.restart()
+        self.do_restart()
 
 
-    def restart(self):
+    def do_restart(self):
         self.current_round = 1
         # Create a copy of the actions queue
         self.load(self.actions.copy())
@@ -281,7 +287,8 @@ class Rotation(threading.Thread):
 
         for k in _keys:
             self.current_round = k
-            self.do_round(k)
+            # TODO ensure rotation attack interval is given priority
+            self.do_round(k, self.attack_interval or None)
 
         self.end()
 
@@ -294,7 +301,7 @@ class Rotation(threading.Thread):
         logging.info("Creating {} worker".format(T))
         while True:
             try:
-                item = which_q.get(timeout=10)
+                item = which_q.get()
             except queue.Empty as e:
                 logging.error("{} empty for too long".format(T))
                 break
@@ -310,12 +317,11 @@ class Rotation(threading.Thread):
 
     def end(self):
         # End the workers
-        self.ability_q.put(None)
-        self.combo_q.put(None)
+        Rotation.combo_q.put( None )
+        Rotation.ability_q.put( None )
 
         self.total_time = timer() - self.start_time
         self.print_current_cooldowns()
-        self.end()
 
         logging.debug( "Rotation Complete! Total time taken: {:0.2f}"\
                        .format( self.total_time ))

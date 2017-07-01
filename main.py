@@ -25,18 +25,25 @@ logging.basicConfig(
     level=logging.DEBUG)
 
 _rotation = None
+_rotationT = threading.Thread()
+
+def reset(rotation):
+
 
 def begin(rotation, pause_key):
 
     print('Starting roation...')
     hk1 = keyboard.add_hotkey(pause_key, rotation.do_pause, args=[pause_key])
+    _rotation = rotation
 
     logging.debug('Preparing to start')
-    generic.register_keybinds(rotation)
-    hk2 = keyboard.add_hotkey('*', rotation.end_destructive)
-    r = threading.Thread(target=rotation.start)
-    r.daemon = True
-    r.start()
+    generic.register_keybinds(_rotation)
+    hk2 = keyboard.add_hotkey('*', _rotation.end_destructive)
+    hk3 = keyboard.add_hotkey('+', _rotation)
+
+    _rotationT = threading.Thread(target=_rotation.start)
+    _rotationT.daemon = True
+    _rotationT.start()
 
 
 def terminate():

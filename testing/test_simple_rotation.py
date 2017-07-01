@@ -1,6 +1,9 @@
-#import sys, os
+9
+import sys, os
+import unittest
 #print(os.path.abspath('..'))
 #sys.path.insert(0, os.path.abspath('..'))
+
 
 # general utltily
 import logging
@@ -20,7 +23,9 @@ import pywinauto
 from timeit import default_timer as timer
 
 # from this application
-import generic
+#import ipdb; ipdb.set_trace()
+sys.path.append(u"C:/Users/paulcooper/Documents/GitHub/auto-aoc")
+import _gen
 from rotation import Rotation
 from ability import Ability
 from ability import COOLDOWN_ACTIONS
@@ -47,7 +52,7 @@ class RotationTestCase(unittest.TestCase):
     def setUp(self):
         from rotations import Conqueror_DPS
         self._rotation = Conqueror_DPS()
-        generic.register_keybinds(self._rotation)
+        _gen.register_keybinds(self._rotation)
 
         #self._keys_pressed = ""
         #hook = keyboard.hook(self.capture_keyevent)
@@ -66,20 +71,20 @@ class RotationTestCase(unittest.TestCase):
 
 
     def test_rotation_output(self):
+        # Create a hook to capture all output
+        self._keys_pressed = list()
+        hk = keyboard.hook(lambda e: self._keys_pressed.append(e.name))
+
         self._rotation.use( _enter ).at()
         self._rotation.attack_interval = 0.0
         rotation_thread = threading.Thread( \
                                           target=self._rotation.do_start)
 
         rotation_thread.start()
-        self._keys_pressed = input()
-
-        Rotation.combo_q.join()
-        Rotation.ability_q.join()
-
         rotation_thread.join()
 
-        self.assertEqual(self._keys_pressed, self._rotation.get_word)
+        self.assertEqual(''.join(self._keys_pressed),
+                                 self._rotation.get_word())
 
 
     def test_combo_word(self):

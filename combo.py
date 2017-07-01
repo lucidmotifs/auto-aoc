@@ -17,8 +17,6 @@ DEBUG = False
 
 class Combo(Ability):
 
-    _schedule = sched.scheduler()
-
     cooldown_start = None
     cooldown_time = 0.0
     do_record = False
@@ -42,6 +40,7 @@ class Combo(Ability):
         self.key_events = []
         self.pre_finishers = []
         self.post_finishers = []
+        self._schedule = sched.scheduler()
 
 
     def schedule():
@@ -164,19 +163,21 @@ class Combo(Ability):
 
     @property
     def word(self):
-        self.word = super().word
+        self._word = super().word
 
         for s in self.steps:
-            self.word.append(s)
+            self._word.append(s)
 
         if self.pre_finishers:
             for a in self.pre_finishers:
                 # guess we're deciding that pre_finishers can't have modifiers?
-                self.word.append(''.join(a.word))
+                self._word.append(''.join(a.word))
 
         if self.post_finishers:
             for a in self.post_finishers:
-                self.word.append(''.join(a.word))
+                self._word.append(''.join(a.word))
+
+        return self._word
 
 
     # ready to delete...

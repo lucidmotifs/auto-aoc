@@ -12,7 +12,6 @@ from pywinauto import application
 from copy import copy
 
 # from this application
-import generic
 from combo import Combo
 from ability import Ability
 
@@ -78,7 +77,7 @@ class Rotation(threading.Thread):
 
 
     def log_keypress(self, message=None):
-
+        #self._keys_pressed
         if isinstance(message, Combo):
             msg = "Hotkey for {} was pressed".format(message.name)
         else:
@@ -176,6 +175,8 @@ class Rotation(threading.Thread):
             for a in actions:
                 word += a.word
 
+        return word
+
     def print_rotation(self):
         for i, actions in sorted(self.actions.items()):
             for a in actions:
@@ -223,7 +224,7 @@ class Rotation(threading.Thread):
             # and abilities won't be able to fire.
             self.current_action = c = self.get_combo_at(rnd)
             if c:
-                if interval: c.attack_interval = interval
+                if interval is not None: c.attack_interval = interval
                 self.combo_q.put(c, timeout=2.0)
 
                 # Ensure pre-finisher abilities fire.
@@ -319,6 +320,8 @@ class Rotation(threading.Thread):
         # End the workers
         Rotation.combo_q.put( None )
         Rotation.ability_q.put( None )
+
+        # TODO make sure workers end first.
 
         self.total_time = timer() - self.start_time
         self.print_current_cooldowns()

@@ -1,15 +1,9 @@
-import time
 import pyautogui
-import pywinauto
-import datetime
 import keyboard
-import threading
-import logging
 import psutil
 
 from timeit import default_timer as timer
 from pywinauto import application
-from copy import copy
 
 
 KEYBINDS = {

@@ -56,6 +56,7 @@ class Combo(Ability):
         return locals()
     schedule = property(**schedule())
 
+
     def rotation():
         doc = "The rotation property."
         def fget(self):
@@ -92,7 +93,7 @@ class Combo(Ability):
         super().hotkey_pressed()
 
         # Additional step to
-        rotation.log_keypress(self)
+        rotation.log_keypress(self, self.hotkey)
 
 
     # This replaces the 'build_word' functionality we previously
@@ -101,7 +102,7 @@ class Combo(Ability):
     def create_schedule(self, interval=None):
         logging.debug("Creating Schedule for {}".format(self.name))
         s = self.schedule = sched.scheduler(timer)
-        t = 0
+        t = 0.0
 
         # currently 0 would be right after the previous combo finishers
         # and after the round abilities have been fired.
@@ -163,7 +164,8 @@ class Combo(Ability):
 
     @property
     def word(self):
-        self._word = super().word
+        # start with
+        self._word = list(super().word)
 
         for s in self.steps:
             self._word.append(s)

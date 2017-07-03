@@ -20,7 +20,7 @@ K = KEYBINDS
 def register_keybinds(rotation):
     for bind,key in KEYBINDS.items():
         keyboard.add_hotkey(key, rotation.log_keypress, \
-            args=["{} attack key was pressed".format(bind)])
+            args=["{} attack key was pressed".format(bind), key])
 
 
 def deregister_keybinds():

@@ -41,6 +41,7 @@ class Rotation(threading.Thread):
         self.ending = False
         self.current_action = None
         self.last_touched = None
+        self._keys_pressed = []
 
         # timers
         self.start_time = 0.0
@@ -76,8 +77,8 @@ class Rotation(threading.Thread):
             self.unpause_key = key_pressed
 
 
-    def log_keypress(self, message=None):
-        #self._keys_pressed
+    def log_keypress(self, message, key):
+        self._keys_pressed.append(key)
         if isinstance(message, Combo):
             msg = "Hotkey for {} was pressed".format(message.name)
         else:
@@ -170,12 +171,13 @@ class Rotation(threading.Thread):
 
 
     def get_word(self):
-        word = str()
+        word = list()
         for i, actions in sorted(self.actions.items()):
             for a in actions:
-                word += a.word
+                word.append(a.word)
 
         return word
+
 
     def print_rotation(self):
         for i, actions in sorted(self.actions.items()):
@@ -195,6 +197,7 @@ class Rotation(threading.Thread):
             [c.post_finishers for c in self.combo_list if c.post_finishers is not None ]] if len(a) is not 0][0]]
         except IndexError:
             logging.debug("No Post-Finisher abilities")
+
         try:
             logging.debug("Pre Finisher Abilities:")
             [ability.status() for ability in [a for a in [a for a in \
@@ -209,28 +212,31 @@ class Rotation(threading.Thread):
             items = self.on_deck.pop(rnd, None)
 
             # put abilities into the ability queue.
-            """[self.ability_q.put(i, timeout=2.0) \
-                for i in items if \
-                isinstance(i, Ability) and not \
-                isinstance(i, Combo)]"""
-
             _abilities = filter(lambda a: type(a) is Ability, items)
-            map(self.ability_q.put, _abilities)
+            map(Rotation.ability_q.put, _abilities)
 
             # Ensure abilities fire first.
-            self.ability_q.join()
+            Rotation.ability_q.join()
 
             # current main action, exec lock should be set within
             # and abilities won't be able to fire.
             self.current_action = c = self.get_combo_at(rnd)
             if c:
-                if interval is not None: c.attack_interval = interval
-                self.combo_q.put(c, timeout=2.0)
+                #print("Interval {}".format(interval))
+                if interval is not None:
+                    c.attack_interval = interval
+                    #print("Attack Interval {}".format(c.attack_interval))
+                #print("Putting {} into queue".format(c.name))
+                Rotation.combo_q.put(c, timeout=2.0)
 
                 # Ensure pre-finisher abilities fire.
-                self.ability_q.join()
+                if c.pre_finishers:
+                    #print("Joining Ability Q")
+                    Rotation.ability_q.join()
+
                 # Wait for combo to end.
-                self.combo_q.join()
+                #print("Joining Combo Q")
+                Rotation.combo_q.join()
         except queue.Full as e:
             logging.debug("A Queue is Full")
             logging.error(e)
@@ -259,7 +265,7 @@ class Rotation(threading.Thread):
 
 
     def load(self, A):
-        # register hotkeys, add to ability/combo/spell list
+        # TODO register hotkeys, add to ability/combo/spell list
         # ...
         self.on_deck = A
 
@@ -273,6 +279,11 @@ class Rotation(threading.Thread):
 
     def do_restart(self):
         self.current_round = 1
+
+        # Reset the Qs
+        #Rotation.ability_q = queue.Queue(5)
+        #Rotation.combo_q = queue.Queue(1)
+
         # Create a copy of the actions queue
         self.load(self.actions.copy())
         self.run()
@@ -287,25 +298,38 @@ class Rotation(threading.Thread):
                 sorted(self.on_deck.keys()))
 
         for k in _keys:
+            if not self._inprogress:
+                break
+
             self.current_round = k
             # TODO ensure rotation attack interval is given priority
-            self.do_round(k, self.attack_interval or None)
+            #print("Attack Interval {}".format(self.attack_interval))
+            self.do_round(k, self.attack_interval)
 
-        self.end()
+        if self._inprogress:
+            self.end()
 
 
     @classmethod
     def q_worker(cls, T='Ability'):
         """Q consumer function"""
         # TODO: set the argument to a python Type rather than a string
-        which_q = Rotation.ability_q if T == 'Ability' else Rotation.combo_q
+        which_q = cls.ability_q if T == 'Ability' else cls.combo_q
         logging.info("Creating {} worker".format(T))
+
         while True:
             try:
+                #print("Attempting to get item from {} queue".format(T))
                 item = which_q.get()
+                #print("Found item in {}, processing.".format(T))
+                """print( \
+                    "There are {} items in {} Q" \
+                    .format(Rotation.combo_q.qsize(), T))"""
             except queue.Empty as e:
                 logging.error("{} empty for too long".format(T))
                 break
+            except Exception as e:
+                loggin.error("Exception in {} queue: {}".format(T, e))
 
             if item is None:
                 logging.debug("None passed to {} worked, ending.".format(T))
@@ -320,8 +344,6 @@ class Rotation(threading.Thread):
         # End the workers
         Rotation.combo_q.put( None )
         Rotation.ability_q.put( None )
-
-        # TODO make sure workers end first.
 
         self.total_time = timer() - self.start_time
         self.print_current_cooldowns()

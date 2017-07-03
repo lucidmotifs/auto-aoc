@@ -71,40 +71,57 @@ class RotationTestCase(unittest.TestCase):
 
 
     def test_rotation_output(self):
-        # Create a hook to capture all output
-        self._keys_pressed = list()
-        hk = keyboard.hook(lambda e: self._keys_pressed.append(e.name))
-
         self._rotation.use( _enter ).at()
-        self._rotation.attack_interval = 0.0
+        self._rotation.attack_interval = 0.1
         rotation_thread = threading.Thread( \
                                           target=self._rotation.do_start)
 
         rotation_thread.start()
         rotation_thread.join()
 
-        self.assertEqual(''.join(self._keys_pressed),
+        self.assertEqual(''.join(self._rotation._keys_pressed),
                                  self._rotation.get_word())
 
 
     def test_combo_word(self):
+        # BloodyHack6
+        from rotations import Conqueror_DPS
+        combo = Conqueror_DPS().get_combo_at(3)
+
+        self._rotation = Rotation()
+        self._rotation.use( combo ).at()
+
+        self._rotation.start_workers()
+        self._rotation.attack_interval = 0.1
+
+        rotation_thread = threading.Thread( \
+                                          target=self._rotation.do_start)
+
+        rotation_thread.start()
+        rotation_thread.join()
+
+        print(''.join(combo.word))
+
+        self.assertEqual(''.join(self._rotation._keys_pressed),
+                         ''.join(combo.word))
+
+
+    def test_combo_ouput(self):
         combo = \
             self._rotation.combo_list[random.randrange(0, \
                 len(self._rotation.combo_list))]
+
         self._rotation.current_action = combo
         self._rotation.start_workers()
 
         combo.rotation = self._rotation
 
-        combo.attach_prefinishers( (_enter,) )
+        combo.attach_prefinisher( _enter )
 
         logging.info("Trying {}".format(combo.name))
         Rotation.combo_q.put(combo)
 
         self._keys_pressed = input()
-
-        Rotation.combo_q.join()
-        Rotation.ability_q.join()
 
         Rotation.combo_q.put( None )
         Rotation.ability_q.put( None )

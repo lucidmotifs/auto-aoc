@@ -27,28 +27,33 @@ logging.basicConfig(
 _rotation = None
 _rotationT = threading.Thread()
 
+
 def reset(rotation):
+    _rotation._inprogress = False
+    _rotation.do_restart()
 
 
 def begin(rotation, pause_key):
-
     print('Starting roation...')
+
     hk1 = keyboard.add_hotkey(pause_key, rotation.do_pause, args=[pause_key])
     _rotation = rotation
 
     logging.debug('Preparing to start')
     generic.register_keybinds(_rotation)
-    hk2 = keyboard.add_hotkey('*', _rotation.end_destructive)
-    hk3 = keyboard.add_hotkey('+', _rotation)
+
+    hk2 = keyboard.add_hotkey('*', terminate)
+    hk3 = keyboard.add_hotkey('+', reset)
 
     _rotationT = threading.Thread(target=_rotation.start)
-    _rotationT.daemon = True
     _rotationT.start()
 
 
 def terminate():
     """End the currently running rotation"""
-
+    # cleart the current q
+    # rotation should end gracefuilly
+    pass
 
 def main():
     keyboard.unhook_all()

@@ -1,0 +1,54 @@
+(MainThread) 46:34.991 Hotkey enter registered for Enter Chat
+(MainThread) 46:34.995 Hotkey 4 registered for Breech IV
+(MainThread) 46:34.995 Hotkey r registered for Whirlwind
+(MainThread) 46:34.995 Hotkey f registered for Blood Hack VI
+(MainThread) 46:34.995 Hotkey 5 registered for Blood Hack V
+(MainThread) 46:34.995 Hotkey t registered for Bloodbath VI
+(MainThread) 46:34.995 Hotkey 9 registered for Annihilate
+(MainThread) 46:34.995 Hotkey 0 registered for Rend Flesh
+(MainThread) 46:34.996 Hotkey 4 de-registered for Breech IV
+(MainThread) 46:34.996 Hotkey 4 registered for Breech IV
+(MainThread) 46:34.996 Hotkey r de-registered for Whirlwind
+(MainThread) 46:34.996 Hotkey r registered for Whirlwind
+(MainThread) 46:34.996 Hotkey f de-registered for Blood Hack VI
+(MainThread) 46:34.996 Hotkey f registered for Blood Hack VI
+(MainThread) 46:34.996 Hotkey 5 de-registered for Blood Hack V
+(MainThread) 46:34.996 Hotkey 5 registered for Blood Hack V
+(MainThread) 46:34.996 Hotkey t de-registered for Bloodbath VI
+(MainThread) 46:34.996 Hotkey t registered for Bloodbath VI
+(MainThread) 46:34.996 Hotkey 9 de-registered for Annihilate
+(MainThread) 46:34.996 Hotkey 9 registered for Annihilate
+(MainThread) 46:34.996 Hotkey 0 de-registered for Rend Flesh
+(MainThread) 46:34.996 Hotkey 0 registered for Rend Flesh
+(Thread-21 ) 46:34.997 Creating Ability worker
+(Thread-22 ) 46:34.997 Creating Combo worker
+(Thread-23 ) 46:34.997 1: Blood Hack VI
+(Thread-23 ) 46:34.997 Round: 1
+(Thread-22 ) 46:34.997 Creating Schedule for Blood Hack VI
+(Thread-3  ) 46:34.998 Blood Hack VI was activated. Last used: Never
+(Thread-3  ) 46:34.998 During Blood Hack VI, Hotkey for Blood Hack VI was pressed (0.01)
+(Thread-3  ) 46:34.998 Delta: 0.00962213566476773
+(Thread-3  ) 46:35.199 During Unknown, LL attack key was pressed (0.21)
+(Thread-3  ) 46:35.199 Delta: 0.20989147553095652
+(Thread-3  ) 46:35.299 During Unknown, MID attack key was pressed (0.31)
+(Thread-3  ) 46:35.299 Delta: 0.10029466980347426
+(Thread-3  ) 46:35.351 During Unknown, UR attack key was pressed (0.36)
+(Thread-3  ) 46:35.351 Delta: 0.051817814561095354
+(Thread-23 ) 46:37.000 Abilities Status:
+(Thread-23 ) 46:37.000 Combo Status:
+(Thread-23 ) 46:37.000 Blood Hack VI is On Cooldown (2.0s remaining)
+(Thread-23 ) 46:37.000 Post Abilities:
+(Thread-23 ) 46:37.000 No Post-Finisher abilities
+(Thread-23 ) 46:37.000 Pre Finisher Abilities:
+(Thread-23 ) 46:37.000 No Pre-Finisher abilities
+(Thread-23 ) 46:37.000 Rotation Complete! Total time taken: 2.00
+(Thread-21 ) 46:37.001 None passed to Ability worked, ending.
+(Thread-22 ) 46:37.001 None passed to Combo worked, ending.
+(MainThread) 46:37.001 Abilities Status:
+(MainThread) 46:37.001 Combo Status:
+(MainThread) 46:37.001 Blood Hack VI is On Cooldown (2.0s remaining)
+(MainThread) 46:37.001 Post Abilities:
+(MainThread) 46:37.001 No Post-Finisher abilities
+(MainThread) 46:37.001 Pre Finisher Abilities:
+(MainThread) 46:37.001 No Pre-Finisher abilities
+(MainThread) 46:37.001 Rotation Complete! Total time taken: 2.00

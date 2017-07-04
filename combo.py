@@ -7,13 +7,10 @@ import logging
 import sched
 from copy import copy
 
+import _globals
 from ability import Ability
 from ability import COOLDOWN_ACTIONS
 
-ATTACK_INT_1HE = .75
-OPENER_WAIT = .3
-
-DEBUG = False
 
 class Combo(Ability):
 
@@ -24,7 +21,7 @@ class Combo(Ability):
     finisher = []
     pre_finishers = []
     post_finishers = []
-    attack_interval = ATTACK_INT_1HE
+    attack_interval = _globals.attack_int_1he
 
     def __init__(self, name, cooldown_time=0.0, cast_time=0.0):
         super().__init__(name, cooldown_time, cast_time)
@@ -113,7 +110,7 @@ class Combo(Ability):
         # Do the steps uninteruppted
         for i,step in enumerate(self.steps):
             if i is 0:
-                t = interval or OPENER_WAIT
+                t = interval or _globals.opener_wait
             else:
                 t = (interval or self.attack_interval) * (i+1)
 

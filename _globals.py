@@ -27,9 +27,18 @@ def deregister_keybinds():
     for bind,key in KEYBINDS.items():
         keyboard.remove_hotkey(key)
 
-
+# Process name to switch to
 PROCNAME = "AgeOfConanDX10.exe"
-#PROCNAME = "notepad.exe"
+
+# Attack intervals for various weapons
+attack_int_override = None # If this is not not, will override all others.
+attack_int_1he = .71 # One Handed Edge (not dual-wield)
+
+# Time to wait after hotkey for first step
+opener_wait = .3
+
+# Debugging = True will print thigs to the console
+DEBUG = False
 
 def _set_focus():
     for proc in psutil.process_iter():

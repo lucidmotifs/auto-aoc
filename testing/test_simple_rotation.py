@@ -24,7 +24,7 @@ from timeit import default_timer as timer
 # from this application
 #import ipdb; ipdb.set_trace()
 sys.path.append(u"C:/Users/paulcooper/Documents/GitHub/auto-aoc")
-import _gen
+import _globals
 from rotation import Rotation
 from ability import Ability
 from ability import COOLDOWN_ACTIONS
@@ -51,7 +51,7 @@ class RotationTestCase(unittest.TestCase):
     def setUp(self):
         from rotations import Conqueror_DPS
         self._rotation = Conqueror_DPS()
-        _gen.register_keybinds(self._rotation)
+        _globals.register_keybinds(self._rotation)
 
         #self._keys_pressed = ""
         #hook = keyboard.hook(self.capture_keyevent)
@@ -71,7 +71,7 @@ class RotationTestCase(unittest.TestCase):
 
     def test_rotation_output(self):
         self._rotation.use( _enter ).at()
-        self._rotation.attack_interval = 0.1
+        self._rotation.attack_interval = 0.2
         rotation_thread = threading.Thread( \
                                           target=self._rotation.do_start)
 

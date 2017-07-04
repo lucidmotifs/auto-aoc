@@ -24,7 +24,7 @@ from timeit import default_timer as timer
 # from this application
 #import ipdb; ipdb.set_trace()
 sys.path.append(u"C:/Users/paulcooper/Documents/GitHub/auto-aoc")
-import _gen
+import _globals
 from rotation import Rotation
 from ability import Ability
 from ability import COOLDOWN_ACTIONS
@@ -50,7 +50,7 @@ class ComboTestCase(unittest.TestCase):
 
     def setUp(self):
         self._rotation = Rotation()
-        _gen.register_keybinds(self._rotation)
+        _globals.register_keybinds(self._rotation)
 
 
     def tearDown(self):

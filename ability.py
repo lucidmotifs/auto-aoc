@@ -64,6 +64,17 @@ class Ability(object):
         return locals()
     hotkey = property(**hotkey())
 
+    def rotation():
+        doc = "The rotation property."
+        def fget(self):
+            return self._rotation
+        def fset(self, value):
+            self._rotation = value
+        def fdel(self):
+            del self._rotation
+        return locals()
+    rotation = property(**rotation())
+
 
     @property
     def cooling_down(self):
@@ -96,25 +107,22 @@ class Ability(object):
         logging.debug("Hotkey {} de-registered for {}".format(_hotkey, \
                                                               self.name))
 
-
     def register_hotkey(self):
         self.deregister_hotkey()
-        # register key hooks for logging based on hotkey + steps
-        # logging.debug("Adding keyboard hooks")
-        try:
-            if self.modifier:
-                keyboard.add_hotkey(self.modifier + '+' + self.hotkey, \
-                    self.hotkey_pressed)
-                _hotkey = self.modifier + '+' + self.hotkey
-            else:
-                keyboard.hook_key( self.hotkey, \
-                    lambda: self.hotkey_pressed() )
-                _hotkey = self.hotkey
-        except Exception as e:
-            return
 
-        logging.debug("Hotkey {} registered for {}".format(_hotkey, \
-                                                           self.name))
+        # register key hooks for logging based on hotkey + steps
+        if self.modifier:
+            keyboard.add_hotkey(
+                self.modifier + '+' + self.hotkey, \
+                self.hotkey_pressed)
+        else:
+            keyboard.hook_key(
+                self.hotkey, \
+                lambda: self.hotkey_pressed() )
+
+        logging.debug( "Hotkey {} registered for {}".format( \
+            self.hotkey, \
+            self.name) )
 
 
     # Returns true if and only if we have finished trying, not if the
@@ -166,7 +174,11 @@ class Ability(object):
             logging.debug("{} was activated. Last used: {}". \
                 format(self.name, self.lastused or 'Never'))
 
+        # Set hotkey event as pressed
         self._key_pressed.set()
+
+        # Additional step to pass event to rotation
+        self.rotation.log_keypress(self, self.hotkey)
 
 
     # press the button.

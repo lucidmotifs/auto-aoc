@@ -72,8 +72,9 @@ class RotationTestCase(unittest.TestCase):
     def test_rotation_word_is_string(self):
         self.assertTrue(isinstance(self._rotation.get_word(), str))
 
+
     def test_rotation_output(self):
-        self._rotation.attack_interval = 0.2
+        _globals.attack_int_override = 0.2
         rotation_thread = threading.Thread( \
                                           target=self._rotation.do_start)
 
@@ -82,7 +83,7 @@ class RotationTestCase(unittest.TestCase):
 
         self.assertEqual(''.join(self._rotation._keys_pressed),
                                  self._rotation.get_word())
-
+                                 
 
     def test_ability_hotkey(self):
         ability = \

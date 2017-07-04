@@ -54,49 +54,10 @@ class Combo(Ability):
     schedule = property(**schedule())
 
 
-    def rotation():
-        doc = "The rotation property."
-        def fget(self):
-            return self._rotation
-        def fset(self, value):
-            self._rotation = value
-        def fdel(self):
-            del self._rotation
-        return locals()
-    rotation = property(**rotation())
-
-
-    def register_hotkey(self, rotation=None):
-        self.deregister_hotkey()
-
-        # register key hooks for logging based on hotkey + steps
-        if self.modifier:
-            keyboard.add_hotkey(
-                self.modifier + '+' + self.hotkey, \
-                self.hotkey_pressed, \
-                args=[rotation])
-        else:
-            keyboard.hook_key(
-                self.hotkey, \
-                lambda: self.hotkey_pressed(self.rotation) )
-
-        logging.debug( "Hotkey {} registered for {}".format( \
-            self.hotkey, \
-            self.name) )
-
-
-    def hotkey_pressed(self, rotation):
-        # Will do cooldown check, should always just skip
-        super().hotkey_pressed()
-
-        # Additional step to
-        rotation.log_keypress(self, self.hotkey)
-
-
     # This replaces the 'build_word' functionality we previously
     # had as it ensures key presses happen exactly when they are
     # supposed to even when a step takes slightly too long to complete.
-    def create_schedule(self, interval=None):
+    def create_schedule(self):
         logging.debug("Creating Schedule for {}".format(self.name))
         s = self.schedule = sched.scheduler(timer)
         t = 0.0
@@ -110,23 +71,23 @@ class Combo(Ability):
         # Do the steps uninteruppted
         for i,step in enumerate(self.steps):
             if i is 0:
-                t = interval or _globals.opener_wait
+                t = _globals.attack_int_override or _globals.opener_wait
             else:
-                t = (interval or self.attack_interval) * (i+1)
+                t = self.attack_interval * (i+1)
 
             s.enter(t, 1, pyautogui.press, argument=(step,))
 
         # Do any pre-finisher abilities immeidately
         # afterwards before the last swing locks and combo executes.
         if self.pre_finishers:
-            t = (interval or self.attack_interval) * len(self.steps)
+            t = self.attack_interval * len(self.steps)
 
             for i,ability in enumerate(self.pre_finishers):
                 s.enter(t, i+2, ability.use)
 
         # finally
-        t = interval or (self.attack_interval * \
-                        (len(self.steps)+1) + self.cast_time + 0.1)
+        t = (self.attack_interval * \
+            (len(self.steps)+1) + self.cast_time + 0.1)
         s.enter(t, 1, self.init_cooldown)
 
         return self.schedule.queue

@@ -46,15 +46,11 @@ class ActivateChat(Ability):
 
 _enter = ActivateChat()
 
-class RotationTestCase(unittest.TestCase):
+class ComboTestCase(unittest.TestCase):
 
     def setUp(self):
-        from rotations import Conqueror_DPS
-        self._rotation = Conqueror_DPS()
+        self._rotation = Rotation()
         _gen.register_keybinds(self._rotation)
-
-        #self._keys_pressed = ""
-        #hook = keyboard.hook(self.capture_keyevent)
 
 
     def tearDown(self):
@@ -65,13 +61,15 @@ class RotationTestCase(unittest.TestCase):
         keyboard.unhook_all()
 
 
-    def capture_keyevent(self, event):
-        self._keys_pressed += event.name
+    def test_combo_word(self):
+        # BloodyHack6
+        from conqueror.combos import BloodyHack
+        combo = BloodyHack(6)
 
+        self._rotation.use( combo ).at()
+        self._rotation.start_workers()
+        self._rotation.attack_interval = 0.2
 
-    def test_rotation_output(self):
-        self._rotation.use( _enter ).at()
-        self._rotation.attack_interval = 0.1
         rotation_thread = threading.Thread( \
                                           target=self._rotation.do_start)
 
@@ -79,34 +77,32 @@ class RotationTestCase(unittest.TestCase):
         rotation_thread.join()
 
         self.assertEqual(''.join(self._rotation._keys_pressed),
-                                 self._rotation.get_word())
+                         ''.join(combo.word))
 
 
-    def test_ability_hotkey(self):
-        ability = \
-            self._rotation.ability_list[random.randrange(0, \
-                len(self._rotation.ability_list))]
+    def test_combo_ouput(self):
+        combo = \
+            self._rotation.combo_list[random.randrange(0, \
+                len(self._rotation.combo_list))]
 
-        logging.info("Testing ability: {}".format(ability.name))
+        self._rotation.current_action = combo
+        self._rotation.start_workers()
 
-        a_worker = threading.Thread(target=self._rotation.q_worker, \
-                                    args=('Ability',))
-        a_worker.start()
+        combo.rotation = self._rotation
 
-        Rotation.ability_q.put(ability)
-        Rotation.ability_q.put(_enter)
+        combo.attach_prefinisher( _enter )
+
+        logging.info("Trying {}".format(combo.name))
+        Rotation.combo_q.put(combo)
 
         self._keys_pressed = input()
 
-        Rotation.ability_q.join()
-
+        Rotation.combo_q.put( None )
         Rotation.ability_q.put( None )
-        a_worker.join()
 
-        # test that the key pressed equals the expected hotkey.
-        # test doesn't yet account for modifers - TODO
-        self.assertEqual(self._keys_pressed, ability.hotkey)
+        # expected output
+        expected = combo.hotkey
+        for s in combo.steps:
+            expected += s
 
-
-if __name__ == '__main__':
-    unittest.main()
+        self.assertEqual(self._keys_pressed, expected)

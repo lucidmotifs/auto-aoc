@@ -69,8 +69,10 @@ class RotationTestCase(unittest.TestCase):
         self._keys_pressed += event.name
 
 
+    def test_rotation_word_is_string(self):
+        self.assertTrue(isinstance(self._rotation.get_word(), str))
+
     def test_rotation_output(self):
-        self._rotation.use( _enter ).at()
         self._rotation.attack_interval = 0.2
         rotation_thread = threading.Thread( \
                                           target=self._rotation.do_start)

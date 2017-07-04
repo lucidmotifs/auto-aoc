@@ -176,7 +176,7 @@ class Combo(Ability):
             for a in self.post_finishers:
                 self._word.append(''.join(a.word))
 
-        return self._word
+        return ''.join(self._word)
 
 
     # ready to delete...

@@ -176,7 +176,7 @@ class Rotation(threading.Thread):
             for a in actions:
                 word.append(a.word)
 
-        return word
+        return ''.join(word)
 
 
     def print_rotation(self):

@@ -51,6 +51,7 @@ class RotationTestCase(unittest.TestCase):
     def setUp(self):
         from rotations import Conqueror_DPS
         self._rotation = Conqueror_DPS()
+        #self._rotation.use( _enter ).at()
         _globals.register_keybinds(self._rotation)
 
         #self._keys_pressed = ""
@@ -83,7 +84,7 @@ class RotationTestCase(unittest.TestCase):
 
         self.assertEqual(''.join(self._rotation._keys_pressed),
                                  self._rotation.get_word())
-                                 
+
 
     def test_ability_hotkey(self):
         ability = \
@@ -108,7 +109,8 @@ class RotationTestCase(unittest.TestCase):
 
         # test that the key pressed equals the expected hotkey.
         # test doesn't yet account for modifers - TODO
-        self.assertEqual(self._keys_pressed, ability.hotkey)
+        self.assertEqual(''.join(self._rotation._keys_pressed),\
+                         ability.hotkey)
 
 
 if __name__ == '__main__':

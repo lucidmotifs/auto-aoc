@@ -68,7 +68,7 @@ class ComboTestCase(unittest.TestCase):
 
         self._rotation.use( combo ).at()
         self._rotation.start_workers()
-        self._rotation.attack_interval = 0.2
+        _globals.attack_int_override = 0.2
 
         rotation_thread = threading.Thread( \
                                           target=self._rotation.do_start)
@@ -81,28 +81,22 @@ class ComboTestCase(unittest.TestCase):
 
 
     def test_combo_ouput(self):
-        combo = \
-            self._rotation.combo_list[random.randrange(0, \
-                len(self._rotation.combo_list))]
+        from conqueror.combos import Whirlwind
+        combo = Whirlwind()
 
-        self._rotation.current_action = combo
+        self._rotation.use( combo ).at()
         self._rotation.start_workers()
+        _globals.attack_int_override = 0.2
 
-        combo.rotation = self._rotation
+        rotation_thread = threading.Thread( \
+                                          target=self._rotation.do_start)
 
-        combo.attach_prefinisher( _enter )
-
-        logging.info("Trying {}".format(combo.name))
-        Rotation.combo_q.put(combo)
-
-        self._keys_pressed = input()
-
-        Rotation.combo_q.put( None )
-        Rotation.ability_q.put( None )
+        rotation_thread.start()
+        rotation_thread.join()
 
         # expected output
         expected = combo.hotkey
         for s in combo.steps:
             expected += s
 
-        self.assertEqual(self._keys_pressed, expected)
+        self.assertEqual(''.join(self._rotation._keys_pressed), expected)

@@ -339,7 +339,7 @@ class Rotation(threading.Thread):
 
         while True:
             try:
-                print("Attempting to get item from {} queue".format(T))
+                #print("Attempting to get item from {} queue".format(T))
                 item = which_q.get()
 
                 if item is None:
@@ -347,7 +347,7 @@ class Rotation(threading.Thread):
                     logging.debug("None passed to {} worked, ending.".format(T))
                     break
 
-                print("Found {} in {}, processing.".format(item.name, T))
+                #print("Found {} in {}, processing.".format(item.name, T))
                 """print( \
                     "There are {} items in {} Q" \
                     .format(Rotation.combo_q.qsize(), T))"""
@@ -377,6 +377,8 @@ class Rotation(threading.Thread):
     def end_destructive(self):
         if self._inprogress:
             self.end()
+
+        self._key_pressed = list()
 
         # check repeat options, see many time we've run the Rotation
         # use a filler to get a CD or buff back, potentially. Even a single repeat_until

@@ -30,6 +30,10 @@ from ability import Ability
 from ability import COOLDOWN_ACTIONS
 from combo import Combo
 
+# use conqueror for simplicity in testing
+from conqueror.abilities import *
+from conqueror.combos import *
+
 logging.basicConfig(
     format='(%(threadName)-10s) %(asctime)s.%(msecs)03d %(message)s',
     datefmt = '%M:%S',
@@ -49,13 +53,21 @@ _enter = ActivateChat()
 class RotationTestCase(unittest.TestCase):
 
     def setUp(self):
-        from rotations import Conqueror_DPS
-        self._rotation = Conqueror_DPS()
-        #self._rotation.use( _enter ).at()
-        _globals.register_keybinds(self._rotation)
+        self._rotation = Rotation()
 
-        #self._keys_pressed = ""
-        #hook = keyboard.hook(self.capture_keyevent)
+        # Combos
+        self._rotation.use( Breech(4) ).at( 1 )
+        self._rotation.use( Whirlwind() ).at( 2 )
+        self._rotation.use( BloodyHack(6) ).at( 3 )
+        self._rotation.use( BloodyHack(5) ).at( 4 )
+
+        # Abilities
+        #conq_dps.use( BladeWeave() ).at( 1 )
+        #conq_dps.use( UseDiscipline() ).at( 2 )
+        self._rotation.use( Annihilate() ).at( 3 )
+        self._rotation.use( RendFlesh() ).at( 4 )
+
+        _globals.register_keybinds(self._rotation)
 
 
     def tearDown(self):
@@ -111,6 +123,86 @@ class RotationTestCase(unittest.TestCase):
         # test doesn't yet account for modifers - TODO
         self.assertEqual(''.join(self._rotation._keys_pressed),\
                          ability.hotkey)
+
+
+    def test_rotation_restart(self):
+        _globals.attack_int_override = 0.2
+        rotation_thread = threading.Thread( \
+                                          target=self._rotation.do_start)
+
+        rotation_thread.start()
+
+        while self._rotation._status is not "idle":
+            time.sleep(2)
+
+        # rotation is now idling
+        self._rotation.do_restart()
+        self._rotation.do_terminate()
+
+        """while self._rotation._status is not "idle":
+            time.sleep(2)
+
+        self._rotation.do_terminate()"""
+
+        rotation_thread.join()
+
+        self.assertEqual(''.join(self._rotation._keys_pressed),
+                                 self._rotation.get_word() * 2)
+
+
+    def test_rotation_pause_resume(self):
+        _globals.attack_int_override = 0.2
+        rotation_thread = threading.Thread( \
+                                          target=self._rotation.do_start)
+
+        rotation_thread.start()
+        # Now wait for 2 rounds and then pause.
+        while True:
+            if self._rotation.current_round == 2:
+                self._rotation.do_pause('-') # round 2 will complete, paused at 3
+                break
+            else:
+                # keep waiting
+                time.sleep(1)
+
+        # If the rotation has paused, the log should read 'pausing...'
+        # r.paused should == True, and the current round should still be
+        # the same (3) after 3 seconds.
+        time.sleep(3)
+
+        self.assertTrue(self._rotation.paused)
+        self.assertEqual(self._rotation.current_round, 3)
+
+        found = False
+        with open('testing.log', 'r') as logfile:
+            for line in logfile:
+                if "pausing..." in line.strip():
+                    found = True
+                    break
+
+        self.assertTrue(found, "'pausing...' not found in log")
+
+        time.sleep(3)
+
+        self._rotation.do_resume()
+
+        time.sleep(3)
+
+        self.assertTrue(not self._rotation.paused)
+        self.assertGreater(self._rotation.current_round, 3)
+
+        found = False
+        with open('testing.log', 'r') as logfile:
+            for line in logfile:
+                if "resuming..." in line.strip():
+                    found = True
+                    break
+
+        self.assertTrue(found, "'resuming...' not found in log")
+
+        # cheap way to end the rotation, should improve.
+        self._rotation._terminate = True
+        rotation_thread.join()
 
 
 if __name__ == '__main__':

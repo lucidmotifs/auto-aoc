@@ -6,6 +6,7 @@ import keyboard
 import threading
 import queue
 import logging
+import datetime
 from timeit import default_timer as timer
 from sortedcontainers import SortedDict
 from pywinauto import application
@@ -23,6 +24,7 @@ class Rotation(threading.Thread):
     start_time = timer()
     last_keypress = 0.0
     exec_lock = threading.Lock()
+    pause_lock = threading.Lock()
 
     # create queues for abilities and combos  (spells tbd)
     ability_q = queue.Queue(5)
@@ -48,7 +50,11 @@ class Rotation(threading.Thread):
         self.start_time = 0.0
         self.end_time = 0.0
 
+        self._status = "stopped"
         self._inprogress = False
+        # used to exit currently running queue - remove after deque branch
+        # is merged
+        self._terminate = False
 
         # progress
         self.current_round = 1
@@ -59,23 +65,35 @@ class Rotation(threading.Thread):
         if self.unpause_key is not None:
             keyboard.remove_hotkey(self.unpause_key)
 
-            loggin.debug("waiting to resume...")
-            keyboard.wait(self.unpause_key)
-
-            logging.debug("resuming...")
-            self.paused = False
             # change activation
-            keyboard.add_hotkey(self.unpause_key, self.do_pause, args=[self.unpause_key])
+            keyboard.add_hotkey(self.unpause_key, self.do_pause, \
+                                args=[self.unpause_key])
+
+        logging.debug("resuming...")
+        self.paused = False
+
+        # release lock
+        self.pause_lock.release()
 
 
     def do_pause(self, key_pressed):
         # pause the rotation in place, but allow CDs to finish (CDs in threads)
-        # 'save state'
-        loggin.debug("pausing...")
+        # i.e. we are not pausing the thread / process
+        logging.debug("pausing...")
+        try:
+            keyboard.remove_hotkey(key_pressed)
+        except:
+            # May not exist, not an issue.
+            pass
 
         if not self.paused:
             self.paused = True
+            self.pause_lock.acquire()
             self.unpause_key = key_pressed
+
+        # change activation
+        keyboard.add_hotkey(self.unpause_key, \
+                            self.do_resume)
 
 
     def log_keypress(self, message, key):
@@ -212,7 +230,15 @@ class Rotation(threading.Thread):
             logging.debug("No Pre-Finisher abilities")
 
 
-    def do_round(self, rnd):
+    def do_round(self, rnd=0):
+        """ Perform the action at position specified by rnd """
+        # Wait on the round while
+        if self.paused:
+            self.pause_lock.acquire()
+
+        if rnd is 0:
+            rnd = self.current_round
+
         try:
             logging.info("Round: {}".format(rnd))
             items = self.on_deck.pop(rnd, None)
@@ -277,6 +303,7 @@ class Rotation(threading.Thread):
 
     def end_workers(self):
         """End the workers"""
+        logging.debug("Ending workers - potential block")
         Rotation.combo_q.put( None )
         Rotation.combo_q.join()
 
@@ -295,38 +322,86 @@ class Rotation(threading.Thread):
         self.print_rotation()
         self.start_workers()
         self.do_restart()
+        self.run()
 
 
     def do_restart(self):
-        self.current_round = 1
+        if self._inprogress:
+            print("Restarting...")
+            self._status = "restarting"
 
+        self.current_round = 1
         # Reset the Qs
-        #Rotation.ability_q = queue.Queue(5)
-        #Rotation.combo_q = queue.Queue(1)
+        # Rotation.ability_q = queue.Queue(5)
+        # Rotation.combo_q = queue.Queue(1)
 
         # Create a copy of the actions queue
         self.load(self.actions.copy())
-        self.run()
+
+        # set keys of actions to execute
+        self._keys = filter( lambda k: k >= self.current_round, \
+                     sorted(self.on_deck.keys()))
+
+
+
+    def do_idle(self, mins):
+        """ Idles until a timeout of status change. Returns True if progress
+        should continue, and False if the rotation should end. """
+        self._status = "idle"
+        # the rotation has ended
+        # self._inprogress = False
+
+        logging.info("idling...")
+
+        # the time we'll wait in idle before exiting the program
+        timeout = datetime.datetime.now() + datetime.timedelta(minutes = mins)
+
+        while datetime.datetime.now() < timeout and self._status == "idle":
+            time.sleep(1)
+
+        if self._status == "idle" or self._status == "terminating":
+            # timeout or terminated
+            return False
+        elif self._status == "restarting":
+            return True
+
+
+    def do_terminate(self):
+        if self._inprogress:
+            # will terminate at the end of the rotation
+            # to improve this to terminate immediately, we need to clear
+            # the _keys property as well.
+            self._terminate = True
+
+            print("Terminating...")
+            self._status = "terminating"
+        else:
+            self._status = "terminating"
 
 
     def run(self):
         pyautogui.PAUSE = .05
 
         self._inprogress = True
+        self._status = "running"
 
-        _keys = filter(lambda k: k >= self.current_round, \
-                sorted(self.on_deck.keys()))
-
-        for k in _keys:
+        # main loop
+        while True:
+            # exit loop if porogress is stopped
             if not self._inprogress:
                 break
+            try:
+                self.current_round = next(self._keys)
+                self.do_round()
+            except StopIteration:
+                if self._inprogress and not self._terminate:
+                    self._inprogress = self.do_idle(5)
+                else:
+                    break
 
-            self.current_round = k
-            # TODO ensure rotation attack interval is given priority
-            #print("Attack Interval {}".format(self.attack_interval))
-            self.do_round(k)
-
-        if self._inprogress:
+        if self._terminate:
+            self.end_destructive()
+        else:
             self.end()
 
 

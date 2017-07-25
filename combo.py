@@ -53,6 +53,25 @@ class Combo(Ability):
         return locals()
     schedule = property(**schedule())
 
+    def rotation():
+        doc = "The rotation property."
+        def fget(self):
+            return self._rotation
+        def fset(self, value):
+            self._rotation = value
+
+            # set the rotation for all pre/post finishers
+            if self.pre_finishers:
+                for a in self.pre_finishers:
+                    a.rotation = value
+            if self.post_finishers:
+                for a in self.post_finishers:
+                    a.rotation = value
+        def fdel(self):
+            del self._rotation
+        return locals()
+    rotation = property(**rotation())
+
 
     # This replaces the 'build_word' functionality we previously
     # had as it ensures key presses happen exactly when they are

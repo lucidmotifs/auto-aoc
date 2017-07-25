@@ -20,7 +20,7 @@ from rotations import *
 logging.basicConfig(
     format='(%(threadName)-10s) %(asctime)s.%(msecs)03d %(message)s',
     datefmt = '%M:%S',
-    filename='testing.log',
+    filename='auto-aoc.log',
     filemode='w',
     level=logging.DEBUG)
 

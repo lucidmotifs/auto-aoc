@@ -1,7 +1,7 @@
 # gneral utltily
 import logging
 import random
-import generic
+import _globals
 import time
 import threading
 
@@ -28,32 +28,34 @@ _rotation = None
 _rotationT = threading.Thread()
 
 
-def reset(rotation):
-    _rotation._inprogress = False
+def reset():
+    global _rotation
     _rotation.do_restart()
 
 
 def begin(rotation, pause_key):
+    global _rotation
     print('Starting roation...')
 
     hk1 = keyboard.add_hotkey(pause_key, rotation.do_pause, args=[pause_key])
     _rotation = rotation
 
     logging.debug('Preparing to start')
-    generic.register_keybinds(_rotation)
+    _globals.register_keybinds(_rotation)
 
     hk2 = keyboard.add_hotkey('*', terminate)
     hk3 = keyboard.add_hotkey('+', reset)
 
-    _rotationT = threading.Thread(target=_rotation.start)
+    _rotationT = threading.Thread(target=_rotation.do_start)
     _rotationT.start()
 
 
 def terminate():
     """End the currently running rotation"""
+    global _rotation
     # cleart the current q
     # rotation should end gracefuilly
-    pass
+    _rotation.do_terminate()
 
 def main():
     keyboard.unhook_all()
@@ -70,11 +72,12 @@ def main():
     # Set-up keyhooks
     try:
         #hk2 = keyboard.add_hotkey('up', do_rotation, args=[guard_dps, 79])
-        hk3 = keyboard.add_hotkey('left', do_rotation, args=[guard_aggro, 79])
+        hk3 = keyboard.add_hotkey('left', begin, args=[guard_aggro, '-'])
         #hk4 = keyboard.add_hotkey('right', do_rotation, args=[conq_dps, 79])
         #hk5 = keyboard.add_hotkey('down', do_rotation, args=[blank, 79])
 
-        #keys = input()
+        # keys = input()
+        print("Press escape to exit.")
         keyboard.wait('escape')
     except Exception as e:
         print(e)

@@ -69,7 +69,7 @@ class Rotation(threading.Thread):
             keyboard.add_hotkey(self.unpause_key, self.do_pause, \
                                 args=[self.unpause_key])
 
-        logging.debug("resuming...")
+
         self.paused = False
 
         # release lock
@@ -79,21 +79,14 @@ class Rotation(threading.Thread):
     def do_pause(self, key_pressed):
         # pause the rotation in place, but allow CDs to finish (CDs in threads)
         # i.e. we are not pausing the thread / process
-        logging.debug("pausing...")
-        try:
-            keyboard.remove_hotkey(key_pressed)
-        except:
-            # May not exist, not an issue.
-            pass
-
-        if not self.paused:
+        if self.paused:
+            logging.debug("resuming...")
+            self.paused = False
+            self.pause_lock.release()
+        else:
+            logging.debug("pausing...")
             self.paused = True
             self.pause_lock.acquire()
-            self.unpause_key = key_pressed
-
-        # change activation
-        keyboard.add_hotkey(self.unpause_key, \
-                            self.do_resume)
 
 
     def log_keypress(self, message, key):
@@ -235,6 +228,7 @@ class Rotation(threading.Thread):
         # Wait on the round while
         if self.paused:
             self.pause_lock.acquire()
+            self.pause_lock.release()
 
         if rnd is 0:
             rnd = self.current_round
@@ -375,6 +369,7 @@ class Rotation(threading.Thread):
 
             print("Terminating...")
             self._status = "terminating"
+
         else:
             self._status = "terminating"
 

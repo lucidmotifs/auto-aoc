@@ -13,22 +13,24 @@ def Guardian_Aggro():
     guard_aggro.repeat_count = 2
 
     # Combos
-    guard_aggro.use( ShieldSlam() ).at( 1, 5, 8, 12, 15 )
-    guard_aggro.use( GuardDestroyer(4) ).at( 2, 11 )
+    guard_aggro.use( ShieldSlam() ).at( 1, 5, 9, 13, 18, 20 )
+    guard_aggro.use( GuardDestroyer(4) ).at( 2, 12 )
 
     t_smash_buffs = TitanicSmash()
     t_smash_buffs.attach_prefinishers( (Powerhouse(), BattleCry(), CallToArms()) )
     t_smash_buffs.name += " (Buffs)"
     t_smash_buffs = guard_aggro.use( t_smash_buffs ).at( 3 )
 
-    guard_aggro.use( TitanicSmash() ).at( 10, 16)
-    guard_aggro.use( Overreach(5) ).at( 4, 7, 9, 13, 17 )
-    guard_aggro.use( Overreach(6) ).at( 6, 14 )
+    guard_aggro.use( TitanicSmash() ).at( 10, 17 )
+    guard_aggro.use( DullingBlow() ).at( 8, 16 )
+    guard_aggro.use( Overreach(5) ).at( 4, 7, 9, 14 )
+    guard_aggro.use( Overreach(6) ).at( 6, 11, 15, 19 )
 
     # Abilities
     guard_aggro.use( TacticProvoke() ).at( 1 )
     guard_aggro.use( CryOfHavoc() ).at( 3 )
     guard_aggro.use( Irritate() ).at( 2 )
+    guard_aggro.use( BloodyVengeance() ).at( 19 )
 
     return guard_aggro
 

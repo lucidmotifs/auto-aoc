@@ -171,15 +171,15 @@ class Combo(Ability):
         logging.debug(self.schedule.queue)
 
 
-    def use(self, rotation=None):
+    def use(self):
         pyautogui.PAUSE = 0.05
 
-        if rotation:
+        if self.rotation:
             rotation.exec_lock.acquire()
 
         self.schedule.run()
 
-        if rotation:
+        if self.rotation:
             rotation.exec_lock.release()
 
         if self.post_finishers and rotation:

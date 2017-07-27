@@ -9,7 +9,7 @@ from copy import copy
 
 import _globals
 from ability import Ability
-from ability import COOLDOWN_ACTIONS
+from ability import cooldown_actions
 
 
 class Combo(Ability):
@@ -172,17 +172,22 @@ class Combo(Ability):
 
 
     def use(self):
+        """ Peform the actions required to fire the ability """
+        # return immeidately if cooldown_check fails
+        if not self.cooldown_check():
+            return
+
         pyautogui.PAUSE = 0.05
 
         if self.rotation:
-            rotation.exec_lock.acquire()
+            self.rotation.exec_lock.acquire()
 
         self.schedule.run()
 
         if self.rotation:
-            rotation.exec_lock.release()
+            self.rotation.exec_lock.release()
 
-        if self.post_finishers and rotation:
+        if self.post_finishers and self.rotation:
             for a in self.post_finishers:
                 # guess we're deciding that pre_finishers can't have modifiers?
-                rotation.ability_q.put(a)
+                Rotation.ability_q.put(a)

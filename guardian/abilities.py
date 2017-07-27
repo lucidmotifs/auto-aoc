@@ -1,5 +1,5 @@
 from ability import Ability
-from ability import COOLDOWN_ACTIONS
+from ability import cooldown_actions
 
 class TacticProvoke(Ability):
 
@@ -19,7 +19,7 @@ class TacticDefense(Ability):
 
 class CryOfHavoc(Ability):
 
-    cooldown_action = COOLDOWN_ACTIONS.SKIP
+    cooldown_action = cooldown_actions.SKIP
     use_on_cooldown = True
 
     def __init__(self):
@@ -29,7 +29,7 @@ class CryOfHavoc(Ability):
 
 class Irritate(Ability):
 
-    cooldown_action = COOLDOWN_ACTIONS.WAIT
+    cooldown_action = cooldown_actions.WAIT
     use_on_cooldown = True
 
     def __init__(self):
@@ -39,7 +39,7 @@ class Irritate(Ability):
 
 class Powerhouse(Ability):
 
-    cooldown_action = COOLDOWN_ACTIONS.SKIP
+    cooldown_action = cooldown_actions.SKIP
 
     def __init__(self):
         super().__init__("Powerhouse", 60.0)
@@ -48,7 +48,7 @@ class Powerhouse(Ability):
 
 class BattleCry(Ability):
 
-    cooldown_action = COOLDOWN_ACTIONS.SKIP
+    cooldown_action = cooldown_actions.SKIP
 
     def __init__(self):
         super().__init__("Battle Cry", 45.0)
@@ -57,7 +57,7 @@ class BattleCry(Ability):
 
 class CallToArms(Ability):
 
-    cooldown_action = COOLDOWN_ACTIONS.SKIP
+    cooldown_action = cooldown_actions.SKIP
 
     def __init__(self):
         super().__init__("Call To Arms", 60.0)
@@ -66,7 +66,7 @@ class CallToArms(Ability):
 
 class BloodyVengeance(Ability):
 
-    cooldown_action = COOLDOWN_ACTIONS.SKIP
+    cooldown_action = cooldown_actions.SKIP
     cast_time = 1.5
 
     def __init__(self):
@@ -75,7 +75,7 @@ class BloodyVengeance(Ability):
 
 
 class Reckoning(Ability):
-    cooldown_action = COOLDOWN_ACTIONS.RETRY
+    cooldown_action = cooldown_actions.RETRY
     use_on_cooldown = False
 
     def __init__(self):

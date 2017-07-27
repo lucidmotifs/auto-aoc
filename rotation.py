@@ -365,11 +365,10 @@ class Rotation(threading.Thread):
             # will terminate at the end of the rotation
             # to improve this to terminate immediately, we need to clear
             # the _keys property as well.
+            logging.info("Terminating...")
+
             self._terminate = True
-
-            print("Terminating...")
             self._status = "terminating"
-
         else:
             self._status = "terminating"
 
@@ -427,7 +426,7 @@ class Rotation(threading.Thread):
             except Exception as e:
                 logging.error("Exception in {} queue: {}".format(T, e))
 
-            item.use(cls)
+            item.use()
             which_q.task_done()
         ## end consumer
 

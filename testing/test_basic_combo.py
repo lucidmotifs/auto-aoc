@@ -27,7 +27,7 @@ sys.path.append(u"C:/Users/paulcooper/Documents/GitHub/auto-aoc")
 import _globals
 from rotation import Rotation
 from ability import Ability
-from ability import COOLDOWN_ACTIONS
+from ability import cooldown_actions
 from combo import Combo
 
 logging.basicConfig(
@@ -100,3 +100,32 @@ class ComboTestCase(unittest.TestCase):
             expected += s
 
         self.assertEqual(''.join(self._rotation._keys_pressed), expected)
+
+
+    def test_combo_cooldown_skip(self):
+        from guardian.combos import TitanicSmash
+        combo = TitanicSmash()
+
+        self._rotation.use( combo ).at(1, 2)
+        self._rotation.start_workers()
+        
+        _globals.attack_int_override = 0.2
+
+        rotation_thread = threading.Thread( \
+                                          target=self._rotation.do_start)
+
+        with self.assertLogs( level = 'INFO' ) as cm:
+            rotation_thread.start()
+
+            while self._rotation._status is not "idle":
+                time.sleep(2)
+
+            # End rotation
+            self._rotation.do_terminate()
+
+        self.assertEqual(''.join(self._rotation._keys_pressed),
+                         combo.word)
+
+        self.assertTrue( \
+        'Skipping execution of {} due to cooldown'.format(combo.name), \
+        cm.output )

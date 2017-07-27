@@ -1,9 +1,15 @@
-(MainThread) 51:40.506 Hotkey enter registered for Enter Chat
-(MainThread) 51:40.506 Hotkey enter de-registered for Enter Chat
-(MainThread) 51:40.506 Hotkey enter registered for Enter Chat
-(MainThread) 51:40.521 Hotkey r registered for Whirlwind
-(Thread-7  ) 51:40.521 Creating Ability worker
-(Thread-8  ) 51:40.521 Creating Combo worker
-(Thread-9  ) 51:40.521 1: Whirlwind
-(Thread-9  ) 51:40.521 Round: 1
-(Thread-8  ) 51:40.521 Creating Schedule for Whirlwind
+(MainThread) 46:28.342 Hotkey enter registered for Enter Chat
+(MainThread) 46:28.344 Hotkey t registered for Titanic Smash
+(Thread-6  ) 46:28.345 Creating Ability worker
+(Thread-7  ) 46:28.345 Creating Combo worker
+(MainThread) 46:30.345 Ending workers - potential block
+(Thread-7  ) 46:30.345 None passed to Combo worked, ending.
+(Thread-6  ) 46:30.345 None passed to Ability worked, ending.
+(MainThread) 46:30.345 Abilities Status:
+(MainThread) 46:30.345 Combo Status:
+(MainThread) 46:30.345 Titanic Smash is On Cooldown (19.7s remaining)
+(MainThread) 46:30.345 Post Abilities:
+(MainThread) 46:30.345 No Post-Finisher abilities
+(MainThread) 46:30.345 Pre Finisher Abilities:
+(MainThread) 46:30.345 No Pre-Finisher abilities
+(MainThread) 46:30.346 Rotation Complete! Total time taken: 2.00

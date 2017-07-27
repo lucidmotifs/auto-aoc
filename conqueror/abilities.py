@@ -1,11 +1,11 @@
 from ability import Ability
-from ability import COOLDOWN_ACTIONS
+from ability import cooldown_actions
 
 class Annihilate(Ability):
 
     name = "Annihilate"
     cooldown_time = 180
-    cooldown_action = COOLDOWN_ACTIONS.SKIP
+    cooldown_action = cooldown_actions.SKIP
 
     def __init__(self):
         super().__init__( "Annihilate", 180.0 )
@@ -16,7 +16,7 @@ class RendFlesh(Ability):
 
     name = "Rend Flesh"
     cooldown_time = 45
-    cooldown_action = COOLDOWN_ACTIONS.WAIT_SHORT
+    cooldown_action = cooldown_actions.WAIT_SHORT
 
     def __init__(self):
         super().__init__(
@@ -31,7 +31,7 @@ class BladeWeave(Ability):
 
     name = "Blade Weave"
     cooldown_time = 20
-    cooldown_action = COOLDOWN_ACTIONS.SKIP
+    cooldown_action = cooldown_actions.SKIP
 
     def __init__(self):
         super().__init__(
@@ -45,7 +45,7 @@ class PlantBanner(Ability):
 
     name = "Plant Banner"
     cooldown_time = 45
-    cooldown_action = COOLDOWN_ACTIONS.WAIT
+    cooldown_action = cooldown_actions.WAIT
 
     def __init__(self):
         super().__init__(
@@ -59,7 +59,7 @@ class UseDiscipline(Ability):
 
     name = "Use Discipline"
     cooldown_time = 45
-    cooldown_action = COOLDOWN_ACTIONS.WAIT_SHORT
+    cooldown_action = cooldown_actions.WAIT_SHORT
 
     def __init__(self):
         super().__init__(

@@ -27,7 +27,7 @@ sys.path.append(u"C:/Users/paulcooper/Documents/GitHub/auto-aoc")
 import _globals
 from rotation import Rotation
 from ability import Ability
-from ability import COOLDOWN_ACTIONS
+from ability import cooldown_actions
 from combo import Combo
 
 # use conqueror for simplicity in testing

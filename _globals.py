@@ -1,19 +1,13 @@
-import time
 import pyautogui
-import pywinauto
-import datetime
 import keyboard
-import threading
-import logging
 import psutil
 
 from timeit import default_timer as timer
 from pywinauto import application
-from copy import copy
 
 
 KEYBINDS = {
-    #"LL" : "q",
+    "LL" : "q",
     "UL" : "1",
     "MID": "2",
     "UR" : "3",
@@ -26,16 +20,25 @@ K = KEYBINDS
 def register_keybinds(rotation):
     for bind,key in KEYBINDS.items():
         keyboard.add_hotkey(key, rotation.log_keypress, \
-            args=["{} attack key was pressed".format(bind)])
+            args=["{} attack key was pressed".format(bind), key])
 
 
 def deregister_keybinds():
     for bind,key in KEYBINDS.items():
         keyboard.remove_hotkey(key)
 
-
+# Process name to switch to
 PROCNAME = "AgeOfConanDX10.exe"
-#PROCNAME = "notepad.exe"
+
+# Attack intervals for various weapons
+attack_int_override = None # If this is not none, will override all others.
+attack_int_1he = .75 # One Handed Edge (not dual-wield)
+
+# Time to wait after hotkey for first step
+opener_wait = .3
+
+# Debugging = True will print thigs to the console
+DEBUG = False
 
 def _set_focus():
     for proc in psutil.process_iter():

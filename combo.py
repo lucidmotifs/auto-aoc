@@ -7,17 +7,12 @@ import logging
 import sched
 from copy import copy
 
+import _globals
 from ability import Ability
 from ability import COOLDOWN_ACTIONS
 
-ATTACK_INT_1HE = .75
-OPENER_WAIT = .3
-
-DEBUG = False
 
 class Combo(Ability):
-
-    _schedule = sched.scheduler()
 
     cooldown_start = None
     cooldown_time = 0.0
@@ -26,7 +21,7 @@ class Combo(Ability):
     finisher = []
     pre_finishers = []
     post_finishers = []
-    attack_interval = ATTACK_INT_1HE
+    attack_interval = _globals.attack_int_1he
 
     def __init__(self, name, cooldown_time=0.0, cast_time=0.0):
         super().__init__(name, cooldown_time, cast_time)
@@ -36,13 +31,13 @@ class Combo(Ability):
     def factory(self):
         # initialize some properties to defaults. useful while developing,
         # but probably not needed moving forward.
-        self.word = ''
         self.modifier = None
         self.duration = 0.0
         self.finisher = []
         self.key_events = []
         self.pre_finishers = []
         self.post_finishers = []
+        self._schedule = sched.scheduler()
 
 
     def schedule():
@@ -64,37 +59,18 @@ class Combo(Ability):
             return self._rotation
         def fset(self, value):
             self._rotation = value
+
+            # set the rotation for all pre/post finishers
+            if self.pre_finishers:
+                for a in self.pre_finishers:
+                    a.rotation = value
+            if self.post_finishers:
+                for a in self.post_finishers:
+                    a.rotation = value
         def fdel(self):
             del self._rotation
         return locals()
     rotation = property(**rotation())
-
-
-    def register_hotkey(self, rotation=None):
-        self.deregister_hotkey()
-
-        # register key hooks for logging based on hotkey + steps
-        if self.modifier:
-            keyboard.add_hotkey(
-                self.modifier + '+' + self.hotkey, \
-                self.hotkey_pressed, \
-                args=[rotation])
-        else:
-            keyboard.hook_key(
-                self.hotkey, \
-                lambda: self.hotkey_pressed(self.rotation) )
-
-        logging.debug( "Hotkey {} registered for {}".format( \
-            self.hotkey, \
-            self.name) )
-
-
-    def hotkey_pressed(self, rotation):
-        # Will do cooldown check, should always just skip
-        super().hotkey_pressed()
-
-        # Additional step to
-        rotation.log_keypress(self)
 
 
     # This replaces the 'build_word' functionality we previously
@@ -103,7 +79,7 @@ class Combo(Ability):
     def create_schedule(self):
         logging.debug("Creating Schedule for {}".format(self.name))
         s = self.schedule = sched.scheduler(timer)
-        t = 0
+        t = 0.0
 
         # currently 0 would be right after the previous combo finishers
         # and after the round abilities have been fired.
@@ -114,7 +90,7 @@ class Combo(Ability):
         # Do the steps uninteruppted
         for i,step in enumerate(self.steps):
             if i is 0:
-                t = OPENER_WAIT
+                t = _globals.attack_int_override or _globals.opener_wait
             else:
                 t = self.attack_interval * (i+1)
 
@@ -129,8 +105,11 @@ class Combo(Ability):
                 s.enter(t, i+2, ability.use)
 
         # finally
-        t = self.attack_interval * (len(self.steps)+1) + self.cast_time + 0.1
+        t = (self.attack_interval * \
+            (len(self.steps)+1) + self.cast_time + 0.1)
         s.enter(t, 1, self.init_cooldown)
+
+        return self.schedule.queue
 
 
     def attach_postfinisher(self, ability):
@@ -139,7 +118,6 @@ class Combo(Ability):
 
     def attach_prefinisher(self, ability):
         self.pre_finishers.append(ability)
-        self.build_word()
 
 
     def attach_prefinishers(self, abilities):
@@ -161,19 +139,24 @@ class Combo(Ability):
         self.key_events.append(ke)
 
 
-    def build_word(self):
-        self.word = ''
-        self.finisher = []
+    @property
+    def word(self):
+        # start with
+        self._word = list(super().word)
+
+        for s in self.steps:
+            self._word.append(s)
+
         if self.pre_finishers:
-            steps_c = copy(self.steps)
-            self.finisher.append(steps_c.pop())
             for a in self.pre_finishers:
                 # guess we're deciding that pre_finishers can't have modifiers?
-                self.finisher.append(''.join(a.hotkey))
+                self._word.append(''.join(a.word))
 
-            self.word += ''.join(steps_c)
-        else:
-            self.word += ''.join(self.steps)
+        if self.post_finishers:
+            for a in self.post_finishers:
+                self._word.append(''.join(a.word))
+
+        return ''.join(self._word)
 
 
     # ready to delete...

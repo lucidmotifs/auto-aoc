@@ -122,6 +122,7 @@ class Rotation(threading.Thread):
 
             if action not in self.combo_list:
                 idx = len(self.combo_list)
+                schedule = action.schedule
                 self.combo_list.append( action )
             else:
                 idx = self.combo_list.index(action)
@@ -237,6 +238,9 @@ class Rotation(threading.Thread):
             logging.info("Round: {}".format(rnd))
             items = self.on_deck.pop(rnd, None)
 
+            # current main action
+            self.current_action = c = self.get_combo_at(rnd)
+
             # put abilities into the ability queue.
             def is_ability(a):
                 return isinstance(a, Ability) and not isinstance(a, Combo)
@@ -250,9 +254,7 @@ class Rotation(threading.Thread):
             if _abilities:
                 Rotation.ability_q.join()
 
-            # current main action, exec lock should be set within
-            # and abilities won't be able to fire.
-            self.current_action = c = self.get_combo_at(rnd)
+            # run the combo
             if c:
                 #print("Interval {}".format(interval))
                 c.attack_interval = \

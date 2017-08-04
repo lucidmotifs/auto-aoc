@@ -108,7 +108,7 @@ class ComboTestCase(unittest.TestCase):
 
         self._rotation.use( combo ).at(1, 2)
         self._rotation.start_workers()
-        
+
         _globals.attack_int_override = 0.2
 
         rotation_thread = threading.Thread( \
@@ -129,3 +129,7 @@ class ComboTestCase(unittest.TestCase):
         self.assertTrue( \
         'Skipping execution of {} due to cooldown'.format(combo.name), \
         cm.output )
+
+
+    def test_combo_cooldown_wait(self):
+        pass

@@ -23,8 +23,15 @@ class Rotation(threading.Thread):
     ability_list = []
     start_time = timer()
     last_keypress = 0.0
+
+    # locks
     exec_lock = threading.Lock()
     pause_lock = threading.Lock()
+
+    # events
+    initialized = threading.Event()
+    finished = threading.Event()
+    terminated = threading.Event()
 
     # create queues for abilities and combos  (spells tbd)
     ability_q = queue.Queue(5)
@@ -76,7 +83,7 @@ class Rotation(threading.Thread):
         self.pause_lock.release()
 
 
-    def do_pause(self, key_pressed):
+    def do_pause(self):
         # pause the rotation in place, but allow CDs to finish (CDs in threads)
         # i.e. we are not pausing the thread / process
         if self.paused:
@@ -122,7 +129,7 @@ class Rotation(threading.Thread):
 
             if action not in self.combo_list:
                 idx = len(self.combo_list)
-                schedule = action.schedule
+                #schedule = action.schedule
                 self.combo_list.append( action )
             else:
                 idx = self.combo_list.index(action)
@@ -228,6 +235,7 @@ class Rotation(threading.Thread):
         """ Perform the action at position specified by rnd """
         # Wait on the round while
         if self.paused:
+            logging.debug("Round stalled due to pause_lock")
             self.pause_lock.acquire()
             self.pause_lock.release()
 
@@ -236,23 +244,30 @@ class Rotation(threading.Thread):
 
         try:
             logging.info("Round: {}".format(rnd))
+
+            # Retrieve the items for this round
             items = self.on_deck.pop(rnd, None)
+
+            # Exit round is w ehave no items
+            if not items:
+                return
 
             # current main action
             self.current_action = c = self.get_combo_at(rnd)
 
-            # put abilities into the ability queue.
             def is_ability(a):
                 return isinstance(a, Ability) and not isinstance(a, Combo)
 
+            # put abilities into the ability queue.
             _abilities = list(filter(is_ability, items))
 
             for a in _abilities:
                 Rotation.ability_q.put(a)
 
             # Ensure abilities fire first.
-            if _abilities:
-                Rotation.ability_q.join()
+            #if _abilities or not Rotation.ability_q.empty():
+            #    print("Firing abilities")
+            #    Rotation.ability_q.join()
 
             # run the combo
             if c:
@@ -274,6 +289,8 @@ class Rotation(threading.Thread):
         except queue.Full as e:
             logging.debug("A Queue is Full")
             logging.error(e)
+        except Exception as e:
+            logging.exception('Got exception during round')
 
 
     def create_workers(self):
@@ -299,12 +316,18 @@ class Rotation(threading.Thread):
 
     def end_workers(self):
         """End the workers"""
-        logging.debug("Ending workers - potential block")
-        Rotation.combo_q.put( None )
-        Rotation.combo_q.join()
 
-        Rotation.ability_q.put( None )
-        Rotation.ability_q.join()
+        logging.debug("Ending workers - potential block")
+
+        if Rotation.combo_q:
+            Rotation.combo_q.put( None )
+            Rotation.combo_q.join()
+
+        if Rotation.ability_q:
+            Rotation.ability_q.put( None )
+            Rotation.ability_q.join()
+
+        logging.debug("Workers ended - block potential finished")
 
 
     def load(self, A):
@@ -312,12 +335,22 @@ class Rotation(threading.Thread):
         # ...
         self.on_deck = A
 
+        # set keys of actions to execute
+        self._keys = filter( lambda k: k >= self.current_round, \
+                             sorted(self.on_deck.keys()))
+
+        self.finished.clear()
+
 
     def do_start(self):
         self.start_time = timer()
         self.print_rotation()
         self.start_workers()
         self.do_restart()
+
+        # Signal that the rotation has started
+        self.initialized.set()
+
         self.run()
 
 
@@ -334,20 +367,16 @@ class Rotation(threading.Thread):
         # Create a copy of the actions queue
         self.load(self.actions.copy())
 
-        # set keys of actions to execute
-        self._keys = filter( lambda k: k >= self.current_round, \
-                     sorted(self.on_deck.keys()))
-
-
 
     def do_idle(self, mins):
         """ Idles until a timeout of status change. Returns True if progress
         should continue, and False if the rotation should end. """
-        self._status = "idle"
-        # the rotation has ended
-        # self._inprogress = False
 
-        logging.info("idling...")
+        if self._status == "running":
+            self._status = "idle"
+            logging.info("idling...")
+
+        self.finished.set()
 
         # the time we'll wait in idle before exiting the program
         timeout = datetime.datetime.now() + datetime.timedelta(minutes = mins)
@@ -360,6 +389,8 @@ class Rotation(threading.Thread):
             return False
         elif self._status == "restarting":
             return True
+        else:
+            return True
 
 
     def do_terminate(self):
@@ -370,9 +401,8 @@ class Rotation(threading.Thread):
             logging.info("Terminating...")
 
             self._terminate = True
-            self._status = "terminating"
-        else:
-            self._status = "terminating"
+
+        self._status = "terminating"
 
 
     def run(self):
@@ -382,10 +412,7 @@ class Rotation(threading.Thread):
         self._status = "running"
 
         # main loop
-        while True:
-            # exit loop if porogress is stopped
-            if not self._inprogress:
-                break
+        while self._inprogress:
             try:
                 self.current_round = next(self._keys)
                 self.do_round()
@@ -394,10 +421,10 @@ class Rotation(threading.Thread):
                     self._inprogress = self.do_idle(5)
                 else:
                     break
-
         if self._terminate:
             self.end_destructive()
         else:
+            logging.debug("Ending loop, _inprogress is False")
             self.end()
 
 
@@ -428,13 +455,20 @@ class Rotation(threading.Thread):
             except Exception as e:
                 logging.error("Exception in {} queue: {}".format(T, e))
 
-            item.use()
+            item.use(cls)
             which_q.task_done()
         ## end consumer
+        which_q = None
 
 
     def end(self):
-        self.end_workers()
+        try:
+            self.pause_lock.release()
+            self.exec_lock.release()
+        except:
+            pass
+
+        self.end_workers() # move to stop
 
         self.total_time = timer() - self.start_time
         self.print_current_cooldowns()
@@ -442,11 +476,14 @@ class Rotation(threading.Thread):
         logging.debug( "Rotation Complete! Total time taken: {:0.2f}"\
                        .format( self.total_time ))
 
-        self._inprogress = False
+        self.terminated.set()
 
 
+    # TODO make this a deconstructor that removes blocks and
+    # ends cooldowns + threads (and checks if any threads left alive)
+    # then create a 'stop' method to replace anything left over.
     def end_destructive(self):
-        if self._inprogress:
+        if not self.terminated.is_set():
             self.end()
 
         self._key_pressed = list()

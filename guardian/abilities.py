@@ -75,7 +75,7 @@ class BloodyVengeance(Ability):
 
 
 class Reckoning(Ability):
-    cooldown_action = cooldown_actions.RETRY
+    cooldown_action = cooldown_actions.SKIP
     use_on_cooldown = False
 
     def __init__(self):

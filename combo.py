@@ -171,7 +171,7 @@ class Combo(Ability):
         logging.debug(self.schedule.queue)
 
 
-    def use(self):
+    def use(self, rotation=None):
         """ Peform the actions required to fire the ability """
         # return immeidately if cooldown_check fails
         if not self.cooldown_check():
@@ -179,15 +179,9 @@ class Combo(Ability):
 
         pyautogui.PAUSE = 0.05
 
-        if self.rotation:
-            self.rotation.exec_lock.acquire()
-
         self.schedule.run()
 
-        if self.rotation:
-            self.rotation.exec_lock.release()
-
-        if self.post_finishers and self.rotation:
+        if self.post_finishers and rotation:
             for a in self.post_finishers:
                 # guess we're deciding that pre_finishers can't have modifiers?
-                Rotation.ability_q.put(a)
+                rotation.ability_q.put(a)

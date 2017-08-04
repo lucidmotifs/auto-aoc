@@ -37,7 +37,7 @@ def begin(rotation, pause_key):
     global _rotation
     print('Starting roation...')
 
-    hk1 = keyboard.add_hotkey(pause_key, rotation.do_pause, args=[pause_key])
+    hk1 = keyboard.add_hotkey(pause_key, rotation.do_pause)
     _rotation = rotation
 
     logging.debug('Preparing to start')
@@ -62,8 +62,8 @@ def main():
 
     # Go to the Game
     #generic._set_focus()
-    #guard_dps = Guardian_DPS()
-    guard_aggro = Guardian_Aggro()
+    guard_dps = Guardian_DPS()
+    #guard_aggro = Guardian_Aggro()
     #conq_dps = Conqueror_DPS()
     #conq_dps = Conqueror_DPS()
     #blank = Rotation()
@@ -71,8 +71,8 @@ def main():
     #blank.ability_list.append( TacticDefense() )
     # Set-up keyhooks
     try:
-        #hk2 = keyboard.add_hotkey('up', do_rotation, args=[guard_dps, 79])
-        hk3 = keyboard.add_hotkey('left', begin, args=[guard_aggro, '-'])
+        hk2 = keyboard.add_hotkey('up', begin, args=[guard_dps, '-'])
+        #hk3 = keyboard.add_hotkey('left', begin, args=[guard_aggro, '-'])
         #hk4 = keyboard.add_hotkey('right', do_rotation, args=[conq_dps, 79])
         #hk5 = keyboard.add_hotkey('down', do_rotation, args=[blank, 79])
 

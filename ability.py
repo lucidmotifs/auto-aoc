@@ -222,7 +222,7 @@ class Ability(object):
             pyautogui.press(self.hotkey)
 
 
-    def use(self):
+    def use(self, rotation=None):
         """ Peform the actions required to fire the ability """
         # return immeidately if cooldown_check fails
         if not self.cooldown_check():
@@ -230,7 +230,7 @@ class Ability(object):
 
         logging.debug("Using: {}".format( self.name ))
 
-        if self.rotation:
+        if rotation:
             logging.debug("Setting exec lock to run {}".format(self.name))
             rotation.exec_lock.acquire()
 
@@ -252,7 +252,7 @@ class Ability(object):
                        .format(self.name)
             logging.error( message )
 
-            if self.rotation:
+            if rotation:
                 logging.debug("Releasing exec lock for {}".format(self.name))
                 rotation.exec_lock.release()
 
@@ -261,7 +261,7 @@ class Ability(object):
             # and we should exit. decide on action later
             return
 
-        if self.rotation:
+        if rotation:
             logging.debug("Releasing exec lock for {}".format(self.name))
             rotation.exec_lock.release()
 

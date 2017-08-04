@@ -32,7 +32,7 @@ PROCNAME = "AgeOfConanDX10.exe"
 
 # Attack intervals for various weapons
 attack_int_override = None # If this is not none, will override all others.
-attack_int_1he = .75 # One Handed Edge (not dual-wield)
+attack_int_1he = .77 # One Handed Edge (not dual-wield)
 
 # Time to wait after hotkey for first step
 opener_wait = .3

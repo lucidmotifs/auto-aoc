@@ -21,6 +21,8 @@ import pywinauto
 # timing module
 from timeit import default_timer as timer
 
+from sortedcontainers import SortedDict
+
 # from this application
 #import ipdb; ipdb.set_trace()
 sys.path.append(u"C:/Users/paulcooper/Documents/GitHub/auto-aoc")
@@ -71,9 +73,10 @@ class RotationTestCase(unittest.TestCase):
 
 
     def tearDown(self):
-        self._rotation.end_destructive()
-        Rotation.ability_q = queue.Queue(5)
-        Rotation.combo_q = queue.Queue(1)
+        self._rotation.do_terminate()
+
+        if not self._rotation.terminated.wait(5):
+            logging.error("Rotation was never brought down")
 
         keyboard.unhook_all()
 
@@ -153,7 +156,7 @@ class RotationTestCase(unittest.TestCase):
     def test_rotation_pause_resume(self):
         _globals.attack_int_override = 0.2
         rotation_thread = threading.Thread( \
-                                          target=self._rotation.do_start)
+            target=self._rotation.do_start)
 
         rotation_thread.start()
         # Now wait for 2 rounds and then pause.
@@ -203,6 +206,45 @@ class RotationTestCase(unittest.TestCase):
         # cheap way to end the rotation, should improve.
         self._rotation._terminate = True
         rotation_thread.join()
+
+
+    def test_empty_items_round_ends(self):
+        r = self._rotation
+
+        _globals.attack_int_override = 0.2
+        rotation_thread = threading.Thread( \
+            target=self._rotation.do_start)
+
+        # Pause the rotation
+        r.do_pause()
+        self.assertTrue(r.paused)
+
+        rotation_thread.start()
+        # Will start but no round will play as rotation is paused.
+
+        if not r.initialized.wait(5):
+            self.assertTrue(False, "Rotation never started")
+
+        r.load(dict())
+
+        # ensure items returns None
+        self.assertEqual(len(r.on_deck), 0)
+
+        # resume
+        r.do_pause()
+        self.assertTrue(not r.paused)
+
+        # expected: round exits cleanly and rotation moves to idle.
+        if not r.finished.wait(5):
+            self.assertTrue(False, "Rotation never ended")
+
+        self.assertEqual(r._status, "idle")
+
+        # Re-load the data and
+        r.do_restart()
+
+        self.assertTrue(r.finished.wait(10), "Rotation never finished")
+
 
 
 if __name__ == '__main__':

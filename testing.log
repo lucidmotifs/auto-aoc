@@ -1,15 +1,98 @@
-(MainThread) 46:28.342 Hotkey enter registered for Enter Chat
-(MainThread) 46:28.344 Hotkey t registered for Titanic Smash
-(Thread-6  ) 46:28.345 Creating Ability worker
-(Thread-7  ) 46:28.345 Creating Combo worker
-(MainThread) 46:30.345 Ending workers - potential block
-(Thread-7  ) 46:30.345 None passed to Combo worked, ending.
-(Thread-6  ) 46:30.345 None passed to Ability worked, ending.
-(MainThread) 46:30.345 Abilities Status:
-(MainThread) 46:30.345 Combo Status:
-(MainThread) 46:30.345 Titanic Smash is On Cooldown (19.7s remaining)
-(MainThread) 46:30.345 Post Abilities:
-(MainThread) 46:30.345 No Post-Finisher abilities
-(MainThread) 46:30.345 Pre Finisher Abilities:
-(MainThread) 46:30.345 No Pre-Finisher abilities
-(MainThread) 46:30.346 Rotation Complete! Total time taken: 2.00
+(MainThread) 55:43.152 Hotkey enter registered for Enter Chat
+(MainThread) 55:43.153 Hotkey 4 registered for Breech IV
+(MainThread) 55:43.154 Hotkey r registered for Whirlwind
+(MainThread) 55:43.154 Hotkey f registered for Blood Hack VI
+(MainThread) 55:43.154 Hotkey 5 registered for Blood Hack V
+(MainThread) 55:43.154 Hotkey 9 registered for Annihilate
+(MainThread) 55:43.154 Hotkey 0 registered for Rend Flesh
+(MainThread) 55:43.154 pausing...
+(Thread-11 ) 55:43.154 1: Breech IV
+(Thread-11 ) 55:43.154 2: Whirlwind
+(Thread-11 ) 55:43.155 3: Annihilate
+(Thread-11 ) 55:43.155 3: Blood Hack VI
+(Thread-11 ) 55:43.155 4: Rend Flesh
+(Thread-11 ) 55:43.155 4: Blood Hack V
+(Thread-12 ) 55:43.155 Creating Ability worker
+(Thread-13 ) 55:43.155 Creating Combo worker
+(Thread-11 ) 55:43.155 Rotation state set to running
+(MainThread) 55:43.155 resuming...
+(Thread-11 ) 55:43.156 waiting...
+(MainThread) 55:43.156 Restarting
+(MainThread) 55:43.156 Rotation state set to restarting
+(Thread-11 ) 55:43.156 Round: 1
+(Thread-13 ) 55:43.156 Breech IV was activated. Last used: Never
+(Thread-13 ) 55:43.156 Creating Schedule for Breech IV
+(Thread-3  ) 55:43.156 During Breech IV, Hotkey for Breech IV was pressed (0.01)
+(Thread-3  ) 55:43.157 Delta: 0.008621646443634978
+(Thread-3  ) 55:43.357 During Breech IV, UL attack key was pressed (0.21)
+(Thread-3  ) 55:43.358 Delta: 0.20104717075137432
+(Thread-11 ) 55:44.658 Round: 2
+(Thread-13 ) 55:44.658 Whirlwind was activated. Last used: Never
+(Thread-13 ) 55:44.658 Creating Schedule for Whirlwind
+(Thread-3  ) 55:44.658 During Whirlwind, Hotkey for Whirlwind was pressed (1.51)
+(Thread-3  ) 55:44.659 Delta: 1.301204308473852
+(Thread-3  ) 55:44.860 During Whirlwind, LR attack key was pressed (1.71)
+(Thread-3  ) 55:44.860 Delta: 0.20132477442676056
+(Thread-3  ) 55:45.059 During Whirlwind, LL attack key was pressed (1.91)
+(Thread-3  ) 55:45.059 Delta: 0.19916551471042943
+(Thread-3  ) 55:45.260 During Whirlwind, UR attack key was pressed (2.11)
+(Thread-3  ) 55:45.260 Delta: 0.20094833520157707
+(Thread-11 ) 55:47.059 Round: 3
+(Thread-12 ) 55:47.060 Annihilate was activated. Last used: Never
+(Thread-13 ) 55:47.060 Blood Hack VI was activated. Last used: Never
+(Thread-12 ) 55:47.060 Using: Annihilate
+(Thread-12 ) 55:47.060 Setting exec lock to run Annihilate
+(Thread-13 ) 55:47.060 Creating Schedule for Blood Hack VI
+(Thread-3  ) 55:47.060 During Blood Hack VI, Hotkey for Annihilate was pressed (3.91)
+(Thread-3  ) 55:47.061 Delta: 1.800656527291439
+(Thread-3  ) 55:47.061 During Blood Hack VI, Hotkey for Blood Hack VI was pressed (3.91)
+(Thread-3  ) 55:47.061 Delta: 0.00038129998992753045
+(Thread-12 ) 55:47.113 Releasing exec lock for Annihilate
+(Thread-3  ) 55:47.262 During Blood Hack VI, MID attack key was pressed (4.11)
+(Thread-3  ) 55:47.262 Delta: 0.20076227592887141
+(Thread-3  ) 55:47.462 During Blood Hack VI, LL attack key was pressed (4.31)
+(Thread-3  ) 55:47.462 Delta: 0.20007393763260772
+(Thread-3  ) 55:47.662 During Blood Hack VI, UR attack key was pressed (4.51)
+(Thread-3  ) 55:47.662 Delta: 0.1998249584607148
+(Thread-11 ) 55:49.461 Round: 4
+(Thread-12 ) 55:49.462 Rend Flesh was activated. Last used: Never
+(Thread-12 ) 55:49.462 Using: Rend Flesh
+(Thread-12 ) 55:49.462 Setting exec lock to run Rend Flesh
+(Thread-13 ) 55:49.462 Blood Hack V was activated. Last used: Never
+(Thread-13 ) 55:49.462 Creating Schedule for Blood Hack V
+(Thread-3  ) 55:49.462 During Blood Hack V, Hotkey for Rend Flesh was pressed (6.31)
+(Thread-3  ) 55:49.462 Delta: 1.8005873964150778
+(Thread-3  ) 55:49.462 During Blood Hack V, Hotkey for Blood Hack V was pressed (6.31)
+(Thread-3  ) 55:49.463 Delta: 0.0003613168459795091
+(Thread-12 ) 55:49.513 Releasing exec lock for Rend Flesh
+(Thread-3  ) 55:49.663 During Blood Hack V, MID attack key was pressed (6.52)
+(Thread-3  ) 55:49.663 Delta: 0.20053003939109804
+(Thread-3  ) 55:49.864 During Blood Hack V, UR attack key was pressed (6.72)
+(Thread-3  ) 55:49.864 Delta: 0.20072879066063454
+(Thread-11 ) 55:51.414 waiting...
+(Thread-11 ) 55:51.414 Status is idle
+(Thread-11 ) 55:51.414 Ending loop, _inprogress is False
+(Thread-11 ) 55:51.414 Ending workers - potential block
+(MainThread) 55:51.414 Rotation state set to terminating
+(Thread-13 ) 55:51.414 None passed to Combo worked, ending.
+(Thread-12 ) 55:51.415 None passed to Ability worked, ending.
+(Thread-11 ) 55:51.415 Workers ended - block potential finished
+(Thread-11 ) 55:51.415 Abilities Status:
+(Thread-11 ) 55:51.415 Annihilate is On Cooldown (175.7s remaining)
+(Thread-11 ) 55:51.415 Rend Flesh is On Cooldown (43.1s remaining)
+(Thread-11 ) 55:51.415 Combo Status:
+(Thread-11 ) 55:51.415 Breech IV is On Cooldown (34.24s remaining)
+(Thread-11 ) 55:51.415 Whirlwind is On Cooldown (5.64s remaining)
+(Thread-11 ) 55:51.415 Blood Hack VI is On Cooldown (0.05s remaining)
+(Thread-11 ) 55:51.415 Blood Hack V is On Cooldown (2.0s remaining)
+(Thread-11 ) 55:51.415 Post Abilities:
+(Thread-11 ) 55:51.415 No Post-Finisher abilities
+(Thread-11 ) 55:51.415 Pre Finisher Abilities:
+(Thread-11 ) 55:51.415 No Pre-Finisher abilities
+(Thread-11 ) 55:51.415 Rotation Complete! Total time taken: 8.26
+(Thread-7  ) 55:51.462 Blood Hack VI is now off cooldown
+(Thread-8  ) 55:53.415 Blood Hack V is now off cooldown
+(Thread-6  ) 55:57.060 Whirlwind is now off cooldown
+(Thread-5  ) 56:25.659 Breech IV is now off cooldown
+(Thread-10 ) 56:34.514 Rend Flesh is now off cooldown
+(Thread-9  ) 58:47.113 Annihilate is now off cooldown

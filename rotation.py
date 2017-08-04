@@ -29,9 +29,12 @@ class Rotation(threading.Thread):
     pause_lock = threading.Lock()
 
     # events
+    # major states
     initialized = threading.Event()
     finished = threading.Event()
-    terminated = threading.Event()
+    stopped = threading.Event()
+    # minor states, check status after event
+    state_change = threading.Event()
 
     # create queues for abilities and combos  (spells tbd)
     ability_q = queue.Queue(5)
@@ -68,19 +71,18 @@ class Rotation(threading.Thread):
         self.on_deck = dict()
 
 
-    def do_resume(self):
-        if self.unpause_key is not None:
-            keyboard.remove_hotkey(self.unpause_key)
-
-            # change activation
-            keyboard.add_hotkey(self.unpause_key, self.do_pause, \
-                                args=[self.unpause_key])
-
-
-        self.paused = False
-
-        # release lock
-        self.pause_lock.release()
+    def status():
+        doc = "The status property."
+        def fget(self):
+            return self._status
+        def fset(self, value):
+            self._status = value
+            self.state_change.set()
+            logging.info("Rotation state set to {}".format(value))
+        def fdel(self):
+            del self._status
+        return locals()
+    status = property(**status())
 
 
     def do_pause(self):
@@ -356,41 +358,46 @@ class Rotation(threading.Thread):
 
     def do_restart(self):
         if self._inprogress:
-            print("Restarting...")
-            self._status = "restarting"
+            logging.info("Restarting")
+            self.status = "restarting"
 
+        # if the rotation has finished, set the restarted event
+        if self.finished.is_set():
+            self.finished.clear()
+
+        # Reset the round number
         self.current_round = 1
-        # Reset the Qs
-        # Rotation.ability_q = queue.Queue(5)
-        # Rotation.combo_q = queue.Queue(1)
 
-        # Create a copy of the actions queue
+        # Load a copy of the actions queue
         self.load(self.actions.copy())
 
 
-    def do_idle(self, mins):
-        """ Idles until a timeout of status change. Returns True if progress
+
+    def do_idle(self, secs):
+        """ Idles until a timeout or status change. Returns True if progress
         should continue, and False if the rotation should end. """
 
-        if self._status == "running":
+        if self._status is not "terminating":
             self._status = "idle"
-            logging.info("idling...")
+            logging.info("waiting for {}secs...".format(secs))
 
+        # Set the rotation to finished
         self.finished.set()
 
-        # the time we'll wait in idle before exiting the program
-        timeout = datetime.datetime.now() + datetime.timedelta(minutes = mins)
+        # Wait for either a state change or timeout
+        if self.state_change.wait(secs):
+            if self.status is "terminating":
+                return False
+            elif self.status is "restarting":
+                return True
+            else:
+                logging.info("Status is {}".format(self.status))
 
-        while datetime.datetime.now() < timeout and self._status == "idle":
-            time.sleep(1)
-
-        if self._status == "idle" or self._status == "terminating":
-            # timeout or terminated
-            return False
-        elif self._status == "restarting":
-            return True
+            # Acted upon new state, clearing event.
+            self.state_change.clear()
         else:
-            return True
+            # timeout
+            return False
 
 
     def do_terminate(self):
@@ -398,18 +405,22 @@ class Rotation(threading.Thread):
             # will terminate at the end of the rotation
             # to improve this to terminate immediately, we need to clear
             # the _keys property as well.
-            logging.info("Terminating...")
+            logging.info("Terminating.")
 
-            self._terminate = True
+        self.status = "terminating"
 
-        self._status = "terminating"
+        # End the run loop
+        self._inprogress = False
 
 
     def run(self):
         pyautogui.PAUSE = .05
 
         self._inprogress = True
-        self._status = "running"
+
+        # Setting and clearing state change event
+        self.status = "running"
+        self.state_change.clear()
 
         # main loop
         while self._inprogress:
@@ -417,15 +428,15 @@ class Rotation(threading.Thread):
                 self.current_round = next(self._keys)
                 self.do_round()
             except StopIteration:
-                if self._inprogress and not self._terminate:
-                    self._inprogress = self.do_idle(5)
+                if self._inprogress:
+                    self._inprogress = self.do_idle(60)
                 else:
                     break
-        if self._terminate:
+        if self.status is "terminating":
             self.end_destructive()
         else:
             logging.debug("Ending loop, _inprogress is False")
-            self.end()
+            self.stop()
 
 
     @classmethod
@@ -461,7 +472,7 @@ class Rotation(threading.Thread):
         which_q = None
 
 
-    def end(self):
+    def stop(self):
         try:
             self.pause_lock.release()
             self.exec_lock.release()
@@ -476,15 +487,15 @@ class Rotation(threading.Thread):
         logging.debug( "Rotation Complete! Total time taken: {:0.2f}"\
                        .format( self.total_time ))
 
-        self.terminated.set()
+        self.stopped.set()
 
 
     # TODO make this a deconstructor that removes blocks and
     # ends cooldowns + threads (and checks if any threads left alive)
     # then create a 'stop' method to replace anything left over.
     def end_destructive(self):
-        if not self.terminated.is_set():
-            self.end()
+        if not self.stopped.is_set():
+            self.stop()
 
         self._key_pressed = list()
 

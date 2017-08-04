@@ -75,7 +75,7 @@ class RotationTestCase(unittest.TestCase):
     def tearDown(self):
         self._rotation.do_terminate()
 
-        if not self._rotation.terminated.wait(5):
+        if not self._rotation.stopped.wait(5):
             logging.error("Rotation was never brought down")
 
         keyboard.unhook_all()
@@ -225,6 +225,7 @@ class RotationTestCase(unittest.TestCase):
         if not r.initialized.wait(5):
             self.assertTrue(False, "Rotation never started")
 
+        # load a blank set to the queue
         r.load(dict())
 
         # ensure items returns None
@@ -243,6 +244,7 @@ class RotationTestCase(unittest.TestCase):
         # Re-load the data and
         r.do_restart()
 
+        # Ensure the Rotation completes
         self.assertTrue(r.finished.wait(10), "Rotation never finished")
 
 

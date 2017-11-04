@@ -30,7 +30,7 @@ class Counterweight(Combo):
                         2.0)
 
         self.hotkey = 'r'
-        self.post_finishers.append( Reckoning() )
+        self.post_finishers.append(Reckoning())
 
 
 class TitanicSmash(Combo):

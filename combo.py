@@ -10,6 +10,7 @@ from copy import copy
 import _globals
 from ability import Ability
 from ability import cooldown_actions
+from world import World
 
 
 class Combo(Ability):
@@ -38,7 +39,6 @@ class Combo(Ability):
         self.pre_finishers = []
         self.post_finishers = []
         self._schedule = sched.scheduler()
-
 
     def schedule():
         doc = "The schedule property."

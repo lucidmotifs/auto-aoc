@@ -16,7 +16,7 @@ logging.basicConfig(
     format='(%(threadName)-10s) %(asctime)s.%(msecs)03d %(message)s',
     datefmt='%M:%S',
     filename='testing.log',
-    filemode='wb',
+    filemode='w',
     level=logging.DEBUG)
 
 

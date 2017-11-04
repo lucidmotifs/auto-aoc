@@ -4,6 +4,7 @@ import datetime
 import keyboard
 import threading
 import logging
+import _globals
 from timeit import default_timer as timer
 
 
@@ -26,7 +27,7 @@ class Ability(object):
     cooling_down = False
     cooldown_time = 0.0
     cast_time = 0.0
-    duration = 0.0 # useful when we move to conditon based rotations
+    duration = 0.0
     lastused = None
 
     # default CD action is to try again until the skill is off CD
@@ -37,6 +38,9 @@ class Ability(object):
 
     # modifier key for hotkeys
     modifier = None
+
+    # global combat instance
+    _combat = None
 
 
     def __init__(self, name="", cooldown_time=0, cast_time=0, duration=0):
@@ -64,16 +68,16 @@ class Ability(object):
         return locals()
     hotkey = property(**hotkey())
 
-    def rotation():
-        doc = "The rotation property."
+    def combat():
+        doc = "The combat singleton."
         def fget(self):
-            return self._rotation
+            return self._combat
         def fset(self, value):
-            self._rotation = value
+            self._combat = value
         def fdel(self):
-            del self._rotation
+            del self._combat
         return locals()
-    rotation = property(**rotation())
+    combat = property(**combat())
 
 
     @property
@@ -147,6 +151,8 @@ class Ability(object):
     # Returns true if and only if we have finished trying, not if the
     # press 'happened' - we're here because it deciding-
     def hotkey_pressed(self):
+        from world import World
+
         self._pressed = self._key_pressed.is_set()
 
         # Make sure press was really for this ability.
@@ -166,7 +172,9 @@ class Ability(object):
 
         # Additional step to pass event to rotation
         if self._pressed:
-            self.rotation.log_keypress(self, self.hotkey)
+            _globals.log_keypress(self.hotkey,
+                "Hotkey for {} pressed".format(self.name),
+                World._current_action)
 
 
     def cooldown_check(self):
@@ -222,7 +230,7 @@ class Ability(object):
             pyautogui.press(self.hotkey)
 
 
-    def use(self, rotation=None):
+    def use(self, combat=None):
         """ Peform the actions required to fire the ability """
         # return immeidately if cooldown_check fails
         if not self.cooldown_check():
@@ -230,9 +238,9 @@ class Ability(object):
 
         logging.debug("Using: {}".format( self.name ))
 
-        if rotation:
+        if combat:
             logging.debug("Setting exec lock to run {}".format(self.name))
-            rotation.exec_lock.acquire()
+            combat.exec_lock.acquire()
 
         self.activate()
 
@@ -252,18 +260,18 @@ class Ability(object):
                        .format(self.name)
             logging.error( message )
 
-            if rotation:
+            if combat:
                 logging.debug("Releasing exec lock for {}".format(self.name))
-                rotation.exec_lock.release()
+                combat.exec_lock.release()
 
             # waiting for a timeout this long means something
             # is really broken with out system or our Rotation
             # and we should exit. decide on action later
             return
 
-        if rotation:
+        if combat:
             logging.debug("Releasing exec lock for {}".format(self.name))
-            rotation.exec_lock.release()
+            combat.exec_lock.release()
 
 
     # returns the recorded keyboard input events

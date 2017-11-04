@@ -1,0 +1,36 @@
+(MainThread) 36:42.463 Combat state set to 1
+(MainThread) 36:42.466 Hotkey r registered for Counterweight
+(MainThread) 36:42.466 Hotkey q registered for Reckoning
+(MainThread) 36:42.466 Hotkey e registered for Tactic: Defense
+(Thread-7  ) 36:42.467 Creating Ability worker
+(Thread-8  ) 36:42.467 Creating Combo worker
+(MainThread) 36:42.467 Round: 1
+(Thread-7  ) 36:42.467 Tactic: Defense was activated. Last used: Never
+(Thread-8  ) 36:42.467 Counterweight was activated. Last used: Never
+(Thread-7  ) 36:42.467 Using: Tactic: Defense
+(Thread-8  ) 36:42.467 Creating Schedule for Counterweight
+(Thread-7  ) 36:42.467 Setting exec lock to run Tactic: Defense
+(Thread-4  ) 36:42.468 During Counterweight, Hotkey for Counterweight pressed (0.0)
+(Thread-4  ) 36:42.468 Delta: 0.0004371981941743273
+(Thread-4  ) 36:42.569 During Counterweight, Hotkey for Tactic: Defense pressed (0.1)
+(Thread-4  ) 36:42.569 Delta: 0.10109971953425295
+(Thread-7  ) 36:42.722 Releasing exec lock for Tactic: Defense
+(Thread-7  ) 36:46.819 Reckoning was activated. Last used: Never
+(Thread-7  ) 36:46.819 Using: Reckoning
+(Thread-7  ) 36:46.819 Setting exec lock to run Reckoning
+(MainThread) 36:46.819 Ending workers - potential block
+(Thread-8  ) 36:46.819 None passed to Combo worked, ending.
+(Thread-4  ) 36:46.820 During Counterweight, Hotkey for Reckoning pressed (4.35)
+(Thread-4  ) 36:46.820 Delta: 4.250829164333053
+(Thread-7  ) 36:46.871 Releasing exec lock for Reckoning
+(Thread-7  ) 36:46.871 None passed to Ability worked, ending.
+(MainThread) 36:46.871 Workers ended - block potential finished
+(MainThread) 36:46.871 Abilities Status:
+(MainThread) 36:46.871 Combo Status:
+(MainThread) 36:46.871 Post Abilities:
+(MainThread) 36:46.871 No Post-Finisher abilities
+(MainThread) 36:46.871 Pre-finisher Abilities:
+(MainThread) 36:46.871 No Pre-Finisher abilities
+(MainThread) 36:46.871 Combat Over! Total time: 4.40
+(Thread-2  ) 36:48.820 Counterweight is now off cooldown
+(Thread-5  ) 36:56.871 Reckoning is now off cooldown

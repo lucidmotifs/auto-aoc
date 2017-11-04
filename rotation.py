@@ -84,7 +84,6 @@ class Rotation(threading.Thread):
         return locals()
     status = property(**status())
 
-
     def do_pause(self):
         # pause the rotation in place, but allow CDs to finish (CDs in threads)
         # i.e. we are not pausing the thread / process
@@ -96,7 +95,6 @@ class Rotation(threading.Thread):
             logging.debug("pausing...")
             self.paused = True
             self.pause_lock.acquire()
-
 
     def log_keypress(self, message, key):
         self._keys_pressed.append(key)
@@ -123,9 +121,11 @@ class Rotation(threading.Thread):
         logging.debug("Delta: {}".format(delta))
 
 
-    # This method is designed for fully formed combos that manage their \
-    # own hotkey callbacks and doesn't require a copy to be made
     def use(self, action):
+        """
+        This method is designed for fully formed combos that manage their
+        own hotkey callbacks and doesn't require a copy to be made.
+        """
 
         if isinstance(action, Combo):
 
@@ -163,10 +163,11 @@ class Rotation(threading.Thread):
 
         return self
 
-
-    # This function takes the last touched action and adds it to action_list at
-    # the positions determined by *args
     def at(self, *positions):
+        """
+        This function takes the last touched action and adds it to action_list
+        at the positions determined by *args
+        """
         # act on the last added combo
         if not positions:
             pos = len(self.actions) + 1
@@ -188,14 +189,12 @@ class Rotation(threading.Thread):
 
         return self.last_touched
 
-
     def get_combo_at(self, position):
         try:
             combo = (i for i in self.actions[position] if isinstance(i, Combo))
             return next(combo)
         except StopIteration as e:
             return None
-
 
     def get_word(self):
         word = list()
@@ -205,12 +204,10 @@ class Rotation(threading.Thread):
 
         return ''.join(word)
 
-
     def print_rotation(self):
         for i, actions in sorted(self.actions.items()):
             for a in actions:
                 logging.debug("{0}: {1}".format(i, a.name))
-
 
     def print_current_cooldowns(self):
         logging.debug("Abilities Status:")
@@ -267,33 +264,32 @@ class Rotation(threading.Thread):
                 Rotation.ability_q.put(a)
 
             # Ensure abilities fire first.
-            #if _abilities or not Rotation.ability_q.empty():
+            # if _abilities or not Rotation.ability_q.empty():
             #    print("Firing abilities")
             #    Rotation.ability_q.join()
 
             # run the combo
             if c:
-                #print("Interval {}".format(interval))
+                # print("Interval {}".format(interval))
                 c.attack_interval = \
                     _globals.attack_int_override or c.attack_interval
-                #print("Attack Interval {}".format(c.attack_interval))
-                #print("Putting {} into queue".format(c.name))
+                # print("Attack Interval {}".format(c.attack_interval))
+                # print("Putting {} into queue".format(c.name))
                 Rotation.combo_q.put(c)
 
                 # Ensure pre-finisher abilities fire.
                 if c.pre_finishers:
-                    #print("Joining Ability Q")
+                    # print("Joining Ability Q")
                     Rotation.ability_q.join()
 
                 # Wait for combo to end.
-                #print("Joining Combo Q")
+                # print("Joining Combo Q")
                 Rotation.combo_q.join()
         except queue.Full as e:
             logging.debug("A Queue is Full")
             logging.error(e)
         except Exception as e:
             logging.exception('Got exception during round')
-
 
     def create_workers(self):
         workers = []
@@ -309,12 +305,10 @@ class Rotation(threading.Thread):
 
         return workers
 
-
     def start_workers(self):
         """Start the workers"""
         if not hasattr(self, '_workers'):
             self._workers = self.create_workers()
-
 
     def end_workers(self):
         """End the workers"""
@@ -331,18 +325,16 @@ class Rotation(threading.Thread):
 
         logging.debug("Workers ended - block potential finished")
 
-
     def load(self, A):
         # TODO register hotkeys, add to ability/combo/spell list
         # ...
         self.on_deck = A
 
         # set keys of actions to execute
-        self._keys = filter( lambda k: k >= self.current_round, \
-                             sorted(self.on_deck.keys()))
+        self._keys = filter(lambda k: k >= self.current_round,
+                            sorted(self.on_deck.keys()))
 
         self.finished.clear()
-
 
     def do_start(self):
         self.start_time = timer()
@@ -354,7 +346,6 @@ class Rotation(threading.Thread):
         self.initialized.set()
 
         self.run()
-
 
     def do_restart(self):
         if self._inprogress:
@@ -371,15 +362,15 @@ class Rotation(threading.Thread):
         # Load a copy of the actions queue
         self.load(self.actions.copy())
 
-
-
     def do_idle(self, secs):
-        """ Idles until a timeout or status change. Returns True if progress
-        should continue, and False if the rotation should end. """
+        """
+        Idles until a timeout or status change. Returns True if progress
+        should continue, and False if the rotation should end.
+        """
 
         if self._status is not "terminating":
             self._status = "idle"
-            logging.info("waiting for {}secs...".format(secs))
+            logging.info("waiting for {} secs...".format(secs))
 
         # Set the rotation to finished
         self.finished.set()
@@ -399,7 +390,6 @@ class Rotation(threading.Thread):
             # timeout
             return False
 
-
     def do_terminate(self):
         if self._inprogress:
             # will terminate at the end of the rotation
@@ -411,7 +401,6 @@ class Rotation(threading.Thread):
 
         # End the run loop
         self._inprogress = False
-
 
     def run(self):
         pyautogui.PAUSE = .05
@@ -438,7 +427,6 @@ class Rotation(threading.Thread):
             logging.debug("Ending loop, _inprogress is False")
             self.stop()
 
-
     @classmethod
     def q_worker(cls, T='Ability'):
         """Q consumer function"""
@@ -448,7 +436,7 @@ class Rotation(threading.Thread):
 
         while True:
             try:
-                #print("Attempting to get item from {} queue".format(T))
+                # print("Attempting to get item from {} queue".format(T))
                 item = which_q.get()
 
                 if item is None:
@@ -456,7 +444,7 @@ class Rotation(threading.Thread):
                     logging.debug("None passed to {} worked, ending.".format(T))
                     break
 
-                #print("Found {} in {}, processing.".format(item.name, T))
+                # print("Found {} in {}, processing.".format(item.name, T))
                 """print( \
                     "There are {} items in {} Q" \
                     .format(Rotation.combo_q.qsize(), T))"""
@@ -468,27 +456,25 @@ class Rotation(threading.Thread):
 
             item.use(cls)
             which_q.task_done()
-        ## end consumer
+        # end consumer
         which_q = None
-
 
     def stop(self):
         try:
             self.pause_lock.release()
             self.exec_lock.release()
-        except:
+        except Exception:
             pass
 
-        self.end_workers() # move to stop
+        self.end_workers()
 
         self.total_time = timer() - self.start_time
         self.print_current_cooldowns()
 
-        logging.debug( "Rotation Complete! Total time taken: {:0.2f}"\
-                       .format( self.total_time ))
+        logging.debug("Rotation Complete! Total time taken: {:0.2f}"
+                      .format(self.total_time))
 
         self.stopped.set()
-
 
     # TODO make this a deconstructor that removes blocks and
     # ends cooldowns + threads (and checks if any threads left alive)
@@ -500,18 +486,19 @@ class Rotation(threading.Thread):
         self._key_pressed = list()
 
         # check repeat options, see many time we've run the Rotation
-        # use a filler to get a CD or buff back, potentially. Even a single repeat_until
-        # rotation of simple combos.
+        # use a filler to get a CD or buff back, potentially. Even a single
+        # repeat_until rotation of simple combos.
         [i.cooldown.cancel() for i in self.ability_list if i.cooldown is not None]
         [[i.cooldown.cancel() for i in x if i.cooldown is not None] for x in [j.pre_finishers for j in self.combo_list]]
         [i.cooldown.cancel() for i in self.combo_list if i.cooldown is not None]
 
-
-    # Not functional at the moment
     def replay(self):
-        logging.debug( "Replaying events:" )
-        #logging.debug( [k.time for k in self.current_action.key_events] )
+        """
+        Not functional at the moment
+        """
+        logging.debug("Replaying events:")
+        # logging.debug( [k.time for k in self.current_action.key_events] )
         for c in self.combo_list:
             if c.key_events is not None:
                 keyboard.play(c.key_events)
-                time.sleep( c.cast_time )
+                time.sleep(c.cast_time)

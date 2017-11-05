@@ -49,5 +49,16 @@ class CombatTestCase(unittest.TestCase):
         Combat.stop()
 
         # test output
-        keys = [kp["key"] for kp in _globals.KEY_PRESSES]
+        keys = [kp.get("key") for kp in _globals.KEY_PRESSES]
         self.assertEqual(''.join(keys), "req")
+
+    def test_do_start(self):
+        _rot = Rotation()
+        _round = (Counterweight(), (TacticDefense(),))
+        _rot.add(_round)
+
+        Combat.do_start()
+
+        self.assertTrue(Combat.workers_exist())
+        self.assertEqual(Combat._round, 1)
+        self.assertEqual(len(Combat._keys), 1)

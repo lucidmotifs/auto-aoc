@@ -96,7 +96,7 @@ class Combat(object, metaclass = CombatMeta):
         # set keys of actions to execute
         # cls._keys = filter(lambda k: k >= cls._round,
         #                   sorted(cls.on_deck.keys()))
-        cls.keys = list(range(len(deck)))[:cls._round]
+        cls._keys = list(range(len(deck)))[:cls._round]
 
         cls.finished.clear()
 
@@ -198,7 +198,7 @@ class Combat(object, metaclass = CombatMeta):
             cls.finished.clear()
 
         # Reset the round number
-        cls.current_round = 1
+        cls._round = 1
 
         # Load a copy of the actions queue
         cls.load(cls.rotation.deck())

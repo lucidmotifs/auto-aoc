@@ -53,6 +53,7 @@ class RotationTestCase(unittest.TestCase):
         # Build a test rotation
         Rotation.ability_q = queue.Queue(5)
         Rotation.combo_q = queue.Queue(2)
+        # TODO: Rotation.load_actions(_rot)
         Rotation.ability_list = _rot.ability_list
         Rotation.combo_list = _rot.combo_list
         Rotation.actions = _rot.actions

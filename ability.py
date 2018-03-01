@@ -4,10 +4,11 @@ import datetime
 import keyboard
 import threading
 import logging
+import _globals
 from timeit import default_timer as timer
 
 
-class COOLDOWN_ACTIONS:
+class cooldown_actions:
     WAIT = 0
     SKIP = 1
     WAIT_SHORT = 2
@@ -26,17 +27,20 @@ class Ability(object):
     cooling_down = False
     cooldown_time = 0.0
     cast_time = 0.0
-    duration = 0.0 # useful when we move to conditon based rotations
+    duration = 0.0
     lastused = None
 
     # default CD action is to try again until the skill is off CD
-    cooldown_action = COOLDOWN_ACTIONS.SKIP
+    cooldown_action = cooldown_actions.SKIP
 
     # use ability immmediately when CD comes up
     use_on_cooldown = False
 
     # modifier key for hotkeys
     modifier = None
+
+    # global combat instance
+    _combat = None
 
 
     def __init__(self, name="", cooldown_time=0, cast_time=0, duration=0):
@@ -64,6 +68,17 @@ class Ability(object):
         return locals()
     hotkey = property(**hotkey())
 
+    def combat():
+        doc = "The combat singleton."
+        def fget(self):
+            return self._combat
+        def fset(self, value):
+            self._combat = value
+        def fdel(self):
+            del self._combat
+        return locals()
+    combat = property(**combat())
+
 
     @property
     def cooling_down(self):
@@ -75,10 +90,29 @@ class Ability(object):
             actual_cd = self.cooldown_time + fudge
 
             if actual_cd > 0.0:
-                self.cooldown.daemon = True
                 self.cooldown.start()
 
             self.lastused = self.cooldown_start = timer()
+
+    @property
+    def cooldown_remaining(self):
+        """Returns the amount of time until an ability is off cooldown"""
+        if not self.cooling_down:
+            return 0.0
+        else:
+            return round( self.cooldown_time - (timer() - self.lastused), 2 )
+
+
+    def cooldown_end(self):
+        logging.debug("{0} is now off cooldown".format(self.name))
+
+        # reset the cooldown timer
+        del self.cooldown
+        self.cooldown = threading.Timer(self.cooldown_time, self.cooldown_end)
+
+        if self.use_on_cooldown:
+            time.sleep(.1)
+            self.use()
 
 
     def deregister_hotkey(self):
@@ -96,77 +130,90 @@ class Ability(object):
         logging.debug("Hotkey {} de-registered for {}".format(_hotkey, \
                                                               self.name))
 
-
     def register_hotkey(self):
         self.deregister_hotkey()
-        # register key hooks for logging based on hotkey + steps
-        # logging.debug("Adding keyboard hooks")
-        try:
-            if self.modifier:
-                keyboard.add_hotkey(self.modifier + '+' + self.hotkey, \
-                    self.hotkey_pressed)
-                _hotkey = self.modifier + '+' + self.hotkey
-            else:
-                keyboard.hook_key( self.hotkey, \
-                    lambda: self.hotkey_pressed() )
-                _hotkey = self.hotkey
-        except Exception as e:
-            return
 
-        logging.debug("Hotkey {} registered for {}".format(_hotkey, \
-                                                           self.name))
+        # register key hooks for logging based on hotkey + steps
+        if self.modifier:
+            keyboard.add_hotkey(
+                self.modifier + '+' + self.hotkey, \
+                self.hotkey_pressed)
+        else:
+            keyboard.hook_key(
+                self.hotkey, \
+                lambda: self.hotkey_pressed() )
+
+        logging.debug( "Hotkey {} registered for {}".format( \
+            self.hotkey, \
+            self.name) )
 
 
     # Returns true if and only if we have finished trying, not if the
     # press 'happened' - we're here because it deciding-
     def hotkey_pressed(self):
+        from world import World
+
         self._pressed = self._key_pressed.is_set()
 
-        # Make sure press was really for you.
+        # Make sure press was really for this ability.
         if keyboard.is_pressed('shift') or keyboard.is_pressed('ctrl'):
             # ensure the modifier key currently being held
             if not self.modifier or not keyboard.is_pressed(self.modifier):
                 self._pressed = False
-                self._key_pressed.set()
-                return
+            else:
+                self._pressed = True
+        elif self.modifier:
+            self._pressed = False
+        else:
+            self._pressed = True
 
+        # Set hotkey event as pressed
+        self._key_pressed.set()
+
+        # Additional step to pass event to rotation
+        if self._pressed:
+            _globals.log_keypress(self.hotkey,
+                "Hotkey for {} pressed".format(self.name),
+                World._current_action)
+
+
+    def cooldown_check(self):
         # check for cooldown fail
         if self.cooling_down:
 
-            logging.debug("Ability {} was used while still on cooldown. \
-            {}s remaining".\
+            logging.debug(
+                "Ability {} was used while still on cooldown. {}s remaining".\
                 format(self.name, self.cooldown_remaining))
 
-            if self.cooldown_action == COOLDOWN_ACTIONS.WAIT:
-                logging.debug("OnCooldown action was WAIT, waiting.")
+            if self.cooldown_action == cooldown_actions.WAIT:
+                logging.info("On Cool-down action was WAIT, waiting.")
                 retry = threading.Timer(self.cooldown_remaining,
-                                        self.activate).start()
-                return
-            elif self.cooldown_action == COOLDOWN_ACTIONS.RETRY:
-                logging.debug("OnCooldown action was RETRY, retrying.")
-                retry = threading.Timer(1, self.activate).start()
-                return
-            elif self.cooldown_action == COOLDOWN_ACTIONS.WAIT_SHORT:
-                logging.debug("OnCooldown action was WAIT_SHORT, waiting a \
-                    short while")
+                                        self.use).start()
+            elif self.cooldown_action == cooldown_actions.RETRY:
+                logging.info("On Cool-down action was RETRY, retrying.")
+                retry = threading.Timer(1, self.use).start()
+            elif self.cooldown_action == cooldown_actions.WAIT_SHORT:
+                logging.info("On Cool-down action was WAIT_SHORT, waiting a \
+                short while")
                 if self.cooldown_remaining < 3:
                     retry = threading.Timer(self.cooldown_remaining,
-                                            self.activate).start()
-                    return
+                                            self.use).start()
                 else:
-                    logging.debug( \
+                    logging.info( \
                         "Skipping execution of {} due to cooldown ({}s)". \
                         format(self.name, self.cooldown_remaining))
+
             else:  # SKIP
-                logging.debug( \
+                logging.info( \
                     "Skipping execution of {} due to cooldown ({}s)". \
                     format(self.name, self.cooldown_remaining))
-        else:
-            self._pressed = True
-            logging.debug("{} was activated. Last used: {}". \
-                format(self.name, self.lastused or 'Never'))
 
-        self._key_pressed.set()
+            return False
+        else:
+            logging.debug("{} was activated. Last used: {}". \
+                          format(self.name, self.lastused or 'Never'))
+
+            return True
 
 
     # press the button.
@@ -183,12 +230,17 @@ class Ability(object):
             pyautogui.press(self.hotkey)
 
 
-    def use(self, rotation=None):
+    def use(self, combat=None):
+        """ Peform the actions required to fire the ability """
+        # return immeidately if cooldown_check fails
+        if not self.cooldown_check():
+            return
 
         logging.debug("Using: {}".format( self.name ))
 
-        if rotation:
-            rotation.exec_lock.acquire()
+        if combat:
+            logging.debug("Setting exec lock to run {}".format(self.name))
+            combat.exec_lock.acquire()
 
         self.activate()
 
@@ -206,42 +258,25 @@ class Ability(object):
         else:
             message = "Error: Timeout reach while waiting for {}" \
                        .format(self.name)
-            logging.debug( message )
+            logging.error( message )
 
-            if rotation:
-                rotation.exec_lock.release()
+            if combat:
+                logging.debug("Releasing exec lock for {}".format(self.name))
+                combat.exec_lock.release()
 
             # waiting for a timeout this long means something
             # is really broken with out system or our Rotation
             # and we should exit. decide on action later
             return
 
-        if rotation:
-            rotation.exec_lock.release()
-
+        if combat:
+            logging.debug("Releasing exec lock for {}".format(self.name))
+            combat.exec_lock.release()
 
 
     # returns the recorded keyboard input events
     def get_events(self):
         pass
-
-    @property
-    def cooldown_remaining(self):
-        """Returns the amount of time until an ability is off cooldown"""
-        if not self.cooling_down:
-            return 0.0
-        else:
-            return round( self.cooldown_time - (timer() - self.lastused), 2 )
-
-
-    def cooldown_end(self):
-        logging.debug("{0} is now off cooldown".format(self.name))
-
-        # reset the cooldown timer
-        self.cooldown = threading.Timer(self.cooldown_time, self.cooldown_end)
-        if self.use_on_cooldown:
-            time.sleep(.1)
-            self.use()
 
 
     def status(self):
@@ -252,3 +287,8 @@ class Ability(object):
             status = "Off Cooldown"
 
         logging.debug("{0} is {1}".format(self.name, status))
+
+
+    @property
+    def word(self):
+        return self.hotkey

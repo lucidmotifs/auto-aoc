@@ -1,0 +1,6 @@
+keyboard
+pywinauto
+pyautogui
+psutil
+sortedcontainers
+python-language-server

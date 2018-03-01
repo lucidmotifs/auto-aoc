@@ -1,7 +1,7 @@
 # gneral utltily
 import logging
 import random
-import generic
+import _globals
 import time
 import threading
 
@@ -20,31 +20,50 @@ from rotations import *
 logging.basicConfig(
     format='(%(threadName)-10s) %(asctime)s.%(msecs)03d %(message)s',
     datefmt = '%M:%S',
-    filename='testing.log',
+    filename='auto-aoc.log',
     filemode='w',
     level=logging.DEBUG)
 
+_rotation = None
+_rotationT = threading.Thread()
 
-def do_rotation(rotation, pause_key):
 
-    print('Starting...')
-    hk1 = keyboard.add_hotkey(pause_key, rotation.do_pause, args=[pause_key])
+def reset():
+    global _rotation
+    _rotation.do_restart()
+
+
+def begin(rotation, pause_key):
+    global _rotation
+    print('Starting roation...')
+
+    hk1 = keyboard.add_hotkey(pause_key, rotation.do_pause)
+    _rotation = rotation
 
     logging.debug('Preparing to start')
-    generic.register_keybinds(rotation)
-    hk2 = keyboard.add_hotkey('*', rotation.end_destructive)
-    r = threading.Thread(target=rotation.start)
-    r.daemon = True
-    r.start()
+    _globals.register_keybinds(_rotation)
 
+    hk2 = keyboard.add_hotkey('*', terminate)
+    hk3 = keyboard.add_hotkey('+', reset)
+
+    _rotationT = threading.Thread(target=_rotation.do_start)
+    _rotationT.start()
+
+
+def terminate():
+    """End the currently running rotation"""
+    global _rotation
+    # cleart the current q
+    # rotation should end gracefuilly
+    _rotation.do_terminate()
 
 def main():
     keyboard.unhook_all()
 
     # Go to the Game
     #generic._set_focus()
-    #guard_dps = Guardian_DPS()
-    guard_aggro = Guardian_Aggro()
+    guard_dps = Guardian_DPS()
+    #guard_aggro = Guardian_Aggro()
     #conq_dps = Conqueror_DPS()
     #conq_dps = Conqueror_DPS()
     #blank = Rotation()
@@ -52,12 +71,13 @@ def main():
     #blank.ability_list.append( TacticDefense() )
     # Set-up keyhooks
     try:
-        #hk2 = keyboard.add_hotkey('up', do_rotation, args=[guard_dps, 79])
-        hk3 = keyboard.add_hotkey('left', do_rotation, args=[guard_aggro, 79])
+        hk2 = keyboard.add_hotkey('up', begin, args=[guard_dps, '-'])
+        #hk3 = keyboard.add_hotkey('left', begin, args=[guard_aggro, '-'])
         #hk4 = keyboard.add_hotkey('right', do_rotation, args=[conq_dps, 79])
         #hk5 = keyboard.add_hotkey('down', do_rotation, args=[blank, 79])
 
-        #keys = input()
+        # keys = input()
+        print("Press escape to exit.")
         keyboard.wait('escape')
     except Exception as e:
         print(e)

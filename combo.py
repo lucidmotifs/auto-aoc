@@ -28,7 +28,6 @@ class Combo(Ability):
         super().__init__(name, cooldown_time, cast_time)
         self.factory()
 
-
     def factory(self):
         # initialize some properties to defaults. useful while developing,
         # but probably not needed moving forward.
@@ -72,7 +71,6 @@ class Combo(Ability):
         return locals()
     rotation = property(**rotation())
 
-
     # This replaces the 'build_word' functionality we previously
     # had as it ensures key presses happen exactly when they are
     # supposed to even when a step takes slightly too long to complete.
@@ -111,19 +109,15 @@ class Combo(Ability):
 
         return self.schedule.queue
 
-
     def attach_postfinisher(self, ability):
         self.post_finishers.append(ability)
-
 
     def attach_prefinisher(self, ability):
         self.pre_finishers.append(ability)
 
-
     def attach_prefinishers(self, abilities):
         for a in abilities:
             self.attach_prefinisher(a)
-
 
     def do_prefinishers(self):
         # check for pre-finisher buffs and use, this will delay the step slightly
@@ -131,30 +125,19 @@ class Combo(Ability):
             [x.use() for x in self.pre_finishers \
                 if not x.cooling_down]
 
-        # Keeping around this uneeded code because we'll use it later to
-        # add these abilities to the abilities Queue
-
-
     def record(self, ke):
         self.key_events.append(ke)
-
 
     @property
     def word(self):
         # start with
         self._word = list(super().word)
 
-        for s in self.steps:
-            self._word.append(s)
-
-        if self.pre_finishers:
-            for a in self.pre_finishers:
-                # guess we're deciding that pre_finishers can't have modifiers?
-                self._word.append(''.join(a.word))
-
-        if self.post_finishers:
-            for a in self.post_finishers:
-                self._word.append(''.join(a.word))
+        [self._word.append(s) for s in self.steps]
+        [self._word.append(''.join(a.word)) for a in self.pre_finishers
+            if self.pre_finishers]
+        [self._word.append(''.join(a.word)) for a in self.post_finishers
+            if self.post_finishers]
 
         return ''.join(self._word)
 
@@ -163,7 +146,7 @@ class Combo(Ability):
     def simulate_keyevents(self):
         self.use()
 
-    # very similiar to simuulate, except every keypress because a print, and
+    # very similiar to simulate, except every keypress because a print, and
     # all sleep and printed as well. continuing attempt to see if a combo will
     # work without running a manual test in-game.
     def print_keyevents(self):

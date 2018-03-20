@@ -21,7 +21,7 @@ class CombatTestCase(unittest.TestCase):
         pass
 
     def tearDown(self):
-        pass
+        Combat.stop()
 
     def test_combat_status_property(self):
         # test initial state
@@ -62,3 +62,43 @@ class CombatTestCase(unittest.TestCase):
         self.assertTrue(Combat.workers_exist())
         self.assertEqual(Combat._round, 1)
         self.assertEqual(len(Combat._keys), 1)
+
+    def test_do_restart(self):
+        # check log message and Combat status
+        # check that finished event has fired
+        # check round is 1
+        # do equality check on deck
+        pass
+
+    def test_do_idle(self):
+        """
+        Simple check to confirm that Combat idles after rotation is spent.
+        Also testing the timeout aspect of the method.
+        """
+        pass
+
+    def test_do_idle_restart(self):
+        """
+        Test that restarting rotation works correctly while idling
+        """
+        pass
+
+    def test_do_idle_terminate(self):
+        """
+        Test that termination works correctly while idling (no hanging threads)
+        """
+        pass
+
+    def test_do_terminate(self):
+        """
+        Test that we can terminate combat at any point with no loose threads
+        and that it ends up in a state where combat can be re-initialized
+        """
+        pass
+
+    def test_run(self):
+        """
+        Test that running the Combat produces expected key outputs for a
+        given rotation
+        """
+        pass

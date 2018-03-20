@@ -249,7 +249,8 @@ class Ability(object):
             # key press, not timeout.
             if self._pressed:
                 # If we're casting, pause.
-                # this is a quick hack to make BV work - if its casting, it's a spell.
+                # this is a quick hack to make BV work - if its casting,
+                # it's a spell.
                 if self.cast_time > 0:
                     time.sleep(self.cast_time)
 

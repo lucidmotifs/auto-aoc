@@ -126,7 +126,7 @@ class Combat(object, metaclass = CombatMeta):
             except Exception:
                 pass
 
-            # Exit round is w ehave no items
+            # Exit round if we have no items
             if action is None or len(action) is 0:
                 return
 
@@ -272,10 +272,7 @@ class Combat(object, metaclass = CombatMeta):
             cls.stop()
 
     def workers_exist():
-        if len(Combat._workers) is 0:
-            return False
-        else:
-            return True
+        return len(Combat._workers) > 0
 
     @staticmethod
     def create_workers():

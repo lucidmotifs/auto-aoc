@@ -10,4 +10,4 @@
 
 
 ### General
-* Create combar status ENUM
+* Create combat status ENUM
